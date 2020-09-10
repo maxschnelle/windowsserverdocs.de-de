@@ -3,16 +3,16 @@ title: dnscmd
 description: Referenz Artikel für den Befehl dnscmd, bei dem es sich um eine Befehlszeilenschnittstelle zum Verwalten von DNS-Servern handelt.
 ms.topic: reference
 ms.assetid: e7f31cb5-a426-4e25-b714-88712b8defd5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e79d2cc2d5d014db197ab4bbeb0b24ff70fd145
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6ec39f97be1998f45373ee12cdbb6e1814c7bdd1
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030808"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636263"
 ---
 # <a name="dnscmd"></a>Dnscmd
 
@@ -28,7 +28,7 @@ dnscmd <servername> <command> [<command parameters>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<servername>` | Die IP-Adresse oder der Hostname eines Remote-oder lokalen DNS-Servers. |
 
@@ -44,7 +44,7 @@ dnscmd [<servername>] /ageallrecords <zonename>[<nodename>] | [/tree]|[/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den DNS-Server an, der vom Administrator verwaltet werden soll, dargestellt durch IP-Adresse, voll qualifizierten Domänen Namen (FQDN) oder Hostname. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den voll qualifizierten Namen der Zone an. |
@@ -52,7 +52,7 @@ dnscmd [<servername>] /ageallrecords <zonename>[<nodename>] | [/tree]|[/f]
 | /tree | Gibt an, dass alle untergeordneten Knoten ebenfalls den Zeitstempel erhalten. |
 | /f | Führt den Befehl aus, ohne zur Bestätigung aufzufordern. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Der **AgeAllRecords** -Befehl dient der Abwärtskompatibilität zwischen der aktuellen Version des DNS und früheren DNS-Versionen, bei denen das Aging und das Bereinigung nicht unterstützt wurden. Er fügt einen Zeitstempel mit der aktuellen Uhrzeit zu Ressourcen Einträgen mit einem Zeitstempel hinzu und legt die aktuelle Zeit für Ressourcen Datensätze mit einem Zeitstempel fest.
 
@@ -80,7 +80,7 @@ dnscmd [<servername>] /clearcache
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
@@ -105,7 +105,7 @@ dnscmd [<servername>] /config <parameter>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den DNS-Server an, den Sie verwalten möchten, dargestellt durch lokale Computer Syntax, IP-Adresse, FQDN oder Hostname. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<parameter>` | Geben Sie eine Einstellung und als Option einen Wert an. Parameterwerte verwenden diese Syntax: *Parameter* [*value*]. |
@@ -164,7 +164,7 @@ dnscmd /config <parameters>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<parameter>` | Geben Sie eine Einstellung, einen Zonen Namen und als Option einen Wert an. Parameter Werte verwenden diese Syntax: `zonename parameter [value]` . |
 | /aging `<zonename>`| Aktiviert oder deaktiviert das Bereinigung in einer bestimmten Zone. |
@@ -188,7 +188,7 @@ dnscmd [<servername>] /createbuiltindirectorypartitions [/forest] [/alldomains]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /forest | Erstellt eine DNS-Verzeichnis Partition für die Gesamtstruktur. |
@@ -206,7 +206,7 @@ dnscmd [<servername>] /createdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die erstellt wird. |
@@ -223,7 +223,7 @@ dnscmd [<servername>] /deletedirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die entfernt werden soll. |
@@ -240,7 +240,7 @@ dnscmd [<servername>] /directorypartitioninfo <partitionFQDN> [/detail]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition. |
@@ -258,7 +258,7 @@ dnscmd [<servername>] /enlistdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition. |
@@ -275,7 +275,7 @@ dnscmd [<servername>] /enumdirectorypartitions [/custom]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /custom | Listet nur von Benutzern erstellte Verzeichnis Partitionen auf. |
@@ -292,7 +292,7 @@ dnscmd [<servername>] /enumrecords <zonename> <nodename> [/type <rrtype> <rrdata
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /enumrecords | Listet die Ressourcen Einträge in der angegebenen Zone auf. |
@@ -326,7 +326,7 @@ dnscmd [<servername>] /enumzones [/primary | /secondary | /forwarder | /stub | /
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | /primary | Listet alle Zonen auf, bei denen es sich entweder um Standard primäre Zonen oder integrierte Active Directory-Zonen handelt. |
@@ -363,7 +363,7 @@ dnscmd [<servername>] /exportsettings
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
@@ -379,7 +379,7 @@ dnscmd [<servername>] /info [<settings>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<settings>` | Jede Einstellung, die der **Info** -Befehl zurückgibt, kann einzeln angegeben werden. Wenn keine Einstellung angegeben ist, wird ein Bericht mit allgemeinen Einstellungen zurückgegeben. |
@@ -402,7 +402,7 @@ dnscmd [<servername>] /ipvalidate <context> [<zonename>] [[<IPaddress>]]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<context>` | Gibt den Typ des auszuführenden Tests an. Sie können einen der folgenden Tests angeben:<ul><li>**/DnsServers** : testet, ob die Computer mit den von Ihnen angegebenen Adressen funktionsfähige DNS-Server sind.</li><li>**/Forwarders** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die als Weiterleitungen fungieren können.</li><li>**/roothints** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die als Stamm Hinweis Server fungieren können.</li><li>**/zonemasters** : testet, ob die von Ihnen angegebenen Adressen DNS-Server identifizieren, die Master Server für *zonename*sind. |
@@ -428,7 +428,7 @@ dnscmd [<servername>] /nodedelete <zonename> <nodename> [/tree] [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -452,7 +452,7 @@ dnscmd [<servername>] /recordadd <zonename> <nodename> <rrtype> <rrdata>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die Zone an, in der sich der Datensatz befindet. |
@@ -482,7 +482,7 @@ dnscmd [<servername>] /recorddelete <zonename> <nodename> <rrtype> <rrdata> [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die Zone an, in der sich der Ressourcen Daten Satz befindet. |
@@ -509,7 +509,7 @@ dnscmd [<servername>] /resetforwarders <IPaddress> [,<IPaddress>]...][/timeout <
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<IPaddress>` | Listet die IP-Adressen, an die der DNS-Server nicht aufgelöste Abfragen weiterleitet. |
@@ -518,7 +518,7 @@ dnscmd [<servername>] /resetforwarders <IPaddress> [,<IPaddress>]...][/timeout <
 | /noslave | Ermöglicht dem DNS-Server das Ausführen eigener iterativer Abfragen, wenn die Weiterleitung eine Abfrage nicht auflösen kann. Dies ist die Standardeinstellung. |
 | /f | Führt den Befehl aus, ohne zur Bestätigung aufzufordern. Da Knoten mehr als einen Ressourcen Daten Satz aufweisen können, erfordert dieser Befehl, dass Sie sehr spezifisch für den Typ des Ressourcen Datensatzes sind, den Sie löschen möchten. Wenn Sie einen Datentyp angeben und keinen Typ von Ressourcen Daten Satz Daten angeben, werden alle Datensätze mit diesem spezifischen Datentyp für den angegebenen Knoten gelöscht. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Standardmäßig führt ein DNS-Server iterative Abfragen aus, wenn er eine Abfrage nicht auflösen kann.
 
@@ -547,7 +547,7 @@ dnscmd [<servername>] /resetlistenaddresses <listenaddress>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<listenaddress>` | Gibt eine IP-Adresse auf dem DNS-Server an, die auf DNS-Client Anforderungen lauscht. Wenn keine Abhör Adresse angegeben ist, lauschen alle IP-Adressen auf dem Server auf Client Anforderungen. |
@@ -570,11 +570,11 @@ dnscmd [<servername>] /startscavenging
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Durch einen erfolgreichen Abschluss dieses Befehls wird ein Scavenge sofort gestartet. Wenn die Scavenge fehlschlägt, wird keine Warnmeldung angezeigt.
 
@@ -612,7 +612,7 @@ dnscmd [<servername>] /statistics [<statid>] [/clear]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<statid>` | Gibt an, welche Statistik oder Kombination von Statistiken angezeigt werden soll. Der Befehl **Statistics** zeigt Indikatoren an, die beim Starten oder Fortsetzen des DNS-Servers beginnen. Eine Identifikationsnummer wird verwendet, um eine Statistik zu identifizieren. Wenn keine Statistik-ID-Nummer angegeben ist, werden alle Statistiken angezeigt. Die Zahlen, die angegeben werden können, sowie die entsprechende Statistik, die anzeigt, können Folgendes enthalten:<ul><li>**00000001** Zeit</li><li>**00000002** -Abfrage</li><li>**00000004** -query2</li><li>**00000008** -recurse</li><li>**00000010** -Master</li><li>**00000020** -Sekundär</li><li>**00000040** -WINS</li><li>**00000100** -Update</li><li>**00000200** -skwansec</li><li>**00000400** -DS</li><li>**00010000** -Arbeitsspeicher</li><li>**00100000** -packetmem</li><li>**00040000** -dBASE</li><li>**00080000** -Datensätze</li><li>**00200000** -nbstatus</li><li>**/Clear** : setzt den angegebenen Statistik Zählers auf NULL zurück.</li></ul> |
@@ -635,7 +635,7 @@ dnscmd [<servername>] /unenlistdirectorypartition <partitionFQDN>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<partitionFQDN>` | Der voll qualifizierte Name der DNS-Anwendungsverzeichnis Partition, die entfernt werden soll. |
@@ -652,7 +652,7 @@ dnscmd [<servername>] /writebackfiles <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
@@ -675,7 +675,7 @@ dnscmd [<servername>] /zoneadd <zonename> <zonetype> [/dp <FQDN> | {/domain | en
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -704,7 +704,7 @@ dnscmd [<servername>] /zonechangedirectorypartition <zonename> {[<newpartitionna
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Der voll qualifizierte Name der aktuellen Verzeichnis Partition, auf der sich die Zone befindet. |
@@ -726,7 +726,7 @@ dnscmd [<servername>] /zonedelete <zonename> [/dsdel] [/f]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu löschenden Zone an. |
@@ -749,7 +749,7 @@ dnscmd [<servername>] /zoneexport <zonename> <zoneexportfile>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
@@ -771,13 +771,13 @@ dnscmd [<servername>] /zoneinfo <zonename> [<setting>]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an. |
 | `<setting>` | Sie können einzeln eine beliebige Einstellung angeben, die vom **zoneinfo** -Befehl zurückgegeben wird. Wenn Sie keine Einstellung angeben, werden alle Einstellungen zurückgegeben. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie den **/Info** -Befehl, um Registrierungs Einstellungen auf Serverebene anzuzeigen.
 
@@ -801,12 +801,12 @@ dnscmd [<servername>] /zonepause <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die angehalten werden soll. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Verwenden Sie den **/zoneresume** -Befehl, um eine Zone fortzusetzen und verfügbar zu machen, nachdem Sie angehalten wurde.
 
@@ -828,7 +828,7 @@ dnscmd [<servername>] /zoneprint <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die aufgelistet werden soll. |
@@ -851,12 +851,12 @@ dnscmd [<servername>] /zonerefresh <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Der **ZoneRefresh** -Befehl erzwingt eine Überprüfung der Versionsnummer im Ressourcen Daten Satz für den Start von Authority (Start of Authority, SOA) des Master Servers. Wenn die Versionsnummer auf dem Master Server höher ist als die Versionsnummer des sekundären Servers, wird eine Zonen Übertragung initiiert, die den sekundären Server aktualisiert. Wenn die Versionsnummer identisch ist, erfolgt keine Zonen Übertragung.
 
@@ -880,12 +880,12 @@ dnscmd [<servername>] /zonereload <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, die erneut geladen werden soll. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn die Zone in Active Directory integriert ist, wird Sie von Active Directory Domain Services (AD DS) erneut geladen.
 
@@ -909,14 +909,14 @@ dnscmd [<servername>] /zoneresetmasters <zonename> [/local] [<IPaddress> [<IPadd
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zurück zusetzenden Zone an. |
 | /local ein | Legt eine lokale Masterliste fest. Dieser Parameter wird für in Active Directory integrierte Zonen verwendet. |
 | `<IPaddress>` | Die IP-Adressen der Master Server der sekundären Zone. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Dieser Wert wird ursprünglich festgelegt, wenn die sekundäre Zone erstellt wird. Verwenden Sie den **ZoneResetMasters** -Befehl auf dem sekundären Server. Dieser Wert hat keine Auswirkung, wenn er auf dem DNS-Master Server festgelegt ist.
 
@@ -939,14 +939,14 @@ dnscmd [<servername>] /zoneresetscavengeservers <zonename> [/local] [<IPaddress>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt die zu Scavenge Zone an. |
 | /local ein | Legt eine lokale Masterliste fest. Dieser Parameter wird für in Active Directory integrierte Zonen verwendet. |
 | `<IPaddress>` | Listet die IP-Adressen der Server auf, die das Scavenge ausführen können. Wenn dieser Parameter weggelassen wird, kann er von allen Servern, auf denen diese Zone gehostet wird, herunterskaliert werden. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Standardmäßig kann diese Zone von allen Servern, die eine Zone hosten, skaliert werden.
 
@@ -972,7 +972,7 @@ dnscmd [<servername>] /zoneresetsecondaries <zonename> {/noxfr | /nonsecure | /s
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der Zone an, deren sekundäre Server zurückgesetzt werden sollen. |
@@ -987,7 +987,7 @@ dnscmd [<servername>] /zoneresetsecondaries <zonename> {/noxfr | /nonsecure | /s
 | /notifylist | Gibt an, dass Änderungs Benachrichtigungen nur an die Liste der Server gesendet werden. Auf diesen Befehl muss eine IP-Adresse oder Adressen folgen, die der Master Server verwendet. |
 | `<notifyIPaddresses>` | Gibt die IP-Adressen der sekundären Server oder Server an, an die Änderungs Benachrichtigungen gesendet werden. Diese Liste wird nur mit dem **/NotifyList** -Parameter verwendet. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Geben Sie mit dem Befehl **zoneresetsecon-** Replikate auf dem Master Server an, wie er auf Zonen Übertragungsanforderungen von sekundären Servern reagiert.
 
@@ -1010,7 +1010,7 @@ dnscmd [<servername>] /zoneresettype <zonename> <zonetype> [/overwrite_mem | /ov
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Identifiziert die Zone, in der der Typ geändert wird. |
@@ -1018,7 +1018,7 @@ dnscmd [<servername>] /zoneresettype <zonename> <zonetype> [/overwrite_mem | /ov
 | /OverWrite_Mem | Überschreibt DNS-Daten aus Daten in AD DS. |
 | /OverWrite_Ds | Überschreibt vorhandene Daten in AD DS. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Wenn Sie den Zonentyp auf **/DsForwarder** festlegen, wird eine Zone erstellt, die bedingte Weiterleitung ausführt.
 
@@ -1041,12 +1041,12 @@ dnscmd [<servername>] /zoneresume <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der fort zusetzenden Zone an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Mit diesem Vorgang können Sie einen Neustart des **/zonepause** -Vorgangs durchführen.
 
@@ -1068,12 +1068,12 @@ dnscmd [<servername>] /zoneupdatefromds <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - In Active Directory integrierte Zonen wird dieses Update standardmäßig alle fünf Minuten durchgeführt. Verwenden Sie den-Befehl, um diesen Parameter zu ändern `dnscmd config dspollinginterval` .
 
@@ -1095,12 +1095,12 @@ dnscmd [<servername>] /zonewriteback <zonename>
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------- | ----------- |
 | `<servername>` | Gibt den zu verwaltenden DNS-Server an, der durch die IP-Adresse, den FQDN oder den Hostnamen repräsentiert wird. Wenn dieser Parameter weggelassen wird, wird der lokale Server verwendet. |
 | `<zonename>` | Gibt den Namen der zu aktualisierenden Zone an. |
 
-##### <a name="remarks"></a>Bemerkungen
+##### <a name="remarks"></a>Hinweise
 
 - Dies ist ein Vorgang auf Zonenebene. Sie können alle Zonen auf einem DNS-Server mithilfe des **/writebackfiles** -Vorgangs aktualisieren.
 

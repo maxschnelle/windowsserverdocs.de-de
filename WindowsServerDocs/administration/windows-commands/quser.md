@@ -3,16 +3,16 @@ title: quser
 description: Referenz Artikel für den Befehl quser, der Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.topic: reference
 ms.assetid: 8056204f-ed11-4c91-bb1d-c799283a48a4
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0697fd6ef780f177f0905d2f2af5deb316c61037
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 89820143ffaf656b2f022e1f19796a03576b615b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028078"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637436"
 ---
 # <a name="quser"></a>quser
 
@@ -43,7 +43,7 @@ quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<username>` | Gibt den Anmelde Namen des Benutzers an, den Sie Abfragen möchten. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
@@ -51,7 +51,7 @@ quser [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 | /server:`<servername>` | Gibt den Remotedesktop-Sitzungshost Server an, den Sie Abfragen möchten. Andernfalls wird der aktuelle Remotedesktop-Sitzungshost Server verwendet. Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl auf einem Remote Server verwenden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Um diesen Befehl verwenden zu können, müssen Sie über die Berechtigung "Vollzugriff" oder eine spezielle Zugriffsberechtigung verfügen.
 

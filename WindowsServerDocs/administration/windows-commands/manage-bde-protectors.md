@@ -3,16 +3,16 @@ title: manage-bde-Schutzvorrichtungen
 description: Referenz Artikel für den Befehl manage-bde Protector, der die Schutzmethoden verwaltet, die für den BitLocker-Verschlüsselungsschlüssel verwendet werden.
 ms.topic: reference
 ms.assetid: 1f9b22c5-cc93-45df-9165-bedee94998da
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 08/06/2018
-ms.openlocfilehash: 0461edcb2e1177f1a72ec7e4a1c893c80cd70698
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 7d9b91f5c5031abd34b5ec8452a82921bad37d68
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89027568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636546"
 ---
 # <a name="manage-bde-protectors"></a>manage-bde-Schutzvorrichtungen
 
@@ -28,7 +28,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ----------- | ----------- |
 | -Get | Zeigt alle auf dem Laufwerk aktivierten Schlüsselschutz Methoden an und gibt ihren Typ und Bezeichner (ID) an. |
 | -Hinzufügen | Fügt mit zusätzlichen **Add-** Parametern Schlüsselschutz Methoden hinzu. |
@@ -54,7 +54,7 @@ manage-bde -protectors -add [<drive>] [-forceupgrade] [-recoverypassword <numeri
 [{-?|/?}] [{-help|-h}]
 ```
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -wiederherstellungkennwort | Fügt eine numerische Kennwort-Schutzvorrichtung hinzu. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden. |
@@ -85,7 +85,7 @@ manage-bde -protectors -delete <drive> [-type {recoverypassword|externalkey|cert
 [-id <keyprotectorID>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | -Typ | Identifiziert die zu löschende Schlüssel Schutzvorrichtung. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden. |
@@ -111,7 +111,7 @@ manage-bde -protectors -delete <drive> [-type {recoverypassword|externalkey|cert
 manage-bde -protectors -disable <drive> [-rebootcount <integer 0 - 15>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
 | rebootcount | Gibt an, dass der Schutz für das Betriebssystem Volume angehalten wurde und fortgesetzt wird, sobald Windows neu gestartet wurde, und zwar so oft wie im Parameter " **rebootcount** " angegeben. Geben Sie **0** an, um den Schutz unbegrenzt anzuhalten. Wenn dieser Parameter nicht angegeben wird, wird der BitLocker-Schutz nach dem Neustart von Windows automatisch fortgesetzt. Sie können auch **-RC** als abgekürzte Version dieses Befehls verwenden. |

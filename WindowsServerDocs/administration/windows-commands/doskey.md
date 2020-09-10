@@ -3,16 +3,16 @@ title: doskey
 description: Referenz Artikel für den Doskey-Befehl und Doskey.exe, der zuvor eingegebene Befehlszeilen Befehle, bearbeitbare Befehlszeilen und Makros erstellt.
 ms.topic: reference
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8cda337419253ebdb9a390e5d8ba3bfa07fd1a91
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ed732f7b90f66fa5c0df595480f34f028d912aa8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030788"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636245"
 ---
 # <a name="doskey"></a>doskey
 
@@ -26,7 +26,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /REINSTALL | Installiert eine neue Kopie von Doskey.exe und löscht den Puffer für den Befehlsverlauf. |
 | /ListSize =`<size>` | Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an. |
@@ -41,7 +41,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 | `<macroname>`=[`<text>`] | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Bestimmte zeichenbasierte, interaktive Programme, wie z. b. Programm-Debugger oder FTP (File Transfer programs), verwenden automatisch Doskey.exe. Um Doskey.exe zu verwenden, muss ein Programm ein Konsolen Prozess sein und gepufferte Eingaben verwenden. Programmschlüssel Zuweisungen überschreiben **doskey** -schlüsselzuweisungen. Wenn das Programm z. b. die Taste F7 für eine Funktion verwendet, können Sie keinen **doskey** -Befehlsverlauf in einem Popup Fenster erhalten.
 
@@ -51,7 +51,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - Zum Abrufen eines Befehls können Sie einen der folgenden Schlüssel verwenden, nachdem Sie Doskey.exe gestartet haben:
 
-  | Key | BESCHREIBUNG |
+  | Schlüssel | BESCHREIBUNG |
   | --- | ----------- |
   | NACH-OBEN-TASTE | Gibt den Befehl an, den Sie vor dem angezeigten Befehl verwendet haben. |
   | NACH-UNTEN-TASTE | Gibt den Befehl an, den Sie nach dem angezeigten Befehl verwendet haben. |
@@ -60,7 +60,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - In der folgenden Tabelle sind die **doskey** -Bearbeitungs Schlüssel und ihre Funktionen aufgeführt:
 
-  | Schlüssel-oder Schlüssel Kombination | Beschreibung |
+  | Schlüssel-oder Schlüssel Kombination | BESCHREIBUNG |
   | ---------------------- | ----------- |
   | NACH-LINKS-TASTE | Verschiebt die Einfügemarke um ein Zeichen zurück. |
   | NACH-RECHTS-TASTE | Verschiebt die Einfügemarke um ein Zeichen vorwärts. |
@@ -89,7 +89,7 @@ doskey [/reinstall] [/listsize=<size>] [/macros:[all | <exename>] [/history] [/i
 
 - Sie können Doskey.exe verwenden, um Makros zu erstellen, die einen oder mehrere Befehle ausführen. In der folgenden Tabelle sind Sonderzeichen aufgeführt, mit denen Sie Befehls Vorgänge steuern können, wenn Sie ein-Makro definieren.
 
-  | Zeichen | Beschreibung |
+  | Zeichen | BESCHREIBUNG |
   |---------- | ----------- |
   | `$G` oder `$g` | Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für Output ( `>` ). |
   | `$G$G` oder `$g$g` | Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen sind äquivalent zum Anfügen-Umleitungs Symbol für Output ( `>>` ). |

@@ -3,16 +3,16 @@ title: Sc.exe erstellen
 description: Erfahren Sie, wie Sie mithilfe des Hilfsprogramms "sc.exe neue Dienste bei Windows Service Manager registrieren.
 ms.topic: reference
 ms.assetid: 59416460-0661-4fef-85cc-73e9d8f4beb4
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a022e3b855496825207f4c94f63d20d4530e92b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ede0c21bf2679925db71666631c8752e5c930afa
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037548"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637116"
 ---
 # <a name="scexe-create"></a>Sc.exe erstellen
 
@@ -26,7 +26,7 @@ sc.exe [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | file
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<ServerName>|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ \\ . MyServer) verwenden. Wenn Sie SC.exe lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
 |\<ServiceName>|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
@@ -42,7 +42,7 @@ sc.exe [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | file
 |Kennwort = \<Password>|Gibt ein Kennwort an. Dies ist erforderlich, wenn ein anderes Konto als "LocalSystem" verwendet wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Für jede Befehlszeilenoption ist das Gleichheitszeichen Teil des Options namens.
 -   Zwischen einer Option und ihrem Wert (z. b. **Type = own**) ist ein Leerzeichen erforderlich. Wenn der Speicherplatz weggelassen wird, schlägt der Vorgang fehl.

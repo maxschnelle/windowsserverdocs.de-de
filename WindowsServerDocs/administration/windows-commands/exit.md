@@ -3,16 +3,16 @@ title: exit
 description: Referenz Artikel zum Beenden, mit dem der Befehls Interpreter beendet wird.
 ms.topic: reference
 ms.assetid: d3cee4a2-6210-46f0-b8e4-7381c3c4e530
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e065a25f339a093492a05102b10455b11da5ecb
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c1fbf37b80c55a9620c2e72d20ea13c6766b7da9
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035858"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89635949"
 ---
 # <a name="exit"></a>exit
 
@@ -28,7 +28,7 @@ exit [/b] [<exitcode>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /b | Beendet das aktuelle Batch Skript, anstatt Cmd.exe zu beenden. Wenn Sie von außerhalb eines Batch Skripts ausgeführt wird, wird Cmd.exe beendet. |
 | `<exitcode>` | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie den Befehls Interpreter verlassen, wird der Prozessexitcode auf diese Zahl festgelegt. |

@@ -3,16 +3,16 @@ title: eventcreate
 description: Referenz Artikel für den eventcreate-Befehl, der es einem Administrator ermöglicht, ein benutzerdefiniertes Ereignis in einem angegebenen Ereignisprotokoll zu erstellen.
 ms.topic: reference
 ms.assetid: f2b1b26d-a70e-49a6-832b-91eb5a1a159a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 374dd015cdccbac308fa099854e46765a672ef9f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f23ecbec564a5b578f5f7814314803c95d81bf13
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035198"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636088"
 ---
 # <a name="eventcreate"></a>eventcreate
 
@@ -29,7 +29,7 @@ eventcreate [/s <computer> [/u <domain\user> [/p <password>]] {[/l {APPLICATION|
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /s `<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. |
 | /u `<domain\user>` | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der von oder angegeben wird `<user>` `<domain\user>` . Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |

@@ -3,16 +3,16 @@ title: erase
 description: Referenz Artikel für den Löschbefehl, mit dem eine oder mehrere Dateien gelöscht werden.
 ms.topic: reference
 ms.assetid: 024a4d0f-8679-4e06-b46f-61fdaf5464bc
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ae0eafd5dad4b37ba710eee1b66f6e276353271b
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5545e63efc87527506704ecd6ff956c8000b95a5
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030627"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636091"
 ---
 # <a name="erase"></a>erase
 
@@ -31,7 +31,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<names>` | Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht. |
 | /p | Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an. |
@@ -41,7 +41,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 | /a [:]`<attributes>` | Löscht Dateien basierend auf den folgenden Dateiattributen:<ul><li>schreibgeschützte **r** -Dateien</li><li>**h** ausgeblendete Dateien</li><li>indizierte Dateien **sind nicht Inhalts**</li><li>**s** -System Dateien</li><li>**Dateien,** die für die Archivierung bereit sind</li><li>**l** -Analyse Punkte</li><li>**-** Wird als Präfix mit der Bedeutung "Not" verwendet.</li></ul>. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie den `erase /p` Befehl verwenden, wird die folgende Meldung angezeigt:
 

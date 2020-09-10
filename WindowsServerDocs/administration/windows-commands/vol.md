@@ -3,16 +3,16 @@ title: vol
 description: Referenz Artikel für vol, der die Datenträgervolumebezeichnung und die Seriennummer anzeigt, sofern diese vorhanden sind.
 ms.topic: reference
 ms.assetid: 398b3aa1-2442-42be-a4fb-78701080b0df
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 96f4acac60803b2ffc6d1706f3fafd529500e758
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 5101fdf1f1caf9a66eb54a45b278d7963613c4b8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022944"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636303"
 ---
 # <a name="vol"></a>vol
 
@@ -28,7 +28,7 @@ vol [<Drive>:]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<Drive>:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Volumebezeichnung und Seriennummer anzeigen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|

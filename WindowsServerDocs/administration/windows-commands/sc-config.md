@@ -3,16 +3,16 @@ title: Sc.exe config
 description: Erfahren Sie, wie Sie Dienst Konfigurationen mithilfe des sc.exe Hilfsprogramms ändern.
 ms.topic: reference
 ms.assetid: ad4d68a6-efe5-452b-8501-7f1f1c552a4a
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 06/05/2018
-ms.openlocfilehash: f3522296c74b31ae89da25ec22b79523bb652148
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 55432910455896434a1857d17016519bedb51caf
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037558"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637136"
 ---
 # <a name="scexe-config"></a>Sc.exe config
 
@@ -26,7 +26,7 @@ sc.exe [<ServerName>] config [<ServiceName>] [type= {own | share | kernel | file
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<ServerName>|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ \\ . MyServer) verwenden. Wenn Sie SC.exe lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
 |\<ServiceName>|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
@@ -42,7 +42,7 @@ sc.exe [<ServerName>] config [<ServiceName>] [type= {own | share | kernel | file
 |Kennwort = \<Password>|Gibt ein Kennwort an. Dies ist erforderlich, wenn ein anderes Konto als das Konto "LocalSystem" verwendet wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Für jede Befehlszeilenoption (Parameter) ist das Gleichheitszeichen Teil des Options namens.
 -   Zwischen einer Option und ihrem Wert (z. b. **Type = own**) ist ein Leerzeichen erforderlich. Wenn der Leerraum weggelassen wird, schlägt der Vorgang fehl.

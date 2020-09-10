@@ -3,16 +3,16 @@ title: serverweroptin
 description: Referenz Artikel für * * * *-
 ms.topic: reference
 ms.assetid: f3c0b0af-cafb-4f09-8b36-5a357ddf392d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 8f7cb7608df0303cdbd119862cf1349f89c37d13
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 73bdce2a4b18f55239b61132df0417b02cb683c2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637785"
 ---
 # <a name="serverweroptin"></a>serverweroptin
 
@@ -24,7 +24,7 @@ Ermöglicht es Ihnen, die Fehlerberichterstattung zu aktivieren.
 serverweroptin [/query] [/detailed] [/summary]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/Query "aus|überprüft die aktuelle Einstellung.|
 |/Detailed|Sendet detaillierte Berichte automatisch.|

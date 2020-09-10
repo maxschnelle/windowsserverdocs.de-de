@@ -3,16 +3,16 @@ title: wbadmin restore catalog
 description: Referenz Artikel für den Wbadmin-Wiederherstellungs Katalog, der einen Sicherungs Katalog für den lokalen Computer von einem von Ihnen angegebenen Speicherort wiederherstellt.
 ms.topic: reference
 ms.assetid: ce1e24a0-821d-4353-b09d-8f82c5c4ad56
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 46ebe9d8479ffe7b940cfe31c84176c3c1ef0aa9
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: c551aa77ff98a66d3faacc3901806be8cc67b8f2
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89031928"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637600"
 ---
 # <a name="wbadmin-restore-catalog"></a>wbadmin restore catalog
 
@@ -31,13 +31,13 @@ wbadmin restore catalog
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-backupTarget|Gibt den Speicherort des Sicherungs Katalogs des Systems an dem Punkt an, an dem die Sicherung erstellt wurde.|
 |-Computer|Gibt den Namen des Computers an, für den Sie den Sicherungs Katalog wiederherstellen möchten. Verwenden Sie, wenn Sicherungen für mehrere Computer am gleichen Speicherort gespeichert wurden. Sollte verwendet werden, wenn " **-backupTarget** " angegeben wird.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Wenn der Speicherort (Datenträger, DVD oder frei gegebener Remote Ordner), in dem Sie die Sicherungen speichern, beschädigt ist oder verloren geht und nicht zum Wiederherstellen des Sicherungs Katalogs verwendet werden kann, verwenden Sie **Wbadmin delete catalog** , um den beschädigten Katalog zu löschen. In diesem Fall sollten Sie eine neue Sicherung erstellen, sobald der Sicherungs Katalog gelöscht wurde.
 

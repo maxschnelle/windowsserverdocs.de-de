@@ -3,16 +3,16 @@ title: Sc.exe Abfrage
 description: Erfahren Sie, wie Sie mithilfe des Hilfsprogramms "sc.exe" Informationen zu Diensten, Treibern, Dienst Typen oder Typen von Treibern abrufen.
 ms.topic: reference
 ms.assetid: ac365f89-4b20-4de6-a582-b204c5e7d0eb
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b3d7967597724dfae4ab5a12ecee9698a43236f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: e961badf867237c0725441e138bf4f0ea948155f
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037528"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637043"
 ---
 # <a name="scexe-query"></a>Sc.exe Abfrage
 
@@ -26,7 +26,7 @@ sc.exe [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [ty
 
 ### <a name="parameters"></a>Parameter
 
-|       Parameter        |                                                                                                                          Beschreibung                                                                                                                          |
+|       Parameter        |                                                                                                                          BESCHREIBUNG                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     \<ServerName>      |                       Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ \\ . MyServer) verwenden. Wenn Sie SC.exe lokal ausführen möchten, lassen Sie diesen Parameter Weg.                        |
 |     \<ServiceName>     |                                      Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. Dieser **Abfrage** Parameter wird nicht in Verbindung mit anderen **Abfrage** Parametern (mit Ausnahme von *Servername*) verwendet.                                      |
@@ -38,7 +38,7 @@ sc.exe [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [ty
 |  Gruppe = \<GroupName>   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (* * Group = * *).                                                                              |
 |           /?           |                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Ohne Leerzeichen zwischen einem Parameter und dessen Wert (d. h. **Type = own**, nicht **Type = own**) schlägt der Vorgang fehl.
 - Der **Abfrage** Vorgang zeigt die folgenden Informationen zu einem Dienst an: SERVICE_NAME (Name des Registrierungs unter Schlüssels des dienstaners), Typ, Status (und nicht verfügbare Zustände), WIN32_EXIT_B, SERVICE_EXIT_B, Prüfpunkt und WAIT_HINT.

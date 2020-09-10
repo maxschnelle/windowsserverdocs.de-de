@@ -3,16 +3,16 @@ title: label
 description: Referenz Artikel für den Befehl Bezeichnung, der die Volumebezeichnung (d. h. den Namen) eines Datenträgers erstellt, ändert oder löscht.
 ms.topic: reference
 ms.assetid: bbae8bdd-97d4-4566-9118-7c95aa07645f
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 486461059e90d0d1e1c6fa413e6db595f82924bb
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 70e26a89d679c499dbe0eaa7fcd04aa4b9994e98
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028198"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636592"
 ---
 # <a name="label"></a>label
 
@@ -26,14 +26,14 @@ label [/mp] [<volume>] [<label>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /mp | Gibt an, dass das Volume als Einstellungspunkt oder Volumename behandelt werden soll. |
 | `<volume>` | Gibt einen Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. Wenn ein Volumename angegeben wird, ist der **/MP** -Parameter nicht erforderlich. |
 | `<label>` | Gibt die Bezeichnung für das Volume an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - In Windows werden die Volumebezeichnung und die Seriennummer (sofern eine) als Teil der Verzeichnis Auflistung angezeigt.
 

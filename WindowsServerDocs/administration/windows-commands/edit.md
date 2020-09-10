@@ -3,16 +3,16 @@ title: Bearbeiten
 description: Referenz Artikel für den Edit-Befehl, der den MS-DOS-Editor startet, damit Sie ASCII-Textdateien erstellen und ändern können.
 ms.topic: reference
 ms.assetid: 4e0ff2e8-3518-47c1-8c69-5e93f895fa0e
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 892eaa2751ba9374b375145c5e9a0dfc1c069d4f
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: b3723c65456fd7e17395cd7a9bc931ddc56a09b3
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030737"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636178"
 ---
 # <a name="edit"></a>Bearbeiten
 
@@ -26,7 +26,7 @@ edit [/b] [/h] [/r] [/s] [/<nnn>] [[<drive>:][<path>]<filename> [<filename2> [..
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `[<drive>:][<path>]<filename> [<filename2> [...]]` | Gibt den Speicherort und den Namen einer oder mehrerer ASCII-Textdateien an. Wenn die Datei nicht vorhanden ist, wird Sie vom MS-DOS-Editor erstellt. Wenn die Datei vorhanden ist, wird Sie vom MS-DOS-Editor geöffnet, und der Inhalt wird auf dem Bildschirm angezeigt. Die *filename* -Option kann Platzhalter Zeichen (**&#42;** und **?**) enthalten. Trennen Sie mehrere Dateinamen mit Leerzeichen. |
 | /b | Erzwingt den Monochrom-Modus, sodass der MS-DOS-Editor in schwarz und weiß angezeigt wird. |
@@ -36,7 +36,7 @@ edit [/b] [/h] [/r] [/s] [/<nnn>] [[<drive>:][<path>]<filename> [<filename2> [..
 | `<nnn>` | Lädt Binärdateien und umwickelt Zeilen in *nnn* -Zeichen breit. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie weitere Hilfe benötigen, öffnen Sie den MS-DOS-Editor, und drücken Sie dann die F1-Taste.
 

@@ -3,16 +3,16 @@ title: Verwalten der Richtlinien für Softwareeinschränkung
 description: Windows Server-Sicherheit
 ms.topic: article
 ms.assetid: 8cc22093-67d1-47b6-9ddd-4569b6761ce9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 7af23cd43e6cc61ab25c1efd94d67a480365f08f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b67464b2a1b1d9f1828afc7885ddd8e18116c1d6
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953079"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637878"
 ---
 # <a name="administer-software-restriction-policies"></a>Verwalten der Richtlinien für Softwareeinschränkung
 

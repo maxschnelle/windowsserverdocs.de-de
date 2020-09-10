@@ -3,16 +3,16 @@ title: SET-Option
 description: Referenz Artikel für die Set-Option, mit der die Optionen für die Erstellung von Schatten Kopien festgelegt werden.
 ms.topic: reference
 ms.assetid: 4d8d4921-9fdd-4a3c-bb0f-9df5458c4b84
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 0569e93ee5c732369b9bc07e4452d27558412b81
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 143530ce3f781b7635cd596a376c5bea71994bf4
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89036508"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637691"
 ---
 # <a name="set-option"></a>SET-Option
 
@@ -26,7 +26,7 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                  Beschreibung                                                                                                  |
+|     Parameter     |                                                                                                  BESCHREIBUNG                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   [differenziell   |                                                                                                     Plex                                                                                                     |
 |  austauschen  |                       Gibt an, dass die Schatten Kopie noch nicht importiert werden soll. Die Datei "Metadata. cab" kann später verwendet werden, um die Schatten Kopie auf denselben oder einen anderen Computer zu importieren.                       |

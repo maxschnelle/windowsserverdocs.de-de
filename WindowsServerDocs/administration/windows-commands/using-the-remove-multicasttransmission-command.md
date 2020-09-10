@@ -3,16 +3,16 @@ title: Remove-MulticastTransmission
 description: Referenz Artikel zu Remove-MulticastTransmission, der die Multicast Übertragung für ein Bild deaktiviert.
 ms.topic: reference
 ms.assetid: 9a7f5c31-bfbf-425d-9129-a6f9173fe83d
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: cfb3a83c975aa14752e2a9538079f67a5dd94b8e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 680894f9a8f5d73d4bc71511ce006f82f04d0b5c
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023124"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636405"
 ---
 # <a name="using-the-remove-multicasttransmission-command"></a>Verwenden des Remove-MulticastTransmission-Befehls
 
@@ -42,7 +42,7 @@ wdsutil [Options] /remove-MulticastTransmissiomedia:<Image name>
         [/Filename:<File name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 Medien<Image name>|Gibt den Namen des Images an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|

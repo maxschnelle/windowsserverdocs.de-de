@@ -3,16 +3,16 @@ title: reg add
 description: Referenz Artikel für den Befehl "reg Add", mit dem der Registrierung ein neuer Unterschlüssel oder Eintrag hinzugefügt wird.
 ms.topic: reference
 ms.assetid: d9ad143e-dc10-4e2e-a229-408393c40079
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b34ad768cdcd324ee2b0601785dbe12b7693d557
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: bf1dcf7f37fd6c5852897d187f701f06189cb867
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037088"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637236"
 ---
 # <a name="reg-add"></a>reg add
 
@@ -26,7 +26,7 @@ reg add <keyname> [{/v Valuename | /ve}] [/t datatype] [/s Separator] [/d Data] 
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<keyname>` | Gibt den vollständigen Pfad des hinzu zufügenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, schließen Sie den Computernamen (im Format `\\<computername>\` ) als Teil des *keyName*-Steuerelement ein. Das Weglassen bewirkt, dass `\\<computername>\` der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt wird. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: **HKLM**, **HKCU**, **HKCR**, **HKU**und **HKCC**. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: **HKLM** und **HKU**. Wenn der Registrierungsschlüssel Name ein Leerzeichen enthält, müssen Sie den Schlüsselnamen in Anführungszeichen einschließen. |
 | /v `<Valuename>` | Gibt den Namen des Registrierungs Eintrags "Add" an. |
@@ -37,13 +37,13 @@ reg add <keyname> [{/v Valuename | /ve}] [/t datatype] [/s Separator] [/d Data] 
 | /f | Fügt den Registrierungs Eintrag hinzu, ohne zur Bestätigung aufzufordern. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Mit diesem Vorgang können keine Teil Strukturen hinzugefügt werden. Diese Version von **reg** fordert beim Hinzufügen eines unter Schlüssels nicht zur Bestätigung auf.
 
 - Die Rückgabewerte für den reg-Vorgang zum **Hinzufügen** lauten:
 
-| Wert | Beschreibung |
+| Wert | BESCHREIBUNG |
 |--|--|
 | 0 | Erfolgreich |
 | 1 | Fehler |

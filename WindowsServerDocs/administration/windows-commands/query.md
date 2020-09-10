@@ -3,16 +3,16 @@ title: Abfrage
 description: Referenz Artikel für den Abfragebefehl, der Informationen über Prozesse, Sitzungen und Remotedesktop-Sitzungshost Server anzeigt.
 ms.topic: reference
 ms.assetid: 675c5128-f3cf-4e8f-8a3f-b29ab2a8b6de
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ca1972831178c1f807766e5d62e0a58740ad5b7
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 62719f6ace4f27e46701958180811118886929a8
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038378"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637427"
 ---
 # <a name="query"></a>Abfrage
 
@@ -31,7 +31,7 @@ query user
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | [query process](query-process.md) | Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server ausgeführt werden. |
 | [query session](query-session.md) | Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server an. |

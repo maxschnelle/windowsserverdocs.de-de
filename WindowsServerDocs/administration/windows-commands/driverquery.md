@@ -3,16 +3,16 @@ title: driverquery
 description: Referenz Artikel für den Befehl "driverquery", der es einem Administrator ermöglicht, eine Liste der installierten Gerätetreiber und deren Eigenschaften anzuzeigen.
 ms.topic: reference
 ms.assetid: 92ca4b84-e4e2-405b-9f31-bf6db9f66839
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: dbd8ca2de7f15a5b5fb8682dae3a3aa2e105d7cd
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1b8c0926f1d16ec1bf08b98229c5a40e4c0c7baa
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636236"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -26,7 +26,7 @@ driverquery [/s <system> [/u [<domain>\]<username> [/p <password>]]] [/fo {table
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |------------ |
 | /s `<system>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Die Standardeinstellung ist der lokale Computer. |
 | /u `[<domain>]<username>` | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, wie von " *User* " oder " *Domäne \ Benutzer*" angegeben. Standardmäßig verwendet */s* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |

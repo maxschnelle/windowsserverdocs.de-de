@@ -3,16 +3,16 @@ title: query user
 description: Referenz Artikel für den Abfrage Benutzer-Befehl, der Informationen zu Benutzersitzungen auf einem Remotedesktop-Sitzungshost Server anzeigt.
 ms.topic: reference
 ms.assetid: a670fb78-c055-464a-b61d-3a85632c52c5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 78d6fd5a153909c067e322b5f46982843a4f46d6
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: bacc14f6945c9f1257763121b66a77d072b51803
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038388"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637417"
 ---
 # <a name="query-user"></a>query user
 
@@ -43,7 +43,7 @@ query user [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | `<username>` | Gibt den Anmelde Namen des Benutzers an, den Sie Abfragen möchten. |
 | `<sessionname>` | Gibt den Namen der Sitzung an, die Sie Abfragen möchten. |
@@ -51,7 +51,7 @@ query user [<username> | <sessionname> | <sessionID>] [/server:<servername>]
 | /server:`<servername>` | Gibt den Remotedesktop-Sitzungshost Server an, den Sie Abfragen möchten. Andernfalls wird der aktuelle Remotedesktop-Sitzungshost Server verwendet. Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl auf einem Remote Server verwenden. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Um diesen Befehl verwenden zu können, müssen Sie über die Berechtigung "Vollzugriff" oder eine spezielle Zugriffsberechtigung verfügen.
 

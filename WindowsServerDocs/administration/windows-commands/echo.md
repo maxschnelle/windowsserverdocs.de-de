@@ -3,16 +3,16 @@ title: Echo
 description: Referenz Artikel für den Befehl echo, der Nachrichten anzeigt oder das Befehls Echo Feature aktiviert oder deaktiviert.
 ms.topic: reference
 ms.assetid: fb9fcd0f-5e73-4504-aa95-78204e1a79d3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: aca758e2eec979fa4b90a4de4f0fbb6119a3d74a
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 6adafeeca8284aa240a59db0eb6c64553203ca12
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89030758"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636228"
 ---
 # <a name="echo"></a>Echo
 
@@ -27,13 +27,13 @@ echo [on | off]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | [ein \| ] | Aktiviert oder deaktiviert die Funktion zum Wiederholen von Befehlen. Die Befehls Echo Prüfung ist standardmäßig aktiviert. |
 | `<message>` | Gibt den Text an, der auf dem Bildschirm angezeigt werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der `echo <message>` Befehl ist besonders nützlich, wenn **Echo** ausgeschaltet ist. Um eine Meldung anzuzeigen, die mehrere Zeilen lang ist, ohne Befehle anzuzeigen, können Sie mehrere `echo <message>` Befehle nach dem Befehl **echo off** in das Batch-Programm einschließen.
 

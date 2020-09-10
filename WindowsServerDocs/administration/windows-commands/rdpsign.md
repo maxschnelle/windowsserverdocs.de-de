@@ -3,16 +3,16 @@ title: rdpsign
 description: Referenz Artikel zum rdpsign-Befehl, mit dem Sie eine Remotedesktopprotokoll Datei (. RDP) digital signieren können.
 ms.topic: reference
 ms.assetid: 4a6fa8ce-3d32-49a5-b056-bcc1a23391f5
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 07/11/2018
-ms.openlocfilehash: ecd80969f42a440bfd583223779fe67c27c5c310
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: a98619c468ce26e7af3406512be54937c8aa799d
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037148"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637341"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -31,7 +31,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 |--|--|
 | /sha1 `<hash>` | Gibt den Fingerabdruck an. Hierbei handelt es sich um den Secure-Hash-Algorithmus 1 (SHA1)-Hash des Signatur Zertifikats, das im Zertifikat Speicher enthalten ist. Wird in Windows Server 2012 R2 und älteren Versionen verwendet. |
 | /sha256 `<hash>` | Gibt den Fingerabdruck an, bei dem es sich um den Secure Hash Algorithmus 256 (SHA256)-Hash des Signatur Zertifikats handelt, das im Zertifikat Speicher enthalten ist. Ersetzt/SHA1 in Windows Server 2016 und höher. |
@@ -41,7 +41,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 | `<file_name.rdp>` | Der Name der RDP-Datei. Sie müssen die RDP-Datei (oder Dateien) angeben, die mit dem vollständigen Dateinamen signiert werden soll. Platzhalter Zeichen werden nicht akzeptiert. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Der SHA1-oder SHA256-Zertifikat Fingerabdruck sollte einen vertrauenswürdigen RDP-Datei Herausgeber darstellen. Öffnen Sie zum Abrufen des Zertifikat Fingerabdrucks das **Zertifikate** -Snap-in, und doppelklicken Sie auf das Zertifikat, das Sie verwenden möchten (entweder im Zertifikat Speicher des lokalen Computers oder in Ihrem persönlichen Zertifikat Speicher), klicken Sie auf die Registerkarte **Details** , und klicken Sie dann in der **Feldliste** auf Finger **Abdruck**.
 

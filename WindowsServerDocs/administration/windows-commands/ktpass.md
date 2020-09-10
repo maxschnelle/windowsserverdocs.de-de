@@ -3,16 +3,16 @@ title: ktpass
 description: Referenz Artikel für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
 ms.topic: reference
 ms.assetid: 47087676-311e-41f1-8414-199740d01444
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ef7e2ba1aa84faa44cf4bf77e842e8d3bcdc235
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 65ec74f1e89cd20973d4418659eb3c8de6a5bf93
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89028238"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636602"
 ---
 # <a name="ktpass"></a>ktpass
 
@@ -42,7 +42,7 @@ ktpass
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ------------|
 | /Out `<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
 | /princ `<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
@@ -65,7 +65,7 @@ ktpass
 | `{-|+}setpass <password>` | Legt das Kennwort des Benutzers fest, wenn angegeben. Wenn rndpass verwendet wird, wird stattdessen ein zufälliges Kennwort generiert. |
 | /? | Zeigt die Hilfe für diesen Befehl an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Dienste, die auf Systemen ausgeführt werden, auf denen das Windows-Betriebssystem nicht ausgeführt wird, können in AD DS mit Dienst Instanzen Konten konfiguriert werden. Dadurch kann sich jeder Kerberos-Client bei Diensten authentifizieren, auf denen das Windows-Betriebssystem nicht mithilfe von Windows-KDCs ausgeführt wird.
 

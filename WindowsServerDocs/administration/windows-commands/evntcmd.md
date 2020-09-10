@@ -3,16 +3,16 @@ title: evntcmd
 description: Referenz Artikel für den evntcmd-Befehl, der die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides basierend auf Informationen in einer Konfigurationsdatei konfiguriert.
 ms.topic: reference
 ms.assetid: c1aabb74-76e7-4304-95a6-50ad87e92fd9
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 173cb9c2f1528748986daf753a9d213c5060e5d4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 50347e8ef8c007fa89b1b226f705d4dcd6935e60
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89035868"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636033"
 ---
 # <a name="evntcmd"></a>evntcmd
 
@@ -28,7 +28,7 @@ evntcmd [/s <computername>] [/v <verbositylevel>] [/n] <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /s `<computername>` | Gibt anhand des Namens den Computer an, auf dem Sie die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides konfigurieren möchten. Wenn Sie keinen Computer angeben, erfolgt die Konfiguration auf dem lokalen Computer. |
 | /v `<verbositylevel>` | Gibt an, welche Arten von Statusmeldungen als Traps angezeigt werden und welche Trap Ziele konfiguriert werden. Dieser Parameter muss eine ganze Zahl zwischen 0 und 10 sein. Wenn Sie 10 angeben, werden alle Arten von Meldungen angezeigt, einschließlich der Ablauf Verfolgung von Nachrichten und Warnungen darüber, ob die Trap-Konfiguration erfolgreich war. Wenn Sie 0 angeben, werden keine Meldungen angezeigt. |
@@ -36,7 +36,7 @@ evntcmd [/s <computername>] [/v <verbositylevel>] [/n] <filename>
 | `<filename>` | Gibt nach Name die Konfigurationsdatei an, die Informationen über die Übersetzung von Ereignissen in Traps und Trap Ziele enthält, die Sie konfigurieren möchten. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Wenn Sie Traps, aber keine Trap Ziele konfigurieren möchten, können Sie eine gültige Konfigurationsdatei erstellen, indem Sie das-Ereignis verwenden, um den Konvertierer zu verwenden, der ein grafisches Hilfsprogramm ist. Wenn Sie den SNMP-Dienst installiert haben, können Sie das Ereignis starten, um den Konvertierer abzufangen, indem Sie an einer Eingabeaufforderung **evntwin** eingeben. Nachdem Sie die gewünschten Traps definiert haben, klicken Sie auf **exportieren** , um eine Datei zu erstellen, die für die Verwendung mit **evntcmd**geeignet ist. Sie können das Ereignis verwenden, um den Konvertierer zu verwenden, um problemlos eine Konfigurationsdatei zu erstellen, und dann die Konfigurationsdatei mit **evntcmd** an der Eingabeaufforderung verwenden, um auf mehreren Computern schnell Traps zu konfigurieren.
 

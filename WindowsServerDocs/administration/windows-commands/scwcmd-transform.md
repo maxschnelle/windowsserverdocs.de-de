@@ -3,16 +3,16 @@ title: Scwcmd-Transformation
 description: Referenz Artikel für * * * *-
 ms.topic: reference
 ms.assetid: 640dd892-0bb9-416d-8318-60a26605bcf4
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 069629c4025dadd6943659649025af57f019907c
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 0ac70c1d8f19c0824e1ea432fa719875a0d89fea
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037498"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636938"
 ---
 # <a name="scwcmd-transform"></a>Scwcmd: Transformation
 
@@ -35,13 +35,13 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/p\<Policyfile.xml>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die angewendet werden soll. Dieser Parameter muss angegeben werden.|
 |/g\<GPODisplayName>|Gibt den anzeigen amen des Gruppenrichtlinien Objekts an. Dieser Parameter muss angegeben werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Scwcmd.exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 

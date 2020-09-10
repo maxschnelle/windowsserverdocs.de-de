@@ -3,16 +3,16 @@ title: WAITFOR
 description: Referenz Artikel zu WAITFOR, der ein Signal an ein System sendet oder darauf wartet. **WAITFOR** wird zum Synchronisieren von Computern in einem Netzwerk verwendet.
 ms.topic: reference
 ms.assetid: a48ef70d-4d28-4035-b6b0-7d7b46ac2157
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 1a55629f6715e8b1d2e1aaede4153f74ac05ac98
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1dec723db998c26796f5f61929073e12903c045b
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022913"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637895"
 ---
 # <a name="waitfor"></a>WAITFOR
 
@@ -31,7 +31,7 @@ waitfor [/t <Timeout>] <SignalName>
 
 ### <a name="parameters"></a>Parameter
 
-|       Parameter       |                                                                                         Beschreibung                                                                                          |
+|       Parameter       |                                                                                         BESCHREIBUNG                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s \<Computer>     | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Die Standardeinstellung ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
 | u\<Domain>\]<User> |                              Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Standardmäßig verwendet **WAITFOR** die Anmelde Informationen des aktuellen Benutzers.                               |
@@ -41,7 +41,7 @@ waitfor [/t <Timeout>] <SignalName>
 |     \<SignalName>     |                                                Gibt das Signal an, das von **WAITFOR** gewartet oder gesendet wird. Bei *Signalname* wird keine Groß-/Kleinschreibung beachtet.                                                 |
 |          /?           |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Signal Namen dürfen nicht länger als 225 Zeichen sein. Gültige Zeichen sind a-z, a-z, 0-9 und der erweiterte ASCII-Zeichensatz (128-255).
 -   Wenn Sie **/s**nicht verwenden, wird das Signal an alle Systeme in einer Domäne übertragen. Wenn Sie **/s**verwenden, wird das Signal nur an das angegebene System gesendet.

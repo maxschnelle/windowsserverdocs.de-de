@@ -3,16 +3,16 @@ title: ID festlegen
 description: Referenz Artikel für die Diskpart-Gruppe "ID", die das Feld "Partitionstyp" für die Partition mit dem Fokus ändert.
 ms.topic: reference
 ms.assetid: 5793d7ad-827e-4285-b2c6-ae60eeb0e886
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e3b9ce5b885ca9c8277842b16c816274fff0ead8
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 30ed8fc2c4c6e6bc3039be018a303ba7dea15492
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024954"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637699"
 ---
 # <a name="set-id"></a>ID festlegen
 
@@ -33,14 +33,14 @@ set id={ <byte> | <GUID> } [override] [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                                                                                                                                                                                                                                                                                                                                                   Beschreibung                                                                                                                                                                                                                                                                                                                                                                   |
+| Parameter |                                                                                                                                                                                                                                                                                                                                                                   BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                   |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  <byte>   |                                                                                                                                                                                                       gibt für Master Boot Record MBR-Datenträgern \( \) den neuen Wert für das typanfeld (in Hexadezimal Form) für die Partition an. Alle Partitionstypen Bytes können mit diesem Parameter angegeben werden, mit Ausnahme des Typs 0x42, der eine LDM-Partition angibt. Beachten Sie, dass das führende 0x beim Angeben des hexadezimalen Partitions Typs ausgelassen wird.                                                                                                                                                                                                       |
 |  <GUID>   | gibt für die GPT-Datenträger der GUID-Partitionstabelle \( \) den neuen GUID-Wert für das typanfeld für die Partition an. Zu den erkannten GUIDs zählen:<p>-EFI-Systempartition: c12a7328 \- f81f \- 11d2 \- ba4b \- 00a0c93ec93b<br />-Grundlegende Daten Partition: ebd0a0a2 \- b9e5 \- 4433 \- 87c0 \- 68b6b72699c7<p>Jeder GUID des Partitions Typs kann mit diesem Parameter angegeben werden, mit Ausnahme der folgenden:<p>-Microsoft Reserved Partition: e3c9e316 \- 0b5c \- 4db8 \- 817d \- f92df00215ae<br />-LDM-Metadatenpartition auf einem dynamischen Datenträger: 5808c8aa \- 7e8f \- 42e0 \- 85d2 \- e1e90434cfb3<br />-LDM-Daten Partition auf einem dynamischen Datenträger: af9b60a0 \- 1431 \- 4f 62 \- bc68 \- 3311714a69ad<br />-Cluster Metadatenpartition: db97dba9 \- 0840 \- 4bae \- 97F 0 \- ffb9a327c7e1 |
 | override  |                                                                erzwingt das Aufheben der Einbindung des Dateisystems auf dem Volume, bevor der Partitionstyp geändert wird. Wenn Sie den Befehl **Set ID** ausführen, versucht Diskpart, das Dateisystem auf dem Volume zu sperren und zu entfernen. Wenn **override** nicht angegeben wird und der aufzurufende Befehl zum Sperren des Dateisystems beispielsweise fehlschlägt, \( weil ein geöffnetes Handle vorhanden ist, tritt ein Fehler auf \) . Wenn **override** angegeben wird, erzwingt DiskPart die Aufhebung der Einbindung, auch wenn der aufzurufende Befehl zum Sperren des Dateisystems fehlschlägt und alle geöffneten Handles für das Volume ungültig werden.<p>Dieser Befehl ist nur für Windows 7 und Windows Server 2008 R2 verfügbar.                                                                 |
 |   Noerr   |                                                                                                                                                                                                                                                                    Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                                                                                                                                                                                                                                                    |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Abgesehen von den zuvor erwähnten Einschränkungen überprüft DiskPart nicht die Gültigkeit des Werts, den Sie angeben, \( außer um sicherzustellen, dass es sich um ein Byte in Hexadezimal Form oder eine GUID handelt \) .
 

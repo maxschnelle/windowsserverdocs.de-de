@@ -3,16 +3,16 @@ title: Sc.exe löschen
 description: Weitere Informationen zum Aufheben der Registrierung von Diensten mithilfe des sc.exe Hilfsprogramms
 ms.topic: reference
 ms.assetid: 2fe94fb3-e4d1-47b5-b999-39995ecbb644
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 09a3f43824c3e0c895331326341b92c7c6aa5727
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 8ce9eb203fd9db68629ce5412836eb694eb67162
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89037538"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89637104"
 ---
 # <a name="scexe-delete"></a>Sc.exe löschen
 
@@ -28,13 +28,13 @@ sc.exe [<ServerName>] delete [<ServiceName>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |\<ServerName>|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ \\ . MyServer) verwenden. Wenn Sie SC.exe lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
 |\<ServiceName>|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
 |?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Es wird nicht empfohlen, sc.exe zum Löschen integrierter Betriebssystem Dienste wie DHCP, DNS oder Internetinformationsdienste zu verwenden. Informationen zum Installieren, entfernen oder Neukonfigurieren von Betriebssystem Rollen,-Diensten und-Komponenten finden Sie unter [installieren oder Deinstallieren von Rollen, Rollen Diensten oder Features](/WindowsServerDocs/administration/server-manager/install-or-uninstall-roles-role-services-or-features.md) .
 

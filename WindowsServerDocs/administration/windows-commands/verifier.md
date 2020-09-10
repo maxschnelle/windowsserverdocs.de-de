@@ -3,16 +3,16 @@ title: verifier
 description: Referenz Artikel für Verifier, der den Treiber Verifier-Manager ausführt.
 ms.topic: reference
 ms.assetid: 782173d6-f196-4bc4-a547-76109829453c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5374fb5e9c56cc288496ff7077587b1576399d0e
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: 1cdad5521d4ed6eb5b31bcbed9d09fd662200f71
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89023034"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89636320"
 ---
 # <a name="verifier"></a>verifier
 
@@ -36,7 +36,7 @@ verifier /query
 verifier /log <LogFileName> [/interval <seconds>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<flags>|Muss eine Zahl im Dezimal-oder Hexadezimal Format sein, eine Kombination aus Bits:<p>-   **Wert: Beschreibung**<br />-   **Bit 0:** Überprüfung des speziellen Pools<br />-   **Bit 1:** erzwingen der unql-Überprüfung<br />-   **Bit 2:** Simulation mit geringer Ressourcen<br />-   **Bit 3:** Pool Überwachung<br />-   **Bit 4:** E/a-Überprüfung<br />-   **Bit 5:** Deadlockerkennung<br />-   **Bit 6:** nicht verwendet<br />-   **Bit 7:** DMA-Überprüfung<br />-   **Bit 8:** Sicherheitsüberprüfungen<br />-   **Bit 9:** Erzwingen von ausstehenden e/a-Anforderungen<br />-   **Bit 10:** Unp-Protokollierung<br />-   **Bit 11:** sonstige Überprüfungen<p>Beispielsweise entspricht **/Flags 27** **/Flags 0x1B** .|
 |/volatile|Wird verwendet, um die verifizierereinstellungen dynamisch zu ändern, ohne das System neu zu starten. Alle neuen Einstellungen gehen verloren, wenn das System neu gestartet wird.|
