@@ -6,12 +6,12 @@ author: iangpgh
 ms.author: jgerend
 manager: daveba
 ms.date: 06/20/2019
-ms.openlocfilehash: c0b1cb2ff31bbf3fa25d5ac5e4be0e4b35260019
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 81a9283ef75ef76b14a8ee8a5ecc3ab225207560
+ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87880200"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90083661"
 ---
 # <a name="cleanmgr"></a>cleanmgr
 
@@ -29,9 +29,9 @@ cleanmgr [/d <driveletter>] [/sageset:n]  [/sagerun:n] [/TUNEUP:n] [/LOWDISK] [/
 
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| /d`<driveletter>` | Gibt das Laufwerk an, das Sie bereinigen möchten.<p>**Hinweis:** Die **/d** -Option wird mit nicht verwendet `/sagerun:n` . |
-| /sageset: n | Zeigt das Dialogfeld Einstellungen für die Datenträger **Bereinigung** an und erstellt außerdem einen Registrierungsschlüssel zum Speichern der von Ihnen ausgewählten Einstellungen. Der- `n` Wert, der in der Registrierung gespeichert ist, ermöglicht Ihnen das Angeben von Aufgaben für die Datenträger Bereinigung, die ausgeführt werden soll. Der `n` Wert kann ein beliebiger ganzzahliger Wert zwischen 0 und 65535 sein. |
-| /sagerun: n | Führt die angegebenen Aufgaben aus, die dem n-Wert zugewiesen sind, wenn Sie die Option **\sageset** verwenden. Alle Laufwerke auf dem Computer werden aufgezählt, und das ausgewählte Profil wird für jedes Laufwerk ausgeführt. |
+| /d `<driveletter>` | Gibt das Laufwerk an, das Sie bereinigen möchten.<p>**Hinweis:** Die **/d** -Option wird mit nicht verwendet `/sagerun:n` . |
+| /sageset: n | Zeigt das Dialogfeld Einstellungen für die Datenträger **Bereinigung** an und erstellt außerdem einen Registrierungsschlüssel zum Speichern der von Ihnen ausgewählten Einstellungen. Der- `n` Wert, der in der Registrierung gespeichert ist, ermöglicht Ihnen das Angeben von Aufgaben für die Datenträger Bereinigung, die ausgeführt werden soll. Der `n` Wert kann ein beliebiger ganzzahliger Wert zwischen 0 und 9999 sein. |
+| /sagerun: n | Führt die angegebenen Aufgaben aus, die dem n-Wert zugewiesen werden, wenn Sie die **/sageset** -Option verwenden. Alle Laufwerke auf dem Computer werden aufgezählt, und das ausgewählte Profil wird für jedes Laufwerk ausgeführt. |
 | /TuneUp: n | Führen Sie **/sageset** und **/sagerun** für das gleiche aus `n` . |
 | /lowdisk | Führen Sie mit den Standardeinstellungen aus. |
 | /verylowdisk | Führen Sie mit den Standardeinstellungen aus, keine Eingabe Aufforderungen. |

@@ -7,12 +7,12 @@ ms.author: jgerend
 manager: lizross
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 02158cc005cc46bd42e88569b14c17c59ef377ee
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 8ff6b6cfa6f8af87310970d9adab10d5df14c90d
+ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990774"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90083691"
 ---
 # <a name="configure-and-manage-quorum"></a>Konfigurieren und Verwalten des Quorums
 
@@ -26,7 +26,7 @@ Das Quorum für einen Cluster wird über die Anzahl der Knoten mit Stimmen besti
 
 ## <a name="quorum-configuration-options"></a>Optionen für die Quorum Konfiguration
 
-Das Quorum Modell in Windows Server ist flexibel. Wenn Sie die Quorum Konfiguration für Ihren Cluster ändern müssen, können Sie den Assistenten zum Konfigurieren des Cluster Quorums oder die Windows PowerShell-Cmdlets für Failovercluster verwenden. Schritte und Überlegungen zur Quorumkonfiguration finden Sie weiter unten in diesem Thema unter [Konfigurieren des Clusterquorums](#configure-the-cluster-quorum).
+Das Quorum Modell in Windows Server ist flexibel. Wenn Sie die Quorum Konfiguration für Ihren Cluster ändern müssen, können Sie den Assistenten zum Konfigurieren des Cluster Quorums oder die Windows PowerShell-Cmdlets für Failoverclusters verwenden. Schritte und Überlegungen zur Quorumkonfiguration finden Sie weiter unten in diesem Thema unter [Konfigurieren des Clusterquorums](#configure-the-cluster-quorum).
 
 In der folgenden Tabelle werden die drei Quorumkonfigurationsoptionen aufgelistet, die im Assistenten zum Konfigurieren des Clusterquorums verfügbar sind.
 
@@ -66,7 +66,7 @@ Als erweiterte Quorum Konfigurationsoption können Sie die Quorum Stimmen auf Kn
 
 Möglicherweise möchten Sie die Stimmen von Knoten in bestimmten Notfallwiederherstellungskonfigurationen entfernen. Bei einem Cluster mit mehreren Standorten könnten Sie z. B. Stimmen von den Knoten am Sicherungsstandort entfernen, damit sich diese Knoten nicht auf die Quorumberechnungen auswirken. Diese Konfiguration wird nur für standortübergreifende manuelle Failover empfohlen. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Quorumüberlegungen zu Notfallwiederherstellungskonfigurationen](#quorum-considerations-for-disaster-recovery-configurations).
 
-Die konfigurierte Stimme eines Knotens kann durch Überprüfen der allgemeinen **nodeweight** -Eigenschaft des Cluster Knotens mithilfe des Windows PowerShell-Cmdlets [Get-clusternode](https://technet.microsoft.com/library/hh847268.aspx)überprüft werden. Der Wert 0 gibt an, dass für den Knoten keine Quorumstimme konfiguriert ist. Der Wert 1 gibt an, dass die Quorumstimme des Knotens zugewiesen wurde und sie vom Cluster verwaltet wird. Weitere Informationen zur Verwaltung von Knotenstimmen finden Sie unter [Dynamische Quorumverwaltung](#dynamic-quorum-management) in diesem Thema.
+Die konfigurierte Stimme eines Knotens kann durch Überprüfen der allgemeinen **nodeweight** -Eigenschaft des Cluster Knotens mithilfe des Windows PowerShell-Cmdlets [Get-clusternode](https://technet.microsoft.com/library/hh847268.aspx) überprüft werden. Der Wert 0 gibt an, dass für den Knoten keine Quorumstimme konfiguriert ist. Der Wert 1 gibt an, dass die Quorumstimme des Knotens zugewiesen wurde und sie vom Cluster verwaltet wird. Weitere Informationen zur Verwaltung von Knotenstimmen finden Sie unter [Dynamische Quorumverwaltung](#dynamic-quorum-management) in diesem Thema.
 
 Die Stimmenzuweisung für alle Clusterknoten kann mithilfe des Validierungstests **Clusterquorum überprüfen** überprüft werden.
 
@@ -109,7 +109,7 @@ Weitere Informationen zum Überprüfen eines Failoverclusters finden Sie unter [
 
 ## <a name="configure-the-cluster-quorum"></a>Konfigurieren des Clusterquorums
 
-Sie können die Cluster Quorum Einstellungen mithilfe Failovercluster-Manager oder der Windows PowerShell-Cmdlets für Failovercluster konfigurieren.
+Sie können die Cluster Quorum Einstellungen konfigurieren, indem Sie Failovercluster-Manager oder die Windows PowerShell-Cmdlets für Failoverclusters verwenden.
 
 > [!IMPORTANT]
 > In der Regel ist die Quorumkonfiguration am besten geeignet, die vom Assistenten zum Konfigurieren des Clusterquorums empfohlen wird. Es wird empfohlen, dass Sie die Quorumkonfiguration nur anpassen, wenn Sie ermittelt haben, dass die Änderung für den Cluster angemessen ist. Weitere Informationen finden Sie in diesem Thema unter [Allgemeine Empfehlungen zur Quorumkonfiguration](#general-recommendations-for-quorum-configuration).
@@ -127,8 +127,8 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
 2. Wählen Sie bei ausgewähltem Cluster unter **Aktionen**die Option **Weitere Aktionen**aus, und klicken Sie dann auf **Cluster Quorum Einstellungen konfigurieren**. Der Assistent zum Konfigurieren des Clusterquorums wird angezeigt. Wählen Sie **Weiter** aus.
 3. Wählen Sie auf der Seite **Quorumkonfigurationsoption auswählen** eine der drei verfügbaren Konfigurationsoptionen aus, und führen Sie dann die Schritte für diese Option aus. Bevor Sie die Quorumeinstellungen konfigurieren, können Sie Ihre Auswahl überprüfen. Weitere Informationen zu den Optionen finden Sie Untergrund Legendes zu [Quorums](#understanding-quorum)weiter oben in diesem Thema.
 
-    - Um dem Cluster das automatische Zurücksetzen der Quorum Einstellungen zu ermöglichen, die für Ihre aktuelle Cluster Konfiguration optimal sind, wählen Sie **typische Einstellungen verwenden** aus, und schließen Sie dann den Assistenten ab.
-    - Um den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **den Quorum Zeugen hinzufügen oder ändern**aus, und führen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zum Konfigurieren eines Quorumzeugen finden Sie in diesem Thema unter [Zeugenkonfiguration](#witness-configuration).
+    - Um dem Cluster das automatische Zurücksetzen der Quorum Einstellungen zu ermöglichen, die für Ihre aktuelle Cluster Konfiguration optimal sind, wählen Sie **Standard Quorum Konfiguration verwenden** aus, und schließen Sie den Assistenten ab.
+    - Um den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **die Option Quorum Zeugen auswählen**aus, und führen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zum Konfigurieren eines Quorumzeugen finden Sie in diesem Thema unter [Zeugenkonfiguration](#witness-configuration).
 
       1. Wählen Sie auf der Seite **Quorumzeugen auswählen** eine Option zum Konfigurieren eines Datenträgerzeugen oder eines Dateifreigabezeugen aus. Der Assistent zeigt die Zeugenauswahloptionen an, die für Ihren Cluster empfohlen werden.
 
@@ -137,8 +137,11 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
 
       2. Wenn Sie die Option zum Konfigurieren eines Datenträgerzeugen auswählen, wählen Sie auf der Seite **Speicherzeugen konfigurieren** das Speichervolume aus, das Sie als Datenträgerzeugen zuweisen möchten, und schließen Sie dann den Assistenten ab.
       3. Wenn Sie die Option zum Konfigurieren eines Dateifreigabezeugen auswählen, geben Sie auf der Seite **Dateifreigabezeugen konfigurieren** eine Dateifreigabe ein, oder navigieren Sie zu dieser Freigabe, die als Zeugenressource verwendet wird, und schließen Sie dann den Assistenten ab.
+      4. Wenn Sie die Option zum Konfigurieren eines cloudzeugen auswählen, geben Sie auf der Seite **Cloud-Zeuge konfigurieren** den Namen Ihres Azure Storage-Kontos, den Azure Storage-Kontoschlüssel und den Azure-Dienst Endpunkt ein, und schließen Sie dann den Assistenten ab.
+          > [!NOTE]
+          > Diese Option ist in Windows Server 2016 und höher verfügbar.
 
-    - Um die Einstellungen für die Quorum Verwaltung zu konfigurieren und den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **Erweiterte Quorum Konfiguration und Zeugen Auswahl**aus, und führen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zu den erweiterten Quorumkonfigurationseinstellungen finden Sie in diesem Thema unter [Knotenvotumszuweisung](#node-vote-assignment) und [Dynamische Quorumverwaltung](#dynamic-quorum-management).
+    - Um die Einstellungen für die Quorum Verwaltung zu konfigurieren und den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **Erweiterte Quorum Konfiguration**aus, und führen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zu den erweiterten Quorumkonfigurationseinstellungen finden Sie in diesem Thema unter [Knotenvotumszuweisung](#node-vote-assignment) und [Dynamische Quorumverwaltung](#dynamic-quorum-management).
 
       1. Wählen Sie auf der Seite **Votierungskonfiguration auswählen** eine Option zum Zuweisen von Stimmen zu Knoten aus. Standardmäßig wird allen Knoten eine Stimme zugewiesen. In bestimmten Szenarien können Sie Stimmen jedoch nur zu einer Teilmenge von Knoten zuweisen.
 
@@ -146,13 +149,19 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
           > Sie können auch die Option **Keine Knoten** auswählen. Dies wird im Allgemeinen nicht empfohlen, da es den Knoten dadurch nicht gestattet ist, an der Quorumabstimmung teilzunehmen. Zudem erfordert sie die Konfiguration eines Datenträgerzeugen. Der Datenträgerzeuge wird für den Cluster zu einem einzelnen Fehlerpunkt.
 
       2. Auf der Seite **Quorumverwaltung konfigurieren** können Sie die Option **Die Zuordnung von Knotenvoten kann vom Cluster dynamisch verwaltet werden** aktivieren oder deaktivieren. Durch die Auswahl dieser Option wird die Verfügbarkeit des Clusters im Allgemeinen erhöht. Die Option ist standardmäßig aktiviert, und es wird dringend empfohlen, diese Option nicht zu deaktivieren. Mithilfe dieser Option kann der Cluster in Fehlerszenarien weiterhin ausgeführt werden, die nicht möglich sind, wenn diese Option deaktiviert ist.
-      3. Wählen Sie auf der Seite **Quorumzeugen auswählen** eine Option zum Konfigurieren eines Datenträgerzeugen oder eines Dateifreigabezeugen aus. Der Assistent zeigt die Zeugenauswahloptionen an, die für Ihren Cluster empfohlen werden.
+          > [!NOTE]
+          > Diese Option ist in Windows Server 2016 und höher nicht vorhanden.
+          
+      3. Wählen Sie auf der Seite **Quorum Zeugen auswählen** eine Option aus, um einen Datenträger Zeugen, einen Dateifreigabe Zeugen oder einen cloudzeugen zu konfigurieren. Der Assistent zeigt die Zeugenauswahloptionen an, die für Ihren Cluster empfohlen werden.
 
           > [!NOTE]
           > Sie können auch die Option **Keinen Quorumzeugen konfigurieren** auswählen und dann den Assistenten abschließen. Wenn Sie über eine gerade Anzahl von abstimmenden Knoten in Ihrem Cluster verfügen, ist dies möglicherweise nicht die empfohlene Konfiguration.
 
       4. Wenn Sie die Option zum Konfigurieren eines Datenträgerzeugen auswählen, wählen Sie auf der Seite **Speicherzeugen konfigurieren** das Speichervolume aus, das Sie als Datenträgerzeugen zuweisen möchten, und schließen Sie dann den Assistenten ab.
       5. Wenn Sie die Option zum Konfigurieren eines Dateifreigabezeugen auswählen, geben Sie auf der Seite **Dateifreigabezeugen konfigurieren** eine Dateifreigabe ein, oder navigieren Sie zu dieser Freigabe, die als Zeugenressource verwendet wird, und schließen Sie dann den Assistenten ab.
+      6. Wenn Sie die Option zum Konfigurieren eines cloudzeugen auswählen, geben Sie auf der Seite **Cloud-Zeuge konfigurieren** den Namen Ihres Azure Storage-Kontos, den Azure Storage-Kontoschlüssel und den Azure-Dienst Endpunkt ein, und schließen Sie dann den Assistenten ab.
+          > [!NOTE]
+          > Diese Option ist in Windows Server 2016 und höher verfügbar.
 
 4. Wählen Sie **Weiter** aus. Bestätigen Sie Ihre Auswahl auf der angezeigten Bestätigungsseite, und klicken Sie dann auf **weiter**.
 
