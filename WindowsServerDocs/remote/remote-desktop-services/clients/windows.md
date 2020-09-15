@@ -6,14 +6,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/01/2020
+ms.date: 09/05/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: c28ccbe0cfd49f1cf774031b002bf7b6142d0a00
-ms.sourcegitcommit: 9a59e00db5e68b1a12769b5cd5523b8c501776ad
+ms.openlocfilehash: 9bad174ad596ffc0262947464f2353b91a92872c
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89282112"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554527"
 ---
 # <a name="get-started-with-the-microsoft-store-client"></a>Erste Schritte mit dem Microsoft Store-Client
 
@@ -198,7 +198,16 @@ Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
 | Mauszeiger | Klicken Sie mit der rechten Maustaste auf          | Mit zwei Fingern tippen                                                          |
 | Mauszeiger | Rechtsklick und ziehen | Doppeltippen und mit zwei Fingern halten, dann ziehen                              |
 | Mauszeiger | Mausrad          | Tippen und mit zwei Fingern halten, dann nach oben oder unten ziehen                          |
-| Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu vergrößern, oder auseinander bewegen, um sie zu verkleinern |
+| Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu verkleinern, oder auseinander bewegen, um sie zu vergrößern |
 
-> [!TIP]
-> Fragen und Kommentare sind immer willkommen. Wenn Sie Supportanfragen oder Produktfeedback jedoch im Kommentarbereich dieses Artikels posten, können wir nicht auf Ihr Feedback reagieren. Wenn Sie Hilfe benötigen oder Probleme mit Ihrem Client beheben möchten, empfehlen wir Ihnen dringend, das [Remotedesktopclient-Forum](/answers/topics/windows-remote-desktop-client.html) zu besuchen und einen neuen Thread zu starten. Wenn Sie eine Featureempfehlung geben möchten, können Sie uns dies im [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mitteilen.
+## <a name="give-us-feedback"></a>Geben Sie uns Feedback
+
+Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teilen Sie uns den Vorschlag über den [Feedback-Hub](https://aka.ms/rdstorefeedback) mit.
+
+Sie können uns auch Feedback senden, indem Sie die Schaltfläche mit Auslassungspunkten ( **…** ) in der Clientanwendung und dann **Feedback** auswählen, wie in der folgenden Abbildung gezeigt.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot, in dem die Schaltfläche mit den Auslassungspunkten rot hervorgehoben ist. In dem Dropdownmenü unter der Schaltfläche ist die Option „Feedback“ ebenfalls rot hervorgehoben.](../media/ellipsis-icon.png)
+
+>[!NOTE]
+>Um Ihnen bestmöglich helfen zu können, benötigen wir von Ihnen möglichst detaillierte Informationen zu diesem Thema. Sie können z. B. Screenshots oder eine Aufzeichnung der Aktionen hinzufügen, die zu diesem Problem geführt haben. Weitere Tipps, wie Sie hilfreiches Feedback senden können, finden Sie unter [Feedback](/windows-insider/at-home/feedback#add-new-feedback).

@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/25/2020
+ms.date: 09/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ce718db142ac34a51642e1ed2128899a0e77dbf
-ms.sourcegitcommit: 47dc2671330c2ecc56cce39ef006cbfe108b4759
+ms.openlocfilehash: 8f0b5453265bc96cdeb7ba02795da8fa0f39ba1c
+ms.sourcegitcommit: 0407bd30eaf06358257cf88c3969a2cd8b77dca4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88821333"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90027165"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -25,19 +25,28 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Version  |
 |-----------|---------|
 |Öffentlich     |1.2.1272 |
-|Insider    |1.2.1272 |
+|Insider    |1.2.1357 |
 
-## <a name="updates-for-version-121272"></a>Updates für Version 1.2.1272
+## <a name="updates-for-version-121357-insiders"></a>Updates für Version 1.2.1357 (Insider)
+
+*Veröffentlicht am: 09.09.2020*
+
+Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Es wurde ein Problem behoben, bei dem Secure Sign-On (SSO) unter Windows 7 nicht funktionierte.
+
+## <a name="updates-for-version-121275"></a>Updates für Version 1.2.1275
 
 *Veröffentlicht am: 25.08.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4D7LK), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4D5aF), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Dan3)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FpYR), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FpYS), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fg3H)
 
 - Es wurden Funktionen zum automatischen Erkennen von unabhängigen Clouds aus der Identität des Benutzers hinzugefügt.
 - Es wurden Funktionen zum Aktivieren benutzerdefinierter URL-Abonnements für alle Benutzer hinzugefügt.
 - Ein Problem beim Anheften von Apps auf der Feed-Taskleiste wurde behoben.
 - Ein Absturzproblem beim Abonnieren von URLs wurde behoben.
 - Verbesserte Benutzererfahrung beim Ziehen der Fenster von Remote-Apps mit Toucheingabe oder Stift.
+- Ein Lokalisierungsproblem wurde behoben.
 
 ## <a name="updates-for-version-121186"></a>Updates für Version 1.2.1186
 
@@ -55,8 +64,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 *Veröffentlicht am: 23.06.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHS), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zrAd), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4zeHR)
-
 - Die automatische Ermittlungslogik für die Option „**Subscribe**“ wurde aktualisiert, um die in Azure Resource Manager integrierte Version von Windows Virtual Desktop zu unterstützen. Kunden, die nur über Windows Virtual Desktop-Ressourcen verfügen, sollten nicht länger die Zustimmung für Windows Virtual Desktop (klassisch) erteilen müssen.
 - Verbesserte Unterstützung für Geräte mit hohen DPI-Werten und einem Skalierungsfaktor von bis zu 400 %.
 - Ein Problem wurde behoben, bei dem das Dialogfeld zum Trennen nicht angezeigt wurde.
@@ -67,8 +74,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-121026"></a>Updates für Version 1.2.1026
 
 *Veröffentlicht am: 27.05.2020*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xsGB), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xd8P), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xq7m)
 
 - Beim Abonnieren kannst du nun dein Konto auswählen, anstatt deine E-Mail-Adresse einzugeben.
 - Es wurde eine neue Option **Mit URL abonnieren** hinzugefügt, die es dir ermöglicht, die URL des Arbeitsbereichs anzugeben, den du abonnierst, oder in Fällen, in denen deine Ressourcen nicht automatisch gefunden werden, die [E-Mail-Ermittlung](../rds-email-discovery.md) zu nutzen. Dieses Verfahren ähnelt dem Abonnementprozess auf den anderen Remotedesktopclients. Es kann verwendet werden, um die Windows Virtual Desktop-Arbeitsbereiche direkt zu abonnieren.
@@ -88,8 +93,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-12945"></a>Updates für Version 1.2.945
 
 *Veröffentlicht am: 28.04.2020*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNM), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vuSV)
 
 - Es wurden neue Optionen für Anzeigeeinstellungen für Desktopverbindungen hinzugefügt, die beim Klicken mit der rechten Maustaste auf ein Desktopsymbol im Connection Center verfügbar sind.
   - Es gibt jetzt drei Anzeigekonfigurationsoptionen: **Alle Displays**, **Einzeldisplay** und **Displays auswählen**.

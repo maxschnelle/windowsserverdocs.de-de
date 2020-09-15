@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/20/2020
+ms.date: 09/05/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5bd3e1d5f06e5c415b4f300d9a2c8a9b390e5051
-ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
+ms.openlocfilehash: cb1c519e6da55bb6ee8187db4b388870f1d4b42f
+ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88702829"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89554467"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -132,18 +132,17 @@ Der Client verwendet die von deinem Administrator konfigurierten Einstellungen, 
 - In **Auflösung** kannst du die Auflösung des Remotedesktops festlegen. Die Sitzung behält diese Auflösung für ihre gesamte Dauer bei. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) und bei deaktivierter Option **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) verfügbar.
 - **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) und bei deaktivierter Option **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) verfügbar.
 
-## <a name="provide-feedback"></a>Senden von Feedback
+## <a name="give-us-feedback"></a>Geben Sie uns Feedback
 
-Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=883) mit. Du kannst über den Client auch auf den Feedback-Hub zugreifen:
+Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teilen Sie uns den Vorschlag oder Informationen zum Problem über den [Feedback-Hub](https://aka.ms/rddesktopfeedback) mit.
 
-1. Tippe im Connection Center auf die Option **Feedback senden** in der Befehlsleiste oben im Client, um die Feedback-Hub-App zu öffnen.
-2. Gib die erforderlichen Informationen in die Felder **Zusammenfassung** und **Details** ein. Tippe auf **Weiter**, wenn du fertig bist.
-3. Wähle aus, ob es sich um ein **Problem** oder einen **Vorschlag** handelt.
-4. Überprüfe, ob sich die Kategorie unter **Apps** > **Remotedesktop** befindet. Wenn dies der Fall ist, tippe auf **Weiter**.
-5. Schaue die vorhandenen Feedbackthemen durch, um festzustellen, ob das Problem bereits von einem anderen Benutzer gemeldet wurde. Wenn dies nicht der Fall ist, wähle **Neuen Fehler melden** aus, und tippe dann auf **Weiter**.
-6. Auf der nächsten Seite kannst du weitere Informationen geben, damit wir dir helfen können, das Problem zu beheben. Du kannst detailliertere Informationen schreiben, Screenshots senden und sogar eine Aufnahme des Problems erstellen, um uns zu zeigen, was passiert ist. Um eine Aufnahme zu erstellen, wähle **Aufnahme starten** aus, und führe dann die Schritte aus, die zu dem Problem geführt haben. Wenn du fertig bist, kehre zum Feedback-Hub zurück, und wähle **Aufnahme beenden** aus.
-7. Wenn du mit den Informationen zufrieden bist, tippe auf **Senden**.
-8. Tippe auf der Seite „Vielen Dank für Ihr Feedback!“ auf **Feedback teilen**, um einen Link zu deinem Feedback zu generieren, den du bei Bedarf mit anderen teilen kannst.
+Sie können uns auch Feedback senden, indem Sie in der Client-App die Schaltfläche auswählen, die wie ein Smiley-Emoticon aussieht, wie in der folgenden Abbildung gezeigt:
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot des Smiley-Emoticons, das Sie zum Feedback-Hub führt.](../media/smiley-face-icon.png)
+
+>[!NOTE]
+>Um Ihnen bestmöglich helfen zu können, benötigen wir von Ihnen möglichst detaillierte Informationen zu diesem Thema. Sie können z. B. Screenshots oder eine Aufzeichnung der Aktionen hinzufügen, die zu diesem Problem geführt haben. Weitere Tipps, wie Sie hilfreiches Feedback senden können, finden Sie unter [Feedback](/windows-insider/at-home/feedback#add-new-feedback).
 
 ### <a name="access-client-logs"></a>Zugreifen auf Clientprotokolle
 
