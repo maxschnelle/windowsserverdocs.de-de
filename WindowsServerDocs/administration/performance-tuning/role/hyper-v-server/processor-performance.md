@@ -2,15 +2,15 @@
 title: Hyper-V-Prozessorleistung
 description: Überlegungen zur Prozessorleistung bei der Hyper-V-Leistungsoptimierung
 ms.topic: article
-ms.author: asmahi; sandysp; jopoulso
+ms.author: asmahi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ba426a2a4db853dbd91180fcceed6807726efbf8
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 4691f71b98cbbe0993a6e837f5d13b4b5c5a21b6
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992102"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078228"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 

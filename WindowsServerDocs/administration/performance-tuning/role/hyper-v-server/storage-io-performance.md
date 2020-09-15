@@ -2,15 +2,15 @@
 title: Hyper-V-Speicher-e/a-Leistung
 description: Überlegungen zur Speicher-e/a-Leistung bei der Hyper-V-Leistungsoptimierung
 ms.topic: article
-ms.author: asmahi; sandysp; jopoulso
+ms.author: asmahi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: d19790a6a86c7538ee3a062b3f08bbbdbc8b9d92
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 762ff719eb60a2fbcec61c0b9b6cb2e14f9ba677
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992088"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078218"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Hyper-V-Speicher-e/a-Leistung
 

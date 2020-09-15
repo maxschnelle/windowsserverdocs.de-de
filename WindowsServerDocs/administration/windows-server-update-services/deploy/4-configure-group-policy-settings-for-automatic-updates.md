@@ -3,16 +3,16 @@ title: 'Schritt 4: Konfigurieren von Gruppenrichtlinien für „Automatische Upd
 description: 'Thema zu Windows Server Update Service (WSUS): „Konfigurieren von Gruppenrichtlinieneinstellungen für ‚Automatische Updates‘“ ist Schritt 4 in einem vierstufigen Verfahren zum Bereitstellen von WSUS'
 ms.topic: article
 ms.assetid: 62177d05-d832-4ea8-bca4-47a8cd34a19c
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ca59369cda4c38af111b9ccd3141219b1516cbd7
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 3beaea0ff9d0ab3851cfadbd516f36b45bd697ce
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991098"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89624576"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Schritt 4: Konfigurieren von Gruppenrichtlinien für „Automatische Updates“
 

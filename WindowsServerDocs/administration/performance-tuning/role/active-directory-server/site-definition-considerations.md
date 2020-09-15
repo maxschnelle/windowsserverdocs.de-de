@@ -2,15 +2,15 @@
 title: Die Platzierung von Standort Definitionen und Domänen Controllern in erhöht die Leistungsoptimierung
 description: Überlegungen zur Platzierung von Standort Definitionen und Domänen Controllern in Active Directory Leistungsoptimierung.
 ms.topic: article
-ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
+ms.author: timwi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bb0850923dca2f0749c1f2cb5e787d998e8f03ca
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: fa051bd6637eff9f5a25cd8784d33a60095ccd54
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992244"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077197"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort
 

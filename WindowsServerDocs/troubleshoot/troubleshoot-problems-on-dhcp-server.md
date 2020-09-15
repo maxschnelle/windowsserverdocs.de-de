@@ -1,18 +1,17 @@
 ---
 title: Beheben von Problemen auf dem DHCP-Server
 description: Diese Artilce bietet eine Einführung in die Behandlung von Problemen auf dem DHCP-Server und das Sammeln von Daten.
-ms.service: na
 manager: dcscontentpm
 ms.date: 5/26/2020
 ms.topic: article
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: d6fc69c15c3465769232d89f70a65ca915d0584e
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: a6b5e4128c2e07e51ab8a9c07155a8c0212fcad8
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989036"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078587"
 ---
 # <a name="troubleshoot-problems-on-the-dhcp-server"></a>Beheben von Problemen auf dem DHCP-Server
 

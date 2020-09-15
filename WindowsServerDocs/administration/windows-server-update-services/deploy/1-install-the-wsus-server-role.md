@@ -3,16 +3,16 @@ title: 'Schritt 1: Installieren der WSUS-Serverrolle'
 description: 'Artikel zu WSUS (Windows Server Update Services): Anweisungen zur Installation der Serverrolle mithilfe des Server-Managers'
 ms.topic: article
 ms.assetid: fabc8619-350e-403b-96f8-116424931300
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
+ms.author: lizross
+author: eross-msft
+manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 980aa106b9ed4cb1ebc5b091fa308906dcdb2d6a
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c311ecb5c3d00e09fd1b7443a3a8ef9f82003902
+ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991030"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89640716"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Serverrolle
 

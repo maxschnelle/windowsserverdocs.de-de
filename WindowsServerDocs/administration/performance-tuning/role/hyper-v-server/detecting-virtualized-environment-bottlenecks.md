@@ -2,15 +2,15 @@
 title: Erkennen von Engpässen in einer virtualisierten Umgebung
 description: Erkennen und beheben potenzieller Leistungsengpässe bei Hyper-v
 ms.topic: article
-ms.author: asmahi; sandysp; jopoulso
+ms.author: asmahi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 049df52033d637409a73400616b596037f9d7976
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: cc072d51623d53539bcf27dfaf950e4ba1621e71
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896134"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077247"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Erkennen von Engpässen in einer virtualisierten Umgebung
 

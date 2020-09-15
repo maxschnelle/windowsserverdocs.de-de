@@ -3,15 +3,16 @@ title: Rollen, Rollen Dienste und Features nicht in Server Core-Containern-Windo
 description: Erfahren Sie mehr über die Rollen und Features, die wir aus dem Server Core-Container Image für Windows Server entfernt haben.
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: lizap
+author: pronichkin
+ms.author: artemp
 ms.localizationpriority: medium
 ms.date: 05/07/2018
-ms.openlocfilehash: 2092e330af479ae0cbdb1da88ba87cf233307b59
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 8b81ae6dc86ad9fd3a8650ca22ba9f3a42af4d3f
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993254"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077857"
 ---
 # <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Rollen, Rollen Dienste und Features nicht in Server Core-Containern-Windows Server, Version 1803
 

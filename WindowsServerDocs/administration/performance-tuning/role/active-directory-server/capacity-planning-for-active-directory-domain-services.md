@@ -2,15 +2,15 @@
 title: Kapazitätsplanung für Active Directory Domain Services
 description: Ausführliche Erörterung der Faktoren, die bei der Kapazitätsplanung für AD DS zu berücksichtigen sind.
 ms.topic: article
-ms.author: v-tea; kenbrunf
+ms.author: v-tea
 author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 2067f3dd8c07190c7f52eb75229f08e080ae0208
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 67b98988866fdc7a35e35ae353b7e37f3a13e083
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992304"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077677"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -353,7 +353,7 @@ Ermitteln der Menge an e/a-Vorgängen, die für ein fehlerfreies System unter no
 - So bestimmen Sie die Menge an e/a-Vorgängen, die für den Speicher erforderlich sind
   >*Benötigtes IOPS* = (logischer Datenträger ( *\<NTDS Database Drive\>* ) \Mittlere Sek./Lesevorgänge &divide; *\<Target Avg Disk sec/Read\>* ) &times; LogicalDisk ( *\<NTDS Database Drive\>* ) \ Lesevorgänge/Sek.
 
-| Leistungsindikator | Wert |
+| Zähler | Wert |
 |--|--|
 | Tatsächlicher LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung | .02 Sekunden (20 Millisekunden) |
 | Ziel LogicalDisk ( *\<NTDS Database Drive\>* ) \Durchschnittl. Sek./Übertragung | .01 Sekunden |
@@ -572,10 +572,10 @@ Für dieses System sind die Standardwerte zulässig.
 
 In diesem Artikel wurde erläutert, dass die Planung und Skalierung zu Verwendungs Zielen geführt hat. Im folgenden finden Sie ein Übersichts Diagramm der empfohlenen Schwellenwerte, die überwacht werden müssen, um sicherzustellen, dass die Systeme innerhalb von ausreichenden Kapazitäts Schwellenwerten betrieben werden. Beachten Sie, dass es sich hierbei nicht um Leistungs Schwellenwerte, sondern um Schwellenwerte zur Kapazitätsplanung handelt. Ein Server, der über diese Schwellenwerte hinausgeht, funktioniert, ist jedoch Zeit, zu überprüfen, ob alle Anwendungen gut funktionieren. Wenn die genannten Anwendungen gut funktionieren, ist es an der Zeit, mit der Bewertung von Hardware Upgrades oder anderen Konfigurationsänderungen zu beginnen.
 
-| Kategorie | Leistungsindikator | Intervall/Stichprobenentnahme | Ziel | Warnung |
+| Category | Leistungsindikator | Intervall/Stichprobenentnahme | Ziel | Warnung |
 |--|--|--|--|--|
 | Prozessor | Prozessor Informationen (_Total) \\ % Prozessor Dienstprogramm | 60 Min. | 40% | 60 % |
-| RAM (Windows Server 2008 R2 oder früher) | Speicher \ verfügbare MB | < 100 MB | Nicht zutreffend | < 100 MB |
+| RAM (Windows Server 2008 R2 oder früher) | Speicher \ verfügbare MB | < 100 MB | – | < 100 MB |
 | RAM (Windows Server 2012) | Memory\langterm durchschnittliche standbycache-Lebensdauer (n) | 30 Min. | Muss getestet werden | Muss getestet werden |
 | Netzwerk | Netzwerkschnittstelle ( \* ) \Gesendete Bytes/Sek.<p>Netzwerkschnittstelle ( \* ) \Empfangene Bytes/Sek. | 30 Min. | 40% | 60 % |
 | Storage | LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Lesevorgänge<p>LogicalDisk ( *\<NTDS Database Drive\>* ) \ Mittlere Sek./Schreibvorgänge | 60 Min. | 10 ms | 15 ms |
@@ -701,7 +701,7 @@ Zum Anpassen der Schätzwerte für verschiedene Prozessoren war es sicher und mi
     1. Geben Sie unter **einfache Anforderung**die Suchkriterien für den Zielprozessor ein, z. b. der **Prozessor entspricht E5-2630 (baselinetarget)** und der **Prozessor entspricht E5-2650 (Baseline)**.
     1. Suchen Sie die zu verwendende Server-und Prozessor Konfiguration (oder etwas, wenn eine genaue Entsprechung nicht verfügbar ist), und notieren Sie sich den Wert in den Spalten **Result** und **# Cores** .
 1. Verwenden Sie zum Bestimmen des Modifizierers die folgende Gleichung:
-   >((*Zielplattform-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der baselineplattform*)) &divide;((*Baseline-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der Zielplattform*))
+   >((*Zielplattform-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der baselineplattform*)) &divide; ((*Baseline-pro-Kern-Bewertungs Wert*) &times; (*MHz pro Kern der Zielplattform*))
 
     Verwenden Sie das obige Beispiel:
    >(35,83 &times; 2000) &divide; (33,75 &times; 2300) = 0,92
@@ -792,7 +792,7 @@ Nach der Analyse der Komponenten dieses Speicher Subsystems ist die Spindel der 
 
 Nachdem Sie nun eine einfache Konfiguration analysiert haben, zeigt die folgende Tabelle, wo der Engpass auftritt, wenn Komponenten im Speichersubsystem geändert oder hinzugefügt werden.
 
-| Hinweise | Engpass-Analyse | Datenträger | Bus | Adapter | PCI-Bus |
+| Notizen | Engpass-Analyse | Datenträger | Bus | Adapter | PCI-Bus |
 |--|--|--|--|--|--|
 | Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar. | 1 Datenträger hinzufügen (Gesamt = 2)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 200 I/OS Gesamt<br />800 KB/s insgesamt. |  |  |  |
 | Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar. | **7 Datenträger hinzufügen (Gesamt = 8)**  <p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD | 800 I/OS gesamt.<br />3200 KB/s insgesamt |  |  |  |
@@ -820,7 +820,7 @@ Wenn das Verhältnis zwischen Lese-und Schreibvorgängen und der Anzahl der Spin
 
 > *Maximaler IOPS-Wert pro Spindel* &times; 2 Spindeln &times; [(*% Lese*Vorgänge in  +  *% Schreibvorgänge*) &divide; (*% Lese* Vorgänge + 2 &times; *% Schreibvorgänge*)] = *IOPS Gesamt*
 
-RAID 1 + 0 verhält sich in Bezug auf das Lesen und Schreiben genauso wie RAID 1. Die e/a-Vorgänge werden jedoch jetzt über jeden gespiegelten Satz verteilt. Wenn
+RAID 1 + 0 verhält sich in Bezug auf das Lesen und Schreiben genauso wie RAID 1. Die e/a-Vorgänge werden jedoch jetzt über jeden gespiegelten Satz verteilt. If
 
 > *Maximaler IOPS-Wert pro Spindel* &times; 2 Spindeln &times; [(*% Lese*Vorgänge in  +  *% Schreibvorgänge*) &divide; (*% Lese* Vorgänge + 2 &times; *% Schreibvorgänge*)] = *Gesamtzahl* der e/a-Vorgänge
 

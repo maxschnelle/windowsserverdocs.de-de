@@ -3,15 +3,16 @@ title: Rollen, Rollen Dienste und Features, die in Windows Server-Server Core en
 description: Welche Rollen und Features sind in der Server Core-Installationsoption von Windows Server enthalten?
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: lizap
+author: pronichkin
+ms.author: artemp
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 1569feb27a75815771cf84317bebb2fde9d83dfa
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: ded40a119d0d1ae759ec0b29ce9ee4808653ea50
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895863"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077757"
 ---
 # <a name="roles-role-services-and-features-included-in-windows-server---server-core"></a>Rollen, Rollen Dienste und Features, die in Windows Server-Server Core enthalten sind
 
@@ -26,7 +27,7 @@ Denken Sie daran, dass Sie [immer sehen](server-core-removed-roles.md) können, 
 ## <a name="roles-included-in-server-core"></a>In Server Core enthaltene Rollen
 Die Server Core-Installationsoption umfasst die folgenden Server Rollen.
 
-| Role                                            | Name                           | Standardmäßig installiert? |
+| Role                                            | name                           | Standardmäßig installiert? |
 |-------------------------------------------------|--------------------------------|-----------------------|
 | Active Directory-Zertifikatdienste           | AD-Zertifikat                 | N                     |
 | Active Directory Domain Services                | AD-Domain-Services             | N                     |
@@ -36,7 +37,7 @@ Die Server Core-Installationsoption umfasst die folgenden Server Rollen.
 | Integritätsnachweis für Geräte                       | Devicehealthattestationservice | N                     |
 | DHCP-Server                                     | DHCP                           | N                     |
 | DNS-Server                                      | DNS                            | N                     |
-| Datei- und Speicherdienste                       | Fileandstorage-Dienste        | J                     |
+| Datei- und Speicherdienste                       | Fileandstorage-Dienste        | „Y“ zugeordnet ist                     |
 | Host-Überwachungsdienst                           | Hostguardianservicerole        | N                     |
 | Hyper-V                                         | Hyper-V                        | N                     |
 | Druck- und Dokumentdienste                     | Druckdienste                 | N                     |
@@ -50,7 +51,7 @@ Die Server Core-Installationsoption umfasst die folgenden Server Rollen.
 ## <a name="role-services-included-in-server-core"></a>In Server Core enthaltene Rollen Dienste
 Die Server Core-Installationsoption umfasst die folgenden Rollen Dienste.
 
-| Role                                  | Rollendienst                                                   | Name                    | Standardmäßig installiert? |
+| Role                                  | Rollendienst                                                   | name                    | Standardmäßig installiert? |
 |---------------------------------------|----------------------------------------------------------------|-------------------------|-----------------------|
 | Active Directory-Zertifikatdienste | Zertifizierungsstelle                                        | ADCS Zertifizierungsstelle     | N                     |
 |                                       | Zertifikatregistrierungsrichtlinien-Webdienst                      | ADCs-ENROLL-Web-Pol     | N                     |
@@ -72,7 +73,7 @@ Die Server Core-Installationsoption umfasst die folgenden Rollen Dienste.
 |                                       | iSCSI-Zielspeicher Anbieter (VDS-und VSS-Hardware Anbieter) | iscsitarget-VSS-VDS     | N                     |
 |                                       | Server für NFS                                                 | FS-NFS-Dienst          | N                     |
 |                                       | Arbeitsordner                                                   | FS-syncshareservice     | N                     |
-|                                       | Speicherdienste                                               | Speicherdienste        | J                     |
+|                                       | Speicherdienste                                               | Speicherdienste        | „Y“ zugeordnet ist                     |
 | Druck- und Dokumentdienste           | Druckerserver                                                   | Druck Server            | N                     |
 |                                       | LPD-Dienst                                                    | Print-LPD-Service       | N                     |
 | Remotezugriff                         | DirectAccess und VPN (RAS)                                     | DirectAccess-VPN        | N                     |
@@ -126,7 +127,7 @@ Die Server Core-Installationsoption umfasst die folgenden Rollen Dienste.
 |                                       | FTP-Erweiterbarkeit                                              | Web-FTP-ext             | N                     |
 |                                       | Verwaltungstools                                               | Web-Mgmt-Tools          | N                     |
 |                                       | IIS 6-Verwaltungskompatibilität                                 | Web-Mgmt-Anwendungskompatibilität         | N                     |
-|                                       | IIS 6-Metabasiskompatibilität                                   | Web-Metabasis            | N                     |
+|                                       | IIS 6-Metabasiskompatibilität                                   | Web-Metabasis            | N                     |
 |                                       | IIS 6-Skripttools                                          | Web-lgcy-Scripting      | N                     |
 |                                       | IIS 6-WMI-Kompatibilität                                        | Web-WMI                 | N                     |
 |                                       | IIS-Verwaltungsskripts und -tools                               | Web-Scripting-Tools     | N                     |
@@ -138,22 +139,22 @@ Die Server Core-Installationsoption umfasst die folgenden Rollen Dienste.
 ## <a name="features-included-in-server-core"></a>In Server Core enthaltene Features
 Die Server Core-Installationsoption umfasst die folgenden Features.
 
-| Funktion                                                | Name                               | Standardmäßig installiert? |
+| Funktion                                                | name                               | Standardmäßig installiert? |
 |--------------------------------------------------------|------------------------------------|-----------------------|
 | .NET Framework 3.5-Features                            | NET-Framework-Features             | N                     |
 | .NET Framework 3,5 (einschließlich .NET 2,0 und 3,0)       | NET-Framework-Core                 | (entfernt)             |
 | HTTP-Aktivierung                                        | NET-HTTP-Aktivierung                | N                     |
 | Nicht-HTTP-Aktivierung                                    | Nicht-http-aktiv                 | N                     |
-| .NET Framework 4,6-Features                            | NET-Framework-45-Features          | J                     |
-| .NET Framework 4.6                                     | NET-Framework-45-Core              | J                     |
+| .NET Framework 4,6-Features                            | NET-Framework-45-Features          | „Y“ zugeordnet ist                     |
+| .NET Framework 4.6                                     | NET-Framework-45-Core              | „Y“ zugeordnet ist                     |
 | ASP.NET 4,6                                            | NET-Framework-45-ASPNET            | N                     |
-| WCF Services                                           | NET-WCF-Services45                 | J                     |
+| WCF Services                                           | NET-WCF-Services45                 | „Y“ zugeordnet ist                     |
 | HTTP-Aktivierung                                        | NET-WCF-HTTP-Activation45          | N                     |
 | Message Queuing Aktivierung (MSMQ)                      | NET-WCF-MSMQ-Activation45          | N                     |
 | Named Pipe-Aktivierung                                  | NET-WCF-Pipe-Activation45          | N                     |
 | TCP-Aktivierung                                         | NET-WCF-TCP-Activation45           | N                     |
-| TCP-Portfreigabe                                       | NET-WCF-TCP-PortSharing45          | J                     |
-| Intelligenter Hintergrundübertragungsdienst (BITS – Background Intelligent Transfer Service)         | BITS                               | N                     |
+| TCP-Portfreigabe                                       | NET-WCF-TCP-PortSharing45          | „Y“ zugeordnet ist                     |
+| Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)         | BITS                               | N                     |
 | Compact Server                                         | BITS-Compact-Server                | N                     |
 | BitLocker-Laufwerkverschlüsselung                             | BitLocker                          | N                     |
 | BranchCache                                            | BranchCache                        | N                     |
@@ -214,17 +215,17 @@ Die Server Core-Installationsoption umfasst die folgenden Features.
 | RPC über HTTP-Proxy                                    | RPC-über-HTTP-Proxy                | N                     |
 | Ereignissammlung für Setup und Start                        | Setup-und-Boot-Event-Collection    | N                     |
 | Einfache TCP/IP-Dienste                                 | Simple-tcpip                       | N                     |
-| SMB 1.0-/CIFS-Dateifreigabeunterstützung                      | FS-Server Message Block                            | J                     |
+| SMB 1.0-/CIFS-Dateifreigabeunterstützung                      | FS-Server Message Block                            | „Y“ zugeordnet ist                     |
 | SMB-Bandbreiteneinschränkung                                    | EA-SMBBW                           | N                     |
 | SNMP-Dienst                                           | SNMP-Dienst                       | N                     |
 | SNMP-WMI-Anbieter                                      | SNMP-WMI-Provider                  | N                     |
 | Telnet-Client                                          | Telnet-Client                      | N                     |
 | VM-Abschirmungstools für Fabric-Verwaltung               | Fabricshieldedtools                | N                     |
-| Windows Defender-Features                              | Windows-Defender-Features          | J                     |
-| Windows Defender                                       | Windows-Defender                   | J                     |
+| Windows Defender-Features                              | Windows-Defender-Features          | „Y“ zugeordnet ist                     |
+| Windows Defender                                       | Windows-Defender                   | „Y“ zugeordnet ist                     |
 | Interne Windows-Datenbank                              | Interne Windows-Datenbank          | N                     |
-| Windows PowerShell                                     | Powershellroot                     | J                     |
-| Windows PowerShell 5.1                                 | PowerShell                         | J                     |
+| Windows PowerShell                                     | Powershellroot                     | „Y“ zugeordnet ist                     |
+| Windows PowerShell 5.1                                 | PowerShell                         | „Y“ zugeordnet ist                     |
 | Windows PowerShell 2,0-Engine                          | PowerShell-v2                      | (entfernt)             |
 | Windows PowerShell-Dienst zum Konfigurieren des gewünschten Zustands | DSC-Dienst                        | N                     |
 | Windows PowerShell Web Access                          | WindowsPowerShellWebAccess         | N                     |
@@ -237,5 +238,5 @@ Die Server Core-Installationsoption umfasst die folgenden Features.
 | Standardbasierte Windows-Speicherverwaltung             | Windowsstoragemanagementservice    | N                     |
 | WinRM-IIS-Erweiterung                                    | WinRM-IIS-ext                      | N                     |
 | WINS-Server                                            | WINS                               | N                     |
-| WoW64-Unterstützung                                          | WOW64-Unterstützung                      | J                     |
+| WoW64-Unterstützung                                          | WOW64-Unterstützung                      | „Y“ zugeordnet ist                     |
 |                                                        |                                    |                       |

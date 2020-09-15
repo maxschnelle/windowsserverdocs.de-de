@@ -2,15 +2,15 @@
 title: Leistungsoptimierung Remotedesktop Sitzungs Hosts
 description: Richtlinien zur Leistungsoptimierung für Remotedesktop Sitzungs Hosts
 ms.topic: article
-ms.author: hammadbu; vladmis; denisgun
+ms.author: hammadbu
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 9a82f0db1f586e1f762292c61eabdd7f6556c8bc
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 82a89454cfab7cda9de4375c843cde81af5b0544
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992103"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078177"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 

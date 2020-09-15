@@ -2,15 +2,15 @@
 title: Hyper-V-Speicherleistung
 description: Überlegungen zum Arbeitsspeicher bei der Leistungsoptimierung in Hyper
 ms.topic: article
-ms.author: asmahi; sandysp; jopoulso
+ms.author: asmahi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 08ccc5c8a6b7300f1fa476c01838080b0b01f67a
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: f0358747002eb850283c63770885d38872b7b903
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896091"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078266"
 ---
 # <a name="hyper-v-memory-performance"></a>Hyper-V-Speicherleistung
 

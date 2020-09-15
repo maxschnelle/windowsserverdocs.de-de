@@ -3,14 +3,15 @@ title: Erstellen eines Standardbenutzerkontos
 description: Erstellen eines einfachen Benutzerkontos für Multipoint Services
 ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
-author: lizap
-manager: dongill
-ms.openlocfilehash: 80137fda9838400034348e62f91798bfb2a09ed7
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+author: evaseydl
+manager: scottman
+ms.author: evas
+ms.openlocfilehash: f6f4a7b6b59dc78e7670084912f2cb6939036022
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87944320"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077567"
 ---
 # <a name="create-a-standard-user-account"></a>Erstellen eines Standardbenutzerkontos
 Erstellen Sie *Standardbenutzerkonten* für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Standardbenutzer Konten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Standardbenutzer Zugriff verfügt, klicken Sie in Multipoint-Manager auf die Registerkarte **Benutzer** . Standardbenutzer Konten werden in der Spalte **Kontotyp** als **Standard**angezeigt.

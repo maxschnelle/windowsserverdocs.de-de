@@ -3,15 +3,16 @@ title: Konfigurieren von Speicher Abbild Dateien für die Server Core-Installati
 description: Erfahren Sie, wie Sie Speicher Abbild Dateien für eine Server Core-Installation von Windows Server konfigurieren.
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: lizap
+author: pronichkin
+ms.author: artemp
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: d01757fcf1539e41db866b46cdf9eba60a59fc04
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e3ef6076465bc7d165b58f1205ff8d0cf25014b7
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993208"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077777"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Konfigurieren von Speicher Abbild Dateien für die Server Core-Installation
 
@@ -84,7 +85,7 @@ Führen Sie den folgenden Befehl aus, um den aktuellen Speicherdump-Typ zu ände
 wmic RECOVEROS set DebugInfoType = <Value>
 ```
 
-\<Value\>kann 0, 1, 2 oder 3 sein, wie unten definiert.
+\<Value\> kann 0, 1, 2 oder 3 sein, wie unten definiert.
 
 - 0: Deaktivieren Sie das Entfernen eines Speicher Abbilds.
 - 1: vollständiges Speicher Abbild. Zeichnet den gesamten Inhalt des System Arbeitsspeichers auf, wenn der Computer unerwartet angehalten wird. Ein vollständiges Speicher Abbild kann Daten aus Prozessen enthalten, die bei der Erfassung des Speicher Abbilds ausgeführt wurden.

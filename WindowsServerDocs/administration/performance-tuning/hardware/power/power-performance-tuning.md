@@ -2,15 +2,15 @@
 title: Übersicht über Leistungs-und Leistungsoptimierung für Windows Server
 description: Übersicht über die Optimierung der Prozessor Energie Verwaltung (ppm) für den Windows-Server.
 ms.topic: conceptual
-ms.author: qizha;tristanb
+ms.author: qizha
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 535c1e2ccff14f01f015b67fd0fc2c6be4a04729
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1e1f409e5c84a603c628e1ceebe97317864c8785
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992404"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077612"
 ---
 # <a name="power-and-performance-tuning"></a>Energie- und Leistungsoptimierung
 

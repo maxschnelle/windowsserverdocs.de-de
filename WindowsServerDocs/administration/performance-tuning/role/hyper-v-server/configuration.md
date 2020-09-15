@@ -2,15 +2,15 @@
 title: Hyper-V – Konfiguration
 description: Überlegungen zur Hyper-V-Konfiguration für die Leistungsoptimierung
 ms.topic: article
-ms.author: asmahi; sandysp; jopoulso
+ms.author: asmahi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 42e95662cd2177b37fef1b47f0a51989ab964168
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: a7779b882fe6a704dcf12819ad91042c20381eba
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992160"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077217"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 

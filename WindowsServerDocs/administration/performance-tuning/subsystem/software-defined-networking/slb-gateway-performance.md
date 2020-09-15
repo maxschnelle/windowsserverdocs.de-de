@@ -2,15 +2,15 @@
 title: Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 description: Leitfaden zur Leistungsoptimierung für SLB-Gateways in Sdn-Netzwerken
 ms.topic: article
-ms.author: grcusanz; anpaul
+ms.author: grcusanz
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 64d045a270b8762d0d269055c8c65d1e40a71d63
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: d45a5f585c7da30e4d9bdd4c8ec3c2e2003b7ea0
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87895932"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077917"
 ---
 # <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 
@@ -26,7 +26,7 @@ Eine einzelne Verbindung mit einer virtuellen IP-Adresse (VIP) wird immer an die
 
 In einigen Fällen, in denen die Quelle der Anforderung von einem Sdn-Host stammt, der demselben Netzwerk Controller hinzugefügt wird, der die VIP verwaltet, wird auch die weitere Optimierung des eingehenden Pfads für die Anforderung ausgeführt, sodass die meisten Pakete direkt vom Client zum Server übertragen werden können, wobei der Mux-VM vollständig umgangen wird.  Es ist keine zusätzliche Konfiguration erforderlich, damit diese Optimierung stattfindet.
 
-Jeder SLB MUX-VM muss gemäß den Richtlinien, die im Abschnitt [Planen einer Software definierten Netzwerkinfrastruktur](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) beschrieben werden, gemäß den Richtlinien für die Rollenanforderungen für virtuelle Computer in Sdn-Infrastruktur angegeben werden.
+Jeder SLB MUX-VM muss gemäß den Richtlinien, die im Abschnitt  [Planen einer Software definierten Netzwerkinfrastruktur](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) beschrieben werden, gemäß den Richtlinien für die Rollenanforderungen für virtuelle Computer in Sdn-Infrastruktur angegeben werden.
 
 ## <a name="single-root-io-virtualization-sr-iov"></a>Single-root-e/a-Virtualisierung (SR-IOV)
 

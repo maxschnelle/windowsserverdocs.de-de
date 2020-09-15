@@ -1,17 +1,17 @@
 ---
 title: Direkte Speicherplätze Problembehandlung
 description: Erfahren Sie, wie Sie Probleme bei der direkte Speicherplätze Bereitstellung behandeln.
-ms.author: ''
+ms.author: kaushika
 ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 719a44a6c442f64b83a804c9ca20eb6ceaa791e9
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 525db4b22e0408847e4a52659d06ecddf5b1df8f
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954607"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078667"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Problembehandlung direkte Speicherplätze
 
@@ -37,8 +37,8 @@ Die Knoten eines direkte Speicherplätze Systems werden aufgrund eines Absturzes
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
 |Disk4| Spiegel| OK|  Healthy| True|  10 TB|  Knoten-01....|
 |Disk3         |Spiegel                 |OK                          |Healthy       |True            |10 TB | Knoten-01....|
-|Disk2         |Spiegel                 |Keine Redundanz               |Fehlerhaft     |True            |10 TB | Knoten-01....|
-|Disk1         |Spiegel                 |{Keine Redundanz, INService}  |Fehlerhaft     |True            |10 TB | Knoten-01....|
+|Disk2         |Spiegel                 |Keine Redundanz               |Unhealthy     |True            |10 TB | Knoten-01....|
+|Disk1         |Spiegel                 |{Keine Redundanz, INService}  |Unhealthy     |True            |10 TB | Knoten-01....|
 
 Außerdem werden nach dem Versuch, den virtuellen Datenträger online zu schalten, die folgenden Informationen im Cluster Protokoll (diskherstellungsaction) protokolliert.
 
@@ -100,8 +100,8 @@ Im folgenden finden Sie ein Beispiel für die Ausgabe des Cmdlets **Get-virtuald
 |-|-|-|-|-|-|-|
 |Disk4|         Spiegel|                 OK|                  Healthy|       True|            10 TB|  Knoten-01....|
 |Disk3|         Spiegel|                 OK|                  Healthy|       True|            10 TB|  Knoten-01....|
-|Disk2|         Spiegel|                 Getrennt|            Unknown|       True|            10 TB|  Knoten-01....|
-|Disk1|         Spiegel|                 Getrennt|            Unknown|       True|            10 TB|  Knoten-01....|
+|Disk2|         Spiegel|                 Getrennt|            Unbekannt|       True|            10 TB|  Knoten-01....|
+|Disk1|         Spiegel|                 Getrennt|            Unbekannt|       True|            10 TB|  Knoten-01....|
 
 
 Außerdem können die folgenden Ereignisse auf den Knoten protokolliert werden:
@@ -395,7 +395,7 @@ Das Problem liegt bei der HPE-SAS-Expander-Karte zwischen den Datenträgern und 
 Möglicherweise wird ein Problem auftreten, bei dem ein Gerät mit Intel SSD-DC P4600 eine ähnliche 16 Byte-nguid für mehrere Namespaces meldet, wie z. b. 0100000001000000e4d25c000014e214 oder 0100000001000000e4d25c0000eee214 im folgenden Beispiel.
 
 
-|               uniqueid               | deviceid | MediaType | BusType |               serialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
+|               UniqueId               | deviceid | MediaType | BusType |               serialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
 |           5000 cca251d12e30           |    0     |    Festplattenlaufwerk    |   SAS   |                 7pkr197g                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
 | EUI. 0100000001000000e4d25c000014e214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
@@ -449,7 +449,7 @@ Event ID 205: Windows lost communication with physical disk {XXXXXXXXXXXXXXXXXXX
 Event ID 203: Windows lost communication with physical disk {xxxxxxxxxxxxxxxxxxxxxxxx }. This can occur if a cable failed or was disconnected, or if the disk itself failed.
 ```
 
-Wenn Sie Azure-VMS ausführen, können Sie dieses Ereignis ignorieren:`Event ID 32: The driver detected that the device \Device\Harddisk5\DR5 has its write cache enabled. Data corruption may occur.`
+Wenn Sie Azure-VMS ausführen, können Sie dieses Ereignis ignorieren: `Event ID 32: The driver detected that the device \Device\Harddisk5\DR5 has its write cache enabled. Data corruption may occur.`
 
 ## <a name="slow-performance-or-lost-communication-io-error-detached-or-no-redundancy-errors-for-deployments-that-use-intel-p3x00-nvme-devices"></a>Fehler bei der Leistung oder bei bereit Stellungen, bei denen Intel P3x00 nvme-Geräte verwendet werden, oder "verlorene Kommunikation", "e/a-Fehler", "getrennt" oder "keine Redundanz".
 

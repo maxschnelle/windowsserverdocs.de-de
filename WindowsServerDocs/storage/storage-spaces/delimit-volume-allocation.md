@@ -1,16 +1,16 @@
 ---
 title: Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
-ms.author: cosmosdarwin
 manager: eldenc
 ms.topic: article
 author: cosmosdarwin
+ms.author: cosdar
 ms.date: 03/29/2018
-ms.openlocfilehash: 6dac775d3e92a0f7a076800d5c07af2776720c1d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 394d9dbb41f502fe9be273e97177237dea79fde7
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960953"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078495"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
 > Gilt für: Windows Server 2019
@@ -32,7 +32,7 @@ In Windows Server 2019 wird eine Option eingeführt, mit der die Zuordnung von V
 - Ihr Cluster verfügt über weniger als sechs Server. noch
 - Ihr [Cluster verwendet die](storage-spaces-fault-tolerance.md#parity) Resilienz der Parität oder der [Spiegelungs Beschleunigung](storage-spaces-fault-tolerance.md#mirror-accelerated-parity) .
 
-## <a name="understand"></a>Informationen
+## <a name="understand"></a>Verstehen
 
 ### <a name="review-regular-allocation"></a>Review: reguläre Zuordnung
 

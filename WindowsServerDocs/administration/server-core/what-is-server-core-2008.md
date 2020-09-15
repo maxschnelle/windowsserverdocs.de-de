@@ -1,16 +1,16 @@
 ---
 title: Was ist Server Core 2008?
 description: Weitere Informationen zur Server Core-Installationsoption in Windows Server 2008
-ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
-author: heidilohr
-ms.openlocfilehash: fb3e0b60787cb12c3401a14a54aebf4809c61b45
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+author: pronichkin
+ms.author: artemp
+ms.openlocfilehash: 443c0307529a21a6a23da996486a2e6c40894af1
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993227"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077787"
 ---
 # <a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
 >Gilt für: Windows Server 2008
@@ -103,7 +103,7 @@ Eine Server Core-Installation umfasst nur eine begrenzte Anzahl von Server Rolle
 | ------------- | :-------------: | :------------: |
 | Active Directory-Zertifikatdienste (AD CS)  | X |  |
 | Active Directory Domain Services (AD DS)  | X  | X |
-| Active Directory-Verbunddienste (Active Directory Federation Services, AD FS)  | X  |  |
+| Active Directory-Verbunddienste (AD FS)  | X  |  |
 | Active Directory Lightweight Directory Services (ADLDS)  | X  | X |
 | Active Directory-Rechteverwaltungsdienste (Active Directory Rights Management Services, AD RMS)  | X  |  |
 | Anwendungsserver  | X  |  |
@@ -131,7 +131,7 @@ Eine Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der
 
 **Tabelle 1-4** Vergleich der Features für vollständige und Server Core-Installationen von Windows Server 2008 Enterprise Edition
 
-| Feature  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
+| Funktion  | In vollständiger Installation verfügbar  | Verfügbar in Server Core  |
 | ------------- | :-------------: | :------------: |
 | .NET Framework 3.0-Funktionen  | X  |  |
 | BitLocker-Laufwerkverschlüsselung  | X  | X |
@@ -144,7 +144,7 @@ Eine Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der
 | Internet Storage Name Server  | X  |  |
 | LPR-Portüberwachung  | X  |  |
 | Message Queuing  | X  |  |
-| Multipfad-E/A  | X  | X |
+| Multipfad-IO  | X  | X |
 | Netzwerklastenausgleich  | X  | X |
 | Peer Name Resolution-Protokoll  | X  |  |
 | Verbessertes Windows-Audio-/Video-Streaming  | X |  |

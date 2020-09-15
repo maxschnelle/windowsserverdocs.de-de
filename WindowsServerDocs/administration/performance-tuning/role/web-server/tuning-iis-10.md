@@ -2,15 +2,15 @@
 title: Optimieren von IIS 10.0
 description: Neukommungen für die Leistungsoptimierung von IIS 10,0-Webservern unter Windows Server 16
 ms.topic: landing-page
-ms.author: davso; ericam; yashi
+ms.author: ericam
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 74badc4bd2c001a524a290b74054fffb1a08cd36
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 5ee33ad0c5246efa40263bcdba8c4380efb2e2bf
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896012"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078087"
 ---
 # <a name="tuning-iis-100"></a>Optimieren von IIS 10.0
 
@@ -321,7 +321,7 @@ Idealerweise sind die Standorte, die Sie für die Unterbrechung oder Beendigung 
 
 Beachten Sie, dass Sie, sobald ein bestimmter Benutzer eine Verbindung mit der Website herstellt, in der Regel mindestens eine Weile darauf warten, dass es zusätzliche Anforderungen gibt und dass das zählen der täglichen Anforderungen möglicherweise nicht exakt den tatsächlichen Datenverkehrs Mustern entspricht. Um ein genaueres lesen zu erzielen, können Sie auch ein Tool wie Microsoft Excel verwenden, um die durchschnittliche Zeit zwischen den Anforderungen zu berechnen. Beispiel:
 
-| Number | Anfrage-URL | Anforderungs Zeit | Delta |
+| Number | Anforderungs-URL | Anforderungs Zeit | Delta |
 |--|--|--|--|
 | 1 | /SourceSilverLight/Geosource.Web/grosource.html | 10:01 |  |
 | 2 | /SourceSilverLight/Geosource.Web/sliverlight.js | 10:10 | 0:09 |

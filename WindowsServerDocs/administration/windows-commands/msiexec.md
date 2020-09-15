@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 93ce1de1f75ff03bc7bb5f79d2046502c2d81bc4
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: a59e48a4c368a33e0d0e751b9b818f263b470b90
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89639620"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90078437"
 ---
 # <a name="msiexec"></a>msiexec
 
@@ -73,7 +73,7 @@ msiexec.exe /i <path_to_package> [/quiet][/passive][/q{n|b|r|f}]
 | /qr | Gibt eine reduzierte Benutzeroberfläche während des Installationsvorgangs an. |
 | /qf | Gibt eine vollständige Benutzeroberfläche während des Installationsvorgangs an. |
 
-##### <a name="remarks"></a>Hinweise
+##### <a name="remarks"></a>Bemerkungen
 
 - Das modale Feld wird nicht angezeigt, wenn die Installation vom Benutzer abgebrochen wird. Sie können **qb +! verwenden.** oder **qb! +** , um die Schaltfläche " **Abbrechen** " auszublenden.
 
@@ -211,7 +211,7 @@ msiexec.exe [/f{p|o|e|d|c|a|u|m|s|v}] <product_code>
 | /Fu | Repariert alle erforderlichen benutzerspezifischen Registrierungseinträge. |
 | /FM | Repariert alle erforderlichen computerspezifischen Registrierungseinträge. |
 | /FS | Repariert alle vorhandenen Verknüpfungen. |
-| /fc | Wird von der Quelle ausgeführt und speichert das lokale Paket erneut. |
+| /fv | Wird von der Quelle ausgeführt und speichert das lokale Paket erneut. |
 
 #### <a name="examples"></a>Beispiele
 

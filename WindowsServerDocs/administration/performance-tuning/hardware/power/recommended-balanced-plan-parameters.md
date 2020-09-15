@@ -2,15 +2,15 @@
 title: Empfohlene ausgeglichene Energie Sparplan Parameter für schnelle Antwortzeiten
 description: Empfohlene ausgeglichene Energie Sparplan Parameter für schnelle Antwortzeiten
 ms.topic: conceptual
-ms.author: qizha;tristanb
+ms.author: qizha
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f733eea9ffae00421a58881b7ffc8deeaf7c785
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 77c33c80598645c4823748663d52fa3aa265e1dd
+ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992280"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90077557"
 ---
 # <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Empfohlene ausgeglichene Energie Sparplan Parameter für Workloads, die schnelle Antwortzeiten erfordern
 
