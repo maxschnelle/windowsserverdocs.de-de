@@ -1,18 +1,17 @@
 ---
 title: Die Domänen Mitgliedschaft wird für Server mit Hyper-V empfohlen.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 2f4578e5-0848-46b4-a50b-7dbd480b80bf
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: d83ccf628e27595d5eb367791937b196fc708a6e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 6a813af7d5064f91870652e6b0073c5c73c62604
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87935482"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745665"
 ---
 # <a name="domain-membership-is-recommended-for-servers-running-hyper-v"></a>Die Domänen Mitgliedschaft wird für Server mit Hyper-V empfohlen.
 
@@ -26,7 +25,7 @@ ms.locfileid: "87935482"
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

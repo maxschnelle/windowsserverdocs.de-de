@@ -1,18 +1,17 @@
 ---
 title: Konfigurieren Sie den Server mit einer ausreichenden Anzahl dynamischer MAC-Adressen.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: a2804519-9790-4006-80b6-e990a8f505fe
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: b0416bb38e78f62bddf8a7937eb821ee0988286d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 0631954ccb89c41637e92d1170bed99d82a085b5
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968377"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744125"
 ---
 # <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>Konfigurieren Sie den Server mit einer ausreichenden Anzahl dynamischer MAC-Adressen.
 
@@ -24,7 +23,7 @@ ms.locfileid: "87968377"
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

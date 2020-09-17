@@ -1,18 +1,17 @@
 ---
 title: Dynamischer Arbeitsspeicher ist aktiviert, reagiert aber nicht auf einigen virtuellen Computern.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 91b7f50f-a071-4ab6-beb1-1b29f92f52b6
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: d6227829f73cdccefecd0758a69a25a299665557
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c826fc39637b3a7cf0f155065945d180bce5e4cb
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87988955"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744135"
 ---
 # <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Dynamischer Arbeitsspeicher ist aktiviert, reagiert aber nicht auf einigen virtuellen Computern.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

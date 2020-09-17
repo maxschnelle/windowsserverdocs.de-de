@@ -1,18 +1,17 @@
 ---
 title: Konfigurieren virtueller Computer, auf denen Windows Vista ausgeführt wird, mit 1 oder 2 virtuellen Prozessoren
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: e562bce3-fd68-42c9-821c-12022ae4746c
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 14be82374fe43314bc7e7fe95aaa00f774295ed6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: bf5780ae397dd774dd6063e9dcdafd36907199f4
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960643"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744035"
 ---
 # <a name="configure-virtual-machines-running-windows-vista-with-1-or-2-virtual-processors"></a>Konfigurieren virtueller Computer, auf denen Windows Vista ausgeführt wird, mit 1 oder 2 virtuellen Prozessoren
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Konfiguration|
+|**Severity**|Konfiguration|
 |**Kategorie**|Fehler|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

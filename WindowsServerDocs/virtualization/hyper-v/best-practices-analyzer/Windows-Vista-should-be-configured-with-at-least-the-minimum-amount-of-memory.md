@@ -1,18 +1,17 @@
 ---
 title: Windows Vista sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 49f6f9b6-c290-4b1b-b6f3-cc9a0acd8fb2
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 74f563cb19bf480f3c5dfa8df639f4b75adbaf4e
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: d0ba0edaf57becfda16c5a55aab6e3f4c10febf9
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996722"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744076"
 ---
 # <a name="windows-vista-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Vista sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Fehler|
+|**Severity**|Fehler|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

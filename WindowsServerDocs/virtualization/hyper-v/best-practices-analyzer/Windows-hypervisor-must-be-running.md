@@ -1,18 +1,17 @@
 ---
 title: Der Windows-Hypervisor muss ausgeführt werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
-author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: aa89f3735151b2dee795c1a325e22446e3770fa0
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 75437680370672a1eef9fad2957f398ce4f267d7
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994542"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744816"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>Der Windows-Hypervisor muss ausgeführt werden.
 
@@ -22,7 +21,7 @@ ms.locfileid: "87994542"
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Voraussetzungen|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

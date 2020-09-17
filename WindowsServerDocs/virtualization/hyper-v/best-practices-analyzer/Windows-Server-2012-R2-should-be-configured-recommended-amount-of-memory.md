@@ -1,18 +1,17 @@
 ---
 title: Windows Server 2012 R2 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: b383a3c9-3ab6-442e-abd8-0942a32b60f8
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: d122ead619a7b1f24d1de67cc67f297b42e1a8d8
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 92dd8bcc0a65b7eee4d042e1be8bcec39b8256bc
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995677"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745416"
 ---
 # <a name="windows-server-2012-r2-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows Server 2012 R2 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

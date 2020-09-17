@@ -1,18 +1,17 @@
 ---
 title: Windows 8 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 0c739e7c-4403-4eff-9e69-213ba1ab7336
-author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: 31235c0526012fddc64d6359b63ad7a8fd3b2217
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c01da3f447ea5109d5912e84b0ba03ecabc50c63
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992573"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745795"
 ---
 # <a name="windows-8-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 8 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

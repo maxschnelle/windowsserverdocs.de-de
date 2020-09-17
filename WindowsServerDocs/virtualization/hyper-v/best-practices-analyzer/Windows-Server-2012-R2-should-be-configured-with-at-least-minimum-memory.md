@@ -1,18 +1,17 @@
 ---
 title: Windows Server 2012 R2 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 01da6f02-1a5f-4d3e-9bef-4d122a91c5c2
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 687ffa5943076f7c4e5c2bd27a5a1400cbff71a2
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: b6c459b80e9149f20fbf1a01e7d0759f12e8e401
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997245"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745315"
 ---
 # <a name="windows-server-2012-r2-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2012 R2 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Fehler|
+|**Severity**|Fehler|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

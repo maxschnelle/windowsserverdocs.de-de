@@ -1,18 +1,17 @@
 ---
 title: Konfigurieren virtueller Computer für die Verwendung von SR-IOV nur, wenn diese vom Gast Betriebssystem unterstützt werden
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 33cf5b68-e43e-47ef-adbc-6b266c1d4dce
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1939aa6e866eddcf5ac99a784332b65cd594ceb8
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3a167b72f9c5c9a011980c07afe5a9a262aaa1be
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87935508"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745685"
 ---
 # <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Konfigurieren virtueller Computer für die Verwendung von SR-IOV nur, wenn diese vom Gast Betriebssystem unterstützt werden
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

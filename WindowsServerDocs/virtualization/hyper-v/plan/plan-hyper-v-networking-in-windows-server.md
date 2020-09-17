@@ -1,17 +1,16 @@
 ---
 title: Planen der Hyper-V-Netzwerke in Windows Server
 description: Hier wird beschrieben, was für grundlegende Netzwerke in Hyper-V erforderlich ist, und enthält Links zu Anweisungen.
-manager: dongill
 ms.topic: article
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: b31d942e8d7890a8f699f743bcd24953d2a3e760
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e36ebb6d90dcb4fc05e05c135a49f84e850249b2
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996072"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745935"
 ---
 # <a name="plan-for-hyper-v-networking-in-windows-server"></a>Planen der Hyper-V-Netzwerke in Windows Server
 
@@ -26,7 +25,7 @@ Die einfachste Möglichkeit zum Einrichten von grundlegenden Netzwerken besteht 
 
 Um unterschiedliche Netzwerktypen zu verarbeiten, können Sie virtuelle Switches und virtuelle Netzwerkadapter hinzufügen. Alle Switches sind Teil des Hyper-V-Hosts, aber jeder virtuelle Netzwerkadapter gehört nur einem virtuellen Computer an.
 
-Bei dem virtuellen Switch handelt es sich um einen softwarebasierten Schicht-2-Ethernet-Netzwerk Switch. Es bietet integrierte Funktionen zum überwachen, Steuern und Segmentieren von Datenverkehr sowie zur Sicherheit und Diagnose.  Sie können dem Satz integrierter Funktionen hinzufügen, indem Sie Plug-ins installieren, die auch als *Erweiterungen*bezeichnet werden. Diese sind für unabhängige Softwarehersteller verfügbar. Weitere Informationen zu Switch und Erweiterungen finden Sie unter [virtueller Hyper-V-Switch](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).
+Bei dem virtuellen Switch handelt es sich um einen softwarebasierten Schicht-2-Ethernet-Netzwerk Switch. Es bietet integrierte Funktionen zum überwachen, Steuern und Segmentieren von Datenverkehr sowie zur Sicherheit und Diagnose.  Sie können dem Satz integrierter Funktionen hinzufügen, indem Sie Plug-ins installieren, die auch als  *Erweiterungen*bezeichnet werden. Diese sind für unabhängige Softwarehersteller verfügbar. Weitere Informationen zu Switch und Erweiterungen finden Sie unter [virtueller Hyper-V-Switch](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).
 
 ### <a name="switch-and-network-adapter-choices"></a>Optionen für Switch und Netzwerkadapter
 Hyper-V bietet drei Arten von virtuellen Switches und zwei Arten von virtuellen Netzwerkadaptern. Wählen Sie aus, welche der beiden Optionen bei der Erstellung ausgewählt werden sollen. Sie können Hyper-v-Manager oder das Hyper-v-Modul für Windows PowerShell verwenden, um virtuelle Switches und virtuelle Netzwerkadapter zu erstellen und zu verwalten. Einige erweiterte Netzwerkfunktionen wie erweiterte Port-Zugriffs Steuerungs Listen (Access Control Lists, ACLs) können nur mithilfe von Cmdlets im Hyper-V-Modul verwaltet werden.

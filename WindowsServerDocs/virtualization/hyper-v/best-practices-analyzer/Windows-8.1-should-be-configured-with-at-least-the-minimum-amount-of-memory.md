@@ -1,18 +1,17 @@
 ---
 title: Windows 8.1 sollte mindestens mit der minimalen Arbeitsspeicher Menge konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 84d7edab-610e-4265-87d0-9869f64b0039
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 71e2514b06ca8280aa219249b4ecd835997197f2
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: dd711757fd50dc2ec7bde71c2073d91fa4ded825
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992570"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745785"
 ---
 # <a name="windows-81-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows 8.1 sollte mindestens mit der minimalen Arbeitsspeicher Menge konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Fehler|
+|**Severity**|Fehler|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

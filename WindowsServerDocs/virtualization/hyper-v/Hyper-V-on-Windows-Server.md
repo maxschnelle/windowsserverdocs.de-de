@@ -1,18 +1,17 @@
 ---
 title: Hyper-V unter Windows Server
 description: Enthält Links zu wichtigen Artikeln über das ausprobieren, planen, bereitstellen und Verwalten von Hyper-V.
-manager: dongill
 ms.topic: article
 ms.assetid: 0baef6b8-598c-4fe0-9f31-5869fc4e0f69
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/07/2016
-ms.openlocfilehash: 1f7fdc2c7ab954868285ce7410cfb5a0a9fd84cb
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9d0e8ea97d229f82b07268bb143cf6ea0969c251
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997046"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90744155"
 ---
 # <a name="hyper-v-on-windows-server"></a>Hyper-V unter Windows Server
 
@@ -36,7 +35,7 @@ Weitere Informationen zu Hyper-V unter Windows Server finden Sie in den Themen i
 
 In der folgenden Tabelle sind die Technologien aufgelistet, die Sie möglicherweise in ihrer virtualisierungsserverumgebung verwenden möchten.
 
-|Technologie|BESCHREIBUNG|
+|Technologie|Beschreibung|
 |--------------|---------------|
 |[Hyper-V für Clients](/virtualization/hyper-v-on-windows/index)|Virtualisierungstechnologie, die in Windows 8 enthalten ist, Windows 8.1 und Windows 10, die Sie über **Programme und Funktionen** in der **Systemsteuerung**installieren können.|
 |[Failoverclustering](../../failover-clustering/whats-new-in-failover-clustering.md)|Windows Server-Funktion, die Hochverfügbarkeit für Hyper-V-Hosts und virtuelle Maschinen bereitstellt.|

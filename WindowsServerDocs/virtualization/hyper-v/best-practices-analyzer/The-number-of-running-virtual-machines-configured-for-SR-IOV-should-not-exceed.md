@@ -1,18 +1,17 @@
 ---
 title: Die Anzahl der für SR-IOV konfigurierten virtuellen Computer sollte nicht die Anzahl der virtuellen Funktionen überschreiten, die für die virtuellen Maschinen verfügbar sind.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 8bd4af5e-9e7d-4710-8950-39435a8bb373
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 16126118cdbf2341059fb0871ee7c33b62dc6b94
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 432bf4132e8c19a326fda646960b30315d3952b1
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960383"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745805"
 ---
 # <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>Die Anzahl der für SR-IOV konfigurierten virtuellen Computer sollte nicht die Anzahl der virtuellen Funktionen überschreiten, die für die virtuellen Maschinen verfügbar sind.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
