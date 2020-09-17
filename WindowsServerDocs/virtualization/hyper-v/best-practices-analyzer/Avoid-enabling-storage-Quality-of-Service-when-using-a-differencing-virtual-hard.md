@@ -1,18 +1,17 @@
 ---
 title: Aktivieren Sie Speicher Quality of Service nicht, wenn Sie eine differenzierende virtuelle Festplatte verwenden, wenn sich die übergeordneten und untergeordneten virtuellen Festplatten auf unterschiedlichen Volumes befinden.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: aa9ed408-65cf-40dc-aad2-118b54c70179
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: b208a7a10679804666ff41a02d4cddbb4d8c6762
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 792ee7f84694171b7b44602c8bb1a5c307d80c6c
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939182"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90747075"
 ---
 # <a name="avoid-enabling-storage-quality-of-service-when-using-a-differencing-virtual-hard-disk-when-the-parent-and-child-virtual-hard-disks-are-on-different-volumes"></a>Aktivieren Sie Speicher Quality of Service nicht, wenn Sie eine differenzierende virtuelle Festplatte verwenden, wenn sich die übergeordneten und untergeordneten virtuellen Festplatten auf unterschiedlichen Volumes befinden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

@@ -3,18 +3,15 @@ title: Erstellen von Hyper-V-VHD-Satz Dateien
 description: Schritte zum Erstellen einer vhdset-Datei unter Hyper-v 2016
 author: jiwool
 ms.author: jiwool
-manager: senthilr
 ms.date: 01/26/2017
 ms.topic: article
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
-audience: IT Pros
-ms.reviewer: kathydav
-ms.openlocfilehash: a2c4b2ff3ca4dda2cb2989c629c5dac5f529cac0
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7e2c287666115b9a81c6ab5585187f26dad7a5e3
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87991451"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746465"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>Erstellen von Hyper-V-VHD-Satz Dateien
 VHD-Set-Dateien sind ein neues frei gegebenes virtuelles Datenträger Modell für Gast Cluster in Windows Server 2016. VHD-Set-Dateien unterstützen die Online Größe von freigegebenen virtuellen Datenträgern, unterstützen das Hyper-V-Replikat und können in Anwendungs konsistente Prüfpunkte eingeschlossen werden.

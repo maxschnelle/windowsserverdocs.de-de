@@ -1,18 +1,17 @@
 ---
 title: Verwalten von Hyper-V-Integration Services
 description: Beschreibt, wie Integrationsdienste ein-und ausgeschaltet werden und bei Bedarf installiert werden.
-author: kbdazure
-ms.author: kathydav
-manager: dongill
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 12/20/2016
 ms.topic: article
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: 5d5f69e1c71df9746421329d8fdf11a9786a948b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9056beec7d07d1657ece3703f461ecfe5d9cd0fc
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996756"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746445"
 ---
 # <a name="manage-hyper-v-integration-services"></a>Verwalten von Hyper-V-Integration Services
 
@@ -230,7 +229,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 
 | Gast  | Updatemechanismus | Hinweise |
 |:---------|:---------|:---------|
-| Windows 10 | Windows-Update | |
+| Windows 10 | Windows-Update | |
 | Windows 8.1 | Windows-Update | |
 | Windows 8 | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
 | Windows 7 | Windows-Update | Benötigt den Integrationsdienst „Datenaustausch“.* |
@@ -247,13 +246,13 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 | - | | |
 | Linux-Gastbetriebssysteme | Paket-Manager | Integration Services für Linux sind in die Distribution integriert, es können jedoch optionale Updates verfügbar sein. ******** |
 
-\*Wenn der Datenaustausch-Integrations Dienst nicht aktiviert werden kann, stehen die Integrationsdienste für diese Gäste im [Download Center](https://support.microsoft.com/kb/3071740) als CAB-Datei (CAB-Datei) zur Verfügung. Anweisungen zum Anwenden eines CAB finden Sie in diesem [Blogbeitrag](https://techcommunity.microsoft.com/t5/virtualization/integration-components-available-for-virtual-machines-not/ba-p/382247).
+\* Wenn der Datenaustausch-Integrations Dienst nicht aktiviert werden kann, stehen die Integrationsdienste für diese Gäste im [Download Center](https://support.microsoft.com/kb/3071740) als CAB-Datei (CAB-Datei) zur Verfügung. Anweisungen zum Anwenden eines CAB finden Sie in diesem [Blogbeitrag](https://techcommunity.microsoft.com/t5/virtualization/integration-components-available-for-virtual-machines-not/ba-p/382247).
 
 **Für virtuelle Maschinen, die auf Windows 8.1/Windows Server 2012r2-Hosts ausgeführt werden:**
 
 | Gast  | Updatemechanismus | Hinweise |
 |:---------|:---------|:---------|
-| Windows 10 | Windows-Update | |
+| Windows 10 | Windows-Update | |
 | Windows 8.1 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows 8 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |
 | Windows 7 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |

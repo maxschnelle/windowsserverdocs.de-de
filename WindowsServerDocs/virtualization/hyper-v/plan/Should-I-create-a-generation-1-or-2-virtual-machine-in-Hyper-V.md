@@ -1,18 +1,17 @@
 ---
 title: Soll ich in Hyper-V einen virtuellen Computer der 1. oder der 2. Generation erstellen?
 description: Bietet Überlegungen wie z. b. unterstützte Startmethoden und andere Funktions Unterschiede, damit Sie entscheiden können, welche Generierung Ihren Anforderungen entspricht.
-manager: dongill
 ms.topic: article
 ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 12/05/2016
-ms.openlocfilehash: b41cefc34bce2a9d1e2e29e9d31353d4f9b8a669
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: f9cdb144e7edacf8a1be0f2d98509517adf5c87e
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996975"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746595"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Soll ich in Hyper-V einen virtuellen Computer der 1. oder der 2. Generation erstellen?
 
@@ -60,8 +59,8 @@ In der folgenden Tabelle wird gezeigt, welche 64-Bit-Versionen von Windows als G
 | Windows Server 2012 R2 |&#10004;|&#10004;|
 | Windows Server 2012 |&#10004;|&#10004;|
 |Windows Server 2008 R2|&#10004;| &#10006;|
-|WindowsServer 2008|&#10004;| &#10006;|
-|Windows 10|&#10004;|&#10004;|
+|Windows Server 2008|&#10004;| &#10006;|
+|Windows 10|&#10004;|&#10004;|
 |Windows 8.1|&#10004;|&#10004;|
 |Windows 8|&#10004;|&#10004;|
 |Windows 7|&#10004;| &#10006;|
@@ -70,7 +69,7 @@ In der folgenden Tabelle wird gezeigt, welche 32-Bit-Versionen von Windows als G
 
 |32-Bit-Versionen von Windows|Generation 1|Generation 2|
 |-------------------------------|----------------|----------------|
-|Windows 10|&#10004;| &#10006;|
+|Windows 10|&#10004;| &#10006;|
 |Windows 8.1|&#10004;| &#10006;|
 |Windows 8|&#10004;| &#10006;|
 |Windows 7|&#10004;| &#10006;|

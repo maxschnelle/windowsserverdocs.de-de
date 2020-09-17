@@ -1,18 +1,17 @@
 ---
 title: Installieren der Hyper-V-Rolle auf Windows Server
 description: Enthält Anweisungen zum Installieren von Hyper-V mithilfe von Server-Manager oder Windows PowerShell.
-manager: dongill
 ms.topic: get-started-article
 ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 12/02/2016
-ms.openlocfilehash: 32632e7af3db0c3b390606bc784b929e76b2892f
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: e8b95d744954d477e33322cad8d20ff3ff8d7258
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997602"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746005"
 ---
 # <a name="install-the-hyper-v-role-on-windows-server"></a>Installieren der Hyper-V-Rolle auf Windows Server
 

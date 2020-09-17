@@ -1,18 +1,17 @@
 ---
 title: Vermeiden der Speicherung intelligenter Auslagerungs Dateien auf einem System Datenträger
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 9b57c9b8-76c5-43c7-bfa6-2c95b3cb6510
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5ac7f8c9f6fb2edf2f6550cede9adfdc5be321f6
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: c1d2a6ca3b1ffc96fb0761ab1b1c434971374142
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87946073"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90747025"
 ---
 # <a name="avoid-storing-smart-paging-files-on-a-system-disk"></a>Vermeiden der Speicherung intelligenter Auslagerungs Dateien auf einem System Datenträger
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Operationen (Operations)|
 
 In den folgenden Abschnitten gibt Kursiv Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

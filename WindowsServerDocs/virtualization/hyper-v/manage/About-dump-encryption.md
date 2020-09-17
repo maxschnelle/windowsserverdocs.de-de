@@ -1,18 +1,17 @@
 ---
 title: Informationen zur dumpverschlüsselung
 description: Beschreibt das Verschlüsseln von Dumpdateien und die Problembehandlung bei der Verschlüsselung.
-manager: dongill
 ms.topic: article
-author: larsiwer
+ms.author: benarm
+author: BenjaminArmstrong
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
-ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: e80af001a54d3be471b3bbcc9fde08a07556d754
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: d2258a810993ea903efe670355720a5fc65a888b
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993440"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746485"
 ---
 # <a name="about-dump-encryption"></a>Informationen zur dumpverschlüsselung
 Die dumpverschlüsselung kann verwendet werden, um Absturz Abbilder und Live Abbilder zu verschlüsseln, die für ein System generiert werden. Die Abbilder werden mit einem symmetrischen Verschlüsselungsschlüssel verschlüsselt, der für jedes Abbild generiert wird. Dieser Schlüssel selbst wird dann mit dem öffentlichen Schlüssel verschlüsselt, der vom vertrauenswürdigen Administrator des Hosts angegeben wird (Schutzvorrichtung für Absturz Abbild Verschlüsselung). Dadurch wird sichergestellt, dass nur jemand, der über den entsprechenden privaten Schlüssel verfügt, den Inhalt des Abbilds entschlüsseln und somit darauf zugreifen kann Diese Funktion wird in einem geschützten Fabric genutzt.
@@ -20,7 +19,7 @@ Hinweis: Wenn Sie die dumpverschlüsselung konfigurieren, deaktivieren Sie auch 
 
 ## <a name="configuring-dump-encryption"></a>Konfigurieren der dumpverschlüsselung
 ### <a name="manual-configuration"></a>Manuelle Konfiguration
-Um die dumpverschlüsselung mithilfe der Registrierung zu aktivieren, konfigurieren Sie die folgenden Registrierungs Werte unter`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
+Um die dumpverschlüsselung mithilfe der Registrierung zu aktivieren, konfigurieren Sie die folgenden Registrierungs Werte unter `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
 
 | Wertname | Typ | Wert |
 | ---------- | ---- | ----- |

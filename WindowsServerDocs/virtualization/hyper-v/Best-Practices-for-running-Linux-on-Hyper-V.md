@@ -1,18 +1,17 @@
 ---
 title: Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 description: Bietet Empfehlungen zum Ausführen von Linux auf einem virtuellen Computer
-manager: dongill
 ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
-author: shirgall
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 04/15/2020
-ms.openlocfilehash: b9a03ec24adf0b77ff4a6e477f550c63760c9d85
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 216bd83eb06cd14b2b2290e3294041b097cfdbd9
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989108"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90747165"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
@@ -47,7 +46,7 @@ Da die Legacy-Hardware auf virtuellen Computern der Generation 2 aus der Emulati
 
 Da der boxtimer nicht in der Generation 2 Virtual Machines vorhanden ist, können Netzwerkverbindungen mit dem PXE-TFTP-Server vorzeitig beendet werden und verhindern, dass der Bootloader die GRUB-Konfiguration liest und einen Kernel vom Server lädt.
 
-In RHEL 6. x kann der Legacy-, grub v 0,97 EFI-Bootloader anstelle von grub2 verwendet werden, wie hier beschrieben:[https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
+In RHEL 6. x kann der Legacy-, grub v 0,97 EFI-Bootloader anstelle von grub2 verwendet werden, wie hier beschrieben: [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
 
 In anderen Linux-Distributionen als RHEL 6. x können ähnliche Schritte ausgeführt werden, um GRUB v 0,97 zum Laden von Linux-Kernels von einem PXE-Server zu konfigurieren.
 

@@ -1,18 +1,17 @@
 ---
 title: Vermeiden Sie die Verwendung von Prüfpunkten auf einem virtuellen Computer, auf dem eine Serverauslastung in einer Produktionsumgebung ausgeführt wird.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 1be75890-d316-495a-b9b7-be75fc1aac10
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: dadff29461786a454dc8d7ee6b46f3b567ef6bd8
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: da0315ab06d4678d3cedc51092be7160d301ac4d
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994997"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90747005"
 ---
 # <a name="avoid-using-checkpoints-on-a-virtual-machine-that-runs-a-server-workload-in-a-production-environment"></a>Vermeiden Sie die Verwendung von Prüfpunkten auf einem virtuellen Computer, auf dem eine Serverauslastung in einer Produktionsumgebung ausgeführt wird.
 
@@ -26,7 +25,7 @@ ms.locfileid: "87994997"
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Operationen (Operations)|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

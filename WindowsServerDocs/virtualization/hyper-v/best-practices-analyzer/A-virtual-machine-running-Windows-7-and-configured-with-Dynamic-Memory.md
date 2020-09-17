@@ -1,18 +1,17 @@
 ---
 title: Ein virtueller Computer mit Windows 7, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Speichereinstellungen verwenden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: c3a0292a-a619-4d1c-8f9d-391c741411c1
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 139853e8258a256c4f9dbc26def12f1c38689c47
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: eb27e0ed37f1699013d18b3666fd00da7e90a521
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954547"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746355"
 ---
 # <a name="a-virtual-machine-running-windows-7-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Ein virtueller Computer mit Windows 7, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Speichereinstellungen verwenden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

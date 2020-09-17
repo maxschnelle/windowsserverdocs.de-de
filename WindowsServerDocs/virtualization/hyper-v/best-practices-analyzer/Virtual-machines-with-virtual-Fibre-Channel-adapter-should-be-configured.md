@@ -1,18 +1,17 @@
 ---
 title: Mit einem virtuellen Fibre Channel Adapter konfigurierte virtuelle Computer müssen für hohe Verfügbarkeit im Fibre Channel basierten Speicher konfiguriert werden.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 73127bdd-8086-4268-a93c-2fdf1623e91b
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 60a96d6e559f3fefe6f8c1c52c2d145efa006c99
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 8a6c86f34f42dd88b29653096fbcb67919081a08
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960183"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746215"
 ---
 # <a name="virtual-machines-configured-with-a-virtual-fibre-channel-adapter-should-be-configured-for-high-availability-to-the-fibre-channel-based-storage"></a>Mit einem virtuellen Fibre Channel Adapter konfigurierte virtuelle Computer müssen für hohe Verfügbarkeit im Fibre Channel basierten Speicher konfiguriert werden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Information|
+|**Severity**|Information|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

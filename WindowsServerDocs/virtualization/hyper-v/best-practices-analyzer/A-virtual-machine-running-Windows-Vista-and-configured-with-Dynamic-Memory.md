@@ -1,18 +1,17 @@
 ---
 title: Ein virtueller Computer mit Windows Vista, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Arbeitsspeicher Einstellungen verwenden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: c35f08b2-e624-4811-a159-c1e5bb6d5281
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a2cb6c0e7efc20e9834038373ed2a9ddfa0ada3e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 9cd96733de8bcc61195bf3d13d96cdea338643b6
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87948623"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746525"
 ---
 # <a name="a-virtual-machine-running-windows-vista-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Ein virtueller Computer mit Windows Vista, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Arbeitsspeicher Einstellungen verwenden.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

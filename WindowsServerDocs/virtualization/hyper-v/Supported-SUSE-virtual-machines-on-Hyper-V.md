@@ -1,18 +1,17 @@
 ---
 title: Unterstützte virtuelle SuSE-Computer auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
-manager: dongill
 ms.topic: article
 ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
-author: shirgall
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 04/07/2020
-ms.openlocfilehash: 4e2948bdb07ecefc0cbb46553aeaece3efd914c2
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 92dd65669a537d619d9104378adae26c91878dca
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989296"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746735"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle SuSE-Computer auf Hyper-V
 
@@ -35,7 +34,7 @@ SLES12 + ist nur 64 Bit.
 |**Feature**|**Windows Server-Betriebssystemversion**|**SLES 15 SP1**|**SLES 15**|**SLES 12 SP3-SP5**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
 |-|-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Integriert|Integriert|Integriert|Integriert|Integriert|Integriert|Integriert|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Kernspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 genaue Zeit|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||||
 |**[Netzwerk](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||||
 |Großrahmen|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|

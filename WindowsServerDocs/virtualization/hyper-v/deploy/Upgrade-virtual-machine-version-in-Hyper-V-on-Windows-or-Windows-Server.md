@@ -1,18 +1,17 @@
 ---
 title: Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 description: Enthält Anweisungen und Überlegungen zum Aktualisieren der Version eines virtuellen Computers.
-manager: dongill
 ms.topic: article
 ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
-ms.openlocfilehash: 24e67bd88a644c44b65d5eb8ccd3d6190737b5db
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 236e0230c30e1d0260f4a72d1735b3ba687c3fd8
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995639"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746045"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 
@@ -90,7 +89,7 @@ In der folgenden Tabelle werden die Versionen der VM-Konfiguration für Hosts au
 | Windows Server, Version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 |Windows Server, Version 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10-Update von Oktober 2018 (Version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server, Version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server Version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10-Update vom April 2018 (Version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Fall Creators Update (Version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Creators Update (Version 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -104,7 +103,7 @@ Die Konfigurations Version des virtuellen Computers stellt die Kompatibilität d
 
 In der folgenden Tabelle sind Beschreibungen, Dateinamen Erweiterungen und Standard Speicherorte für die einzelnen Dateitypen aufgeführt, die für neue oder aktualisierte virtuelle Maschinen verwendet werden.
 
- |Dateitypen virtueller Computer | BESCHREIBUNG|
+ |Dateitypen virtueller Computer | Beschreibung|
  |---|---|
 |Konfiguration |Konfigurationsinformationen für virtuelle Computer, die im Binärdatei Format gespeichert werden. <br /> Dateinamenerweiterung: vmcx <br /> Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
  |Lauf Zeit Status|Lauf Zeit Zustandsinformationen des virtuellen Computers, die im Binärdatei Format gespeichert werden. <br />Dateinamenerweiterung:. VMRS und. vmgs <br />Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
@@ -123,7 +122,7 @@ Als allgemeine Richtlinie wird empfohlen, die Konfigurations Version zu aktualis
 
 In der folgenden Tabelle ist die Mindestversion der VM-Konfiguration aufgeführt, die für die Verwendung einiger Hyper-V-Features erforderlich ist.
 
-|Feature|Mindestversion der VM-Konfiguration|
+|Funktion|Mindestversion der VM-Konfiguration|
 |---|---|
 |Speicher bei laufendem Systembetrieb hinzufügen/entfernen|6.2|
 |Sicherer Start für Linux-VMs|6.2|

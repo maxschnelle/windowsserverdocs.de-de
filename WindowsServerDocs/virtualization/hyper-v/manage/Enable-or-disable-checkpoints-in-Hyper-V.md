@@ -1,18 +1,17 @@
 ---
 title: Aktivieren oder Deaktivieren von Prüfpunkten in Hyper-V
 description: Enthält Anweisungen zum Aktivieren oder Deaktivieren der Prüf Punkt Funktion.
-manager: dongill
 ms.topic: article
 ms.assetid: 92e1d0d0-f2c1-4ba2-8510-c8eb091cf5d6
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: d8d88c0dfdd6d423efa5a3d9e43fbb804de9542d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e8162d7ee1e63e5cd19d9859766ff3ac743b64c6
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968107"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746455"
 ---
 # <a name="enable-or-disable-checkpoints-in-hyper-v"></a>Aktivieren oder Deaktivieren von Prüfpunkten in Hyper-V
 

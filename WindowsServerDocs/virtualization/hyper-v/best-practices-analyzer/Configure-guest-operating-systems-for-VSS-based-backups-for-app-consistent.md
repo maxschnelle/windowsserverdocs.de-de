@@ -1,18 +1,17 @@
 ---
 title: Konfigurieren von Gastbetriebssystemen für VSS-basierte Sicherungen zum Aktivieren von Anwendungs konsistenten Momentaufnahmen für Hyper-V-Replikate
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 7638e996-d42d-47b8-a670-1e09e7183850
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5270584b6213ad59ef43c378e5aa7a5dbcc30a4e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b6a7eec504282e63e0cb24efbd2cdc5f66849005
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939104"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746885"
 ---
 # <a name="configure-guest-operating-systems-for-vss-based-backups-to-enable-application-consistent-snapshots-for-hyper-v-replica"></a>Konfigurieren von Gastbetriebssystemen für VSS-basierte Sicherungen zum Aktivieren von Anwendungs konsistenten Momentaufnahmen für Hyper-V-Replikate
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Fehler|
+|**Severity**|Fehler|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

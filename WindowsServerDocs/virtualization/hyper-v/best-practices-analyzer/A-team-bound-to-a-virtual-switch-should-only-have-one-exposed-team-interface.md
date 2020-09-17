@@ -1,18 +1,17 @@
 ---
 title: Ein Team, das an einen virtuellen Switch gebunden ist, darf nur über eine Team Schnittstelle verfügen.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 1074f086-1a2e-42e1-b58c-f55e657d5ce1
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 7ec4c25a86bf90f1b2416e0d53ded8f5319960ad
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: e600efe56c68f59ed8587e78a1d82576ff0c5c85
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968517"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746365"
 ---
 # <a name="a-team-bound-to-a-virtual-switch-should-only-have-one-exposed-team-interface"></a>Ein Team, das an einen virtuellen Switch gebunden ist, darf nur über eine Team Schnittstelle verfügen.
 
@@ -24,7 +23,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Warnung|
+|**Severity**|Warnung|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

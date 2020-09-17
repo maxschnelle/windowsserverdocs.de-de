@@ -1,18 +1,17 @@
 ---
 title: Erstellen eines virtuellen Switches für Hyper-V-VMs
 description: Enthält Anweisungen zum Erstellen eines virtuellen Switches mit dem Hyper-V-Manager oder Windows PowerShell.
-manager: dongill
 ms.topic: get-started-article
 ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: b9de14f9c3f66f6d8c8b532e8f4a83192b3e824b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: a0c89dc706e0403816317d7664325bf82f261705
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996626"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746035"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Erstellen eines virtuellen Switches für Hyper-V-VMs
 
@@ -32,11 +31,11 @@ Das Netzwerk virtueller Computer kann ein komplexer Betreff sein. Außerdem gibt
 
 3.  Wählen Sie den gewünschten virtuellen Switch aus.
 
-    |Connection type (Verbindungstyp)|BESCHREIBUNG|
+    |Verbindungstyp|Beschreibung|
     |-------------------|---------------|
     |Extern|Ermöglicht virtuellen Computern den Zugriff auf ein physisches Netzwerk, um mit Servern und Clients in einem externen Netzwerk zu kommunizieren. Ermöglicht, dass virtuelle Maschinen auf demselben Hyper-V-Server miteinander kommunizieren können.|
     |Intern|Ermöglicht die Kommunikation zwischen virtuellen Maschinen auf demselben Hyper-V-Server und zwischen den virtuellen Computern und dem Verwaltungs Host Betriebssystem.|
-    |Privat|Ermöglicht nur die Kommunikation zwischen virtuellen Maschinen auf demselben Hyper-V-Server. Ein privates Netzwerk ist vom gesamten externen Netzwerk Datenverkehr auf dem Hyper-V-Server isoliert. Diese Art von Netzwerk ist nützlich, wenn Sie eine isolierte Netzwerkumgebung wie eine isolierte Test Domäne erstellen müssen.|
+    |Private|Ermöglicht nur die Kommunikation zwischen virtuellen Maschinen auf demselben Hyper-V-Server. Ein privates Netzwerk ist vom gesamten externen Netzwerk Datenverkehr auf dem Hyper-V-Server isoliert. Diese Art von Netzwerk ist nützlich, wenn Sie eine isolierte Netzwerkumgebung wie eine isolierte Test Domäne erstellen müssen.|
 
 4.  Wählen Sie **virtuellen Switch erstellen**aus.
 
@@ -46,7 +45,7 @@ Das Netzwerk virtueller Computer kann ein komplexer Betreff sein. Außerdem gibt
 
     ![Screenshot mit den externen Netzwerkoptionen](../media/Hyper-V-NewVSwitch-ExternalOptions.png)
 
-    |Einstellungsname|BESCHREIBUNG|
+    |Einstellungsname|Beschreibung|
     |----------------|---------------|
     |Gemeinsames Verwenden dieses Netzwerkadapters für das Verwaltungsbetriebssystem zulassen|Wählen Sie diese Option aus, wenn Sie zulassen möchten, dass der Hyper-V-Host die Verwendung des virtuellen Switches und der NIC bzw. des NIC-Teams mit dem virtuellen Computer gemeinsam verwenden kann. Wenn dieses Feature aktiviert ist, kann der Host jede der Einstellungen verwenden, die Sie für den virtuellen Switch konfigurieren, wie z. b. Quality of Service Einstellungen (QoS), Sicherheitseinstellungen oder andere Features des virtuellen Hyper-V-Switches.|
     |E/A-Virtualisierung mit Einzelstamm (SR-IOV) aktivieren|Wählen Sie diese Option nur aus, wenn Sie zulassen möchten, dass der virtuelle Computer den Switch der virtuellen Maschine umgeht und direkt zur physischen NIC wechselt. Weitere Informationen finden Sie unter [Single-root-e/a-Virtualisierung](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn641211(v=ws.11)#Sec4) in der Poster-Begleit Referenz: Hyper-V-Netzwerke.|

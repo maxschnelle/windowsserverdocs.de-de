@@ -1,18 +1,17 @@
 ---
 title: Einrichten von Hyper-V-Replikaten
 description: Enthält Anweisungen zum Einrichten des Replikats, Testen des Failovers und Durchführung einer ersten Replikation.
-manager: dongill
 ms.topic: article
 ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/10/2016
-ms.openlocfilehash: 24fce3e0ebbfc51167a7e6e390de092433cceaff
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: cfa21867503c091da42866aba4c9bc51050200ae
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87941848"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746645"
 ---
 # <a name="set-up-hyper-v-replica"></a>Einrichten von Hyper-V-Replikaten
 
@@ -81,9 +80,9 @@ Um die Replikation zwischen dem primären und dem sekundären Server zuzulassen,
 
 -  Um Regeln für einen Hyper-V-Cluster zu aktivieren, öffnen Sie eine Windows PowerShell-Sitzung mithilfe von **als Administrator ausführen**, und führen Sie dann einen der folgenden Befehle aus:
 
-    -   Für http:`get-clusternode | ForEach-Object  {Invoke-command -computername $_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}`
+    -   Für http:  `get-clusternode | ForEach-Object  {Invoke-command -computername $_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}`
 
-    -   Für https:`get-clusternode | ForEach-Object  {Invoke-command -computername $_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}`
+    -   Für https: `get-clusternode | ForEach-Object  {Invoke-command -computername $_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}`
 
 ### <a name="enable-virtual-machine-replication"></a>Aktivieren der Replikation der virtuellen Computer
 Führen Sie auf jedem virtuellen Computer, den Sie replizieren möchten, folgende Schritte aus:
@@ -103,7 +102,7 @@ Führen Sie auf jedem virtuellen Computer, den Sie replizieren möchten, folgend
 
 7.  Wählen Sie auf der Seite **zusätzliche Wiederherstellungspunkte konfigurieren** aus, ob nur der letzte Wiederherstellungspunkt beibehalten oder zusätzliche Punkte erstellt werden sollen.    Wenn Sie Anwendungen und Arbeits Auslastungen mit ihren eigenen VSS-Writern konsistent wiederherstellen möchten, sollten Sie **Volumeschattenkopie-Dienst (VSS) frequenc**y auswählen und angeben, wie oft App-konsistente Momentaufnahmen erstellt werden sollen. Beachten Sie, dass der Hyper-v-VMM-requestdienst auf den primären und sekundären Hyper-v-Servern ausgeführt werden muss. Klicken Sie dann auf **Weiter**.
 
-8.  Wählen Sie auf der Seite **erste Replikation auswählen** die zu verwendende anfängliche Replikations Methode aus.  Mit der Standardeinstellung zum Senden der ersten Kopie über das Netzwerk werden die Konfigurationsdatei des primären virtuellen Computers (vmcx) und die virtuellen Festplatten Dateien (vhdx und VHD), die Sie über die Netzwerkverbindung ausgewählt haben, kopiert. Überprüfen Sie die Verfügbarkeit der Netzwerkbandbreite, wenn Sie diese Option verwenden möchten. Wenn der primäre virtuelle Computer bereits auf dem sekundären Standort als replizierten virtuellen Computer konfiguriert ist, kann es hilfreich sein, **eine vorhandene virtuelle Maschine auf dem Replikationsserver als erste Kopie zu verwenden**. Sie können den Hyper-V-Export verwenden, um den primären virtuellen Computer zu exportieren und als virtuellen Replikat Computer auf dem sekundären Server zu importieren. Bei größeren virtuellen Computern oder eingeschränkter Bandbreite können Sie entscheiden, ob die erste Replikation über das Netzwerk zu einem späteren Zeitpunkt erfolgen soll, und anschließend außerhalb der Spitzenzeiten konfigurieren oder die Informationen zur ersten Replikation als Offline Medien senden.
+8.  Wählen Sie auf der Seite **erste Replikation auswählen** die zu verwendende anfängliche Replikations Methode aus.  Mit der Standardeinstellung zum Senden der ersten Kopie über das Netzwerk werden die Konfigurationsdatei des primären virtuellen Computers (vmcx) und die virtuellen Festplatten Dateien (vhdx und VHD), die Sie über die Netzwerkverbindung ausgewählt haben, kopiert. Überprüfen Sie die Verfügbarkeit der Netzwerkbandbreite, wenn Sie diese Option verwenden möchten. Wenn der primäre virtuelle Computer bereits auf dem sekundären Standort als replizierten virtuellen Computer konfiguriert ist, kann es hilfreich sein,  **eine vorhandene virtuelle Maschine auf dem Replikationsserver als erste Kopie zu verwenden**. Sie können den Hyper-V-Export verwenden, um den primären virtuellen Computer zu exportieren und als virtuellen Replikat Computer auf dem sekundären Server zu importieren. Bei größeren virtuellen Computern oder eingeschränkter Bandbreite können Sie entscheiden, ob die erste Replikation über das Netzwerk zu einem späteren Zeitpunkt erfolgen soll, und anschließend außerhalb der Spitzenzeiten konfigurieren oder die Informationen zur ersten Replikation als Offline Medien senden.
 
     Wenn Sie Offline Replikation durchführen, transportieren Sie die anfängliche Kopie mithilfe eines externen Speichermediums (z. b. einer Festplatte oder eines USB-Laufwerks) auf den sekundären Server. Zu diesem Zweck müssen Sie den externen Speicher mit dem primären Server (oder Besitzer Knoten in einem Cluster) verbinden. Wenn Sie dann erste Kopie mithilfe externer Medien senden auswählen, können Sie einen Speicherort lokal oder auf dem externen Medium angeben, auf dem die anfängliche Kopie gespeichert werden kann.  Ein Platzhalter für einen virtuellen Computer wird am Replikat Standort erstellt. Nachdem die erste Replikation abgeschlossen ist, kann der externe Speicher an den Replikat Standort ausgeliefert werden. Dort verbinden Sie das externe Medium mit dem sekundären Server oder dem Besitzer Knoten des sekundären Clusters. Anschließend importieren Sie das erste Replikat an einen angegebenen Speicherort und führen es in den virtuellen Platzhalter Computer zusammen.
 
@@ -114,7 +113,7 @@ Führen Sie auf jedem virtuellen Computer, den Sie replizieren möchten, folgend
 ## <a name="run-a-failover"></a>Ausführen eines Failovers
 Nach Abschluss dieser Bereitstellungs Schritte ist Ihre replizierte Umgebung betriebsbereit. Nun können Sie Failover nach Bedarf ausführen.
 
-**Test Failover**: Wenn Sie ein Test Failover ausführen möchten, klicken Sie mit der rechten Maustaste auf den primären virtuellen Computer, und wählen Sie **Replikations**  >  **Test Failover**aus. Wählen Sie bei der Konfiguration den neuesten oder einen anderen Wiederherstellungspunkt aus. Auf dem sekundären Standort wird ein neuer virtueller Testcomputer erstellt und gestartet. Nachdem Sie die Tests abgeschlossen haben, wählen Sie **Test Failover** auf dem virtuellen Replikat Computer beenden aus, um den Vorgang zu bereinigen. Beachten Sie, dass Sie für einen virtuellen Computer nur ein Test Failover gleichzeitig ausführen können. [Weitere Informationen](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).
+**Test Failover**: Wenn Sie ein Test Failover ausführen möchten, klicken Sie mit der rechten Maustaste auf den primären virtuellen Computer, und wählen Sie **Replikations**  >  **Test Failover**aus. Wählen Sie bei der Konfiguration den neuesten oder einen anderen Wiederherstellungspunkt aus. Auf dem sekundären Standort wird ein neuer virtueller Testcomputer erstellt und gestartet. Nachdem Sie die Tests abgeschlossen haben, wählen Sie  **Test Failover** auf dem virtuellen Replikat Computer beenden aus, um den Vorgang zu bereinigen. Beachten Sie, dass Sie für einen virtuellen Computer nur ein Test Failover gleichzeitig ausführen können. [Weitere Informationen](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).
 
 **Geplantes Failover**: zum Ausführen eines geplanten Failovers klicken Sie mit der rechten Maustaste auf den primären virtuellen Computer und wählen **Replikations**  >  **Geplantes Failover**aus. Beim geplanten Failover werden Voraussetzungs Prüfungen durchgeführt, um einen Datenverlust zu verhindern. Es wird überprüft, ob der primäre virtuelle Computer vor dem Failover heruntergefahren wird. Nach dem Failover des virtuellen Computers werden die Änderungen an den primären Standort replizieren, wenn der virtuelle Computer verfügbar ist. Beachten Sie, dass der primäre Server zu diesem Zweck so konfiguriert werden muss, dass die Replikation vom sekundären Server oder vom Hyper-V-Replikat Broker bei einem primären Cluster empfangen wird. Das geplante Failover sendet den letzten Satz an nach verfolgten Änderungen. [Weitere Informationen](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).
 

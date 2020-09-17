@@ -1,18 +1,17 @@
 ---
 title: Erstellen eines virtuellen Computers in Hyper-V
 description: Enthält Anweisungen zum Erstellen eines virtuellen Computers mit dem Hyper-V-Manager oder Windows PowerShell.
-manager: dongill
 ms.topic: get-started-article
 ms.assetid: 59297022-a898-456c-b299-d79cd5860238
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: 22dc2e83f1c7370bfd6f97d821a83041a9c528fe
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9d48020603e8e729c9493d7b01fbc08882b72471
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996606"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746055"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Erstellen eines virtuellen Computers in Hyper-V
 
@@ -51,7 +50,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 4. Verwenden Sie das Cmdlet [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps) , um den virtuellen Computer zu erstellen.  Weitere Informationen finden Sie in den folgenden Beispielen.
 
    > [!NOTE]
-   > Wenn Sie diese virtuelle Maschine auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, verwenden Sie den Parameter-Version mit [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps) , um die Konfigurations Version der virtuellen Maschine auf 5 festzulegen. Die standardmäßige VM-Konfigurations Version für Windows Server 2016 wird von Windows Server 2012 R2 oder früheren Versionen nicht unterstützt. Nachdem der virtuelle Computer erstellt wurde, können Sie die Konfigurations Version des virtuellen Computers nicht mehr ändern. Weitere Informationen finden Sie [unter Unterstützte Konfigurations Versionen für virtuelle Computer](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions).
+   > Wenn Sie diese virtuelle Maschine auf einen Hyper-V-Host mit Windows Server 2012 R2 verschieben können, verwenden Sie den Parameter-Version mit  [New-VM](/powershell/module/hyper-v/new-vm?view=win10-ps) , um die Konfigurations Version der virtuellen Maschine auf 5 festzulegen. Die standardmäßige VM-Konfigurations Version für Windows Server 2016 wird von Windows Server 2012 R2 oder früheren Versionen nicht unterstützt. Nachdem der virtuelle Computer erstellt wurde, können Sie die Konfigurations Version des virtuellen Computers nicht mehr ändern. Weitere Informationen finden Sie [unter Unterstützte Konfigurations Versionen für virtuelle Computer](../deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md#supported-virtual-machine-configuration-versions).
 
    - **Vorhandene virtuelle Festplatte** : um einen virtuellen Computer mit einer vorhandenen virtuellen Festplatte zu erstellen, können Sie den folgenden Befehl verwenden:
      - **-Name** ist der Name, den Sie für den erstellten virtuellen Computer angeben.
@@ -74,7 +73,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
        Dadurch wird ein virtueller Computer der Generation 2 mit dem Namen Win10VM und 4 GB Arbeitsspeicher erstellt. Er startet aus dem Ordner „VMs\Win10.vhdx“ im aktuellen Verzeichnis und verwendet den virtuellen Switch „ExternalSwitch“. Die VM-Konfigurationsdateien werden im Ordner „VMData“ gespeichert.
 
-   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch " **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Ein auf ein Objekt angewendeter
+   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch "  **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Ein auf ein Objekt angewendeter
 
      ```
      New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch ExternalSwitch
@@ -103,7 +102,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 ## <a name="options-in-hyper-v-manager-new-virtual-machine-wizard"></a>Optionen im Assistenten für neue virtuelle Computer im Hyper-V-Manager
 In der folgenden Tabelle sind die Optionen aufgeführt, die Sie auswählen können, wenn Sie einen virtuellen Computer im Hyper-V-Manager erstellen, und die Standardeinstellungen.
 
-|Seite|Standard für Windows Server 2016 und Windows 10|Weitere Optionen|
+|Page|Standard für Windows Server 2016 und Windows 10|Weitere Optionen|
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 |**Name und Pfad angeben**|Name: neuer virtueller Computer.<p>Speicherort: **c:\ProgramData\Microsoft\Windows\Hyper-v \\ **.|Sie können auch einen eigenen Namen eingeben und einen anderen Speicherort für den virtuellen Computer auswählen.<p>Hier werden die Konfigurationsdateien für den virtuellen Computer gespeichert.|
 |**Generation angeben**|Generation 1|Sie können auch einen virtuellen Computer der Generation 2 erstellen. Weitere Informationen finden Sie unter [sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|

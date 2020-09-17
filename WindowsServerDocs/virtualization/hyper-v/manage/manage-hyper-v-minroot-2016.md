@@ -1,15 +1,16 @@
 ---
 title: Minroot
 description: Konfigurieren von Host-CPU-Ressourcen Steuerungen
-author: allenma
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 12/15/2017
 ms.topic: article
-ms.openlocfilehash: fc65159474f9b1cd8bf282acf00ff06f4727673b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 4a222151a9236fb19ef98eda2526524f2d113094
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994054"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746585"
 ---
 # <a name="hyper-v-host-cpu-resource-management"></a>Verwaltung von CPU-Ressourcen für Hyper-V-Hosts
 

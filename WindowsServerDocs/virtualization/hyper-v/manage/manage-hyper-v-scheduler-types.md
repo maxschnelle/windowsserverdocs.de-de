@@ -1,18 +1,18 @@
 ---
 title: Grundlegendes zu und Verwendung von Hyper-V-Hypervisor-Scheduler-Typen
 description: Bietet Informationen für Hyper-v-Host Administratoren zur Verwendung von Hyper-v-Scheduler-Modi.
-author: allenma
-ms.author: allenma
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: a1f53dba659af7d5ac0efff2e72bd168523bde0c
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1aa270adc30f72f8efcdbbea2162e3c6b925dade
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995630"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746425"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -142,7 +142,7 @@ Um sicherzustellen, dass Hyper-v-Hosts in der optimalen Sicherheitskonfiguration
 > [!NOTE]
 > Die folgenden Updates sind erforderlich, um die in diesem Dokument beschriebenen Features für den Hypervisor-Scheduler zu verwenden. Diese Updates enthalten Änderungen zur Unterstützung der neuen `hypervisorschedulertype` BCD-Option, die für die Host Konfiguration erforderlich ist.
 
-| Version | Freigabe  | Update erforderlich | KB Article |
+| Version | Release  | Update erforderlich | KB Article |
 |--------------------|------|---------|-------------:|
 |Windows Server 2016 | 1607 | 2018,07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018,07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
@@ -162,7 +162,7 @@ bcdedit /set hypervisorschedulertype type
 Dabei `type` ist einer der folgenden:
 
 * Klassisch
-* Core
+* Kernspeicher
 * Root
 
 Das System muss neu gestartet werden, damit Änderungen am Typ des Hypervisor-Planers wirksam werden.

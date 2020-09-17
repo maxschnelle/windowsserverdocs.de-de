@@ -1,18 +1,17 @@
 ---
 title: Auswählen zwischen Standard-oder Produktions Prüfpunkten in Hyper-V
 description: Enthält Anweisungen zum Konfigurieren einer virtuellen Maschine für die Verwendung von Standard-oder Produktions Prüfpunkten.
-manager: dongill
 ms.topic: article
 ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: 9aeff8371b357d9e4b063d48c310b32843dc00af
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 00a3c8d94fc18d180faa8927b33b90dc98854da0
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968157"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746475"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Auswählen zwischen Standard-oder Produktions Prüfpunkten in Hyper-V
 

@@ -1,18 +1,17 @@
 ---
 title: Mindestens ein Netzwerk für den Live Migrations Datenverkehr muss über eine Verbindungsgeschwindigkeit von mindestens 1 Gbit/s verfügen.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
-manager: dongill
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.topic: article
 ms.assetid: 5714df3f-f810-4618-8c93-e24881651100
-author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 763b3ad598d91ee1ae63e6e53086a8ff06348f98
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: cf1f09a635d6f6a46ee2a0bab2de53c898af9084
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87960683"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746295"
 ---
 # <a name="at-least-one-network-for-live-migration-traffic-should-have-a-link-speed-of-at-least-1-gbps"></a>Mindestens ein Netzwerk für den Live Migrations Datenverkehr muss über eine Verbindungsgeschwindigkeit von mindestens 1 Gbit/s verfügen.
 
@@ -24,7 +23,7 @@ ms.locfileid: "87960683"
 |-|-|
 |**Betriebssystem**|Windows Server 2016|
 |**Produkt/Feature**|Hyper-V|
-|**Schweregrad**|Fehler|
+|**Severity**|Fehler|
 |**Kategorie**|Konfiguration|
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.

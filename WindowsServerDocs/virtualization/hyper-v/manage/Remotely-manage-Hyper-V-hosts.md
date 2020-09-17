@@ -1,18 +1,17 @@
 ---
 title: Remote Verwaltung von Hyper-V-Hosts
 description: Beschreibt die Versions Kompatibilität zwischen Hyper-v-Hosts und Hyper-v-Manager sowie das Herstellen einer Verbindung mit Remote Hosts in verschiedenen Umgebungen, einschließlich Domänen übergreifender und eigenständiger Umgebungen.
-manager: dongill
 ms.topic: article
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
-author: kbdazure
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 12/06/2016
-ms.openlocfilehash: 86e8ca55dbd61dca98054e15c06394f03190122e
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 2b0a7c93f5a6c6be7340c8d5b0a5bd93d21f1cec
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989748"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746655"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager
 
@@ -47,7 +46,7 @@ Zum Herstellen einer Verbindung mit einem Hyper-v-Host über den Hyper-v-Manager
 
 ## <a name="manage-hyper-v-on-a-local-computer"></a>Verwalten von Hyper-V auf einem lokalen Computer
 
-Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Gehen Sie dazu folgendermaßen vor:
+Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Dazu ist Folgendes erforderlich:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 2. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -81,7 +80,7 @@ Der Hyper-V-Manager in Windows Server 2016 und Windows 10 bietet mehr Typen von 
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-as-a-different-user"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host als anderer Benutzer
 
-Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Gehen Sie dazu folgendermaßen vor:
+Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Dazu ist Folgendes erforderlich:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -93,7 +92,7 @@ Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wen
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-using-ip-address"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host über die IP-Adresse
 
-Gehen Sie dazu folgendermaßen vor:
+Dazu ist Folgendes erforderlich:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -104,7 +103,7 @@ Gehen Sie dazu folgendermaßen vor:
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-outside-your-domain-or-with-no-domain"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host außerhalb Ihrer Domäne oder ohne Domäne
 
-Gehen Sie dazu folgendermaßen vor:
+Dazu ist Folgendes erforderlich:
 
 1. Öffnen Sie auf dem zu verwaltenden Hyper-V-Host eine Windows PowerShell-Sitzung als Administrator.
 

@@ -1,18 +1,18 @@
 ---
 title: Informationen zu Hyper-V Hypervisor Scheduler Type Selection
 description: Bietet Informationen für Hyper-v-Host Administratoren zur Verwendung von Hyper-v-Scheduler-Modi.
-author: allenma
-ms.author: allenma
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: low
 ms.assetid: 5fe163d4-2595-43b0-ba2f-7fad6e4ae069
-ms.openlocfilehash: 332ec3a31d8a442fada7f01d30c5cb7d44965238
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 9c41dfb5bad28122f8c2a6b06ff6574acd89a9ec
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87994101"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746625"
 ---
 # <a name="about-hyper-v-hypervisor-scheduler-type-selection"></a>Informationen zu Hyper-V Hypervisor Scheduler Type Selection
 
@@ -20,7 +20,7 @@ Gilt für:
 
 * Windows Server 2016
 * Windows Server, Version 1709
-* Windows Server, Version 1803
+* Windows Server Version 1803
 * Windows Server 2019
 
 In diesem Dokument werden wichtige Änderungen an der standardmäßigen und empfohlenen Verwendung von Hypervisor-Scheduler-Typen für Hyper-V beschrieben. Diese Änderungen wirken sich auf die Systemsicherheit und Virtualisierungsleistung aus. Administratoren von Virtualisierungshosts sollten die in diesem Dokument beschriebenen Änderungen und Implikationen überprüfen und verstehen und die Auswirkungen, den empfohlenen Bereitstellungs Leit Faden und Risikofaktoren sorgfältig auswerten, um die Bereitstellung und Verwaltung von Hyper-V-Hosts im Hinblick auf die schnell veränderliche Sicherheitslandschaft besser zu verstehen.

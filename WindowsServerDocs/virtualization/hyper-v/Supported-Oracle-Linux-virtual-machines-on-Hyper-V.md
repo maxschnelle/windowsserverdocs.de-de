@@ -1,18 +1,17 @@
 ---
 title: Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
-manager: dongill
 ms.topic: article
 ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
-author: shirgall
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 06/05/2020
-ms.openlocfilehash: 0e9a11fbff5015037bffa1cad14e70d629fef94b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7c1029f31abe70b09bddc83f928ee492be18ef2b
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989305"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90746395"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 
@@ -20,7 +19,7 @@ ms.locfileid: "87989305"
 
 Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelnen Versionen vorhanden sind. Die bekannten Probleme und Problem Umgehungen für die einzelnen Verteilungen werden nach der Tabelle aufgelistet.
 
-Inhalt dieses Abschnitts:
+In diesem Abschnitt
 
 * [Oracle Linux 8. x-Serie](#oracle-linux-8x-series)
 * [Oracle Linux 7. x-Serie](#oracle-linux-7x-series)
@@ -44,7 +43,7 @@ Inhalt dieses Abschnitts:
 |       **Feature**     |       **Windows Server-Version**      |       **8.0-8.1 (rhck)** |
 |-----------------------|---------------------------------------|-------------------|
 |       **Verfügbarkeit**        |   |
-|       **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**      | 2019, 2016, 2012 R2 | &#10004; |
+|       **[Kernspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**      | 2019, 2016, 2012 R2 | &#10004; |
 |       Windows Server 2016 genaue Zeit       | 2019, 2016 | &#10004; |
 |       **[Netzwerk](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**      |   |
 |       Großrahmen        | 2019, 2016, 2012 R2 | &#10004; |
@@ -87,7 +86,7 @@ Diese Reihe hat nur 64-Bit-Kernel.
 <tr height="50px">
 <td width="20%" rowspan="2">
 
-Feature
+Funktion
 </td>
 <td width="20%" rowspan="2">
 
@@ -157,7 +156,7 @@ Integriert
 <tr height="50px">
 <td width="20%">
 
-**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**
+**[Kernspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**
 </td>
 <td width="20%">
 
@@ -1271,7 +1270,7 @@ Diese Reihe hat nur 64-Bit-Kernel.
 |       **Feature**     |       **Windows Server-Version**      |       **6.8-6.10 (rhck)** |       **6.8-6.10 (UEK4)**     |
 |-----------------------|---------------------------------------|-------------------|-------------------|
 |       **Verfügbarkeit**     |   | LIS 4,3  | Integriert  |
-|       **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**      | 2019, 2016, 2012 R2 | &#10004; | &#10004;
+|       **[Kernspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**      | 2019, 2016, 2012 R2 | &#10004; | &#10004;
 |       Windows Server 2016 genaue Zeit       | 2019, 2016 | |
 |       **[Netzwerk](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**      |   |  |
 |       Großrahmen        | 2019, 2016, 2012 R2 | &#10004; | &#10004;|
@@ -1326,7 +1325,7 @@ Diese Reihe hat nur 64-Bit-Kernel.
 
    1. Erstellen Sie eine Datei **/etc/udev/rules.d/100-Balloon.Rules**. Sie können einen beliebigen anderen gewünschten Namen für die Datei verwenden.
 
-   2. Fügen Sie der Datei den folgenden Inhalt hinzu:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Fügen Sie der Datei den folgenden Inhalt hinzu: `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Starten Sie das System neu.
 
