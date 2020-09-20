@@ -6,12 +6,12 @@ ms.author: nedpyle
 manager: tiaascs
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: ea138d8bb0b804ae4d08ed6ffe330e9714af43f3
-ms.sourcegitcommit: 2b1a12c85acff137e5ac84cd0e62d8353fcdde31
+ms.openlocfilehash: 0c3e52c11f7771856608b86ddd778ef51c4c8516
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087483"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766913"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -424,7 +424,7 @@ Für dieses Problem gibt es zwei Lösungen:
 
 Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben.
 
-Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
+Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](./faq.md#optimizing-inventory-and-transfer-performance).
 
 ## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Die Daten werden nicht übertragen, der Benutzer wurde bei der Migration zu oder von einem Domänen Controller umbenannt.
 
@@ -606,7 +606,7 @@ Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursa
 
 ## <a name="inventory-fails-with-element-not-found"></a>Inventur schlägt fehl, weil das Element nicht gefunden wurde.
 
-Betrachten Sie das folgende Szenario:
+Nehmen Sie das folgende Szenario als Beispiel:
 
 Sie verfügen über einen Quell Server mit einem DNS-Hostnamen und Active Directory Namen mit mehr als 15 Unicode-Zeichen, z. b. "iamaverylongcomputername". In Windows konnte der Legacy-NetBIOS-Name nicht so festgelegt werden, dass er so lange festgelegt wird, und warnte, als der Server benannt wurde, dass der NetBIOS-Name auf 15 Unicode-breit Zeichen gekürzt wird (Beispiel: "iamaverylongcom"). Wenn Sie versuchen, diesen Computer zu inventarisieren, erhalten Sie im Windows Admin Center und im Ereignisprotokoll Folgendes:
 

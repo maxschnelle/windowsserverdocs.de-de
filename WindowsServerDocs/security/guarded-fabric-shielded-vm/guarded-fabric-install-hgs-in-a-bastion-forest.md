@@ -5,12 +5,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: 4e4bdf9c33d4511c470da50462469fadbd0641ce
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 358fae9a9ee477537d3ee929ff81920175d58298
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996239"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766413"
 ---
 # <a name="install-hgs-in-an-existing-bastion-forest"></a>Installieren von HGS in einer vorhandenen geschützten Gesamtstruktur
 
@@ -76,7 +76,7 @@ Wenn Sie Gruppenrichtlinie verwenden, um die Zuweisung von Benutzerrechten zu ko
 
 ## <a name="jea-security-groups"></a>Jea-Sicherheitsgruppen
 
-Wenn Sie HGS einrichten, wird ein Jea-PowerShell-Endpunkt [(Just Enough Administration)](https://aka.ms/JEAdocs) konfiguriert, um Administratoren das Verwalten von HGS ohne volle lokale Administratorrechte zu ermöglichen.
+Wenn Sie HGS einrichten, wird ein Jea-PowerShell-Endpunkt [(Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview) konfiguriert, um Administratoren das Verwalten von HGS ohne volle lokale Administratorrechte zu ermöglichen.
 Sie müssen Jea nicht zum Verwalten von HGS verwenden, aber es muss beim Ausführen von Initialize-hgsserver weiterhin konfiguriert werden.
 Die Konfiguration des Jea-Endpunkts besteht aus dem Festlegen von zwei Sicherheitsgruppen, die ihre HGS-Administratoren und HGS-Reviewer enthalten.
 Benutzer, die der Administrator Gruppe angehören, können Richtlinien auf HGS hinzufügen, ändern oder entfernen. Reviewer können die aktuelle Konfiguration nur anzeigen.

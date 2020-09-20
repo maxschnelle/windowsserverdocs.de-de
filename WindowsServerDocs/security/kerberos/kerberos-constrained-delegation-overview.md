@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 2cc0a18b3b6de66f5992eb4584c95696e297e858
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: cdee2aaecf8710b9801b689b141b16d0dbacc691
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89641089"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766793"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -30,7 +30,7 @@ In Windows Server 2012 R2 und Windows Server 2012 wurde die Möglichkeit zum Kon
 
 Ausführliche Informationen zu der in Windows Server 2003 eingeführten eingeschränkten Delegierung finden Sie unter [Kerberos-Protokollübergang und eingeschränkte Delegierung](/previous-versions/windows/it-pro/windows-server-2003/cc739587(v=ws.10)).
 
-Die Implementierung des Kerberos-Protokolls in Windows Server 2012 R2 und Windows Server 2012 umfasst Erweiterungen speziell für die eingeschränkte Delegierung.  Service-for-User-to-Proxy (S4U2Proxy) ermöglicht es einem Dienst, mithilfe seines Kerberos-Diensttickets für einen Benutzer ein Dienstticket aus dem Schlüsselverteilungscenter (Key Distribution Center, KDC) für einen Back-End-Dienst abzurufen. Diese Erweiterungen ermöglichen die Konfiguration der eingeschränkten Delegierung für das Konto des Back-End-Dienstanbieter, das sich in einer anderen Domäne befinden kann. Weitere Informationen zu diesen Erweiterungen finden Sie in der MSDN Library unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx) .
+Die Implementierung des Kerberos-Protokolls in Windows Server 2012 R2 und Windows Server 2012 umfasst Erweiterungen speziell für die eingeschränkte Delegierung.  Service-for-User-to-Proxy (S4U2Proxy) ermöglicht es einem Dienst, mithilfe seines Kerberos-Diensttickets für einen Benutzer ein Dienstticket aus dem Schlüsselverteilungscenter (Key Distribution Center, KDC) für einen Back-End-Dienst abzurufen. Diese Erweiterungen ermöglichen die Konfiguration der eingeschränkten Delegierung für das Konto des Back-End-Dienstanbieter, das sich in einer anderen Domäne befinden kann. Weitere Informationen zu diesen Erweiterungen finden Sie in der MSDN Library unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](/openspecs/windows_protocols/ms-sfu/3bff5864-8135-400e-bdd9-33b552051d94) .
 
 **Praktische Anwendung**
 
@@ -52,7 +52,7 @@ Dadurch wird auch die Entscheidung verlagert, ob ein Server der Quelle einer Del
 
 Eine Änderung im zugrunde liegenden Protokoll ermöglicht die domänenübergreifende eingeschränkte Delegierung. Die Implementierung des Kerberos-Protokolls in Windows Server 2012 R2 und Windows Server 2012 umfasst Erweiterungen des Dienstanbieter für das Benutzer-zu-Proxy-Protokoll (S4U2Proxy). Diese Erweiterungen des Kerberos-Protokolls ermöglichen es einem Dienst, mithilfe seines Kerberos-Diensttickets für einen Benutzer ein Dienstticket aus dem Schlüsselverteilungscenter für einen Back-End-Dienst abzurufen.
 
-Implementierungs Informationen zu diesen Erweiterungen finden Sie unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.10).aspx) in MSDN.
+Implementierungs Informationen zu diesen Erweiterungen finden Sie unter [ \[ MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](/openspecs/windows_protocols/ms-sfu/3bff5864-8135-400e-bdd9-33b552051d94) in MSDN.
 
 Weitere Informationen zur grundlegenden Nachrichtensequenz für die Kerberos-Delegierung mit einem weitergeleiteten Ticket-Granting Ticket (TGT) im Vergleich zu Service-for-User-Erweiterungen (S4U) finden Sie im Abschnitt [1.3.3 Übersicht über das Protokoll](/openspecs/windows_protocols/ms-sfu/1fb9caca-449f-4183-8f7a-1a5fc7e7290a) in [MS-SFU]: Kerberos-Protokollerweiterungen: Protokollspezifikation für Service-for-User und eingeschränkte Delegierung.
 
@@ -77,7 +77,7 @@ Verwenden Sie Windows PowerShell-Cmdlets, um einen Ressourcendienst zum Zulassen
 
 -   Um den Ressourcen Dienst zu konfigurieren, verwenden Sie die Cmdlets **New-adcomputer**, **New-ADServiceAccount**, **New-ADUser**, **Set-adcomputer**, **Set-ADServiceAccount**und **Set-ADUser** mit dem **principalsallowedtodelegatetoaccount** -Parameter.
 
-## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Softwareanforderungen
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen
 Die ressourcenbasierte eingeschränkte Delegierung kann nur auf einem Domänen Controller unter Windows Server 2012 R2 und Windows Server 2012 konfiguriert werden, kann jedoch in einer Gesamtstruktur mit gemischtem Modus angewendet werden.
 
 Sie müssen den folgenden Hotfix auf allen Domänen Controllern unter Windows Server 2012 in Benutzerkonten Domänen im Weiterleitungs Pfad zwischen den Front-End-und Back-End-Domänen anwenden, auf denen ältere Betriebssysteme als Windows Server ausgeführt werden: ressourcenbasierte eingeschränkte Delegierung KDC_ERR_POLICY Fehler in Umgebungen mit Windows Server 2008 R2-basierten Domänen Controllern () https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro) .

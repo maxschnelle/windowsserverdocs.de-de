@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
-ms.openlocfilehash: 09d39aa027adf360c339da434b16038a3b8e5c90
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fe519498e8021bde67b87ec7f78b3e1b9a64160b
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87964596"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766943"
 ---
 # <a name="prepare-your-development-environment"></a>Vorbereiten Ihrer Entwicklungsumgebung
 
@@ -28,7 +28,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Entwicklungsumgebung vorzubereit
 
 Zum Einstieg in die Entwicklung mit dem SDK müssen Sie die folgenden Voraussetzungen herunterladen und installieren:
 
-* [Windows Admin Center](https://aka.ms/WACDownloadPage) (GA-oder Vorschauversion)
+* [Windows Admin Center](../overview.md) (GA-oder Vorschauversion)
 * Visual Studio oder [Visual Studio Code](https://code.visualstudio.com)
 * [Node.js](https://nodejs.org/en/download/releases/) (Version 10.3.0)
 * [Knoten Paket-Manager](https://npmjs.com/get-npm) (8.12.0 oder höher)
@@ -71,4 +71,3 @@ Nachdem Sie Ihre Umgebung vorbereitet haben, können Sie nun mit dem Erstellen v
 ## <a name="sdk-design-toolkit"></a>SDK-Entwurfs-Toolkit
 
 Sehen Sie sich unser Windows Admin Center [SDK Design Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)an! Dieses Toolkit soll Ihnen helfen, Erweiterungen in PowerPoint mithilfe von Windows Admin Center-Stilen,-Steuerelementen und-Seitenvorlagen schnell zu bereinigen. Sehen Sie sich an, wie Ihre Erweiterung im Windows Admin Center aussehen kann, bevor Sie mit dem Programmieren beginnen!
-

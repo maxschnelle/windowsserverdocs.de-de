@@ -6,12 +6,12 @@ manager: dongill
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: 3b1a3fa120e27439c1ec55f68521b813588d330b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b186f664411bde60351c949c0ca16e7b4d3bb40c
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87965947"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766993"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Neuerungen beim Speicher in Windows Server
 
@@ -126,7 +126,7 @@ Um die Leistungssteigerung zu erzielen, müssen alle Mitglieder der Replikations
 
 #### <a name="test-failover"></a>Testfailover
 
-Sie können jetzt vorübergehend eine Momentaufnahme des replizierten Speichers auf einem Zielserver für Test-oder Sicherungszwecke einbinden. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
+Sie können jetzt vorübergehend eine Momentaufnahme des replizierten Speichers auf einem Zielserver für Test-oder Sicherungszwecke einbinden. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](./storage-replica/storage-replica-frequently-asked-questions.md).
 
 #### <a name="windows-admin-center-support"></a>Support für Windows Admin Center
 
@@ -170,7 +170,7 @@ Weitere Informationen finden Sie unter [Übersicht über den halbjährlichen Kan
 
 Der durch das Speicher Replikat hinzugefügte Schutz durch die Notfall Wiederherstellung wird nun erweitert
 
-- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
+- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](./storage-replica/storage-replica-frequently-asked-questions.md).
 - **Windows Admin Center-Unterstützung**: die Unterstützung für die grafische Verwaltung der Replikation ist jetzt über das Server-Manager Tool im Windows Admin Center verfügbar. Dies schließt die Server-zu-Server-Replikation, Cluster-zu-Cluster sowie die Stretch-Cluster Replikation ein.
 
 Das Speicher Replikat enthält auch folgende Verbesserungen:

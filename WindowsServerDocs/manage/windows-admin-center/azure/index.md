@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/31/2019
-ms.openlocfilehash: 5dcba9b92d9c0d85f99a1d54d50bef187fd51f10
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 04776c46d321a7a5aef19edd2866637c26d79125
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997482"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766323"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
@@ -64,7 +64,7 @@ Weitere Informationen findest du unter [Server-to-server replication with Storag
 
 ### <a name="extend-storage-capacity"></a>Erweitern der Speicherkapazität
 
-- **Synchronisierung des Dateiservers mit der Cloud per [Azure-Dateisynchronisierung](https://aka.ms/afs)** Synchronisieren Sie Dateien auf diesem Server mit Azure-Dateifreigaben. Behalte alle deine Dateien lokal, oder verwende Cloudtiering, um Platz freizugeben, sodass nur die am häufigsten verwendeten Dateien auf dem Server zwischengespeichert und kalte Daten in die Cloud übertragen werden. Daten in der Cloud können gesichert werden, sodass keine lokale Serversicherung erforderlich ist. Darüber hinaus kann mit Multisite-Synchronisierung eine Gruppe von Dateien auf mehreren Servern synchronisiert werden.
+- **Synchronisierung des Dateiservers mit der Cloud per [Azure-Dateisynchronisierung](/azure/storage/files/storage-sync-files-planning)** Synchronisieren Sie Dateien auf diesem Server mit Azure-Dateifreigaben. Behalte alle deine Dateien lokal, oder verwende Cloudtiering, um Platz freizugeben, sodass nur die am häufigsten verwendeten Dateien auf dem Server zwischengespeichert und kalte Daten in die Cloud übertragen werden. Daten in der Cloud können gesichert werden, sodass keine lokale Serversicherung erforderlich ist. Darüber hinaus kann mit Multisite-Synchronisierung eine Gruppe von Dateien auf mehreren Servern synchronisiert werden.
 Weitere Informationen findest du unter [Synchronisierung des Dateiservers mit der Cloud per Azure-Dateisynchronisierung](azure-file-sync.md).
 
 - **Migrieren von Speicher zu einem virtuellen Computer in Azure mithilfe des [Speichermigrationsdiensts](../../../storage/storage-migration-service/overview.md)** Verwenden Sie dieses Schritt-für-Schritt-Tool, um den Datenbestand auf Windows- und Linux-Servern zu erfassen und die Daten anschließend in eine neue Azure VM zu übertragen. Windows Admin Center kann eine neue Azure VM für die Aufgabe erstellen, die richtig dimensioniert und ordnungsgemäß konfiguriert ist, um die Daten von deinem Quellserver entgegenzunehmen.

@@ -6,12 +6,12 @@ ms.author: billmath
 manager: femila
 ms.date: 08/11/2017
 ms.topic: article
-ms.openlocfilehash: 8a967718adc40d42c5798870b05cde6e228a0b18
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 2306c5ad57b7714c10076a5bb11f6cae5bb7f92d
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87956557"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766883"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Konfigurieren des lokalen bedingten Zugriffs mithilfe registrierter Geräte
 
@@ -30,7 +30,7 @@ Die folgenden erforderlichen Komponenten sind erforderlich, bevor Sie mit dem lo
 |Azure AD Connect|QFE vom November 2015 oder höher.  Holen Sie sich [hier](https://www.microsoft.com/download/details.aspx?id=47594)die neueste Version.
 |Windows Server 2016|Build 10586 oder neuer für AD FS
 |Windows Server 2016-Active Directory Schema|Die Schema Ebene 85 oder höher ist erforderlich.
-|Windows Server 2016-Domänen Controller|Dies ist nur für die Bereitstellung von Hello for Business-Vertrauens Stellungen erforderlich.  Weitere Informationen finden Sie [hier](https://aka.ms/whfbdocs).
+|Windows Server 2016-Domänen Controller|Dies ist nur für die Bereitstellung von Hello for Business-Vertrauens Stellungen erforderlich.  Weitere Informationen finden Sie [hier](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 |Windows 10-Client|Build 10586 oder höher, der mit der obigen Domäne verknüpft ist, ist nur für Windows 10-Domänen Beitritt und Microsoft Passport for Work Szenarios erforderlich.
 |Azure AD Benutzerkonto mit zugewiesener Azure AD Premium-Lizenz|Zum Registrieren des Geräts
 
@@ -218,8 +218,8 @@ Um die automatische MDM-Registrierung registrierter Geräte so zu aktivieren, da
     3. Ändern von **anmelmenttype** in **0**
     4. Geräteregistrierung oder Registrierung erneut versuchen
 
-### <a name="related-articles"></a>Ähnliche Artikel
+### <a name="related-articles"></a>Verwandte Artikel
 * [Sichern des Zugriffs auf Office 365 und andere mit Azure Active Directory verbundene Apps](/azure/active-directory/conditional-access/overview)
 * [Geräterichtlinien für den bedingten Zugriff auf Office 365-Dienste](/azure/active-directory/conditional-access/overview)
-* [Einrichten des lokalen bedingten Zugriffs mithilfe der Azure Active Directory-Geräteregistrierung](/azure/active-directory/active-directory-device-registration-on-premises-setup)
+* [Einrichten des lokalen bedingten Zugriffs mit Azure Active Directory Device Registration](/azure/active-directory/active-directory-device-registration-on-premises-setup)
 * [Benutzererfahrungen beim Verknüpfen von in die Domäne eingebundenen Windows 10-Geräten mit Azure AD](/azure/active-directory/devices/hybrid-azuread-join-plan)

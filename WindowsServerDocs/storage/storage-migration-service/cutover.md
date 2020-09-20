@@ -6,12 +6,12 @@ ms.author: t-chrche
 manager: nedpyle
 ms.date: 08/31/2020
 ms.topic: article
-ms.openlocfilehash: 985fd14b7791d28246b8e9186ca83216df734875
-ms.sourcegitcommit: a640c2d7f2d21d7cd10a9be4496e1574e5e955f0
+ms.openlocfilehash: 1e886c505435976b6495e0460705821086781a62
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448926"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766903"
 ---
 # <a name="how-cutover-works-in-storage-migration-service"></a>Funktionsweise von cudever im Speicher Migrationsdienst
 
@@ -63,10 +63,10 @@ __Abbildung der cudever-Phase: Screenshot Abbildung 2: Storage Migration Service
 
 Sie können den Verlauf des Verlaufs durch Beschreibungen der einzelnen Phasen nachverfolgen, die in der obigen Abbildung angezeigt werden. In der folgenden Tabelle sind die einzelnen möglichen Phasen sowie der Fortschritt, die Beschreibung und die Anmerkungen zur Verdeutlichung aufgeführt.
 
-|  Fortschritt | Beschreibung                                                                                               |  Hinweise |
+|  Fortschritt | BESCHREIBUNG                                                                                               |  Hinweise |
 |:-----|:--------------------------------------------------------------------------------------------------------------------|:---|
 |  0 % | Der cuum befindet sich im Leerlauf. |   |
-| 2 %  | Verbindung mit dem Quellcomputer wird hergestellt... |   Stellen Sie sicher, dass die [Anforderungen für den Quell-und den Zielcomputer](https://docs.microsoft.com/windows-server/storage/storage-migration-service/overview#security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports) erfüllt sind.|
+| 2 %  | Verbindung mit dem Quellcomputer wird hergestellt... |   Stellen Sie sicher, dass die [Anforderungen für den Quell-und den Zielcomputer](./overview.md#security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports) erfüllt sind.|
 | 5 %  | Verbindung mit dem Zielcomputer wird hergestellt... |   |
 | 6 %  | Sicherheits Berechtigungen für das Computer Objekt in Active Directory werden festgelegt... |   Repliziert die Active Directory Objekt-Sicherheits Berechtigungen des Quell Computers auf dem Zielcomputer.|
 | 8 %  | Es wird sichergestellt, dass das von uns erstellte temporäre Konto erfolgreich auf dem Quellcomputer gelöscht wurde... |   Stellt sicher, dass ein temporäres Konto mit dem gleichen Namen erstellt werden kann.|
@@ -95,7 +95,7 @@ Sie können den Verlauf des Verlaufs durch Beschreibungen der einzelnen Phasen n
 | 52 % | Es wird darauf gewartet, dass der Quellcomputer nach dem ersten Neustart antwortet... |   |
 | 55 % | Es wird darauf gewartet, dass der Quellcomputer nach dem zweiten Neustart antwortet... |   |
 | 56 % | Es wird darauf gewartet, dass der Quellcomputer nach dem dritten Neustart antwortet... |   |
-| 57% | Alternative Computernamen werden auf der Quelle entfernt... |   Stellt sicher, dass die Quelle für andere Benutzer und apps nicht erreichbar ist. Weitere Informationen finden Sie unter [netdom computername](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)). |
+| 57% | Alternative Computernamen werden auf der Quelle entfernt... |   Stellt sicher, dass die Quelle für andere Benutzer und apps nicht erreichbar ist. Weitere Informationen finden Sie unter [netdom computername](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)). |
 | 58% | Ein temporäres lokales Konto, das auf dem Quellcomputer erstellt wurde, wird entfernt... |   |
 | 61 % | Die Richtlinie zum Zurücksetzen des lokalen Kontos auf dem Quellcomputer wird zurückgesetzt... |   Aktiviert die Richtlinie.|
 | 63% | Der Zielcomputer wird aus der Domäne entfernt... |   |
@@ -115,24 +115,24 @@ Sie können den Verlauf des Verlaufs durch Beschreibungen der einzelnen Phasen n
 | 97% | Die Richtlinie zum Zurücksetzen des lokalen Kontos auf dem Zielcomputer wird zurückgesetzt... |   Aktiviert die Richtlinie.|
 | (100%) | Erfolgreich |   |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Häufig gestellte Fragen
 
 ### <a name="__is-domain-controller-migration-supported__"></a>__Wird die Migration des Domänen Controllers unterstützt?__
 
-Derzeit nicht, aber eine Problem Umgehung finden Sie auf der [FAQ-Seite](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#is-domain-controller-migration-supported) .
+Derzeit nicht, aber eine Problem Umgehung finden Sie auf der [FAQ-Seite](./faq.md#is-domain-controller-migration-supported) .
 
 
 ## <a name="known-issues"></a>Bekannte Probleme
 >Stellen Sie sicher, dass Sie die Anforderungen der [Übersicht über den Speicher Migrationsdienst](overview.md) erfüllt und das neueste Windows-Update auf dem Computer installiert haben, auf dem Storage Migration Service ausgeführt wird.
 
-Weitere Informationen zu den folgenden Problemen finden Sie auf der [Seite bekannte Probleme](https://docs.microsoft.com/windows-server/storage/storage-migration-service/known-issues) .
-* [__Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl__](https://docs.microsoft.com/windows-server/storage/storage-migration-service/known-issues#storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer)
+Weitere Informationen zu den folgenden Problemen finden Sie auf der [Seite bekannte Probleme](./known-issues.md) .
+* [__Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl__](./known-issues.md#storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer)
 
-* [__Fehler "Fehler beim CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO für die NetName-Ressource", und der Windows Server 2008 R2-Cluster-cudever schlägt fehl__](https://docs.microsoft.com/windows-server/storage/storage-migration-service/known-issues#error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails)
+* [__Fehler "Fehler beim CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO für die NetName-Ressource", und der Windows Server 2008 R2-Cluster-cudever schlägt fehl__](./known-issues.md#error-clusctl_resource_netname_repair_vco-failed-against-netname-resource-and-windows-server-2008-r2-cluster-cutover-fails)
 
-* [__Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung statischer IPS__](https://docs.microsoft.com/windows-server/storage/storage-migration-service/known-issues#cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-static-ips)
+* [__Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung statischer IPS__](./known-issues.md#cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-static-ips)
 
-* [__Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab.__](https://docs.microsoft.com/windows-server/storage/storage-migration-service/known-issues#cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer)
+* [__Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab.__](./known-issues.md#cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer)
 
 ## <a name="additional-references"></a>Weitere Verweise
 

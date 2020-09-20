@@ -6,12 +6,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 3867df04c83fe536473c227e43700a4758c1294e
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 3be878629d19542629cc3cbb849ac46fe14de0bd
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87935857"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766833"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>Skalierbarkeits Limits für iSCSI-Ziel Server
 
@@ -33,45 +33,45 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Comment</p></th>
+<th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>iSCSI-Ziel Instanzen pro iSCSI-Ziel Server</p></td>
 <td><p>256</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>logische iSCSI-Einheiten (LUs) oder virtuelle Datenträger pro iSCSI-Ziel Server</p></td>
 <td><p>512</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td><p>Die Testkonfigurationen sind enthalten: 8 lus pro Ziel Instanz mit einem durchschnittlichen über 64 Zielen und 256 Ziel Instanzen mit einer lu pro Ziel.</p></td>
 </tr>
 <tr class="odd">
 <td><p>iSCSI-lus oder virtuelle Datenträger pro iSCSI-Ziel Instanz</p></td>
 <td><p>256 (128 unter Windows Server 2012)</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>Sitzungen, die gleichzeitig eine Verbindung mit einer iSCSI-Ziel Instanz herstellen können</p></td>
 <td><p>544 (512 unter Windows Server 2012)</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>Momentaufnahmen pro lu</p></td>
 <td><p>512</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td><p>Es gibt ein Limit von 512 Momentaufnahmen pro unabhängigem iSCSI-Anwendungs Volume.</p></td>
 </tr>
 <tr class="even">
 <td><p>Lokal bereitgestellte virtuelle Datenträger oder Momentaufnahmen pro Speichergerät</p></td>
 <td><p>32</p></td>
 <td><p>Ja</p></td>
-<td><p>Lokal bereitgestellte virtuelle Festplatten: Don&#39;t bietet alle iSCSI-spezifischen Funktionen und sind veraltet. Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">in Windows Server 2012 R2 entfernte oder veraltete Features</a>.</p></td>
+<td><p>Lokal bereitgestellte virtuelle Festplatten: Don&#39;t bietet alle iSCSI-spezifischen Funktionen und sind veraltet. Weitere Informationen finden Sie unter <a href="/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303411(v=ws.11)">in Windows Server 2012 R2 entfernte oder veraltete Features</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -90,21 +90,21 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Comment</p></th>
+<th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>Failoverclusterknoten</p></td>
 <td><p>8 (5 auf Windows Server 2012)</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>Mehrere aktive Cluster Knoten</p></td>
 <td><p>Unterstützt</p></td>
 <td>
-<p>Nicht zutreffend</p></td>
+<p>–</p></td>
 <td><p>Jeder aktive Knoten im Failovercluster besitzt eine andere gruppierte Instanz des iSCSI-Zielservers mit anderen Knoten, die als mögliche Besitzer Knoten fungieren.</p></td>
 </tr>
 <tr class="odd">
@@ -122,13 +122,13 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>Sitzungen, die gleichzeitig eine Verbindung mit einer iSCSI-Ziel Instanz herstellen können</p></td>
 <td><p>544 (512 unter Windows Server 2012)</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>Multipath-Eingabe/-Ausgabe (MPIO)</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -140,7 +140,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>Die Umstellung eines eigenständigen iSCSI-Zielservers auf einen geclusterten iSCSI-Zielserver oder umgekehrt</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td><p>Die iSCSI-Ziel Instanz und die Konfigurationsdaten des virtuellen Datenträgers, einschließlich der Momentaufnahme Metadaten, gehen bei der Konvertierung verloren.</p></td>
 </tr>
 </tbody>
@@ -160,14 +160,14 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Comment</p></th>
+<th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>Maximale Anzahl aktiver Netzwerkadapter</p></td>
 <td><p>8</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td><p>Gilt für Netzwerkadapter, die für iSCSI-Datenverkehr dediziert sind, und nicht die Gesamtanzahl der Netzwerkadapter in der Appliance.</p></td>
 </tr>
 <tr class="even">
@@ -179,25 +179,25 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>Netzwerk Port Geschwindigkeit</p></td>
 <td><p>1 Gbit/s, 10 Gbit/s, 40 Gbit/s, 56 Gbit/s (nur Windows Server 2012 R2 und höher)</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>IPv4</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>IPv6</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>TCP-Abladung</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td><p>Nutzen Sie große Sende Vorgänge (Segmentierung), Prüfsumme, interruptmoderation und RSS-Abladung</p></td>
 </tr>
 <tr class="odd">
@@ -209,19 +209,19 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="even">
 <td><p>Großrahmen</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>IPsec</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>CRC-Auslagerung</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -241,7 +241,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
 <th><p>Erzwun?</p></th>
-<th><p>Comment</p></th>
+<th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
@@ -262,40 +262,40 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <td><p>Mindestformatgröße für VHD</p></td>
 <td><p>vhdx: 3 MB</p>
 <p>VHD: 8 MB</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td><p>Gilt für alle unterstützten VHD-Typen: übergeordnet, Differenzierung und korrigiert.</p></td>
 </tr>
 <tr class="even">
 <td><p>Maximale Größe der übergeordneten VHD</p></td>
 <td><p>vhdx: 64 TB</p>
 <p>VHD: 2 TB</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>Maximale VHD-Größe</p></td>
 <td><p>vhdx: 64 TB</p>
 <p>VHD: 16 TB</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>Maximale Größe für differenzierende VHD</p></td>
 <td><p>vhdx: 64 TB</p>
 <p>VHD: 2 TB</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><p>Festes VHD-Format</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>VHD-differenzierungsformat</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nein</p></td>
+<td><p>No</p></td>
 <td><p>Momentaufnahmen können nicht für differenzierende VHD-basierte virtuelle iSCSI-Datenträger verwendet werden.</p></td>
 </tr>
 <tr class="odd">
@@ -308,7 +308,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <td><p>Dynamisches VHD-Format</p></td>
 <td><p>vhdx: Ja</p>
 <p>VHD: Ja (Nein unter Windows Server 2012)</p></td>
-<td><p>Ja</p></td>
+<td><p>Yes</p></td>
 <td><p>Aufheben der Zuordnung von steht&#39;t unterstützt.</p></td>
 </tr>
 <tr class="odd">
@@ -326,13 +326,13 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>ReFS</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><p>NTFS</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Nicht zutreffend</p></td>
+<td><p>–</p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -350,8 +350,8 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>Verkleinerung der logischen Einheit</p></td>
 <td><p>Ja (nur Windows Server 2012 R2 und höher)</p></td>
-<td><p>Nicht zutreffend</p></td>
-<td><p>Verwenden Sie <a href="https://docs.microsoft.com/powershell/module/iscsitarget/resize-iscsivirtualdisk">Resize-iscsivirtualdisk</a> , um eine LUN zu verkleinern.</p></td>
+<td><p>–</p></td>
+<td><p>Verwenden Sie <a href="/powershell/module/iscsitarget/resize-iscsivirtualdisk">Resize-iscsivirtualdisk</a> , um eine LUN zu verkleinern.</p></td>
 </tr>
 <tr class="even">
 <td><p>Klonen logischer Einheiten</p></td>
@@ -374,7 +374,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="header">
 <th><p>Element</p></th>
 <th><p>Unterstützungs Limit</p></th>
-<th><p>Comment</p></th>
+<th><p>Kommentar</p></th>
 </tr>
 </thead>
 <tbody>
@@ -421,7 +421,7 @@ Dieses Thema enthält die unterstützten und getesteten Beschränkungen von Micr
 <tr class="odd">
 <td><p>Lokales einbinden</p></td>
 <td><p>Unterstützt</p></td>
-<td><p>Lokal bereitgestellte virtuelle iSCSI-Datenträger sind veraltet. Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">in Windows Server 2012 R2 entfernte oder veraltete Features</a>. Dynamische Datenträger Momentaufnahmen können nicht lokal bereitgestellt werden.</p></td>
+<td><p>Lokal bereitgestellte virtuelle iSCSI-Datenträger sind veraltet. Weitere Informationen finden Sie unter <a href="/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303411(v=ws.11)">in Windows Server 2012 R2 entfernte oder veraltete Features</a>. Dynamische Datenträger Momentaufnahmen können nicht lokal bereitgestellt werden.</p></td>
 </tr>
 </tbody>
 </table>

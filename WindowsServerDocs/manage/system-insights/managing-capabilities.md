@@ -6,12 +6,12 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: e78afb47877bb908df81876afe01d2f60b853c70
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 3f4e80136b3c70b7a121663a6defa048d2b0e852
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996707"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766223"
 ---
 # <a name="managing-capabilities"></a>Verwalten von Funktionen
 
@@ -22,7 +22,7 @@ In Windows Server 2019 bietet System Insights eine Reihe von Einstellungen, die 
 >[!TIP]
 >Sie können diese kurzen Videos auch verwenden, um Sie bei den ersten Schritten und der Verwaltung von System Insights zu unterstützen: Einstieg in die ersten Schritte [mit System Insights in 10 Minuten](https://blogs.technet.microsoft.com/filecab/2018/07/24/getting-started-with-system-insights-in-10-minutes/)
 
-Obwohl dieser Abschnitt PowerShell-Beispiele enthält, können Sie die [Dokumentation zu System Insights PowerShell](https://aka.ms/systeminsightspowershell) verwenden, um alle Cmdlets, Parameter und Parametersätze in System Insights anzuzeigen.
+Obwohl dieser Abschnitt PowerShell-Beispiele enthält, können Sie die [Dokumentation zu System Insights PowerShell](/powershell/module/systeminsights/) verwenden, um alle Cmdlets, Parameter und Parametersätze in System Insights anzuzeigen.
 
 ## <a name="viewing-capabilities"></a>Anzeigen von Funktionen
 

@@ -6,19 +6,19 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: 76b171b81ff01a7a16b700d720bf289fefddf0f7
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1775149495871353ef250eff3cb8f6f8cc5c22d6
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990209"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766203"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Problembehandlung für Windows Admin Center
 
 > Gilt für: Windows Admin Center, Windows Admin Center (Vorschauversion)
 
 > [!Important]
-> Dieses Handbuch hilft Ihnen bei der Diagnose und Behebung von Problemen, die die Verwendung des Windows Admin Centers verhindern. Wenn Sie ein Problem mit einem bestimmten Tool haben, überprüfen Sie, ob ein [bekanntes Problem vorliegt.](https://aka.ms/wacknownissues)
+> Dieses Handbuch hilft Ihnen bei der Diagnose und Behebung von Problemen, die die Verwendung des Windows Admin Centers verhindern. Wenn Sie ein Problem mit einem bestimmten Tool haben, überprüfen Sie, ob ein [bekanntes Problem vorliegt.](./known-issues.md)
 
 ## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Der Installer schlägt mit der folgenden Meldung fehl: ** _das Modul "Microsoft. PowerShell. LocalAccounts" konnte nicht geladen werden._**
 
@@ -194,7 +194,7 @@ netsh http delete urlacl url=https://+:443/
 
 Edge hat [bekannte Probleme](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) im Zusammenhang mit Sicherheitszonen, die sich auf die Azure-Anmeldung im Windows Admin Center auswirken. Wenn Sie Probleme bei der Verwendung von Azure-Features bei der Verwendung von Edge haben, versuchen Sie https://login.microsoftonline.com , https://login.live.com die URL des Gateways als vertrauenswürdige Sites und zulässige Sites für die Einstellungen für den Popup Blocker in Ihrem Client seitigen Browser hinzuzufügen.
 
-Gehen Sie dazu folgendermaßen vor:
+Dazu ist Folgendes erforderlich:
 1. **Internet Optionen** im Windows-Startmenü suchen
 2. Zur Registerkarte " **Sicherheit** " wechseln
 3. Klicken Sie unter der Option **Vertrauenswürdige Sites** auf die Schaltfläche **Sites**, und fügen Sie im daraufhin geöffneten Dialogfeld die URLs hinzu. Sie müssen ihre Gateway-URL sowie und hinzufügen https://login.microsoftonline.com https://login.live.com .

@@ -6,12 +6,12 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: b28621b24b321cdc22f07c03e9c04f0dde22759b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d85016fd3f338ab87d6516815ee04c652875bdf5
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87972017"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766763"
 ---
 # <a name="adding-and-developing-new-capabilities"></a>Hinzufügen und Entwickeln neuer Funktionen
 
@@ -31,7 +31,7 @@ Jede neue Funktion kann in die vorhandene System Insights-Infrastruktur integrie
 Verwenden Sie die folgenden Ressourcen, um Ihnen den Einstieg in die Erstellung eigener benutzerdefinierter Funktionen zu erleichtern:
 - [Erfahren Sie mehr](data-sources.md) über die Datenquellen, die Sie erfassen können.
 - [Laden](https://www.nuget.org/packages/Microsoft.WindowsServer.SystemInsights/) Sie das System Insights-nuget-Paket herunter, das die Klassen und Schnittstellen enthält, die Sie zum Schreiben einer Funktion benötigen.
-- Weitere Informationen zu den Klassen und Schnittstellen von System Insights [finden Sie](https://aka.ms/systeminsights-api) in der API-Dokumentation.
+- Weitere Informationen zu den Klassen und Schnittstellen von System Insights [finden Sie](/dotnet/api/microsoft.systeminsights.capability) in der API-Dokumentation.
 - [Verwenden](https://aka.ms/systeminsights-samplecapability) Sie die System Insights-Beispiel Funktion, um Ihnen den Einstieg zu erleichtern. Dadurch wird gezeigt, wie Sie eine Funktion registrieren, die zu sammelnden Datenquellen angeben und mit der Analyse der Systemdaten beginnen.
 
 >[!NOTE]

@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 31f3fa4e-cd25-4bf3-89e9-a01a6cec7893
 ms.author: anpaul
 author: AnirbanPaul
-ms.openlocfilehash: 9623ce4e5e31b905c1c18e9359811389d8d75f23
-ms.sourcegitcommit: 1eaad076ea74e72b36e8893aaa15f3e5f4237bd6
+ms.openlocfilehash: 27ceace93c42ccabdb2db0208c6e3dabce41e1b0
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659385"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766813"
 ---
 # <a name="network-controller"></a>Netzwerkcontroller
 
@@ -23,12 +23,12 @@ Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfras
 
 > [!NOTE]
 > Zusätzlich zu diesem Thema ist die folgende Dokumentation zum Netzwerk Controller verfügbar.
-> - [Hohe Verfügbarkeit des Netzwerk Controllers](network-controller-high-availability.md)
+> - [Hochverfügbarkeit des Netzwerkcontrollers](network-controller-high-availability.md)
 > - [Installations-und Vorbereitungs Anforderungen für die Bereitstellung des Netzwerk Controllers](../../plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 > - [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)
 > - [Installieren der Serverrolle „Netzwerkcontroller“ mit Server-Manager](Install-the-Network-Controller-server-role-using-Server-Manager.md)
 > - [Schritte nach der Bereitstellung für den Netzwerk Controller](post-deploy-steps-nc.md)
-> - [Cmdlets für Netzwerk Controller](https://docs.microsoft.com/powershell/module/networkcontroller/?view=win10-ps)
+> - [Cmdlets für Netzwerk Controller](/powershell/module/networkcontroller/?view=win10-ps)
 
 ## <a name="network-controller-overview"></a><a name="bkmk_overview"></a>Netzwerkcontroller – Übersicht
 
@@ -37,7 +37,7 @@ Der Netzwerk Controller ist eine hoch verfügbare und skalierbare Server Rolle u
 Sie können Netzwerk Controller in Domänen-und nicht-Domänen Umgebungen bereitstellen. In Domänen Umgebungen authentifiziert der Netzwerk Controller Benutzer und Netzwerkgeräte mithilfe von Kerberos. in Umgebungen ohne Domänen müssen Sie Zertifikate für die Authentifizierung bereitstellen.
 
 >[!IMPORTANT]
->Stellen Sie die Netzwerk Controller-Server Rolle nicht auf physischen Hosts bereit. Zum Bereitstellen des Netzwerk Controllers müssen Sie die Netzwerk Controller-Server Rolle auf einer virtuellen Hyper-v-Computer- \( VM installieren \) , die auf einem Hyper-v-Host installiert ist. Nachdem Sie den Netzwerk Controller auf virtuellen Computern auf drei verschiedenen Hyper-v-Hosts installiert haben \- , müssen Sie die Hyper- \- v-Hosts für den Software-Defined Networking- \( Sdn aktivieren, indem Sie \) die Hosts mithilfe des Windows PowerShell-Befehls **New-networkcontrollerserver**dem Netzwerk Controller hinzufügen. Auf diese Weise aktivieren Sie die Load Balancer der Sdn-Software. Weitere Informationen finden Sie unter [New-networkcontrollerserver](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Stellen Sie die Serverrolle „Netzwerkcontroller“ nicht auf physischen Hosts bereit. Zum Bereitstellen des Netzwerk Controllers müssen Sie die Netzwerk Controller-Server Rolle auf einer virtuellen Hyper-v-Computer- \( VM installieren \) , die auf einem Hyper-v-Host installiert ist. Nachdem Sie den Netzwerk Controller auf virtuellen Computern auf drei verschiedenen Hyper-v-Hosts installiert haben \- , müssen Sie die Hyper- \- v-Hosts für den Software-Defined Networking- \( Sdn aktivieren, indem Sie \) die Hosts mithilfe des Windows PowerShell-Befehls **New-networkcontrollerserver**dem Netzwerk Controller hinzufügen. Dies ermöglicht die Verwendung des SDN-Softwarelastenausgleichs. Weitere Informationen finden Sie unter [New-networkcontrollerserver](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
 Netzwerkcontroller kommuniziert mit Netzwerkgeräten, -diensten und -komponenten über die Southbound-API. Mithilfe der Southbound-API kann Netzwerkcontroller Netzwerkgeräte und Dienstkonfigurationen ermitteln und alle benötigten Informationen zum Netzwerk sammeln. Zusätzlich stellt die Southbound-API Netzwerkcontroller einen Pfad zum Senden von Informationen an die Netzwerkinfrastruktur bereit, wenn beispielsweise Änderungen an der Konfiguration vorgenommen wurden.
 
@@ -72,7 +72,7 @@ Für Hochverfügbarkeit in größeren Rechenzentren können Sie einen Cluster mi
 
 Die folgenden Funktionen von Netzwerkcontroller ermöglichen Ihnen das Konfigurieren und Verwalten von virtuellen und physischen Netzwerkgeräten und diensten.
 
--   [Verwalten der Firewall](#bkmk_firewall)
+-   [Firewallverwaltung](#bkmk_firewall)
 
 -   [Verwalten des Softwarelastenausgleichs](#bkmk_slb)
 
@@ -83,7 +83,7 @@ Die folgenden Funktionen von Netzwerkcontroller ermöglichen Ihnen das Konfiguri
 >[!IMPORTANT]
 >Die Sicherung und Wiederherstellung des Netzwerk Controllers ist derzeit in Windows Server 2016 nicht verfügbar.
 
-### <a name="firewall-management"></a><a name="bkmk_firewall"></a>Verwalten der Firewall
+### <a name="firewall-management"></a><a name="bkmk_firewall"></a>Firewallverwaltung
 
 Mit dieser Funktion von Netzwerkcontroller können Sie Firewall-Zugriffssteuerungsregeln für die virtuellen Computer für Ihre Arbeitsauslastungen konfigurieren und verwalten (Zulassen/Verweigern), die sowohl für den Ost/West- als auch den Nord/Süd-Netzwerkdatenverkehr in Ihrem Datencenter gelten. Die Firewallregeln werden im vSwitch-Port des virtuellen Computers für die Arbeitsauslastung bereitgestellt, sodass sie auf alle Arbeitsauslastungen im Datencenter angewendet werden. Unter Verwendung der Northbound-API können Sie die Firewallregeln für eingehenden und ausgehenden Datenverkehr über den virtuellen Computer für Ihre Arbeitsauslastungen definieren. Außerdem können Sie jede Firewallregel so konfigurieren, dass der über die Regel zugelassene oder abgelehnte Datenverkehr protokolliert wird.
 

@@ -7,12 +7,12 @@ ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.topic: get-started-article
 ms.date: 10/28/2018
 ms.author: billmath
-ms.openlocfilehash: 3a53e8bb9e06e51627d14f6e5e3b918f58102478
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: a077a76814cc5ed99d4a1c0eb6c23584b22363e1
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90078677"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766753"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddiensten in Azure
 AD FS verfügt über Funktionen für den vereinfachten, geschützten Identitätsverbund und die einmalige Webanmeldung (SSO). Der Verbund mit Azure AD oder O365 ermöglicht Benutzern die Authentifizierung mit lokalen Anmeldeinformationen und den Zugriff auf Ressourcen in der Cloud. Daher ist es wichtig, dass eine hoch verfügbare AD FS-Infrastruktur vorhanden ist, um den Zugriff auf lokale Ressourcen und Ressourcen in der Cloud sicherzustellen. Durch die Bereitstellung von AD FS in Azure kann die erforderliche Hochverfügbarkeit mit wenig Aufwand erzielt werden.
@@ -89,7 +89,7 @@ Wir benötigen eine Verbindung mit einem lokalen Ort, um den Domänencontroller 
 * ExpressRoute
 
 Es wird empfohlen, ExpressRoute zu verwenden. Mit expressroute können Sie private Verbindungen zwischen Azure-Rechenzentren und der Infrastruktur erstellen, die sich an Ihrem Standort oder in einer Co-Location-Umgebung befindet. ExpressRoute-Verbindungen verlaufen nicht über das öffentliche Internet. Sie bieten mehr Zuverlässigkeit, eine höhere Geschwindigkeit, niedrigere Latenzzeiten und mehr Sicherheit als herkömmliche Verbindungen über das Internet.
-Die Verwendung von ExpressRoute wird zwar empfohlen, aber Sie können eine beliebige Verbindungsmethode wählen, die für Ihr Unternehmen am besten geeignet ist. Weitere Informationen zu ExpressRoute und den verschiedenen Verbindungsoptionen mit ExpressRoute finden Sie unter [ExpressRoute – Technische Übersicht](https://aka.ms/Azure/ExpressRoute).
+Die Verwendung von ExpressRoute wird zwar empfohlen, aber Sie können eine beliebige Verbindungsmethode wählen, die für Ihr Unternehmen am besten geeignet ist. Weitere Informationen zu ExpressRoute und den verschiedenen Verbindungsoptionen mit ExpressRoute finden Sie unter [ExpressRoute – Technische Übersicht](/azure/expressroute/expressroute-introduction).
 
 ### <a name="2-create-storage-accounts"></a>2. Erstellen von Speicher Konten
 Sie können zwei Speicherkonten erstellen, um für Hochverfügbarkeit zu sorgen und die Abhängigkeit von einem einzelnen Speicherkonto zu vermeiden. Teilen Sie die Computer in jeder Verfügbarkeitsgruppe in zwei Gruppen, und weisen Sie jeder Gruppe dann ein separates Speicherkonto zu.
@@ -107,7 +107,7 @@ Beim Erstellen der Verfügbarkeitsgruppen ist es sehr wichtig, Entscheidungen zu
 
 Erstellen Sie die folgenden Verfügbarkeitsgruppen:
 
-| Verfügbarkeitsgruppe | Role | Fehlerdomänen | Updatedomänen |
+| Verfügbarkeitsgruppe | Rolle | Fehlerdomänen | Updatedomänen |
 |:---:|:---:|:---:|:--- |
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
@@ -115,14 +115,14 @@ Erstellen Sie die folgenden Verfügbarkeitsgruppen:
 ### <a name="4-deploy-virtual-machines"></a>4. Bereitstellen von virtuellen Maschinen
 Der nächste Schritt ist die Bereitstellung von virtuellen Computern, auf denen die verschiedenen Rollen in Ihrer Infrastruktur gehostet werden. Es wird empfohlen, in jeder Verfügbarkeitsgruppe mindestens zwei Computer zu verwenden. Erstellen Sie vier virtuelle Computer für die grundlegende Bereitstellung.
 
-| Machine | Role | Subnet | Verfügbarkeitsgruppe | Speicherkonto | IP-Adresse |
+| Machine | Rolle | Subnet | Verfügbarkeitsgruppe | Speicherkonto | IP-Adresse |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |statischen |
-| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |statischen |
-| contosowap1 |WAP |DMZ |contosowapset |contososac1 |statischen |
-| contosowap2 |WAP |DMZ |contosowapset |contososac2 |statischen |
+| contosodc1 |DC/ADFS |INT |contosodcset |contososac1 |Statisch |
+| contosodc2 |DC/ADFS |INT |contosodcset |contososac2 |Statisch |
+| contosowap1 |WAP |DMZ |contosowapset |contososac1 |Statisch |
+| contosowap2 |WAP |DMZ |contosowapset |contososac2 |Statisch |
 
-Sie haben vielleicht bemerkt, dass keine NSG angegeben wurde. Dies liegt daran, dass Sie NSGs bei Azure auf Subnetzebene verwenden können. Anschließend können Sie den Computerdatenverkehr steuern, indem Sie die individuelle NSG verwenden, die entweder dem Subnetz oder dem NIC-Objekt zugeordnet ist. Weitere Informationen finden Sie unter [Was ist eine Netzwerksicherheitsgruppe (NSG)?](https://aka.ms/Azure/NSG).
+Sie haben vielleicht bemerkt, dass keine NSG angegeben wurde. Dies liegt daran, dass Sie NSGs bei Azure auf Subnetzebene verwenden können. Anschließend können Sie den Computerdatenverkehr steuern, indem Sie die individuelle NSG verwenden, die entweder dem Subnetz oder dem NIC-Objekt zugeordnet ist. Weitere Informationen finden Sie unter [Was ist eine Netzwerksicherheitsgruppe (NSG)?](/azure/virtual-network/tutorial-filter-network-traffic).
 Eine statische IP-Adresse wird empfohlen, wenn Sie das DNS verwalten. Sie können auch Azure DNS verwenden und in den DNS-Einträgen für Ihre Domäne über die Azure FQDNs auf die neuen Computer verweisen.
 Nach Abschluss der Bereitstellung sollte der Bereich für virtuelle Computer wie folgt aussehen:
 
@@ -131,7 +131,7 @@ Nach Abschluss der Bereitstellung sollte der Bereich für virtuelle Computer wie
 ### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Konfigurieren des Domänen Controllers/AD FS Servers
  Um jede eingehende Anforderung authentifizieren zu können, muss AD FS mit dem Domänencontroller Kontakt aufnehmen. Es wird empfohlen, ein Replikat des Domänencontrollers in Azure bereitzustellen, um für die Authentifizierung den aufwändigen Weg von Azure zum lokalen DC zu vermeiden. Um Hochverfügbarkeit zu erzielen, ist es ratsam, eine Verfügbarkeitsgruppe mit mindestens zwei Domänencontrollern zu erstellen.
 
-| Domänencontroller | Role | Speicherkonto |
+| Domänencontroller | Rolle | Speicherkonto |
 |:---:|:---:|:---:|
 | contosodc1 |Replikat |contososac1 |
 | contosodc2 |Replikat |contososac2 |
@@ -345,12 +345,12 @@ Sie können ein vorhandenes virtuelles Netzwerk verwenden oder beim Bereitstelle
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 * [Verfügbarkeits Gruppen](https://aka.ms/Azure/Availability)
-* [Azure-Lastenausgleich](https://aka.ms/Azure/ILB)
-* [Interner Load Balancer](https://aka.ms/Azure/ILB/Internal)
-* [Load Balancer mit Internetzugriff](https://aka.ms/Azure/ILB/Internet)
+* [Azure-Lastenausgleich](/azure/load-balancer/load-balancer-overview)
+* [Interner Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-powershell)
+* [Load Balancer mit Internetzugriff](/azure/load-balancer/quickstart-load-balancer-standard-public-powershell)
 * [Speicherkonten](https://aka.ms/Azure/Storage)
-* [Virtuelle Azure-Netzwerke](https://aka.ms/Azure/VNet)
-* [AD FS- und Webanwendungsproxy-Links](https://aka.ms/ADFSLinks)
+* [Virtuelle Azure-Netzwerke](/azure/virtual-network/virtual-networks-overview)
+* [AD FS- und Webanwendungsproxy-Links](/archive/blogs/tangent_thoughts/qrg-quick-reference-guide-active-directory-federation-services)
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Integrieren lokaler Identitäten in Azure Active Directory](/azure/active-directory/hybrid/whatis-hybrid-identity)

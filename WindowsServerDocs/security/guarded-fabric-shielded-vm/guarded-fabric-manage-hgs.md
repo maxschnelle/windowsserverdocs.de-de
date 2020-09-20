@@ -5,12 +5,12 @@ ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
-ms.openlocfilehash: 851ea4a57068c1544f290c48f370e04b96857cf6
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 4c6fe87cd407a41b3686d86a37308bb08ddd6793
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989166"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766743"
 ---
 # <a name="managing-the-host-guardian-service"></a>Verwalten des Host-Überwachungs Diensts
 
@@ -39,7 +39,7 @@ Dies bedeutet auch, dass die Domänen-und Organisations-Administratoren für die
 Jeder Benutzer, der sich selbst Zugriff auf Weitere Ressourcen gewähren kann, stellt ein Sicherheitsrisiko dar.
 
 ### <a name="using-just-enough-administration"></a>Verwendung von Just Enough Administration
-HGS verfügt über [Just](https://aka.ms/JEAdocs) -in-Management-Rollen (Jea), die Sie bei der sicheren Verwaltung unterstützen.
+HGS verfügt über [Just](/powershell/scripting/learn/remoting/jea/overview) -in-Management-Rollen (Jea), die Sie bei der sicheren Verwaltung unterstützen.
 Jea unterstützt Sie bei der Delegierung von Administrator Aufgaben an Benutzer ohne Administratorrechte, was bedeutet, dass die Personen, die HGS-Richtlinien verwalten, eigentlich nicht Administratoren des gesamten Computers oder der Domäne sein müssen.
 Jea schränkt die Befehle ein, die ein Benutzer in einer PowerShell-Sitzung ausführen kann, und verwendet ein temporäres lokales Konto im Hintergrund (eindeutig für jede Benutzersitzung), um die Befehle auszuführen, die normalerweise eine Erhöhung erfordern.
 
@@ -597,7 +597,7 @@ Die genauen Schritte und Funktionen finden Sie in der Dokumentation des HSM-Hers
     1. Erstellen Sie ein Verschlüsselungs Zertifikat mit der Schlüssel Verwendungs Eigenschaft " **Data Encipherment** " in Ihrem HSM.
     2. Erstellen eines Signatur Zertifikats mit der Eigenschaft "Nutzung **digitaler Signatur** Schlüssel" in Ihrem HSM
 3. Installieren Sie die Zertifikate im lokalen Zertifikat Speicher der einzelnen HGS-Knoten gemäß der Anleitung Ihres HSM-Herstellers.
-4. Wenn Ihr HSM differenzierte Berechtigungen verwendet, um bestimmten Anwendungen oder Benutzern die Berechtigung zum Verwenden des privaten Schlüssels zu erteilen, müssen Sie Ihrem HGS-Gruppen verwalteten Dienst Konto Zugriff auf das Zertifikat gewähren. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen.`(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
+4. Wenn Ihr HSM differenzierte Berechtigungen verwendet, um bestimmten Anwendungen oder Benutzern die Berechtigung zum Verwenden des privaten Schlüssels zu erteilen, müssen Sie Ihrem HGS-Gruppen verwalteten Dienst Konto Zugriff auf das Zertifikat gewähren. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen. `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
 5. Fügen Sie die Signatur-und Verschlüsselungs Zertifikate zu HGS hinzu, indem Sie die Fingerabdrücke durch die der Zertifikate "in den folgenden Befehlen ersetzen:
 
     ```powershell
@@ -609,7 +609,7 @@ Die genauen Schritte und Funktionen finden Sie in der Dokumentation des HSM-Hers
 
 Wenn Sie über ein Software gestütztes Zertifikat verfügen, das von Ihrem Unternehmen oder von einer öffentlichen Zertifizierungsstelle ausgestellt wurde, die über einen nicht exportierbaren privaten Schlüssel verfügt, müssen Sie das Zertifikat mithilfe des Fingerabdrucks zu HGS hinzufügen.
 1. Installieren Sie das Zertifikat auf Ihrem Computer gemäß den Anweisungen Ihrer Zertifizierungsstelle.
-2. Erteilen Sie dem verwalteten Dienst Konto der HGS-Gruppe Lesezugriff auf den privaten Schlüssel des Zertifikats. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen.`(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
+2. Erteilen Sie dem verwalteten Dienst Konto der HGS-Gruppe Lesezugriff auf den privaten Schlüssel des Zertifikats. Sie können den Namen des HGS-GMSA-Kontos ermitteln, indem Sie ausführen. `(Get-IISAppPool -Name KeyProtection).ProcessModel.UserName`
 3. Registrieren Sie das Zertifikat mit dem folgenden Befehl bei HGS, und ersetzen Sie dabei den Fingerabdruck Ihres Zertifikats (Ändern der *Verschlüsselung* in *Signieren* für Signatur Zertifikate):
 
     ```powershell
@@ -692,7 +692,7 @@ Dabei handelt es sich um eine Aktion, die erfordert, dass der Besitzer des virtu
 
 1. Fahren Sie die VM herunter. Der virtuelle Computer kann erst wieder eingeschaltet werden, wenn die restlichen Schritte ausgeführt wurden. andernfalls müssen Sie den Prozess erneut starten.
 
-2. Aktuelle Schlüssel Schutzvorrichtung in einer Datei speichern:`Get-VMKeyProtector -VMName 'VM001' | Out-File '.\VM001.kp'`
+2. Aktuelle Schlüssel Schutzvorrichtung in einer Datei speichern: `Get-VMKeyProtector -VMName 'VM001' | Out-File '.\VM001.kp'`
 
 3. Übertragen der KP in den VM-Besitzer
 
@@ -721,11 +721,11 @@ Dabei handelt es sich um eine Aktion, die erfordert, dass der Besitzer des virtu
 
     > [!NOTE]
     > Wenn der VM-Besitzer eine falsche Schlüssel Schutzvorrichtung auf dem virtuellen Computer festlegt und Ihr Fabric nicht zum Ausführen des virtuellen Computers autorisiert, können Sie den abgeschirmten virtuellen Computer nicht starten.
-    > Führen Sie zum zurückkehren zur letzten als funktionierend bekannten Schlüssel Schutzvorrichtung`Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector`
+    > Führen Sie zum zurückkehren zur letzten als funktionierend bekannten Schlüssel Schutzvorrichtung `Set-VMKeyProtector -RestoreLastKnownGoodKeyProtector`
 
     Nachdem alle VMs aktualisiert wurden, um die neuen Wächter Schlüssel zu autorisieren, können Sie die alten Schlüssel deaktivieren und entfernen.
 
-9.  Holen Sie sich die Fingerabdrücke der alten Zertifikate von`Get-HgsKeyProtectionCertificate -IsPrimary $false`
+9.  Holen Sie sich die Fingerabdrücke der alten Zertifikate von `Get-HgsKeyProtectionCertificate -IsPrimary $false`
 
 10. Deaktivieren Sie die einzelnen Zertifikate, indem Sie die folgenden Befehle ausführen:
 

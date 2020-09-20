@@ -7,19 +7,19 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: e7ebf0f2923e565e16e546a7804ee42771eec83d
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 4caa619c248a30c48cdfc291f2fde25ba51d85f7
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89640638"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766283"
 ---
 # <a name="repair-bde"></a>repair-bde
 
 Versucht, kritische Teile eines stark beschädigten Laufwerks zu rekonstruieren und wiederherstellbare Daten zu retten, wenn das Laufwerk mithilfe von BitLocker verschlüsselt wurde und über ein gültiges Wiederherstellungs Kennwort oder einen Wiederherstellungs Schlüssel zur Entschlüsselung verfügt.
 
 > [!IMPORTANT]
-> Wenn die BitLocker-metadatendaten auf dem Laufwerk beschädigt sind, müssen Sie zusätzlich zum Wiederherstellungs Kennwort oder Wiederherstellungs Schlüssel ein Sicherungs Schlüssel Paket angeben können. Wenn Sie die Standardeinstellung für die Schlüssel Sicherung für Active Directory Domain Services verwendet haben, wird Ihr Schlüssel Paket dort gesichert. Sie können den BitLocker [: BitLocker-Wiederherstellungs Kennwort-Viewer](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-use-bitlocker-recovery-password-viewer) verwenden, um das Schlüssel Paket aus AD DS abzurufen.
+> Wenn die BitLocker-metadatendaten auf dem Laufwerk beschädigt sind, müssen Sie zusätzlich zum Wiederherstellungs Kennwort oder Wiederherstellungs Schlüssel ein Sicherungs Schlüssel Paket angeben können. Wenn Sie die Standardeinstellung für die Schlüssel Sicherung für Active Directory Domain Services verwendet haben, wird Ihr Schlüssel Paket dort gesichert. Sie können den BitLocker [: BitLocker-Wiederherstellungs Kennwort-Viewer](/windows/security/information-protection/bitlocker/bitlocker-use-bitlocker-recovery-password-viewer) verwenden, um das Schlüssel Paket aus AD DS abzurufen.
 >
 > Mithilfe des Schlüssel Pakets und des Wiederherstellungs Kennworts oder Wiederherstellungs Schlüssels können Sie Teile eines durch BitLocker geschützten Laufwerks entschlüsseln, auch wenn der Datenträger beschädigt ist. Jedes Schlüssel Paket funktioniert nur für ein Laufwerk mit dem entsprechenden Laufwerks Bezeichner.
 

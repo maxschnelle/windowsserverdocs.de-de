@@ -6,12 +6,12 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a2fd0e688d33265119c8dcb915d485e953507c80
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 56d953c721fff2218b256fa99d83078485438c0f
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990489"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765971"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
@@ -25,7 +25,7 @@ Die hyperkonvergierte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Sp
 > Sie möchten eine hyperkonvergierte Infrastruktur erwerben? Microsoft empfiehlt von unseren Partnern diese [Software definierten Lösungen von Windows Server](https://microsoft.com/wssd) . Sie wurden in unserer Referenzarchitektur entworfen, zusammengestellt und überprüft, um Kompatibilität und Zuverlässigkeit sicherzustellen, sodass Sie schnell loslegen können.
 
 > [!IMPORTANT]
-> Einige der in diesem Artikel beschriebenen Funktionen sind nur in der Vorschauversion des Windows Admin Centers verfügbar. [Gewusst wie diese Version erhalten?](https://aka.ms/windowsadmincenter)
+> Einige der in diesem Artikel beschriebenen Funktionen sind nur in der Vorschauversion des Windows Admin Centers verfügbar. [Gewusst wie diese Version erhalten?](../overview.md)
 
 ## <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
@@ -96,7 +96,7 @@ Sobald Ihre hyperkonvergierte Infrastruktur bereitgestellt ist, können Sie Sie 
 
 ### <a name="install-windows-admin-center"></a>Installieren von Windows Admin Center
 
-Wenn Sie dies noch nicht getan haben, müssen Sie Windows Admin Center herunterladen und installieren. Die schnellste Möglichkeit, sich einzurichten, ist die Installation auf Ihrem Windows 10-Computer und die Remote Verwaltung Ihrer Server. Dieser Vorgang dauert weniger als fünf Minuten. [Laden Sie jetzt herunter](https://aka.ms/windowsadmincenter) , oder [erfahren Sie mehr über andere Installationsoptionen](../deploy/install.md).
+Wenn Sie dies noch nicht getan haben, müssen Sie Windows Admin Center herunterladen und installieren. Die schnellste Möglichkeit, sich einzurichten, ist die Installation auf Ihrem Windows 10-Computer und die Remote Verwaltung Ihrer Server. Dieser Vorgang dauert weniger als fünf Minuten. [Laden Sie jetzt herunter](../overview.md) , oder [erfahren Sie mehr über andere Installationsoptionen](../deploy/install.md).
 
 ### <a name="add-hyper-converged-cluster"></a>Hyperkonvergierten Cluster hinzufügen
 
@@ -163,7 +163,7 @@ Nein
 
 ### <a name="does-it-require-an-internet-connection"></a>Ist eine Internet Verbindung erforderlich?
 
-Nein
+Nein.
 
 Obwohl das Windows Admin Center eine leistungsstarke und bequeme Integration in die Microsoft Azure Cloud bietet, ist die zentrale Verwaltungs-und Überwachungsumgebung für hyperkonvergierte Infrastrukturen vollständig lokal. Sie kann ohne Internet Verbindung installiert und verwendet werden.
 
@@ -231,7 +231,7 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
 
 ### <a name="pause-and-safely-restart-a-server"></a>Anhalten und sicheres Neustarten eines Servers
 
-1. Wählen Sie im **Dashboard**auf der linken Seite die Option **Server** aus, oder klicken Sie auf den Link **Server >anzeigen** auf der Kachel in der unteren rechten Ecke des Dashboards.
+1. Wählen Sie im **Dashboard**auf der linken Seite die Option **Server** aus, oder klicken Sie auf den Link **Server >anzeigen **  auf der Kachel in der unteren rechten Ecke des Dashboards.
 2. Wechseln Sie am oberen Rand von **Zusammenfassung** zur Registerkarte **Inventur** .
 3. Wählen Sie einen Server aus, indem Sie auf den Namen klicken, um die Seite **Server** Detail zu öffnen
 4. Klicken Sie **auf Server zur Wartung**anhalten. Wenn es sicher ist, dass der Vorgang fortgesetzt werden kann, werden die virtuellen Maschinen auf andere Server im Cluster verschoben. Der Server wird in diesem Fall in den Status entwässert. Wenn Sie möchten, können Sie sich die virtuellen Computer auf der Seite **virtuelle Computer > Inventur** ansehen, auf der der zugehörige Host Server im Raster eindeutig angezeigt wird. Wenn alle virtuellen Computer verschoben wurden, wird der Serverstatus **angeh**alten.
@@ -282,11 +282,11 @@ Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht dar
 
 - [Übermitteln und abstimmen von featureanfragen auf UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
 - [Besuchen Sie das Forum zum Windows Admin Center in der Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
-- Tweet zu`@servermgmt`
+- Tweet zu `@servermgmt`
 
 ### <a name="additional-references"></a>Weitere Verweise
 
 - [Windows Admin Center](../overview.md)
 - [Direkte Speicherplätze](../../../storage/storage-spaces/storage-spaces-direct-overview.md)
 - [Hyper-V](../../../virtualization/hyper-v/hyper-v-on-windows-server.md)
-- [Software-Defined Networking](../../../networking/sdn/software-defined-networking.md)
+- [Softwaredefiniertes Netzwerk](../../../networking/sdn/software-defined-networking.md)

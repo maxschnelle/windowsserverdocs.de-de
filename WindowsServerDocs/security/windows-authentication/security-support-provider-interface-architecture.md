@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: aec55bca0be096a3866cc49e718743a9c32d8f6b
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: da7c390427a3f0f2348d91e14d0affef905db390
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89638747"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766953"
 ---
 # <a name="security-support-provider-interface-architecture"></a>Architektur der Security Support Provider-Schnittstelle
 
@@ -83,9 +83,9 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Kerberos (Windows)](/windows/win32/secauthn/microsoft-kerberos)
 
--   [\[MS-kile \] : Kerberos-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
+-   [\[MS-kile \] : Kerberos-Protokoll Erweiterungen](/openspecs/windows_protocols/ms-kile/2a32282e-dd48-4ad9-a542-609804b02cc9)
 
--   [\[MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
+-   [\[MS-SFU \] : Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](/openspecs/windows_protocols/ms-sfu/3bff5864-8135-400e-bdd9-33b552051d94)
 
 -   [Kerberos SSP/AP (Windows)](/windows/win32/secauthn/kerberos-ssp-ap)
 
@@ -139,7 +139,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Digest Authentifizierung (Windows)](/windows/win32/secauthn/microsoft-digest-ssp)
 
--   [\[MS-dpsp \] : Digest-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
+-   [\[MS-dpsp \] : Digest-Protokoll Erweiterungen](/openspecs/windows_protocols/ms-dpsp/3e44be62-2067-472a-9ef0-e937298b68fb)
 
 ### <a name="schannel-security-support-provider"></a><a name="BKMK_SchannelSSP"></a>SChannel Security Support Provider
 Der sichere Kanal (SChannel) wird für die webbasierte Server Authentifizierung verwendet, z. b. Wenn ein Benutzer versucht, auf einen sicheren Webserver zuzugreifen.
@@ -177,7 +177,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Technische Referenz zu TLS/SSL](/previous-versions/windows/it-pro/windows-server-2003/cc784149(v=ws.10))
 
--   [\[MS-TLSP \] : Transport Layer Security (TLS)-Profil](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
+-   [\[MS-TLSP \] : Transport Layer Security (TLS)-Profil](/openspecs/windows_protocols/ms-tlsp/58aba05b-62b0-4cd1-b88b-dc8a24920346)
 
 ### <a name="negotiate-security-support-provider"></a><a name="BKMK_NegoSSP"></a>Sicherheits Unterstützungs Anbieter aushandeln
 Der einfache und geschützte GSS-API-Aushandlungs Mechanismus (spnetgo) bildet die Grundlage für den Aushandlungs-SSP, der zum Aushandeln eines bestimmten Authentifizierungs Protokolls verwendet werden kann. Wenn eine SSPI zur Anmeldung bei einem Netzwerk von einer Anwendung aufgerufen wird, kann ein SSP zur Verarbeitung der Anforderung angegeben werden. Wenn die Anwendung den Aushandlungs-SSP angibt, analysiert Sie die Anforderung und wählt den entsprechenden Anbieter für die Verarbeitung der Anforderung auf der Grundlage der vom Kunden konfigurierten Sicherheitsrichtlinien aus.
@@ -194,9 +194,9 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft aushandeln (Windows)](/windows/win32/secauthn/microsoft-negotiate)
 
--   [\[MS-SPNG \] : einfache und geschützte GSS-API-Aushandlungs Mechanismus-Erweiterungen (spnetgo)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
+-   [\[MS-SPNG \] : einfache und geschützte GSS-API-Aushandlungs Mechanismus-Erweiterungen (spnetgo)](/openspecs/windows_protocols/ms-spng/f377a379-c24f-4a0f-a3eb-0d835389e28a)
 
--   [\[MS-N2HT \] : Aushandlungs-und Nego2 http-Authentifizierungsprotokoll Spezifikation](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
+-   [\[MS-N2HT \] : Aushandlungs-und Nego2 http-Authentifizierungsprotokoll Spezifikation](/openspecs/windows_protocols/ms-n2ht/4b88aa77-4b12-4933-8740-0f32d8f4eacf)
 
 ### <a name="credential-security-support-provider"></a><a name="BKMK_CredSSP"></a>Anmelde Informationsanbieter für Sicherheitsunterstützung
 Der Anmelde Informations Sicherheits-Dienstanbieter (Credential Security Service Provider, shdssp) stellt beim Starten neuer terminaldienstedienste und Remotedesktopdienste Sitzungen eine Single Sign-on Benutzer Darstellung (SSO) bereit. Mit "andssp" können Anwendungen die Anmelde Informationen des Benutzers vom Client Computer (mithilfe des Client seitigen SSP) an den Zielserver (über den serverseitigen SSP) delegieren, basierend auf den Richtlinien des Clients. Die Richtlinien für die aufwärtssp werden mithilfe von Gruppenrichtlinie konfiguriert. die Delegierung von Anmelde Informationen ist standardmäßig deaktiviert.
@@ -207,7 +207,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 **Weitere Ressourcen für die Anmelde Informationen SSP**
 
--   [\[MS-CSSp \] : Credential Security Support Provider (kredssp)-Protokollspezifikation](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
+-   [\[MS-CSSp \] : Credential Security Support Provider (kredssp)-Protokollspezifikation](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30)
 
 -   [Anmelde Informationen Sicherheits Dienstanbieter und SSO für Terminaldiensteanmeldung](/previous-versions/windows/it-pro/windows-vista/cc749211(v=ws.10))
 

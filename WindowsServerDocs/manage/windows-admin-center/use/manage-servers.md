@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 25edd2851638fec99b6afda0415fdf8e8c8f1699
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7be02bd7c513d0e7680ed70f107a34c6a9af6ed2
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997190"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765961"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
@@ -60,7 +60,7 @@ Die folgenden Tools sind für Serververbindungen verfügbar:
 | [Firewall](#firewall) | Anzeigen und Ändern von Firewallregeln |
 | [Installierte apps](#installed-apps) | Anzeigen und Entfernen installierter apps |
 | [Lokale Benutzer und Gruppen](#local-users-and-groups) | Anzeigen und ändern lokaler Benutzer und Gruppen |
-| [Netzwerk](#network) | Anzeigen und Ändern von Netzwerkgeräten |
+| [Network](#network) | Anzeigen und Ändern von Netzwerkgeräten |
 | [Paket Überwachung](https://aka.ms/wac1908) | Überwachen von Netzwerk Paketen |
 | [System Monitor](https://aka.ms/perfmon-blog) | Anzeigen von Leistungsindikatoren und Berichten |
 | [PowerShell](#powershell) | Interagieren mit dem Server über PowerShell |
@@ -83,7 +83,7 @@ Die folgenden Tools sind für Serververbindungen verfügbar:
 
 In der **Übersicht** können Sie den aktuellen Status der CPU-, Arbeitsspeicher-und Netzwerkleistung anzeigen sowie Vorgänge ausführen und Einstellungen auf einem Zielcomputer oder-Server ändern.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 
@@ -103,7 +103,7 @@ Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 
 **Active Directory** ist eine frühe Vorschau, die im [Erweiterungs Feed](../configure/using-extensions.md)verfügbar ist.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Active Directory Verwaltung sind verfügbar:
 
@@ -126,7 +126,7 @@ Mit **Backup** können Sie Ihren Windows-Server vor Beschädigungen, Angriffen o
 
 [Bereitstellen von Feedback für die Sicherung im Windows Admin Center](https://aka.ms/backup-wac-feedback)
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden bei der Sicherung unterstützt:
 
@@ -141,7 +141,7 @@ Die folgenden Funktionen werden bei der Sicherung unterstützt:
 
 Mithilfe von **Zertifikaten** können Sie Zertifikat Speicher auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Zertifikaten unterstützt:
 
@@ -164,7 +164,7 @@ Mithilfe von **Containern** können Sie die Container auf einem Windows Server-C
 
 Mithilfe von **Geräten** können Sie verbundene Geräte auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden von Geräten unterstützt:
 
@@ -179,7 +179,7 @@ Die folgenden Funktionen werden von Geräten unterstützt:
 
 Mit **DHCP** können Sie verbundene Geräte auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 - Erstellen/Konfigurieren/Anzeigen von IPv4-und IPv6-Bereichen
 - Adress Ausschlüsse erstellen und Start-und End-IP-Adresse konfigurieren
@@ -191,7 +191,7 @@ Mit **DHCP** können Sie verbundene Geräte auf einem Computer oder Server verwa
 
 Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 - Details der DNS-Forward-Lookupzonen, Reverse-Lookupzonen und DNS-Einträge anzeigen
 - Erstellen von Forward-Lookupzonen (primär, Sekundär oder Stub) und Konfigurieren von Forward-lookupzoneneigenschaften
@@ -206,7 +206,7 @@ Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Serv
 
 **Ereignisse** ermöglichen es Ihnen, Ereignisprotokolle auf einem Computer oder Server zu verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Ereignissen unterstützt:
 
@@ -217,11 +217,11 @@ Die folgenden Funktionen werden in Ereignissen unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Ereignisse**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BEvents%5D).
 
-## <a name="files"></a>Dateien
+## <a name="files"></a>Files
 
 Mithilfe von **Dateien** können Sie Dateien und Ordner auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Dateien unterstützt:
 
@@ -244,7 +244,7 @@ Die folgenden Funktionen werden in Dateien unterstützt:
 
 Mithilfe der **Firewall** können Sie Firewalleinstellungen und-Regeln auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in der Firewall unterstützt:
 
@@ -270,7 +270,7 @@ Mithilfe **installierter apps** können Sie installierte Anwendungen auflisten u
 
 **Lokale Benutzer und Gruppen** ermöglichen Ihnen das Verwalten von Sicherheitsgruppen und Benutzern, die lokal auf einem Computer oder Server vorhanden sind.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in lokalen Benutzern und Gruppen unterstützt:
 
@@ -287,7 +287,7 @@ Die folgenden Funktionen werden in lokalen Benutzern und Gruppen unterstützt:
 
 Mit dem **Netzwerk** können Sie Netzwerkgeräte und-Einstellungen auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden im Netzwerk unterstützt:
 
@@ -302,7 +302,7 @@ Die folgenden Funktionen werden im Netzwerk unterstützt:
 
 **PowerShell** ermöglicht die Interaktion mit einem Computer oder Server über eine PowerShell-Sitzung.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in PowerShell unterstützt:
 
@@ -315,7 +315,7 @@ Die folgenden Funktionen werden in PowerShell unterstützt:
 
 Mit **Prozessen** können Sie laufende Prozesse auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden-Funktionen werden in-Prozessen unterstützt:
 
@@ -332,7 +332,7 @@ Die folgenden-Funktionen werden in-Prozessen unterstützt:
 
 Die **Registrierung** ermöglicht es Ihnen, Registrierungsschlüssel und-Werte auf einem Computer oder Server zu verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in der Registrierung unterstützt:
 
@@ -346,7 +346,7 @@ Die folgenden Funktionen werden in der Registrierung unterstützt:
 
 **Remotedesktop** ermöglicht es Ihnen, über eine interaktive Desktop Sitzung mit einem Computer oder Server zu interagieren.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Remotedesktop unterstützt:
 
@@ -360,7 +360,7 @@ Die folgenden Funktionen werden in Remotedesktop unterstützt:
 
 Mithilfe von **Rollen und Features** können Sie Rollen und Features auf einem Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in Rollen und Features unterstützt:
 
@@ -375,7 +375,7 @@ Die folgenden Funktionen werden in Rollen und Features unterstützt:
 
 Mit **geplanten Tasks** können Sie geplante Aufgaben auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in geplanten Tasks unterstützt:
 
@@ -391,7 +391,7 @@ Die folgenden Funktionen werden in geplanten Tasks unterstützt:
 
 **Dienste** ermöglichen es Ihnen, Dienste auf einem Computer oder Server zu verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in-Diensten unterstützt:
 
@@ -404,11 +404,11 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Dienste**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
 
-## <a name="settings"></a>Einstellung
+## <a name="settings"></a>Einstellungen
 
 **Einstellungen** ist ein zentraler Ort zum Verwalten von Einstellungen auf einem Computer oder Server.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 - Anzeigen und Ändern von Benutzer-und System Umgebungsvariablen
 - Anzeigen der Konfiguration zum Überwachen von Warnungen von [Azure Monitor](../azure/azure-monitor.md)
@@ -421,7 +421,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 
 Mithilfe von **Speicher** können Sie Speichergeräte auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden im Speicher unterstützt:
 
@@ -456,16 +456,16 @@ Verwenden Sie **Speicher** Replikate zum Verwalten der Server-zu-Server-Speicher
 ## <a name="system-insights"></a>Systemdaten
 
 **System Insights** führt Predictive Analytics nativ in Windows Server ein, um Ihnen einen besseren Einblick in die Funktionsweise des Servers zu bieten.
-[Verschaffen Sie sich einen Überblick über System Einblicke](https://aka.ms/systeminsights)
+[Verschaffen Sie sich einen Überblick über System Einblicke](../../system-insights/overview.md)
 
 >[!NOTE]
 >System Insights erfordert Windows Server 2019.
 
-## <a name="updates"></a>Aktualisierungen
+## <a name="updates"></a>Updates
 
 Mit **Updates** können Sie Microsoft-und/oder Windows-Updates auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden bei Updates unterstützt:
 
@@ -485,7 +485,7 @@ Siehe [Verwalten von Virtual Machines mit dem Windows Admin Center](manage-virtu
 
 Mit **virtuellen Switches** können Sie virtuelle Hyper-V-Switches auf einem Computer oder Server verwalten.
 
-### <a name="features"></a>Features
+### <a name="features"></a>Funktionen
 
 Die folgenden Funktionen werden in virtuellen Switches unterstützt:
 
