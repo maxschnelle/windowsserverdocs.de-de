@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 01/07/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 8a1cd07167fd0a73d72dc57708a5f9bd23d2252c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d6fa3e4535748b6c4d5b45755b0336dc26815bee
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87958678"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766733"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -149,7 +149,7 @@ Hier finden Sie einige Videos von Microsoft Ignite 2019-Sitzungen:
 - [How to use Microsoft Azure hybrid services together with Windows Admin Center and Windows Server](https://aka.ms/WAC-THR2073) (Verwenden von Microsoft Azure-Hybriddiensten zusammen mit Windows Admin Center und Windows Server)
 - [Live Q&A: Manage your hybrid server environment with Windows Admin Center](https://aka.ms/WAC-MLS1055) (Live-F&A: Verwalten Ihrer hybriden Serverumgebung mit Windows Admin Center)
 - [Learning Path: Hybrid management technologies](https://aka.ms/WAC-HybridMgmtTech) (Lernpfad: Hybridverwaltungstechnologien)
-- [Hands on Lab: Windows Admin Center and Hybrid](https://aka.ms/WAC-HOL2019) (Praktische Übungseinheit: Windows Admin Center und Hybridlösungen)
+- [Hands on Lab: Windows Admin Center and Hybrid](/learn/?WT.mc_id=sitertzn_homepage_learn-redirect-handsonlabs) (Praktische Übungseinheit: Windows Admin Center und Hybridlösungen)
 
 Im folgenden finden Sie einige Videos von Windows Server Summit 2019-Sitzungen:
 

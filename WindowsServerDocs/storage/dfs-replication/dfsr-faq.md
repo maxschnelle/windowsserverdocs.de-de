@@ -4,12 +4,12 @@ ms.date: 06/18/2014
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 0a19bdd00000e466f2a2af92116356a9ad2a6428
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 346fa77e1a22626094baa33aaf70ead23f2f0db0
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950785"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766643"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -282,7 +282,7 @@ Die DFS-Verwaltung ist in Windows Server 2012 R2, Windows Server 2012, Windows
 
 
 > [!IMPORTANT]
-> Zum Anzeigen oder Verwalten von Replikationsgruppen, die schreibgeschützte replizierte Ordner oder Mitglieder enthalten, die Failovercluster sind, musst du die Version der DFS-Verwaltung verwenden, die in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, den <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">Remoteserver-Verwaltungstools für Windows 8</a> oder den <a href="https://technet.microsoft.com/library/ee449475">Remoteserver-Verwaltungstools für Windows 7</a> enthalten ist.
+> Zum Anzeigen oder Verwalten von Replikationsgruppen, die schreibgeschützte replizierte Ordner oder Mitglieder enthalten, die Failovercluster sind, musst du die Version der DFS-Verwaltung verwenden, die in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, den <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">Remoteserver-Verwaltungstools für Windows 8</a> oder den <a href="/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee449475(v=ws.10)">Remoteserver-Verwaltungstools für Windows 7</a> enthalten ist.
 <br>
 
 

@@ -8,12 +8,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e0ce10cbdc1dfe70156d36a96978222395afaa94
-ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
+ms.openlocfilehash: c7d05731997aeb9fcdb1fadb73ba80f2ff6655e5
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88702819"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766693"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -159,7 +159,7 @@ In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizier
 > [!IMPORTANT]
 > Benutzerdefinierte Authentifizierungs- und Autorisierungsmodelle vor Windows 8.1 werden nicht unterstützt, aber im obigen Artikel erläutert.
 
-Weitere Informationen zu diesem Feature finden Sie unter [https://aka.ms/paa-sample](https://aka.ms/paa-sample).
+Weitere Informationen zu diesem Feature finden Sie unter [https://aka.ms/paa-sample](/samples/browse/?redirectedfrom=MSDN-samples).
 
 > [!TIP]
 > Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](/answers/topics/windows-remote-desktop-client.html), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.

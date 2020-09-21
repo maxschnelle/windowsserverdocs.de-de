@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: d0ba6860edd40202da3078ee0ad05eb91901e1f2
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 5dfed9e70e4f0406c59c31201c8d2d1a9b3caafe
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87945713"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766863"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
@@ -55,7 +55,7 @@ Windows Server 2016 bietet eine neue Hyper-V-basierte abgeschirmte VM, um jeden 
 
 - Unterstützung für den Host-Überwachungsdienst für vorhandenes sicheres Active Directory: Sie können den Host-Überwachungsdienst so steuern, dass dieser eine vorhandene Active Directory-Gesamtstruktur als Active Directory verwendet, anstatt eine eigene Active Directory-Instanz zu erstellen.
 
-Weitere Einzelheiten und Anweisungen zur Arbeit mit abgeschirmten virtuellen Computern finden Sie unter [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Validierungsleitfaden für abgeschirmte virtuelle Computer und geschützte Fabrics für Windows Server 2016 [TPM]).
+Weitere Einzelheiten und Anweisungen zur Arbeit mit abgeschirmten virtuellen Computern finden Sie unter [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms-top-node.md) (Validierungsleitfaden für abgeschirmte virtuelle Computer und geschützte Fabrics für Windows Server 2016 [TPM]).
 
 ## <a name="identity-and-access"></a>[Identität und Zugriff](../identity/Identity-and-Access.yml)
 Mit den neuen Features für Identitäten wird die Möglichkeit verbessert, Active Directory-Umgebungen zu schützen. Außerdem können Unternehmen eine Migration zu reinen Cloudbereitstellungen oder Hybridbereitstellungen durchführen, bei denen einige Anwendungen und Dienste in der Cloud und andere Anwendungen und Dienste lokal gehostet werden.

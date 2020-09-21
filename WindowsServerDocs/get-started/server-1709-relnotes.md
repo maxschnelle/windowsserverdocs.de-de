@@ -8,12 +8,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: afadca07931284e975aaf18192664fa1ed81e184
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: f707dbbe22624489f9c5939987ea9831cc467214
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89033738"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766703"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1709
 
@@ -29,7 +29,7 @@ Dieses Dokument wird ständig aktualisiert. Wenn kritische Probleme ermittelt we
 
 Das Einführen von Servern mit Windows Server, Version 1709, auf einer Windows Server 2016-Bereitstellung mit direkten Speicherplätzen wird auch nicht unterstützt.
 
-Das Windows Server-Releasemodell bietet eine neue Option zur Angleichung an ähnliche Release- und Servicemodelle für [Windows 10](/windows/deployment/update/waas-overview) und [Microsoft 365 Apps](https://docs.microsoft.com/DeployOffice/overview-update-channels). Die Releases des halbjährigen Kanals bieten neuen Funktionen für Kunden, die einen schnellen Rhythmus des Verschiebens benötigen, und bietet zwei neue Releases pro im Jahr: im Frühling und im Herbst.
+Das Windows Server-Releasemodell bietet eine neue Option zur Angleichung an ähnliche Release- und Servicemodelle für [Windows 10](/windows/deployment/update/waas-overview) und [Microsoft 365 Apps](/DeployOffice/overview-update-channels). Die Releases des halbjährigen Kanals bieten neuen Funktionen für Kunden, die einen schnellen Rhythmus des Verschiebens benötigen, und bietet zwei neue Releases pro im Jahr: im Frühling und im Herbst.
 
 Der halbjährliche Kanal von Windows Server konzentriert sich auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. Weitere Informationen finden Sie in diesem [Blog](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update). Kunden, die für nach Infrastrukturrollen wie „Direkte Speicherplätze“ suchen, sollten die Releases des Long-Term Servicing Channel verwenden, z.B. Windows Server 2016 (jetzt verfügbar) und [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar). Wir setzen uns für die Entwicklung der besten Plattform für hyperkonvergente Infrastruktur ein und entwickeln ständig neue Features und verbessern vorhandene basierend auf Ihrem Feedback.
 

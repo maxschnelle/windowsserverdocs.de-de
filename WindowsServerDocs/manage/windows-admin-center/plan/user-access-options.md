@@ -6,12 +6,12 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 03/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c96968f55a06c7ccffd9f7919001f21bff6a75c
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 184eca56dc14e91220a7fb7eb196c48706562ff7
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87996991"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766713"
 ---
 # <a name="user-access-options-with-windows-admin-center"></a>Benutzerzugriffsoptionen mit Windows Admin Center
 
@@ -58,7 +58,7 @@ Dadurch können sie sich remote mit dem Computer verbinden und sicherstellen, da
 Einige Benutzer benötigen jedoch möglicherweise keinen uneingeschränkten Zugriff auf das Gerät, um ihre Aufgaben auszuführen.
 Du kannst die **rollenbasierte Zugriffssteuerung** (Role-Based Access Control, RBAC) in Windows Admin Center verwenden, um diesen Benutzern eingeschränkten Zugriff auf den Computer zu gewähren, anstatt sie zu vollständigen lokalen Administratoren zu machen.
 
-Die rollenbasierte Zugriffssteuerung in Windows Admin Center funktioniert, indem jeder verwaltete Server mit einem PowerShell [Just Enough Administration](https://aka.ms/jeadocs)-Endpunkt konfiguriert wird.
+Die rollenbasierte Zugriffssteuerung in Windows Admin Center funktioniert, indem jeder verwaltete Server mit einem PowerShell [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview)-Endpunkt konfiguriert wird.
 Dieser Endpunkt definiert die Rollen, einschließlich der Aspekte des Systems, die jede Rolle verwalten darf und welche Benutzer der Rolle zugeordnet werden.
 Wenn sich ein Benutzer mit dem eingeschränkten Endpunkt verbindet, wird ein temporäres lokales Administratorkonto erstellt, um das System in seinem Auftrag zu verwalten.
 Dadurch wird sichergestellt, dass auch Tools, die über kein eigenes Delegierungsmodell verfügen, weiterhin mit Windows Admin Center verwaltet werden können.

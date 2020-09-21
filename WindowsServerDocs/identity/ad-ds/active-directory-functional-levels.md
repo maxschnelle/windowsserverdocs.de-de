@@ -8,12 +8,12 @@ ms.date: 08/25/2020
 ms.topic: article
 ms.custom: it-pro
 ms.reviewer: maheshu
-ms.openlocfilehash: e82dccb79a4fc3452d528581beb43ef32d52ecfc
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 8a990e5ab19a5f5cd30d23d0d31e28249801040b
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940940"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765941"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -25,7 +25,7 @@ Legen Sie bei der Bereitstellung von AD DS die Domänen- und Gesamtstrukturfunkt
 
 Mit dem Ende der Lebensdauer von Windows Server 2003, 2008 und 2008 R2 müssen diese Domänencontrollern (DCs) auf Windows Server 2012, 2012 R2, 2016 bzw. 2019 aktualisiert werden. Daher sollten alle Domänencontroller, die auf Windows Server 2008 R2 und älter ausgeführt werden, aus der Domäne entfernt werden.
 
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen. Windows Server 2016 RS1 ist das letzte Windows Server-Release, das FRS umfasst.
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](../../storage/dfs-replication/migrate-sysvol-to-dfsr.md) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen. Windows Server 2016 RS1 ist das letzte Windows Server-Release, das FRS umfasst.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 

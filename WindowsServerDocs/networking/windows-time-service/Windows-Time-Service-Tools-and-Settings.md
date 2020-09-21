@@ -5,12 +5,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 ms.date: 02/24/2020
 ms.topic: article
-ms.openlocfilehash: cb549f951865a065c70a6bfbfa9d49faf71ffd97
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 60aae8d96107b45ca3ef101780a3f1fec9c5f364
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989796"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766583"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
@@ -87,7 +87,7 @@ W32tm /query /computer:contosoW1 /configuration
 Die Ausgabe dieses Befehls ist eine Liste von Konfigurationsparametern, die für den Windows-Zeitclient eingestellt werden.
 
 > [!IMPORTANT]
-> [Die Zeitsynchronisierungsalgorithmen in Windows Server 2016 wurden verbessert](https://aka.ms/WS2016Time), um sie an die RFC-Spezifikationen anzupassen. Wenn du also festlegen möchtest, dass der lokale Windows-Zeitclient auf mehrere Peers verweist, wird dringend empfohlen, drei oder mehr unterschiedliche Zeitserver vorzubereiten.
+> [Die Zeitsynchronisierungsalgorithmen in Windows Server 2016 wurden verbessert](./accurate-time.md), um sie an die RFC-Spezifikationen anzupassen. Wenn du also festlegen möchtest, dass der lokale Windows-Zeitclient auf mehrere Peers verweist, wird dringend empfohlen, drei oder mehr unterschiedliche Zeitserver vorzubereiten.
 >
 > Wenn du nur über zwei Zeitserver verfügst, solltest du das Flag **UseAsFallbackOnly** (0x2) angeben, um einem der beiden Server eine niedrigere Priorität einzuräumen. Wenn du beispielsweise „ntpserver.contoso.com“ über „clock.adatum.com“ priorisieren möchtest, führe den folgenden Befehl aus.
 > ```cmd

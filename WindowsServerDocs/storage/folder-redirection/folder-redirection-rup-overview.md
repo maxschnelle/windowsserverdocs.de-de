@@ -6,12 +6,12 @@ author: JasonGerend
 ms.author: jgerend
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f08d10a4fea9ff86c22fedb8f9738a7177d0217
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 75954af63c8eda759d181e5b90b8f58d26596e05
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989949"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766243"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile – Übersicht
 
@@ -129,7 +129,7 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
 | Inhaltstyp | Referenzen |
 | --- | --- |
-| Produktbewertung | [Unterstützen von Information Workern durch zuverlässige Dateidienste und Speichertechnologien](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Neuerungen in Offlinedateien](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 und Windows Server 2008 R2)<br>[Neuerungen bei Offlinedateien für Windows Vista](</previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Änderungen an Offlinedateien in Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine) |
+| Produktbewertung | [Unterstützen von Information Workern durch zuverlässige Dateidienste und Speichertechnologien](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Neuerungen in Offlinedateien](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 und Windows Server 2008 R2)<br>[Neuerungen bei Offlinedateien für Windows Vista](</previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Änderungen an Offlinedateien in Windows Vista](/previous-versions/technet-magazine/cc137753(v=msdn.10)) (TechNet Magazine) |
 | Bereitstellung | [Bereitstellen von Ordnerumleitung, Offlinedateien und Roamingbenutzerprofilen](deploy-folder-redirection.md)<br>[Implementieren einer Endbenutzerlösung für die Datenzentralisierung: Validierung und Bereitstellung von Technologien für Ordnerumleitung und Offlinedateien](https://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Leitfaden zur Verwaltung von Roamingbenutzerdaten](</previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Schrittweise Anleitung: Konfigurieren von neuen Offlinedateifunktionen für Windows 7-Computer](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Verwenden von Ordnerumleitung](</previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementieren von Ordnerumleitung](</previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
 | Tools und Einstellungen | [Offlinedateien auf MSDN](/previous-versions/windows/desktop/offlinefiles/offline-files-portal)<br>[Gruppenrichtlinienreferenz für Offlinedateien](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
 | Communityressourcen | [Forum zu Dateidiensten und Speicher](/answers/topics/windows-server-storage.html)<br>[Hey, Scripting Guy! Wie kann ich mit dem Feature „Offlinedateien“ in Windows arbeiten?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy! Wie kann ich Offlinedateien aktivieren und deaktivieren?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |

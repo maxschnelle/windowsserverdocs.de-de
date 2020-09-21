@@ -4,12 +4,12 @@ description: Empfohlene Einstellungen und Konfiguration zum Minimieren des Mehra
 ms.author: robsmi
 ms.topic: article
 author: jaimeo
-ms.openlocfilehash: 4ba432e13785694844229a41f2966eb7cf65fa7e
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: 38ddd48b6bf5502851615adeb75446f07bc860c1
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90078637"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90767003"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1803, für eine VDI-Rolle (Virtuelle Desktopinfrastruktur)
 
@@ -580,7 +580,7 @@ Dies ist besonders wichtig in Umgebungen, in denen die VDI oder der physische Co
 
 Beachte, dass einige Einstellungen in diesem Abschnitt *nur registrierungsbasiert* sind und in das Basisimage integriert werden sollten, bevor das Image für die Produktion bereitgestellt wird.
 
-Die folgenden Einstellungen sind in den [Richtlinien zur Optimierung der Leistung für Windows Server 2016](/windows-server/administration/performance-tuning/) dokumentiert, die von der Windows-Produktgruppe auf Microsoft.com veröffentlicht wurden.
+Die folgenden Einstellungen sind in den [Richtlinien zur Optimierung der Leistung für Windows Server 2016](../../administration/performance-tuning/index.md) dokumentiert, die von der Windows-Produktgruppe auf Microsoft.com veröffentlicht wurden.
 
 #### <a name="disablebandwidththrottling"></a>DisableBandwidthThrottling
 

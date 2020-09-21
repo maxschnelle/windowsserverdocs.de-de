@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
-ms.openlocfilehash: 4114869b3f138eea2e6ed45a4317699706471c5b
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 403a0f68f559d72dfaa54e4b537a50a66fc3ec6a
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997009"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766723"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Welche Art von Installation ist für dich geeignet?
 
@@ -77,4 +77,4 @@ Du kannst die Hochverfügbarkeit des Gatewaydiensts aktivieren, indem du Windows
 [Erfahre, wie Windows Admin Center mit Hochverfügbarkeit bereitgestellt wird.](../deploy/high-availability.md)
 
 > [!Tip]
-> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](https://aka.ms/windowsadmincenter)
+> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](../overview.md)

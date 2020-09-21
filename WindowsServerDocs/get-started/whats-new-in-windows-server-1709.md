@@ -7,12 +7,12 @@ author: eross-msft
 manager: mtillman
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: 2202658da6d89d3a289e0fd1e6df07e9ba4e4544
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 0e477a404e7bef9ed1e201393a95e875c308e80f
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621992"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766893"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neuerungen in Windows Server, Version 1709
 
@@ -89,7 +89,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 ## <a name="storage"></a>Speicher
 
 **Speicherreplikat**: Der Schutz für die von Storage Replica in Windows Server 2016 hinzugefügte Notfallwiederherstellung ist jetzt erweitert und umfasst:
-- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen.  Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
+- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen.  Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](../storage/storage-replica/storage-replica-frequently-asked-questions.md).
 - **Unterstützung für das Projekt Honolulu**: Die Unterstützung für die grafische Verwaltung der Server-zu-Server-Replikation ist jetzt im Projekt Honolulu verfügbar. Dadurch wird die Anforderung, PowerShell zum Verwalten einer allgemeinen Arbeitslast zum Notfallschutz, entfernt.
 
 **SMB**:

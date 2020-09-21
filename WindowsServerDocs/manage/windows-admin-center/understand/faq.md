@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
-ms.openlocfilehash: 2b1b6c8665e289647fe793125e7cc4c5024b4135
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: f33707050f6686ad285fc8ecb786456f0157fef7
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993533"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90767013"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -154,7 +154,7 @@ Windows Admin Center ist der offizielle Produktname für „Projekt Honolulu“ 
 
 ## <a name="where-can-i-learn-more-about-windows-admin-center-or-get-more-details-on-the-topics-above"></a>Wo kann ich mehr über Windows Admin Center erfahren oder mehr Details zu den oben angesprochenen Themen erhalten?
 
-Unsere [Startseite](https://aka.ms/WindowsAdminCenter) ist der beste Ausgangspunkt und weist Links zu unserem neu kategorisierten Dokumentationsinhalt zusammen mit Informationen über Feedback, Referenzinformationen und weiteren Quellen auf.
+Unsere [Startseite](../overview.md) ist der beste Ausgangspunkt und weist Links zu unserem neu kategorisierten Dokumentationsinhalt zusammen mit Informationen über Feedback, Referenzinformationen und weiteren Quellen auf.
 
 ## <a name="what-is-the-version-history-of-windows-admin-center"></a>Wie ist der Versionsverlauf von Windows Admin Center?
 

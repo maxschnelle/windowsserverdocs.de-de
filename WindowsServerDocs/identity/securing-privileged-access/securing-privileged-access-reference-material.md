@@ -8,12 +8,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: a7eda2d06a91891529ebbe5c7e448c17fdb070f3
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: d2e7d7a064806646ccc075c96fff2ba20acfe005
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87953134"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766213"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory-Verwaltungsebenenmodell
 
@@ -138,7 +138,7 @@ Aufgrund der großen Anzahl von Assets, die von Identitätssystemen wie Active D
 
 ![Diagramm, das zeigt, dass Sie die Anzahl der Systeme minimieren sollten, von denen Ihre Active Directory und Domänencontroller abhängig sind](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
 
-Weitere Informationen zum Minimieren der wichtigsten Risiken im Zusammenhang mit Active Directory finden Sie auf [dieser Seite](https://aka.ms/hardenAD).
+Weitere Informationen zum Minimieren der wichtigsten Risiken im Zusammenhang mit Active Directory finden Sie auf [dieser Seite](../ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface.md).
 
 ## <a name="operational-standards-based-on-clean-source-principle"></a>Prinzip der vertrauenswürdigen Quelle für betriebliche Standards
 
@@ -313,7 +313,7 @@ Administratoren können sich nur mit ihren Administratorkonten bei Administrator
 > [!NOTE]
 > Der Grund für diese Anforderung ist, dass beim Anmelden an einem Host interaktiv Kontrolle über die Anmeldeinformationen für diesen Host gewährt wird.
 >
-> Einzelheiten zu Anmeldetypen, zu gängigen Verwaltungstools und zur Offenlegung von Anmeldeinformationen finden Sie unter [Verwaltungstools und Anmeldeinformationen](https://aka.ms/admintoolsecurity).
+> Einzelheiten zu Anmeldetypen, zu gängigen Verwaltungstools und zur Offenlegung von Anmeldeinformationen finden Sie unter [Verwaltungstools und Anmeldeinformationen]().
 
 ##### <a name="use-of-approved-support-technology-and-methods"></a>Verwenden genehmigter Supporttechnologien und -methoden
 
@@ -329,7 +329,7 @@ Administratoren, die Support für Remotesysteme und -benutzer bieten, müssen di
 Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
 - **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 0 die folgenden Richtlinien befolgen:
-  - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](https://aka.ms/admintoolsecurity).
+  - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen]().
   - **Primär (interaktiv)** : Verwenden Sie den RDP-Modus RestrictedAdmin oder eine RDP-Standardsitzung auf einer Administratorarbeitsstation mit Domänenkonto
 
     > [!NOTE]
@@ -488,7 +488,7 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
 
 - **Härten von Arbeitsstationen**: Erstellen Sie die Administratorarbeitsstationen unter Verwendung der [Arbeitsstationen mit privilegiertem Zugriff](../securing-privileged-access/privileged-access-workstations.md) (über Phase 3), ändern Sie die Domänenmitgliedschaft jedoch so, dass anstelle der Produktionsumgebung die administrative Gesamtstruktur verwendet wird.
 - **Härten von Servern und Domänencontrollern**: Für alle Domänencontroller und Server in der administrativen Gesamtstruktur gilt Folgendes:
-   - Stellen Sie sicher, dass alle Medien über die in [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
+   - Stellen Sie sicher, dass alle Medien über die in [Vertrauenswürdige Quelle für Installationsmedien]() beschriebenen Verfahren überprüft wurden.
    - Stellen Sie sicher, dass auf den Servern innerhalb der administrativen Gesamtstruktur aktuelle Betriebssysteme installiert sind (selbst wenn dies in der Produktionsumgebung nicht möglich ist).
    - Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden.
 

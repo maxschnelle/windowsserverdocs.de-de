@@ -6,12 +6,12 @@ author: JasonGerend
 ms.author: jgerend
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8645373f4f8e933e0eaad8e62672ecc16518ed4d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 488a82d7ea4081acbca07f2f699e001f0945d6ce
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957608"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766653"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Bereitstellen von primären Computern für Ordnerumleitung und Roamingbenutzerprofile
 
@@ -39,7 +39,7 @@ Für die Unterstützung primärer Computer gelten die folgenden Anforderungen:
 Der erste Schritt beim Bereitstellen von Unterstützung für primäre Computern besteht darin, die primären Computer für jeden Benutzer festzulegen. Verwenden Sie hierzu das Active Directory-Verwaltungscenter, um den DN (Distinguished Name) der relevanten Computer abzurufen, und legen Sie dann das **msDs-PrimaryComputer**-Attribut fest.
 
 > [!TIP]
-> Weitere Informationen zur Verwendung von Windows PowerShell zum Arbeiten mit primären Computern finden Sie im Blogbeitrag [Digging a little deeper into Windows 8 Primary Computer](<https://blogs.technet.microsoft.com/askds/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer/>) (Tiefere Einblicke in primäre Windows 8-Computer).
+> Weitere Informationen zur Verwendung von Windows PowerShell zum Arbeiten mit primären Computern finden Sie im Blogbeitrag [Digging a little deeper into Windows 8 Primary Computer](/archive/blogs/askds/digging-a-little-deeper-into-windows-8-primary-computer) (Tiefere Einblicke in primäre Windows 8-Computer).
 
 Im Folgenden wird erläutert, wie Sie die primären Computer für Benutzer angeben:
 

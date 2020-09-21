@@ -8,12 +8,12 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 78a869f826bd9d13e627f5710cca1b3ef1cdcdc4
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: cb6ffed04856c1e4fe670893a2af3acedb6da012
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87959628"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765951"
 ---
 # <a name="manage-nano-server"></a>Verwalten von Nano Server
 
@@ -212,12 +212,12 @@ Derzeit besteht der Weg, die Updateinstallation zu automatisieren, darin, die ob
 
 ## <a name="performance-and-event-monitoring-on-nano-server"></a>Leistung und Ereignisüberwachung unter Nano Server
 [comment]: # (von Venkat Yalla.)
-Nano Server unterstützt die [Ereignisablaufverfolgung für Windows](https://aka.ms/u2pa0i) (Event Tracing for Windows, ETW) vollständig, allerdings sind derzeit einige bekannte Tools zur Verwaltung von Protokollierung und Leistungsindikatoren nicht für Nano Server verfügbar. Nano Server verfügt jedoch über Tools und Cmdlets für die üblichen Leistungsanalyse-Szenarios.
+Nano Server unterstützt die [Ereignisablaufverfolgung für Windows](/windows/win32/etw/event-tracing-portal) (Event Tracing for Windows, ETW) vollständig, allerdings sind derzeit einige bekannte Tools zur Verwaltung von Protokollierung und Leistungsindikatoren nicht für Nano Server verfügbar. Nano Server verfügt jedoch über Tools und Cmdlets für die üblichen Leistungsanalyse-Szenarios.
 
 Der allgemeine Workflow bleibt der gleiche, wie bei jeder Windows Server-Installation. Die Ablaufverfolgung mit geringem Mehraufwand wird auf dem Zielcomputer (Nano Server) ausgeführt, und die sich ergebenden Ablaufverfolgungsdateien und/oder Protokolle werden offline auf einem separaten Computer mithilfe von Tools wie [Windows Performance Analyzer](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10)), der [Nachrichtenanalyse](https://www.microsoft.com/download/details.aspx?id=44226) usw. nachbearbeitet.
 
 > [!NOTE]
-> Ein Auffrischung zur Übertragung von Dateien mithilfe von PowerShell-Remoting finden Sie unter [How to copy files to and from Nano Server (So kopieren Sie Dateien aus und in Nano Server)](https://aka.ms/nri9c8).
+> Ein Auffrischung zur Übertragung von Dateien mithilfe von PowerShell-Remoting finden Sie unter [How to copy files to and from Nano Server (So kopieren Sie Dateien aus und in Nano Server)](/previous-versions/windows/desktop/legacy/mt708806(v=vs.85)).
 
 In den folgenden Abschnitten werden die am häufigsten verwendeten Aktivitäten zur Sammlung von Leistungsdaten sowie ein unterstützter Weg dargestellt, dies unter Nano Server auszuführen.
 
@@ -381,7 +381,7 @@ TimeCreated           Message
 9/15/2016 11:31:16 AM The Virtualization Based Security enablement policy check at phase 0 failed with status: {File...
 ```
 
-Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können. Weitere Informationen finden Sie unter [Wevtutil.exe-Dokumentation](https://aka.ms/qvod7p).
+Nano Server unterstützt außerdem ```wevtutil.exe```, womit Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können. Weitere Informationen finden Sie unter [Wevtutil.exe-Dokumentation](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc732848(v=ws.11)).
 
 ### <a name="graphical-interface-tools"></a>Tools für die grafische Oberfläche
 [Web-basierte Server-Verwaltungstools](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog) können zur Remoteverwaltung der Nano Server-Ziele verwendet werden und stellen ein Nano Server-Ereignisprotokoll mithilfe eines Webbrowsers bereit. Schließlich kann auch das MMC-Snap-In „Ereignisanzeige“ (eventvwr.msc) dazu verwendet werden, Protokolle anzuzeigen. Öffnen Sie es einfach auf einem Computer mit einem Desktop, und verweisen Sie es an einen Nano Remoteserver.

@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: 3075c571fb933692745a872df138ef5cbfa6b283
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: affbc610484abc5a4e45534a7f75e4f06efc23e9
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995311"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766963"
 ---
 # <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
@@ -25,7 +25,7 @@ Windows Admin Center ist die moderne Weiterentwicklung von integrierten Verwaltu
 
 ## <a name="how-does-windows-admin-center-work"></a>Funktionsweise von Windows Admin Center
 
-Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltung von Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Azure Stack HCI und weiteren Versionen über das unter Windows Server 10 oder in Domänen eingebundenen Windows 10-Instanzen installierte **Windows Admin Center-Gateway**. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway ist als einzelnes MSI-Paket im Lieferumfang von Windows Admin Center enthalten und kann [hier](https://aka.ms/windowsadmincenter) heruntergeladen werden.
+Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltung von Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Azure Stack HCI und weiteren Versionen über das unter Windows Server 10 oder in Domänen eingebundenen Windows 10-Instanzen installierte **Windows Admin Center-Gateway**. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway ist als einzelnes MSI-Paket im Lieferumfang von Windows Admin Center enthalten und kann [hier](../overview.md) heruntergeladen werden.
 
 Wenn das Windows Admin Center-Gateway im DNS veröffentlicht und ihm Zugriff durch entsprechende Unternehmensfirewalls gewährt wurde, kannst du damit unabhängig vom Standort über Microsoft Edge oder Google Chrome eine Verbindung mit deinen Servern herstellen und diese verwalten.
 
@@ -70,4 +70,4 @@ Windows Admin Center bietet eine optimale Umgebung für das [Verwalten von hyper
 Windows Admin Center wurde von Anfang an in Hinblick auf Erweiterbarkeit entworfen und soll Microsoft und Drittanbietern die Entwicklung von noch vielseitigeren Tools und Lösungen ermöglichen. Microsoft bietet ein [SDK](../extend/extensibility-overview.md), mit dem Entwickler eigene Tools für Windows Admin Center erstellen können.
 
 > [!Tip]
-> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](https://aka.ms/windowsadmincenter)
+> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](../overview.md)

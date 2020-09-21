@@ -1,18 +1,17 @@
 ---
 title: Sicherheitseinstellungen für virtuelle Computer der 2. Generation für Hyper-V
 description: Beschreibt die Sicherheitseinstellungen, die im Hyper-V-Manager für virtuelle Computer der Generation 2 verfügbar sind
-manager: dongill
 ms.topic: article
 ms.assetid: 06ab4f5f-6b8e-4058-8108-76785aa93d4c
-author: larsiwer
-ms.author: kathydav
+ms.author: benarm
+author: BenjaminArmstrong
 ms.date: 10/04/2016
-ms.openlocfilehash: d7575a848e9dcf8a91467d7a16869ac5e09fc248
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 27f5ce49aeef8b662a07b3fc559fae7c1402be4f
+ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997611"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90745975"
 ---
 # <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Sicherheitseinstellungen für virtuelle Computer der 2. Generation für Hyper-V
 

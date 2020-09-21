@@ -4,12 +4,12 @@ ms.date: 01/30/2019
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 44f0db935e50bf7976612edc4317b4212818f84d
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7bdcb67c5bcb36d2ebe5ee02d765f3cab63c7bed
+ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87950744"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90766823"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -372,7 +372,7 @@ Zum Ausschließen bestimmter Dateien aus Schattenkopien wird der folgende Regist
 > <UL>
 > <LI>Es können keine Dateien aus einer Schattenkopie gelöscht werden, die unter Windows Server mit dem Feature „Vorherige Versionen“ erstellt wurden.<BR><BR>
 > <LI>Es können keine Dateien aus Schattenkopien für freigegebene Ordner gelöscht werden.<BR><BR>
-> <LI>Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](../../administration/windows-commands/diskshadow.md)">Diskshadow</a> erstellt wurden, können gelöscht werden, aber Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](../../administration/windows-commands/vssadmin.md)">Vssadmin</a> erstellt wurden, können nicht gelöscht werden.<BR><BR>
+> <LI>Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](../../administration/windows-commands/diskshadow.md)">Diskshadow</a> erstellt wurden, können gelöscht werden, aber Dateien aus Schattenkopien, die mit dem Hilfsprogramm <a href="/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](../../administration/windows-commands/vssadmin.md)">Vssadmin</a> erstellt wurden, können nicht gelöscht werden.<BR><BR>
 > <LI>Dateien werden auf Grundlage der besten Leistung aus einer Schattenkopie gelöscht. Das bedeutet, dass Sie nicht unbedingt gelöscht werden.<BR><BR></LI></UL>
 
 
