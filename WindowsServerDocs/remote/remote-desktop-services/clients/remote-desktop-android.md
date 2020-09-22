@@ -6,14 +6,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/20/2020
+ms.date: 09/17/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 90a0796818a2beb7e592eae1556999729b2d9ab2
-ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
+ms.openlocfilehash: 1f59c00e375ab142c4e3dadc480c648cdd8e2396
+ms.sourcegitcommit: 877d6db73d9520e3a23738d6528016235493cff3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88702869"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90779244"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -21,37 +21,37 @@ ms.locfileid: "88702869"
 
 Du kannst den Remotedesktopclient für Android verwenden, um direkt mit Windows-Apps und -Desktops auf deinem Android-Gerät oder Chromebook zu arbeiten, das den Google Play Store unterstützt.
 
-Verwenden Sie die folgenden Informationen für die ersten Schritte. Lesen Sie unbedingt die [häufig gestellten Fragen](remote-desktop-client-faq.md), wenn Sie Fragen haben.
+In diesem Artikel erfahren Sie, wie Sie in die Verwendung des Clients einsteigen. Sehen Sie bei weiteren Fragen unbedingt in unseren [Häufig gestellten Fragen (FAQ)](remote-desktop-client-faq.md) nach.
 
 > [!NOTE]
 > - Möchten Sie mehr über die neuen Versionen für den Android-Client erfahren? Lies [Neues beim Android-Client](android-whatsnew.md).
-> - Der Android-Client unterstützt Geräte unter Android 4.1 und höher sowie Chromebooks mit ChromeOS 53 und höher. Weitere Informationen zu Android-Anwendungen für Chrome finden Sie [hier](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
+> - Der Android-Client unterstützt Geräte unter Android 4.1 und höher sowie Chromebooks mit ChromeOS 53 und höher. Mehr über Android-Anwendungen unter Chrome erfahren Sie unter [Chrome OS Systems Supporting Android Apps](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps) (ChromeOS-Systeme, die Android-Apps unterstützen).
 
-## <a name="set-up-the-remote-desktop-client-for-android"></a>Einrichten des Remotedesktopclients für Android
-
-### <a name="download-the-remote-desktop-client-from-the-google-play-store"></a>Herunterladen des Remotedesktopclients aus dem Google Play Store
+## <a name="download-the-remote-desktop-client"></a>Herunterladen des Remotedesktopclients
 
 So richtest du den Remotedesktopclient auf deinem Android-Gerät ein:
 
-1. Lade den Microsoft-Remotedesktopclient aus [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) herunter.
+1. [Download des Microsoft-Remotedesktopclients](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) von Google Play.
 2. Starte den **Remotedesktopclient** aus deiner Liste der Apps.
-3. Füge eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder [Remoteressource](#add-remote-resources) hinzu. Du verwendest eine Verbindung, um direkt eine Verbindung mit einem Windows-PC und mit Remoteressourcen herzustellen, um auf Apps und Desktops zuzugreifen, die ein Administrator für dich veröffentlicht hat.
+3. Füge eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder [Remoteressource](#add-remote-resources) hinzu. Mithilfe von Remotedesktopverbindungen können Sie direkt eine Verbindung mit einem Windows-PC und Remoteressourcen herstellen, um auf Apps und Desktops zuzugreifen, die ein Administrator für Sie veröffentlicht hat.
 
-> [!NOTE]
-> Wenn du neue Features vor deren Freigabe testen möchtest, empfehlen wir dir, unseren [Microsoft Remote Desktop Beta](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta)-Client aus dem Google Play Store herunterzuladen.
+## <a name="add-a-remote-desktop-connection"></a>Hinzufügen einer Remotedesktopverbindung
 
-### <a name="add-a-remote-desktop-connection"></a>Hinzufügen einer Remotedesktopverbindung
+Nachdem der Client nun auf Ihrem Gerät verfügbar ist, können Sie Remotedesktopverbindungen hinzufügen, um auf Ihre Remoteressourcen zuzugreifen.
 
-Sofern dies noch nicht geschehen ist, [richte deinen PC so ein, dass er Remoteverbindungen akzeptiert](remote-desktop-allow-access.md).
+Bevor Sie eine Verbindung hinzufügen, [richten Sie Ihren PC für das Annehmen von Remoteverbindungen ein](remote-desktop-allow-access.md), wenn dies noch nicht geschehen ist.
 
-Gehe wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
+So fügen Sie eine Remotedesktopverbindung hinzu:
 
 1. Tippe im Connection Center auf das Pluszeichen ( **+** ), und tippe dann auf **Desktop**.
-2. Gib den Namen des Remotecomputers in **PC-Name** ein. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Du kannst auch Portinformationen an den PC-Namen anfügen (z. B. „MeinDesktop:3389“ oder „10.0.0.1:3389“). Dies ist das einzige erforderliche Feld.
+2. Gib den Namen des Remotecomputers in **PC-Name** ein. Bei diesem -Namen kann es sich um den Namen eines Windows-Computers, einen Internetdomänenname oder eine IP-Adresse handeln. Du kannst auch Portinformationen an den PC-Namen anfügen (z. B. „MeinDesktop:3389“ oder „10.0.0.1:3389“). Dies ist das einzige Pflichtfeld.
 3. Wähle den **Benutzernamen** aus, den du verwendest, um auf den Remotecomputer zuzugreifen.
+
    - Wähle **Jedes Mal eingeben** aus, wenn der Client bei jeder Anmeldung am Remotecomputer deine Anmeldeinformationen abfragen soll.
-   - Wähle **Benutzerkonto hinzufügen** aus, um ein Konto zu speichern, das du häufig verwendest, damit du nicht bei jeder Anmeldung deine Anmeldeinformationen eingeben musst. Weitere Informationen findest du unter [Verwalten deiner Benutzerkonten](#manage-your-user-accounts).
+   - Wähle **Benutzerkonto hinzufügen** aus, um ein Konto zu speichern, das du häufig verwendest, damit du nicht bei jeder Anmeldung deine Anmeldeinformationen eingeben musst. Weitere Informationen zu Benutzerkonten finden Sie unter [Verwalten von Benutzerkonten](#manage-your-user-accounts).
+
 4. Du kannst auch auf **Weitere Optionen anzeigen** tippen, um die folgenden optionalen Parameter festzulegen:
+
    - In **Anzeigename** kannst du einen leicht zu merkenden Namen für den PC eingeben, mit dem du die Verbindung herstellen möchtest. Wenn du keinen Anzeigenamen angibst, wird stattdessen der PC-Name angezeigt.
    - **Gateway** ist das Remotedesktopgateway, das Sie verwenden, um von einem externen Netzwerk aus eine Verbindung mit einem Computer herzustellen. Weitere Informationen erhalten Sie von Ihrem Systemadministrator.
    - **Sound** wählt das Gerät aus, das von der Remote Sitzung für die Audiowiedergabe verwendet wird. Sie können sich entscheiden, Audiosignale auf Ihrem lokalen Gerät, dem Remotegerät oder gar nicht wiederzugeben.
@@ -59,6 +59,7 @@ Gehe wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
    - **Maustasten tauschen** vertauscht die Befehle, die von der linken und der rechten Maustaste gesendet werden. Ideal für linkshändige Benutzer.
    - Über **Mit Administratorsitzung verbinden** kannst du eine Verbindung mit einer Administratorsitzung auf dem Remotecomputer herstellen.
    - **Lokalen Speicher umleiten** aktiviert die Umleitung des lokalen Speichers. Diese Einstellung ist standardmäßig deaktiviert.
+
 5. Tippe auf **Speichern**, wenn du fertig bist.
 
 Müssen Sie diese Einstellungen bearbeiten? Tippe auf das Menü **Weitere Optionen** ( **...** ) neben dem Namen des Desktops und dann auf **Bearbeiten**.
@@ -66,20 +67,22 @@ Müssen Sie diese Einstellungen bearbeiten? Tippe auf das Menü **Weitere Option
 Möchtest du die Verbindung entfernen? Tippe erneut auf das Menü **Weitere Optionen** ( **...** ) und dann auf **Entfernen**.
 
 >[!TIP]
-> Wenn Du den Fehler 0xf07 zu einem falschen Kennwort erhältst (die Fehlermeldung „Es konnte keine Verbindung mit dem Remote-PC hergestellt werden, da das dem Benutzerkonto zugeordnete Kennwort abgelaufen ist“), ändere das Kennwort, und versuche es erneut.
+> Wenn ein Fehlername „0xf07“ mit einer Aussage ähnlich „Wir konnten keine Verbindung mit dem Remote-PC herstellen, da das dem Benutzerkonto zugeordnete Kennwort abgelaufen ist“ angezeigt wird, versuchen Sie es noch einmal mit einem neuen Kennwort.
 
-### <a name="add-remote-resources"></a>Hinzufügen von Remoteressourcen
+## <a name="add-remote-resources"></a>Hinzufügen von Remoteressourcen
 
-Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die von Ihrem Administrator veröffentlicht werden. Der Android-Client unterstützt Ressourcen, die von Bereitstellungen von **Remotedesktopdienste** und **Windows Virtual Desktop** veröffentlicht werden. So fügen Sie Remoteressourcen hinzu:
+Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die von Ihrem Administrator veröffentlicht werden. Der Android-Client unterstützt Ressourcen, die von Bereitstellungen von **Remotedesktopdienste** und **Windows Virtual Desktop** veröffentlicht werden.
+
+So fügen Sie Remoteressourcen hinzu:
 
 1. Tippe im Verbindungscenter auf **+** , und tippe dann auf **Remoteressourcenfeed**.
-2. Geben Sie die **Feed-URL** ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
+2. Geben Sie die **Feed-URL** ein. Bei dieser URL kann es sich um eine URL oder eine E-Mail-Adresse handeln:
    - Die **URL** ist der RD-Webzugriffsserver, der dir von deinem Administrator zur Verfügung gestellt wird. Wenn Sie auf Ressourcen von Windows Virtual Desktop zugreifen, können Sie eine der folgenden URLs verwenden, je nachdem, welche Version Sie verwenden:
      - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx` für Windows Virtual Desktop (klassisch).
      - Verwenden Sie `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery` für Windows Virtual Desktop.
-   - Wenn Sie **E-Mail** verwenden möchten, geben Sie in diesem Feld Ihre E-Mail-Adresse ein. Dies weist den Client an, nach einem RD-Webzugriffsserver zu suchen, der Ihrer E-Mail-Adresse zugeordnet ist, wenn dies von Ihrem Administrator konfiguriert wurde.
+   - Wenn Sie **E-Mail** verwenden möchten, geben Sie in diesem Feld Ihre E-Mail-Adresse ein. Durch das Ausfüllen dieses Felds wird der Client angewiesen, nach einem RD-Webzugriffsserver zu suchen, der Ihrer E-Mail-Adresse zugeordnet ist, wenn dies von Ihrem Administrator konfiguriert wurde.
 3. Tippen Sie auf **Weiter**.
-4. Geben Sie auf Aufforderung Ihre Anmeldeinformationen ein. Diese können sich je nach Bereitstellung unterscheiden und können Folgendes beinhalten:
+4. Geben Sie auf Aufforderung Ihre Anmeldeinformationen ein. Diese zu verwendenden Anmeldeinformationen können sich je nach Bereitstellung unterscheiden und Folgendes beinhalten:
    - Der **Benutzername**, der die Berechtigung hat, auf die Ressourcen zuzugreifen.
    - Das **Kennwort**, das dem Benutzernamen zugeordnet ist.
    - **Zusätzlicher Faktor**, zu dessen Eingabe du ggf. aufgefordert wirst, wenn die Authentifizierung von deinem Administrator in dieser Weise konfiguriert wurde.
@@ -87,15 +90,19 @@ Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte De
 
 Die Remoteressourcen werden im Connection Center angezeigt.
 
+## <a name="remove-remote-resources"></a>Entfernen von Remoteressourcen
+
 Gehe wie folgt vor, um Remoteressourcen zu entfernen:
 
 1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) neben der Remoteressource.
 2. Tippe auf **Entfernen**.
-3. Bestätige das Entfernen.
+3. Vergewissern Sie sich, dass die Ressource entfernt wurde.
 
-### <a name="use-a-widget-to-pin-a-saved-desktop-to-your-home-screen"></a>Verwenden eines Widgets zum Anheften eines gespeicherten Desktops an deinen Startbildschirm
+## <a name="pin-a-connection-to-your-home-screen"></a>Anheften einer Verbindung an Ihren Startbildschirm
 
-Der Remotedesktopclient unterstützt das Anheften von Verbindungen an den Startbildschirm mithilfe der Android-Widget-Funktion. Die Art und Weise, wie Sie ein Widget hinzufügen, hängt vom Typ des verwendeten Android-Geräts und vom Betriebssystem ab. Nachfolgend wird die gängigste Methode zum Hinzufügen eines Widgets beschrieben:
+Der Remotedesktopclient unterstützt die Verwendung der Android-Widget-Funktion zum Anheften von Verbindungen an den Startbildschirm. Der Vorgang zum Hinzufügen von Widgets hängt davon ab, welchen Typ von Android-Gerät und welche Android-Betriebssystemversion Sie verwenden.
+
+So fügen Sie ein Widget hinzu:
 
 1. Tippe auf **Apps**, um das Menü der Apps zu starten.
 2. Tippe auf **Widgets**.
@@ -144,7 +151,7 @@ So richtest du ein neues RD-Gateway ein
 1. Tippe im Connection Center auf **Einstellungen**, und tippe dann auf **Gateways**.
 2. Tippen Sie auf das Pluszeichen ( **+** ), um ein neues Gateway hinzuzufügen.
 3. Geben Sie die folgenden Informationen ein:
-   - Gib in **Servername** den Namen des Computers ein, den du als Gateway verwenden möchtest. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: „RDGateway:443“ oder „10.0.0.1:443“).
+   - Gib in **Servername** den Namen des Computers ein, den du als Gateway verwenden möchtest. Bei diesem Namen kann es sich um den Namen eines Windows-Computers, einen Internetdomänenname oder eine IP-Adresse handeln. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: „RDGateway:443“ oder „10.0.0.1:443“).
    - Wähle das **Benutzerkonto** aus, das du verwenden möchtest, um auf das RD-Gateway zuzugreifen.
      - Aktiviere **Desktopbenutzerkonto verwenden**, um die Anmeldeinformationen zu verwenden, die du für den Remotecomputer angegeben hast.
      - Wähle **Benutzerkonto hinzufügen** aus, um ein Konto zu speichern, das du häufig verwendest, damit du nicht bei jeder Anmeldung deine Anmeldeinformationen eingeben musst. Weitere Informationen findest du unter [Verwalten deiner Benutzerkonten](#manage-your-user-accounts).
@@ -174,16 +181,16 @@ So löschst du ein gespeichertes Benutzerkonto
 2. Tippen Sie in der Liste auf ein Benutzerkonto, und halten Sie es gedrückt, um es auszuwählen. Du kannst mehrere Benutzer gleichzeitig auswählen.
 3. Tippen Sie auf den Papierkorb, um den ausgewählten Benutzer zu löschen.
 
-## <a name="navigate-the-remote-desktop-session"></a>Navigieren in der Remotedesktopsitzung
+## <a name="start-a-remote-desktop-connection"></a>Starten einer Remotedesktopverbindung
 
-Im Folgenden findest du eine kurze Einführung, wie du deine Remotedesktopsitzung öffnest und darin navigierst.
+Nachdem Sie jetzt Ihren Remotedesktop-Android-Client eingerichtet haben, sollten wir lernen, wie eine Remotedesktopsitzung gestartet wird.
 
-### <a name="start-a-remote-desktop-connection"></a>Starten einer Remotedesktopverbindung
+So starten Sie eine Sitzung:
 
 1. Tippe auf **den Namen deiner Remotedesktopverbindung**, um die Sitzung zu starten.
 2. Wenn du zur Überprüfung des Zertifikats für den Remotedesktop aufgefordert wirst, tippe auf **Verbinden**. Du kannst auch **Nicht erneut nach Verbindungen mit diesem Computer fragen** auswählen, um das Zertifikat standardmäßig immer zu akzeptieren.
 
-### <a name="connection-bar"></a>Verbindungsleiste
+## <a name="use-the-connection-bar"></a>Verwenden der Verbindungsleiste
 
 Die Verbindungsleiste ermöglicht den Zugriff auf zusätzliche Navigationssteuerelemente. Standardmäßig befindet sich die Verbindungsleiste in der Mitte am oberen Rand des Bildschirms. Ziehe die Leiste nach links oder rechts, um sie zu verschieben.
 
@@ -194,23 +201,23 @@ Die Verbindungsleiste ermöglicht den Zugriff auf zusätzliche Navigationssteuer
 - **Zusätzliche Optionen**: Tippe auf das Symbol für zusätzliche Optionen, um die Auswahl- und die Befehlsleiste der Sitzung anzuzeigen.
 - **Tastatur**: Tippen Sie auf das Tastatursymbol, um die Tastatur ein- oder auszublenden. Das Schwenken-Steuerelement wird automatisch angezeigt, wenn die Tastatur eingeblendet ist.
 
-### <a name="session-selection-bar"></a>Sitzungsauswahlleiste
+## <a name="use-the-session-selection-bar"></a>Verwenden der Sitzungsauswahlleiste
 
-Es können mehrere Verbindungen mit verschiedenen PCs gleichzeitig geöffnet sein. Tippen Sie auf die Verbindungsleiste, um die Sitzungsauswahlleiste auf der linken Seite des Bildschirms anzuzeigen. Mit der Sitzungsauswahlleiste kannst du deine geöffneten Verbindungen anzeigen und zwischen diesen wechseln.
+Es können mehrere Verbindungen mit verschiedenen PCs gleichzeitig geöffnet sein. Tippen Sie auf die Verbindungsleiste, um die Sitzungsauswahlleiste auf der linken Bildschirmseite anzuzeigen. Mit der Sitzungsauswahlleiste kannst du deine geöffneten Verbindungen anzeigen und zwischen diesen wechseln.
 
 Wenn du Verbindungen mit Remoteressourcen hast, kannst du zwischen Apps innerhalb dieser Sitzung wechseln, indem du auf das Erweiterungsmenü ( **>** ) tippst und eine App in der Liste der verfügbaren Elemente auswählst.
 
 Um eine neue Sitzung über deine aktuelle Verbindung zu starten, tippst du auf **Neu starten** und wählst dann ein Element in der Liste der verfügbaren Elemente aus.
 
-Um eine Sitzung zu trennen, tippst du auf der linken Seite der Kachel für die Sitzung auf **X**.
+Tippen Sie zum Trennen einer Sitzung auf der linken Seite der Sitzungskachel auf **X**.
 
-### <a name="command-bar"></a>Befehlsleiste
+## <a name="use-the-command-bar"></a>Verwenden der Befehlsleiste
 
-Tippen Sie auf die Verbindungsleiste, um die Befehlsleiste auf der rechten Seite des Bildschirms anzuzeigen. In der Befehlsleiste kannst du zwischen den Mausmodi (direkte Touchbewegung und Mauszeiger) wechseln oder auf die Startseite-Schaltfläche tippen, um zum Connection Center zurückzukehren. Du kannst auch auf die Zurück-Schaltfläche tippen, um zum Connection Center zurückzukehren. Eine Rückkehr zum Connection Center bewirkt nicht, dass die Verbindung deiner aktiven Sitzung getrennt wird.
+Tippen Sie auf die Verbindungsleiste, um die Befehlsleiste rechts auf dem Bildschirm anzuzeigen. In der Befehlsleiste kannst du zwischen den Mausmodi (direkte Touchbewegung und Mauszeiger) wechseln oder auf die Startseite-Schaltfläche tippen, um zum Connection Center zurückzukehren. Du kannst auch auf die Zurück-Schaltfläche tippen, um zum Connection Center zurückzukehren. Eine Rückkehr zum Connection Center bewirkt nicht, dass die Verbindung deiner aktiven Sitzung getrennt wird.
 
-### <a name="use-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Verwenden von Touchgesten und Mausmodi in einer Remotesitzung
+## <a name="touch-gestures-and-mouse-modes"></a>Touchgesten und Mausmodi
 
-Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden, um Mausaktionen auf dem Remotedesktop zu replizieren. In der folgenden Tabelle wird erläutert, welche Gesten welchen Mausaktionen in jedem Mausmodus entspricht.
+Der Remotedesktop für den Android-Client verwendet Standard-Touchgesten. Sie können auch Touchgesten verwenden, um Mausaktionen auf dem Remotedesktop zu replizieren. In der folgenden Tabelle wird erläutert, welche Gesten welchen Mausaktionen in jedem Mausmodus entspricht.
 
 > [!NOTE]
 > Die nativen Touchgesten werden in Windows 8 oder höher im Modus für die direkte Touchbewegung unterstützt.
@@ -228,8 +235,6 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 
 ## <a name="join-the-beta-channel"></a>Dem Beta-Kanal beitreten
 
-Wenn du vor allen anderen auf die neuesten Funktionen zugreifen oder Probleme identifizieren willst, bevor neue Versionen veröffentlicht werden, dann ist der Beta-Kanal genau das Richtige für dich! Der Beta-Kanal ist auch eine hervorragende Möglichkeit für Unternehmensadministratoren, neue Versionen des Android-Clients für Benutzer in ihrer Umgebung zu validieren.
+Wenn Sie uns helfen möchten, neue Builds zu testen oder Probleme in kommenden Versionsupdates zu finden, bevor sie veröffentlicht werden, sollten Sie unserem Beta-Kanal beitreten. Unternehmens-Administratoren können den Beta-Kanal verwenden, um neue Versionen des Android-Clients für ihre Benutzer zu überprüfen.
 
-Um an der Beta-Version teilzunehmen, musst du lediglich deine Zustimmung zum Zugriff auf die Vorschauversionen und zum Herunterladen des Clients geben. Du erhältst die Vorschauversionen direkt über den Google Play Store.
-
-[Beta-Version beitreten](https://play.google.com/apps/testing/com.microsoft.rdc.androidx)
+Zur Teilnahme an der Beta [laden Sie unseren Beta-Client herunter](https://play.google.com/apps/testing/com.microsoft.rdc.androidx), und erteilen Sie Ihr Einverständnis, auf Vorschauversionen zuzugreifen und den Client herunterzuladen. Du erhältst die Vorschauversionen direkt über den Google Play Store.

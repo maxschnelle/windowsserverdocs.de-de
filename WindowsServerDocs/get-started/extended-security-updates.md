@@ -7,12 +7,12 @@ ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 02/21/2020
-ms.openlocfilehash: f405486c5ea34b26f23a16552c24527939ca1fd4
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: aa528b6d3e5858cec6b55f2bcdf866dcda32eaf0
+ms.sourcegitcommit: ad8fe5bb915e616a437be60e1836d3ce891dabaa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89024564"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90813432"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -46,7 +46,7 @@ Weitere Informationen findest du unter [Häufig gestellte Fragen zu erweiterten 
 Wenn Sie VMs mit Windows Server 2008 oder 2008 R2 in Azure ausführen, sind für diese automatisch erweiterte Sicherheitsupdates aktiviert. Sie brauchen nichts zu konfigurieren, und es fallen keine zusätzlichen Kosten für die Verwendung erweiterter Sicherheitsupdates mit Azure-VMs an. Erweiterte Sicherheitsupdates werden automatisch an Azure-VMs übermittelt, wenn diese für den Empfang von Updates konfiguriert sind.
 
 > [!NOTE]
-> Microsoft.ClassicCompute-VMs erfordern eine zusätzliche Konfiguration für die Bereitstellung erweiterter Sicherheitsupdates, da sie keinen Zugriff auf [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service) haben, der die Berechtigung für erweiterte Sicherheitsupdates bestimmt. Wenden Sie sich an den [Microsoft-Support](https://support.microsoft.com/contactus?PID=17336), um weitere Hilfe zu erhalten.
+> Microsoft.ClassicCompute-VMs erfordern eine zusätzliche Konfiguration für die Bereitstellung erweiterter Sicherheitsupdates, da sie keinen Zugriff auf [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) haben, der die Berechtigung für erweiterte Sicherheitsupdates bestimmt. Wenden Sie sich an den [Microsoft-Support](https://support.microsoft.com/contactus?PID=17336), um weitere Hilfe zu erhalten.
 
 Für andere Umgebungen, wie z. B. lokale VMs oder physische Server, müssen Sie erweiterte Sicherheitsupdates manuell anfordern und konfigurieren. Sie können erweiterte Sicherheitsupdates über Volumenlizenzierungsprogramme erwerben, wie etwa Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES) oder Server and Cloud Enrollment (SCE).
 

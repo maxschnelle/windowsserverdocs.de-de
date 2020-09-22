@@ -72,6 +72,7 @@
 #### [Erste Schritte mit dem Windows-Desktop-Client](clients/windowsdesktop.md)
 #### [Windows-Desktop-Client für Administratoren](clients/windowsdesktop-admin.md)
 #### [Neuigkeiten im Windows-Desktop-Client](clients/windowsdesktop-whatsnew.md)
+#### [Tastenkombinationen](/windows/win32/termserv/terminal-services-shortcut-keys)
 ### Microsoft Store-Client
 #### [Erste Schritte mit dem Microsoft Store-Client](clients/windows.md)
 #### [Neuerungen im Microsoft Store-Client](clients/windows-whatsnew.md)

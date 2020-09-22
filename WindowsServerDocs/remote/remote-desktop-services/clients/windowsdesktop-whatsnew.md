@@ -5,27 +5,27 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f0b5453265bc96cdeb7ba02795da8fa0f39ba1c
-ms.sourcegitcommit: 0407bd30eaf06358257cf88c3969a2cd8b77dca4
+ms.openlocfilehash: 5d45bfad559069f9652768ba7f89bbdd3521ab8a
+ms.sourcegitcommit: d04f8fd54fe9aa5703af2f66a7150f4a6fb5bb37
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90027165"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90718624"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
 Ausführlichere Informationen über den Windows-Desktopclient findest du unter [Erste Schritte mit dem Windows-Desktopclient](windowsdesktop.md). Die neuesten Updates für den Client finden Sie in diesem Artikel.
 
-## <a name="latest-client-versions"></a>Neueste Clientversionen
+## <a name="supported-client-versions"></a>Unterstützte Clientversionen
 
 Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#configure-user-groups) konfiguriert werden. In der folgenden Tabelle sind die aktuellen Versionen aufgelistet, die für jede Benutzergruppe verfügbar sind:
 
-|Benutzergruppe |Version  |
-|-----------|---------|
-|Öffentlich     |1.2.1272 |
-|Insider    |1.2.1357 |
+|Benutzergruppe |Aktuelle Version  |Unterstützte Mindestversion |
+|-----------|----------------|--------------------------|
+|Öffentlich     |1.2.1272        |1.2.945                   |
+|Insider    |1.2.1357        |1.2.1357                  |
 
 ## <a name="updates-for-version-121357-insiders"></a>Updates für Version 1.2.1357 (Insider)
 
@@ -33,7 +33,7 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-- Es wurde ein Problem behoben, bei dem Secure Sign-On (SSO) unter Windows 7 nicht funktionierte.
+- Es wurde ein Problem behoben, bei dem Einmaliges Anmelden (Single Sign-On, SSO) unter Windows 7 nicht funktionierte.
 
 ## <a name="updates-for-version-121275"></a>Updates für Version 1.2.1275
 

@@ -8,12 +8,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 672a9d1b33137d9559d88b8773d3c7ccd2493ddc
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 420cedebcfc71a5ba78908d244d1f8ca651bee4c
+ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87955057"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90083671"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu Remotedesktopclients
 
@@ -174,7 +174,7 @@ Du hast drei Optionen, um den Rechtsklick in einer geöffneten Sitzung zu verwen
 
 - USB-Standardmaus mit zwei Tasten für PCs
 - Apple Magic Mouse: Klicke zum Aktivieren des Rechtsklicks im Dock auf **Systemeinstellungen** und dann auf **Maus**. Aktiviere anschließend die Option **Secondary click** (Sekundärer Klick).
-- Apple Magic Trackpad oder MacBook Trackpad: Klicke zum Aktivieren des Rechtsklicks im Dock auf **Systemeinstellungen** und dann auf **Maus**. Aktiviere anschließend die Option **Secondary click** (Sekundärer Klick).
+- Apple Magic Trackpad oder MacBook Trackpad: Klicken Sie zum Aktivieren des Rechtsklicks im Dock auf **Systemeinstellungen** und dann auf **Trackpad**. Aktivieren Sie anschließend die Option **Secondary click** (Sekundärer Klick).
 
 ### <a name="is-airprint-supported"></a>Wird AirPrint unterstützt?
 Nein. AirPrint wird vom Remotedesktopclient nicht unterstützt. (Dies gilt sowohl für Mac- als auch für iOS-Clients.)

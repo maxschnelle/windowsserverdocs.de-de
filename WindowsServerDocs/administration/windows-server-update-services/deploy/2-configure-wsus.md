@@ -6,13 +6,13 @@ ms.assetid: d4adc568-1f23-49f3-9a54-12a7bec5f27c
 ms.author: lizross
 author: eross-msft
 manager: mtillman
-ms.date: 10/16/2017
-ms.openlocfilehash: 36e852749be9c6d108407d83384b5381938c149a
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.date: 9/18/2020
+ms.openlocfilehash: 0d7afc528f2c87bdd90495729aee58cf8cf8300e
+ms.sourcegitcommit: ad8fe5bb915e616a437be60e1836d3ce891dabaa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89641075"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90813442"
 ---
 # <a name="step-2-configure-wsus"></a>Schritt 2: Konfigurieren von WSUS
 
@@ -431,7 +431,7 @@ Die Schritte zum Einrichten einer Zertifizierungsstelle, zum Binden des Zertifik
 
 -   [Implementieren und Verwalten von Zertifikatvorlagen](https://go.microsoft.com/fwlink/?LinkID=203859)
 
--   [Active Directory-Zertifikatdienste: Leitfaden zu Upgrades und zur Migration](https://go.microsoft.com/fwlink/?LinkID=203860)
+-   [Active Directory Certificate Services Upgrade and Migration Guide](https://go.microsoft.com/fwlink/?LinkID=203860)
 
 -   [Konfigurieren der automatischen Registrierung von Zertifikaten](https://go.microsoft.com/fwlink/?LinkID=203861)
 

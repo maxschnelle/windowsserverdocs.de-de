@@ -1,25 +1,25 @@
 ---
 title: Erste Schritte mit dem Microsoft Store-Client
-description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows Store.
+description: Enthält grundlegende Einrichtungsanweisungen für den Remotedesktopclient für Windows Store.
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 09/05/2020
+ms.date: 09/17/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 9bad174ad596ffc0262947464f2353b91a92872c
-ms.sourcegitcommit: 34f9577ef32cbdc7ef96040caabc9d83517f9b79
+ms.openlocfilehash: 07e778fef6a944107ab9cb66f06c8c5d980f3675
+ms.sourcegitcommit: 877d6db73d9520e3a23738d6528016235493cff3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89554527"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90779254"
 ---
 # <a name="get-started-with-the-microsoft-store-client"></a>Erste Schritte mit dem Microsoft Store-Client
 
 >Gilt für: Windows 10
 
-Du kannst den Remotedesktopclient für Windows verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
+Sie können den Remotedesktopclient für Windows verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
 
 Verwende die folgenden Informationen für die ersten Schritte. Lesen Sie unbedingt die [häufig gestellten Fragen](remote-desktop-client-faq.md), wenn Sie Fragen haben.
 
@@ -33,21 +33,21 @@ Führe die folgenden Schritte für den Einstieg in Remotedesktop auf deinem Wind
 
 1. Lade den Remotedesktopclient aus dem [Microsoft Store](https://www.microsoft.com/store/p/microsoft-remote-desktop/9wzdncrfj3ps) herunter.
 2. [Richte deinen PC so ein, dass Remoteverbindungen zulässig sind](remote-desktop-allow-access.md).
-3. Füge eine Remotedesktopverbindung oder eine Remoteressource hinzu. Mit einer Verbindung kannst du eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource kannst du ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop (von deinem Administrator veröffentlicht) verwenden.
+3. Fügen Sie eine Remote-PC-Verbindung oder einen Arbeitsbereich hinzu. Sie verwenden eine Verbindung, um eine direkte Verbindung mit einem Windows-PC herzustellen, und einen Arbeitsbereich, um ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen von Ihrem Administrator veröffentlichten virtuellen Desktop zu verwenden.
 4. Hefte Elemente an, damit du schnell auf Remotedesktop zugreifen kannst.
 
-### <a name="add-a-remote-desktop-connection"></a>Hinzufügen einer Remotedesktopverbindung
+### <a name="add-a-remote-pc-connection"></a>Hinzufügen einer Remote-PC-Verbindung
 
-Gehe wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
+So erstellen Sie eine Remote-PC-Verbindung:
 
-1. Tippen Sie im Connection Center auf **+ Hinzufügen** und dann auf **Desktop**.
+1. Tippen Sie im Connection Center auf **+ Hinzufügen** und dann auf **PCs**.
 2. Gib die folgenden Informationen für den Computer ein, mit dem du eine Verbindung herstellen möchtest:
    - **PC-Name**: Der Name des Computers. Der PC-Name kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können auch Portinformationen an den PC-Namen anfügen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
    - **Benutzerkonto**: Das Benutzerkonto zum Zugreifen auf den Remote-PC. Tippe auf **+** , um ein neues Konto hinzuzufügen oder ein vorhandenes Konto auszuwählen. Du kannst die folgenden Formate für den Benutzernamen verwenden: *user_name*, *domain\user_name* oder <em>user_name@domain.com</em>. Darüber hinaus können Sie festlegen, ob während der Verbindungsherstellung Anmeldeinformationen abgefragt werden, indem Sie die Option **Jedes Mal nachfragen**  auswählen.
 3. Du kannst auch zusätzliche Optionen festlegen, indem du auf **Mehr anzeigen** tippst:
    - **Anzeigename**: Ein leicht zu merkender Name für den PC, mit dem Sie eine Verbindung herstellen. Sie können eine beliebige Zeichenfolge verwenden, aber wenn Sie keinen Anzeigenamen angeben, wird der Name des PC angezeigt.
    - **Gruppe**: Gib eine Gruppe an, damit deine Verbindungen später leichter auffindbar sind. Du kannst eine neue Gruppe hinzufügen, indem du auf **+** tippst oder einen Eintrag aus der Liste auswählst.
-   - **Gateway**: Das Remotedesktopgateway, das du zum Herstellen einer Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk verwenden möchtest. Du erhältst die Informationen über das Gateway von deinem Systemadministrator.
+   - **Gateway**: Das Remote-PC-Gateway, das Sie zum Herstellen einer Verbindung mit virtuellen PCs, RemoteApp-Programmen und sitzungsbasierten PCs in einem internen Unternehmensnetzwerk verwenden möchten. Du erhältst die Informationen über das Gateway von deinem Systemadministrator.
    - **Mit Administratorsitzung verbinden**: Verwende diese Option, um eine Verbindung mit einer Konsolensitzung zum Verwalten eines Windows-Servers herzustellen.
    - **Maustasten tauschen**: Verwende diese Option, um die Funktionen der linken Maustaste und der rechten Maustaste zu tauschen. Das Tauschen der Maustasten ist erforderlich, wenn Sie einen PC verwenden, der für einen Linkshänder konfiguriert ist, Sie aber nur über eine Maus für Rechtshänder verfügen.
    - **Set my remote session resolution to** (Auflösung für Remotesitzung festlegen auf): Wähle die Auflösung aus, die du in der Sitzung verwenden möchtest. Mit **Choose for me** (Für mich auswählen) wird die Auflösung anhand der Größe des Clients festgelegt.
@@ -58,32 +58,32 @@ Gehe wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
    - **Audioaufzeichnung**: Wenn diese Option aktiviert ist, kannst du für Anwendungen auf dem Remote-PC ein lokales Mikrofon nutzen.
 4. Tippen Sie auf **Speichern**.
 
-Musst du diese Einstellungen bearbeiten? Tippe auf das Überlaufmenü ( **...** ) neben dem Namen des Desktops und dann auf **Bearbeiten**.
+Musst du diese Einstellungen bearbeiten? Tippen Sie auf das Überlaufmenü ( **...** ) neben dem Namen des PCs und dann auf **Bearbeiten**.
 
 Möchtest du die Verbindung löschen? Tippe erneut auf das Überlaufmenü ( **...** ) und dann auf **Entfernen**.
 
-### <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
+### <a name="add-a-workspace"></a>Hinzufügen eines Arbeitsbereichs
 
-Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die mithilfe von Remotedesktopdiensten von deinem Administrator veröffentlicht werden.
+Bei Arbeitsbereichen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die von Ihrem Administrator mithilfe von Remotedesktopdiensten veröffentlicht werden.
 
-Gehe wie folgt vor, um eine Remoteressource hinzuzufügen:
+So fügst du einen Arbeitsbereich hinzu
 
-1. Tippe auf dem Bildschirm „Connection Center“ auf **+ Hinzufügen** und dann auf **Remoteressourcen**.
+1. Tippen Sie auf dem Bildschirm des Connection Centers auf **+ Hinzufügen** und dann auf **Arbeitsbereiche**.
 2. Gib die **Feed-URL** ein, die du von deinem Administrator erhalten hast, und tippe auf **Find feeds** (Feeds suchen).
 3. Geben Sie bei entsprechender Aufforderung die Anmeldeinformationen zum Abonnieren des Feeds an.
 
-Die Remoteressourcen werden im Connection Center angezeigt.
+Die Arbeitsbereiche werden im Connection Center angezeigt.
 
-Gehe wie folgt vor, um Remoteressourcen zu löschen:
+So löschen Sie Arbeitsbereiche:
 
-1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) neben der Remoteressource.
+1. Tippen Sie im Connection Center auf das Überlaufmenü ( **...** ) neben dem Arbeitsbereich.
 2. Tippe auf **Entfernen**.
 
-### <a name="pin-a-saved-desktop-to-your-start-menu"></a>Anheften eines gespeicherten Desktops an dein Startmenü
+### <a name="pin-a-saved-pc-to-your-start-menu"></a>Anheften eines gespeicherten PCs an Ihr Startmenü
 
-Tippe zum Anheften einer Verbindung an das Startmenü auf das Überlaufmenü ( **...** ) neben dem Namen des Desktops und dann auf **An „Start“ anheften**.
+Tippen Sie zum Anheften einer Verbindung an das Startmenü auf das Überlaufmenü ( **...** ) neben dem Namen des PCs und dann auf **An „Start“ anheften**.
 
-Jetzt kannst du die Remotedesktopverbindung direkt über das Startmenü starten, indem du darauf tippst.
+Jetzt können Sie die PC-Verbindung direkt über das Startmenü starten, indem Sie darauf tippen.
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Herstellen einer Verbindung mit einem Remotedesktopgateway zum Zugreifen auf interne Ressourcen
 
@@ -99,7 +99,7 @@ Gehe wie folgt vor, um ein neues Gateway einzurichten:
 
 3. Geben Sie die folgenden Informationen ein:
    - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Der Servername kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
-   - **Benutzerkonto**: Wählen Sie ein Benutzerkonto für das Remotedesktopgateway aus (bzw. fügen Sie es hinzu), mit dem Sie eine Verbindung herstellen. Sie können auch die Option **Desktopbenutzerkonto verwenden** auswählen, damit die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwendet werden.
+   - **Benutzerkonto**: Wählen Sie ein Benutzerkonto für das Remote-PC-Gateway aus (bzw. fügen Sie es hinzu), mit dem Sie eine Verbindung herstellen. Sie können auch die Option **Desktopbenutzerkonto verwenden** auswählen, damit die gleichen Anmeldeinformationen wie für die Remote-PC-Verbindung verwendet werden.
 4. Tippen Sie auf **Speichern**.
 
 ## <a name="global-app-settings"></a>Globale App-Einstellungen
@@ -122,12 +122,12 @@ Du kannst die folgenden globalen Einstellungen in deinem Client festlegen, indem
 
 ### <a name="app-settings"></a>App-Einstellungen
 
-- **Show Desktop Previews** (Desktopvorschauen anzeigen): Mit dieser Option kannst du eine Vorschau des Desktops im Connection Center anzeigen, bevor du eine Verbindung damit herstellst. Diese Einstellung ist standardmäßig eingeschaltet.
+- **Show PC Previews** (PC-Vorschau anzeigen): Mit dieser Option können Sie eine Vorschau eines PCs im Connection Center anzeigen, bevor Sie eine Verbindung mit ihm herstellen. Diese Einstellung ist standardmäßig eingeschaltet.
 - **Help improve Remote Desktop** (Zur Verbesserung von Remotedesktop beitragen): Sendet anonyme Daten an Microsoft. Wir verwenden diese Daten, um den Client zu verbessern. Weitere Informationen dazu, wie wir mit diesen anonymen und privaten Daten umgehen, finden Sie unter [Datenschutzerklärung von Microsoft](https://privacy.microsoft.com/privacystatement). Diese Einstellung ist standardmäßig eingeschaltet.
 
 ### <a name="manage-your-user-accounts"></a>Verwalten Ihrer Benutzerkonten
 
-Wenn Sie eine Verbindung mit einem Desktop oder mit Remoteressourcen herstellen, können Sie die Kontoinformationen für spätere Verbindungen speichern. Sie können auch Benutzerkonten auf dem Client definieren, anstatt die Benutzerdaten zu speichern, wenn Sie eine Verbindung mit einem Desktop herstellen.
+Wenn Sie eine Verbindung mit einem PC oder Arbeitsbereich herstellen, können Sie die Kontoinformationen für spätere Verbindungen speichern. Sie können auch Benutzerkonten auf dem Client definieren, anstatt die Benutzerdaten zu speichern, wenn Sie eine Verbindung mit einem PC herstellen.
 
 Gehen Sie wie folgt vor, um ein neues Benutzerkonto zu erstellen:
 
@@ -146,15 +146,15 @@ Lösche ein Benutzerkonto wie folgt:
 4. Tippe unten auf **Dieses Konto entfernen**, um das Benutzerkonto zu löschen.
 5. Du kannst auch das Benutzerkonto bearbeiten und auf **Speichern** tippen.
 
-## <a name="navigate-the-remote-desktop-session"></a>Navigieren in der Remotedesktopsitzung
+## <a name="navigate-your-remote-session"></a>Navigieren in Ihrer Remotesitzung
 
-Wenn du eine Remotedesktopverbindung startest, stehen Tools zur Verfügung, die du für die Navigation in der Sitzung verwenden kannst.
+In diesem Abschnitt werden die Tools beschrieben, die Ihnen zur Navigation in der Remotesitzung zur Verfügung stehen, nachdem Sie eine Verbindung mit dem Dienst hergestellt haben.
 
-### <a name="start-a-remote-desktop-connection"></a>Starten einer Remotedesktopverbindung
+### <a name="start-a-remote-session"></a>Starten einer Remotesitzung
 
-1. Tippe auf die Remotedesktopverbindung, um die Sitzung zu starten.
+1. Tippen Sie auf den Namen der Verbindung, die Sie zum Starten der Sitzung verwenden möchten.
 2. Falls Sie für die Verbindung keine Anmeldeinformationen gespeichert haben, werden Sie zum Angeben eines **Benutzernamens** und eines **Kennworts** aufgefordert.
-3. Gehen Sie bei einer Aufforderung zum Überprüfen des Zertifikats für den Remotedesktop wie folgt vor: Prüfen Sie die Informationen, und vergewissern Sie sich, dass Sie dem PC vertrauen, bevor Sie auf **Verbinden** tippen. Du kannst auch die Option **Don’t ask about this certificate again** (Nicht mehr nach diesem Zertifikat fragen) aktivieren, um anzugeben, dass dieses Zertifikat immer akzeptiert werden soll.
+3. Gehen Sie bei einer Aufforderung zum Überprüfen des Zertifikats für Ihren Arbeitsbereich oder PC wie folgt vor: Prüfen Sie die Informationen, und vergewissern Sie sich, dass Sie dem PC vertrauen, bevor Sie auf **Verbinden** tippen. Du kannst auch die Option **Don’t ask about this certificate again** (Nicht mehr nach diesem Zertifikat fragen) aktivieren, um anzugeben, dass dieses Zertifikat immer akzeptiert werden soll.
 
 ### <a name="connection-bar"></a>Verbindungsleiste
 
@@ -177,9 +177,9 @@ Tippen Sie auf der Verbindungsleiste auf **...** , um die Befehlsleiste rechts a
 - **Vollbild**: Dient zum Aktivieren bzw. Deaktivieren des Vollbildmodus.
 - **Touch oder Maus**: Hiermit können Sie zwischen den Mausmodi umschalten (direkte Toucheingabe und Mauszeiger).
 
-### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Verwenden von direkten Touchgesten und Mausmodi in einer Remotesitzung
+### <a name="use-direct-touch-gestures-and-mouse-modes"></a>Verwenden von direkten Touchgesten und Mausmodi
 
-Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
+Sie können mit der Sitzung mit zwei verfügbaren Mausmodi interagieren:
 
 - **Direkte Toucheingabe**: Alle Berührungen werden an die Sitzung übergeben, damit sie remote interpretiert werden können.
   - Dies entspricht der Nutzung von Windows mit einem Touchscreen.
