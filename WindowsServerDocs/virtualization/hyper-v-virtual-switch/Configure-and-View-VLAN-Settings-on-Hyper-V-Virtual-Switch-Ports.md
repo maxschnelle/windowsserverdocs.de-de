@@ -6,12 +6,12 @@ ms.topic: article
 ms.assetid: 69e0e28a-98ae-4ade-bd27-ce2ad7eb310f
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ac7d3f4ea17e35b42d974d1e29c692e8510c35ef
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 85d622094ac81aea8a2d90e4ef6eb5d226d0b290
+ms.sourcegitcommit: 50b295002d60f4183f452cc169f0768a347830ea
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91248583"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 
@@ -23,11 +23,11 @@ Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren mö
 
 Wenn Sie VMM verwenden, verwendet VMM den folgenden Windows PowerShell-Befehl, um den Switchport zu konfigurieren.
 
-```
-Set-VMNetworkAdapterIsolation <VM-name|-managementOS> -IsolationMode VLAN -DefaultIsolationID <vlan-value> -AllowUntaggedTraffic $True
+```powershell
+Set-VMNetworkAdapterIsolation <VM-name|-ManagementOS -IsolationMode VLAN -DefaultIsolationID <vlan-value> -AllowUntaggedTraffic $True
 ```
 Wenn Sie VMM nicht verwenden und den Switchport in Windows Server konfigurieren, können Sie die Hyper-V-Manager-Konsole oder den folgenden Windows PowerShell-Befehl verwenden.
-```
+```powershell
 Set-VMNetworkAdapterVlan <VM-name|-managementOS> -Access -VlanID <vlan-value>
 ```
 
