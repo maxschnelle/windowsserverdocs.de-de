@@ -60,6 +60,7 @@
 ## [Ausführen und Abstimmen](rds-run-and-tune.md)
 ### [Verwalten von persönlichen Desktopsitzungssammlungen](rds-manage-personal-collection.md)
 ### [Empfohlene Konfiguration für VDI-Desktops](rds-vdi-recommendations.md)
+### [Optimieren von Windows 10, Version 2004, für eine VDI-Rolle (Virtual Desktop Infrastructure)](rds-vdi-recommendations-2004.md)
 ### [Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtuelle Desktopinfrastruktur)](rds_vdi-recommendations-1909.md)
 ### [Optimieren von Windows 10, Version 1803, für eine VDI-Rolle (Virtuelle Desktopinfrastruktur)](rds-vdi-recommendations-1803.md)
 ### [Verwalten von Benutzern in Ihrer RDS-Sammlung](rds-user-management.md)
