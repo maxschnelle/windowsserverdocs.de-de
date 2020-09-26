@@ -1,17 +1,18 @@
 ---
 title: Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis
+description: Informationen zum Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis.
 ms.topic: article
 ms.assetid: f0aa575b-b34e-4f6c-8416-ed3e398e0ad2
 manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 06/21/2019
-ms.openlocfilehash: fc879fda0f6a708a8a1d4ebd60834f4e6543f3ba
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 2f4f684b0c18c19cdbdf09e672c83e51f426ca04
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997167"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388851"
 ---
 # <a name="add-host-information-for-tpm-trusted-attestation"></a>Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis
 
@@ -20,7 +21,7 @@ ms.locfileid: "87997167"
 Für den TPM-Modus erfasst der Fabric-Administrator drei Arten von Hostinformationen, die jeweils der HGS-Konfiguration hinzugefügt werden müssen:
 
 - Eine TPM-Kennung (ekpub) für jeden Hyper-V-Host
-- Code Integritäts Richtlinien, eine weiße Liste zulässiger Binärdateien für die Hyper-V-Hosts
+- Code Integritäts Richtlinien, eine Zulassungs zulässiger Binärdateien für die Hyper-V-Hosts
 - Eine TPM-Baseline (Start Messungen), die eine Gruppe von Hyper-V-Hosts darstellt, die auf derselben Hardware Klasse ausgeführt werden
 
 Nachdem der Fabric-Administrator die Informationen erfasst hat, fügen Sie ihn der HGS-Konfiguration hinzu, wie im folgenden Verfahren beschrieben.
@@ -37,7 +38,7 @@ Nachdem der Fabric-Administrator die Informationen erfasst hat, fügen Sie ihn d
     > Sie können überprüfen, ob ein ekcert fehlt, indem Sie die XML-Datei in einem Editor wie z. b. Editor öffnen und auf eine Fehlermeldung mit dem Hinweis, dass kein ekcert gefunden wurde, prüfen.
     > Wenn dies der Fall ist und Sie sich darauf verlassen, dass das TPM auf dem Computer authentisch ist, können Sie `-Force` diese Sicherheitsüberprüfung mit dem Flag außer Kraft setzen und die Host Kennung zu HGS hinzufügen.
 
-2. Abrufen der Code Integritätsrichtlinie, die der Fabric-Administrator für die Hosts erstellt hat, im Binärformat ( \* . p7b). Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus.
+2. Abrufen der Code Integritätsrichtlinie, die der Fabric-Administrator für die Hosts erstellt hat, im Binärformat ( \* . p7b). Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus:
 
     `<PolicyName>`Geben Sie unter einen Namen für die CI-Richtlinie ein, die den Hosttyp beschreibt, auf den Sie angewendet wird. Eine bewährte Vorgehensweise besteht darin, den Namen nach dem Make/Model Ihres Computers und allen darauf laufenden speziellen Software Konfigurationen zu benennen.<br>Geben Sie für `<Path>` den Pfad und den Dateinamen der Code Integritätsrichtlinie an.
 
@@ -49,7 +50,7 @@ Nachdem der Fabric-Administrator die Informationen erfasst hat, fügen Sie ihn d
     > Wenn Sie eine Code Integritätsrichtlinie mit Vorzeichen verwenden, registrieren Sie eine nicht signierte Kopie derselben Richtlinie mit HGS.
     > Die Signatur der Code Integritäts Richtlinien wird zum Steuern der Aktualisierung der Richtlinie verwendet, jedoch nicht auf dem Host-TPM und kann daher nicht von HGS bestätigt werden.
 
-3. Abrufen der TCG-Protokolldatei, die der Fabric-Administrator von einem Referenz Host aufgezeichnet hat. Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus. In der Regel benennen Sie die Richtlinie nach der Klasse der Hardware, die Sie repräsentiert (z. b. "Hersteller Modell Revision").
+3. Abrufen der TCG-Protokolldatei, die der Fabric-Administrator von einem Referenz Host aufgezeichnet hat. Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus: In der Regel benennen Sie die Richtlinie nach der Klasse der Hardware, die Sie repräsentiert (z. b. "Hersteller Modell Revision").
 
     ```powershell
     Add-HgsAttestationTpmPolicy -Path <Filename>.tcglog -Name '<PolicyName>'

@@ -1,60 +1,65 @@
 ---
-title: Sc.exe erstellen
-description: Erfahren Sie, wie Sie mithilfe des Hilfsprogramms "sc.exe neue Dienste bei Windows Service Manager registrieren.
+title: sc.exe erstellen
+description: Referenz Artikel für den sc.exe Create-Befehl, mit dem ein Unterschlüssel und Einträge für einen Dienst in der Registrierung und in der Dienststeuerungs-Manager-Datenbank erstellt werden.
 ms.topic: reference
 ms.assetid: 59416460-0661-4fef-85cc-73e9d8f4beb4
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ede0c21bf2679925db71666631c8752e5c930afa
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 2be59f0d91abdf91984985c536e45abb3cdc0d3f
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89637116"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388509"
 ---
-# <a name="scexe-create"></a>Sc.exe erstellen
+# <a name="scexe-create"></a>sc.exe erstellen
 
 Erstellt einen Unterschlüssel und Einträge für einen Dienst in der Registrierung und in der Dienststeuerungs-Manager-Datenbank.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-sc.exe [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys | rec | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto }] [error= {normal | severe | critical | ignore}] [binpath= <BinaryPathName>] [group= <LoadOrderGroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<AccountName> | <ObjectName>}] [displayname= <DisplayName>] [password= <Password>]
+sc.exe [<servername>] create [<servicename>] [type= {own | share | kernel | filesys | rec | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto}] [error= {normal | severe | critical | ignore}] [binpath= <binarypathname>] [group= <loadordergroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<accountname> | <objectname>}] [displayname= <displayname>] [password= <password>]
 ```
 
 ### <a name="parameters"></a>Parameter
 
 |Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<ServerName>|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ \\ . MyServer) verwenden. Wenn Sie SC.exe lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
-|\<ServiceName>|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
-|Type = {eigener \| Freigabe \| -Kernel \| filesys \| rec \| Interaktion Type = {eigener \| Freigabe}}|Gibt den Diensttyp an. Die Standardeinstellung ist **Type = own**.</br>**own** : gibt an, dass der Dienst in einem eigenen Prozess ausgeführt wird. Eine ausführbare Datei wird nicht mit anderen Diensten gemeinsam genutzt. Dies ist die Standardeinstellung.</br>**Freigabe** : gibt an, dass der Dienst als frei gegebener Prozess ausgeführt wird. Er gibt eine ausführbare Datei mit anderen Diensten frei.</br>**Kernel** : gibt einen Treiber an.</br>**filesys** : gibt einen Dateisystem Treiber an.</br>**rec** : gibt einen von einem Dateisystem erkannten Treiber an (identifiziert Dateisysteme, die auf dem Computer verwendet werden).</br>**Interact** : gibt an, dass der Dienst mit dem Desktop interagieren und Eingaben von Benutzern empfangen kann. Interaktive Dienste müssen unter dem Konto "LocalSystem" ausgeführt werden. Dieser Typ muss in Verbindung mit **Type = own** oder **Type = Shared**verwendet werden. Durch die Verwendung von **Type = Interact** allein wird ein Fehler wegen eines ungültigen Parameters generiert.|
-|Start = { \| automatische Start \| System \| Nachfrage \| deaktiviert \| -automatisch}|Gibt den Starttyp für den Dienst an. Die Standardeinstellung ist **Start = Demand**.</br>**Boot** : gibt einen Gerätetreiber an, der vom Start Lade Modul geladen wird.</br>**System** : gibt einen Gerätetreiber an, der während der Kernel Initialisierung gestartet wird.</br>gibt **automatisch einen** Dienst an, der automatisch gestartet wird, wenn der Computer neu gestartet wird. Beachten Sie, dass der Dienst auch dann ausgeführt wird, wenn sich niemand am Computer anmeldet.</br>**Demand** : gibt einen Dienst an, der manuell gestartet werden muss. Dies ist der Standardwert, wenn **Start =** nicht angegeben ist.</br>**deaktiviert** : gibt einen Dienst an, der nicht gestartet werden kann. Ändern Sie den Starttyp in einen anderen Wert, um einen deaktivierten Dienst zu starten.</br>**verzögert:** gibt automatisch einen Dienst an, der nach dem Start anderer automatischer Dienste automatisch gestartet wird.|
-|Fehler = {normaler \| schwerwiegender schwerwiegender Fehler \| \| }|Gibt den Schweregrad des Fehlers an, wenn der Dienst beim Starten des Computers fehlschlägt. Die Standardeinstellung ist **Error = normal**.</br>**Normal** : gibt an, dass der Fehler protokolliert wird. Ein Meldungs Feld wird angezeigt, das den Benutzer darüber informiert, dass ein Dienst nicht gestartet werden konnte. Der Startvorgang wird fortgesetzt. Dies ist die Standardeinstellung.</br>**schwerwiegend** : gibt an, dass der Fehler protokolliert wird (sofern möglich). Der Computer versucht, mit der letzten als funktionierend bekannten Konfiguration neu zu starten. Dies könnte dazu führen, dass der Computer neu gestartet werden kann, der Dienst jedoch möglicherweise trotzdem nicht ausgeführt werden kann.</br>**kritisch** : gibt an, dass der Fehler protokolliert wird (sofern möglich). Der Computer versucht, mit der letzten als funktionierend bekannten Konfiguration neu zu starten. Wenn bei der letzten als funktionierend bekannten Konfiguration ein Fehler auftritt, schlägt der Startvorgang fehl, und der Startvorgang wird mit einem Fehler beendet.</br>**Ignore** : gibt an, dass der Fehler protokolliert und der Startvorgang fortgesetzt wird. Es wird keine Benachrichtigung an den Benutzer über die Aufzeichnung des Fehlers im Ereignisprotokoll ausgegeben.|
-|BinPath = \<BinaryPathName>|Gibt einen Pfad zur Dienst Binärdatei an. Es gibt keinen Standardwert für " **BinPath =**", und diese Zeichenfolge muss angegeben werden.|
-|Gruppe = \<LoadOrderGroup>|Gibt den Namen der Gruppe an, deren Mitglied dieser Dienst ist. Die Liste der Gruppen wird in der Registrierung im Unterschlüssel **HKLM\System\CurrentControlSet\Control\ServiceGroupOrder** gespeichert. Der Standardwert ist "null".|
-|Tag = {Yes \| No}|Gibt an, ob eine TagID aus dem Befehl "{ateservice" abgerufen werden soll. Tags werden nur für Start-und Systemstart-Treiber verwendet.|
-|abhängig = \<dependencies>|Gibt die Namen der Dienste oder Gruppen an, die vor dem Start dieses Diensts gestartet werden müssen. Die Namen werden durch Schrägstriche (/) getrennt.|
-|obj = { \<AccountName> \| \<ObjectName> }|Gibt den Namen eines Kontos an, in dem ein Dienst ausgeführt wird, oder gibt einen Namen für das Windows-Treiber Objekt an, in dem der Treiber ausgeführt wird.|
-|Display Name = \<DisplayName>|Gibt einen anzeigen Amen an, der von Benutzeroberflächen Programmen verwendet werden kann, um den Dienst zu identifizieren.|
-|Kennwort = \<Password>|Gibt ein Kennwort an. Dies ist erforderlich, wenn ein anderes Konto als "LocalSystem" verwendet wird.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| `<servername>` | Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z. b \\ . MyServer) verwenden. Verwenden Sie diesen Parameter nicht, um SC.exe lokal auszuführen. |
+| `<servicename>` | Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. |
+| `type= {own | share | kernel | filesys | rec | interact type= {own | share}}` | Gibt den Diensttyp an. Die Optionen lauten:<ul><li>**own** : gibt einen Dienst an, der in einem eigenen Prozess ausgeführt wird. Eine ausführbare Datei wird nicht mit anderen Diensten gemeinsam genutzt. Dies ist der Standardwert.</li><li>**Freigabe** : gibt einen Dienst an, der als frei gegebener Prozess ausgeführt wird. Er gibt eine ausführbare Datei mit anderen Diensten frei.</li><li>**Kernel** : gibt einen Treiber an.</li><li>**filesys** : gibt einen Dateisystem Treiber an.</li><li>**rec** : Hiermit wird ein vom Dateisystem erkannter Treiber angegeben, mit dem die auf dem Computer verwendeten Dateisysteme identifiziert werden.</li><li>**Interaktion** : gibt einen Dienst an, der mit dem Desktop interagieren und Eingaben von Benutzern empfangen kann. Interaktive Dienste müssen unter dem Konto "LocalSystem" ausgeführt werden. Dieser Typ muss in Verbindung mit **Type = own** oder **Type = Shared** verwendet werden (z. b. **Type = Interact** **Type = own**). Durch die Verwendung von **Type = Interact** allein wird ein Fehler generiert.</li></ul> |
+| `start= {boot | system | auto | demand | disabled | delayed-auto}` | Gibt den Starttyp für den Dienst an. Die Optionen lauten:<ul><li>**Boot** : gibt einen Gerätetreiber an, der vom Start Lade Modul geladen wird.</li><li>**System** : gibt einen Gerätetreiber an, der während der Kernel Initialisierung gestartet wird.</li><li>gibt **automatisch einen** Dienst an, der automatisch gestartet wird, sobald der Computer neu gestartet wird. er wird auch dann ausgeführt, wenn sich niemand am Computer anmeldet.</li><li>**Demand** : gibt einen Dienst an, der manuell gestartet werden muss. Dies ist der Standardwert, wenn **Start =** nicht angegeben ist.</li><li>**deaktiviert** : gibt einen Dienst an, der nicht gestartet werden kann. Ändern Sie den Starttyp in einen anderen Wert, um einen deaktivierten Dienst zu starten.</li><li>**verzögert:** gibt automatisch einen Dienst an, der nach dem Start anderer automatischer Dienste automatisch gestartet wird.</li></ul> |
+| `error= {normal | severe | critical | ignore}` | Gibt den Schweregrad des Fehlers an, wenn der Dienst nicht gestartet werden kann, wenn der Computer gestartet wird. Die Optionen lauten:<ul><li>**Normal** : gibt an, dass der Fehler protokolliert und ein Meldungs Feld angezeigt wird, um den Benutzer darüber zu informieren, dass ein Dienst nicht gestartet werden konnte. Der Startvorgang wird fortgesetzt. Dies ist die Standardeinstellung.</li><li>**schwerwiegend** : gibt an, dass der Fehler protokolliert wird (sofern möglich). Der Computer versucht, mit der letzten als funktionierend bekannten Konfiguration neu zu starten. Dies könnte dazu führen, dass der Computer neu gestartet werden kann, der Dienst jedoch möglicherweise trotzdem nicht ausgeführt werden kann.</li><li>**kritisch** : gibt an, dass der Fehler protokolliert wird (sofern möglich). Der Computer versucht, mit der letzten als funktionierend bekannten Konfiguration neu zu starten. Wenn bei der letzten als funktionierend bekannten Konfiguration ein Fehler auftritt, schlägt der Startvorgang fehl, und der Startvorgang wird mit einem Fehler beendet.</li><li>**Ignore** : gibt an, dass der Fehler protokolliert und der Startvorgang fortgesetzt wird. Es wird keine Benachrichtigung an den Benutzer über die Aufzeichnung des Fehlers im Ereignisprotokoll ausgegeben.</li></ul> |
+| `binpath= <binarypathname>` | Gibt einen Pfad zur Dienst Binärdatei an. Es gibt keinen Standardwert für " **BinPath =**", und diese Zeichenfolge muss angegeben werden. |
+| `group= <loadordergroup>` | Gibt den Namen der Gruppe an, deren Mitglied dieser Dienst ist. Die Liste der Gruppen wird in der Registrierung im Unterschlüssel **HKLM\System\CurrentControlSet\Control\ServiceGroupOrder** gespeichert. Der Standardwert ist "null". |
+| `tag= {yes | no}` | Gibt an, ob eine TagID aus dem Befehl "| ateservice" abgerufen werden soll. Tags werden nur für Start-und Systemstart-Treiber verwendet. |
+| `depend= <dependencies>` | Gibt die Namen der Dienste oder Gruppen an, die vor diesem Dienst gestartet werden müssen. Die Namen werden durch Schrägstriche (/) getrennt. |
+| `obj= {<accountname> | <objectname>}` | Gibt den Namen eines Kontos an, in dem ein Dienst ausgeführt wird, oder gibt einen Namen für das Windows-Treiber Objekt an, in dem der Treiber ausgeführt wird. Die Standardeinstellung ist " **LocalSystem**". |
+| `displayname= <displayname>` | Gibt einen anzeigen Amen zum Identifizieren des Dienstanbieter in Benutzeroberflächen Programmen an. Beispielsweise ist der Unterschlüssel Name eines bestimmten **dienstaners wuauserv**, der einen freundlicheren anzeigen Amen automatische Updates hat. |
+| `password= <password>` | Gibt ein Kennwort an. Dies ist erforderlich, wenn ein anderes Konto als das Konto "LocalSystem" verwendet wird. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Hinweise
 
--   Für jede Befehlszeilenoption ist das Gleichheitszeichen Teil des Options namens.
--   Zwischen einer Option und ihrem Wert (z. b. **Type = own**) ist ein Leerzeichen erforderlich. Wenn der Speicherplatz weggelassen wird, schlägt der Vorgang fehl.
+- Jede Befehlszeilenoption (Parameter) muss das Gleichheitszeichen als Teil des Options namens enthalten.
+
+- Zwischen einer Option und ihrem Wert (z. b. **Type = own**) ist ein Leerzeichen erforderlich. Wenn der Leerraum weggelassen wird, schlägt der Vorgang fehl.
 
 ## <a name="examples"></a>Beispiele
 
-In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **sc.exe Create** verwenden können:
+Geben Sie Folgendes ein, um einen neuen binären Pfad für den *newservice* -Dienst zu erstellen und zu registrieren:
+
 ```
 sc.exe \\myserver create NewService binpath= c:\windows\system32\NewServ.exe
+```
+
+```
 sc.exe create NewService binpath= c:\windows\system32\NewServ.exe type= share start= auto depend= +TDI NetBIOS
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

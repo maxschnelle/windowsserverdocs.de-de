@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5545e63efc87527506704ecd6ff956c8000b95a5
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: a47817c43e8130091922a775b7844d9ea596f79b
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89636091"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388253"
 ---
 # <a name="erase"></a>erase
 
@@ -20,7 +20,6 @@ Löscht eine oder mehrere Dateien. Wenn Sie **Erase** zum Löschen einer Datei a
 
 > [!NOTE]
 > Dieser Befehl ist mit dem Befehl " [del](del.md)" identisch.
-
 
 ## <a name="syntax"></a>Syntax
 
@@ -93,7 +92,7 @@ Wenn Sie alle schreibgeschützten Dateien im aktuellen Verzeichnis löschen möc
 erase /a:r *.*
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

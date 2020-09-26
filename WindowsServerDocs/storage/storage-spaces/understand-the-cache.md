@@ -5,14 +5,14 @@ ms.author: cosdar
 manager: dongill
 ms.topic: article
 author: cosmosdarwin
-ms.date: 07/17/2019
+ms.date: 09/21/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 315b645cf3c2adc60bd8eeed0406e1226b2d2128
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 502b04676fcb9a9c7342e701e71be473890f9668
+ms.sourcegitcommit: 8a826e992f28a70e75137f876a5d5e61238a24e4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87968847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91365353"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Grundlegendes zum Cache in direkten Speicherplätzen
 
@@ -28,36 +28,16 @@ Im folgenden Video wird ausführlich veranschaulicht, wie die Zwischenspeicherun
 
 ## <a name="drive-types-and-deployment-options"></a>Laufwerkstypen und Bereitstellungsoptionen
 
-Direkte Speicherplätze funktionieren derzeit mit drei Arten von Speichergeräten:
+Direkte Speicherplätze funktioniert derzeit mit vier Typen von Speichergeräten:
 
-<table>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/NVMe-100px.png" alt="Image of NVMe (Non-Volatile Memory Express)" >
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            NVMe (Non-Volatile Memory Express) – nicht flüchtiger Express-Speicher
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/SSD-100px.png" alt="Image of SSD" >
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            SATA/SAS SSD (Solid-State Drive) – Festkörperlaufwerk
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/understand-the-cache/HDD-100px.png"alt="Image of HDD" >
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            HDD (Hard Disk Drive) – Festplattenlaufwerk
-        </td>
-    </tr>
-</table>
+| Art des Laufwerks | BESCHREIBUNG |
+|----------------------|--------------------------|
+|![PMem](media/understand-the-cache/pmem-100px.png)|**PMem** bezieht sich auf persistenten Speicher. Dabei handelt es sich um eine neue Art von Hochleistungsspeicher mit geringen Wartezeiten.|
+|![NVMe](media/understand-the-cache/NVMe-100px.png)|**NVMe**-Laufwerke (Non-Volatile Memory Express) sind Solid State Drives, die direkt auf dem PCIe-Bus angeordnet sind. Häufig verwendete Formfaktoren sind 2,5" U.2, PCIe Add-In-Card (AIC) und M.2. NVMe ermöglicht einen höheren IOPS- und E/A-Durchsatz mit geringerer Wartezeit als alle anderen Laufwerkstypen, die derzeit unterstützt werden. Eine Ausnahme davon bildet PMem.|
+|![SSD](media/understand-the-cache/SSD-100px.png)|**SSD** steht für „Solid State Drives“, die über herkömmliche SATA- oder SAS-Verbindungen verbunden sind.|
+|![Festplattenlaufwerk](media/understand-the-cache/HDD-100px.png)|**HDD** steht für rotierende, magnetische Festplattenlaufwerke (Hard Disk Drives) mit hoher Speicherkapazität.|
 
-Diese Komponenten können auf sechs verschiedene Arten kombiniert werden, die wir in zwei Kategorien unterteilen: „reine Flash-Bereitstellung“ und „Hybridbereitstellung“.
+Es gibt verschiedene Möglichkeiten, diese Speichergeräte zu kombinieren. Wir verwenden zwei Kategorien zur Unterteilung: „nur Flash“ und „Hybrid“.
 
 ### <a name="all-flash-deployment-possibilities"></a>Optionen bei Nur-Flash-Bereitstellungen
 
@@ -169,7 +149,7 @@ Der softwaredefinierte Speicherstapel von Windows enthält noch mehrere andere C
 
 Für „Direkte Speicherplätze“ sollte das Standardverhalten des Speicherplätze-Zurückschreibcaches nicht geändert werden. Beispielsweise sollten Parameter wie **-WriteCacheSize** im Cmdlet **New-Volume** nicht verwendet werden.
 
-Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Er ist in Direkte Speicherplätze standardmäßig deaktiviert, steht aber in keinerlei Konflikt mit dem neuen Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional).
+Ob Sie den CSV-Cache nutzen, ist allein Ihre Entscheidung. Es steht kein Konflikt mit dem in diesem Thema beschriebenen Cache in irgendeiner Weise vor. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [Aktivieren des CSV-Caches](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional).
 
 ## <a name="manual-configuration"></a>Manuelle Konfiguration
 
@@ -269,7 +249,7 @@ Beispielsweise führen zwei Cachelaufwerke, die an vier Kapazitätslaufwerke geb
 
 Es gibt keine allgemeingültige Regel, aber wenn es für zu viele Lesevorgänge zu Cachefehlern kommt, reicht die Größe ggf. nicht aus, und Sie sollten erwägen, zur Erweiterung des Caches mehr Cachelaufwerke hinzuzufügen. Sie können Cache- oder Kapazitätslaufwerke jederzeit einzeln hinzufügen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Auswählen von Laufwerken und Resilienztypen](choosing-drives.md)
 - [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)

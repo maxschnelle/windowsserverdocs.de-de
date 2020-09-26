@@ -1,61 +1,63 @@
 ---
-title: 'secedit: analysieren'
-description: Referenz Artikel für * * * *-
+title: secedit analyze
+description: Referenz Artikel für den Befehl "Analyse analysieren", mit dem Sie die aktuellen Systemeinstellungen anhand der in einer Datenbank gespeicherten Baseline-Einstellungen analysieren können.
 ms.topic: reference
 ms.assetid: 3430cf9d-1411-48b1-b5a9-2e47701dc87f
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 272a05b36ce998aaed9a3ee8bd8b9c273296c030
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 783f9d1042b860adefc49f58f38f66e0571468e3
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89636860"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388556"
 ---
-# <a name="seceditanalyze"></a>secedit: analysieren
-
-
+# <a name="secedit-analyze"></a>secedit/analyze
 
 Ermöglicht es Ihnen, die aktuellen Systemeinstellungen anhand von baselineeinstellungen zu analysieren, die in einer Datenbank gespeichert sind.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-Secedit /analyze /db <database file name> [/cfg <configuration file name>] [/overwrite] [/log <log file name>] [/quiet}]
+secedit /analyze /db <database file name> [/cfg <configuration file name>] [/overwrite] [/log <log file name>] [/quiet}]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|db|Erforderlich.</br>Gibt den Pfad und den Dateinamen einer Datenbank an, die die gespeicherte Konfiguration enthält, für die die Analyse ausgeführt wird.</br>Wenn der Dateiname eine Datenbank angibt, der keine Sicherheits Vorlage (wie durch die Konfigurationsdatei dargestellt) zugeordnet ist, `/cfg \<configuration file name>` muss auch die Befehlszeilenoption angegeben werden.|
-|cfg|(Optional)</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die zur Analyse in die Datenbank importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie mit dem-Parameter verwendet wird `/db \<database file name>` . Wenn dies nicht angegeben ist, wird die Analyse für jede Konfiguration ausgeführt, die bereits in der Datenbank gespeichert ist.|
-|overwrite|(Optional)</br>Gibt an, ob die Sicherheits Vorlage im/cfg-Parameter alle Vorlagen oder Verbund Vorlagen überschreiben soll, die in der Datenbank gespeichert sind, anstatt die Ergebnisse an die gespeicherte Vorlage zu anhängen.</br>Diese Befehlszeilenoption ist nur gültig, wenn der- `/cfg \<configuration file name>` Parameter ebenfalls verwendet wird. Wenn dies nicht angegeben ist, wird die Vorlage im/cfg-Parameter an die gespeicherte Vorlage angehängt.|
-|log|(Optional)</br>Gibt den Pfad und den Dateinamen der Protokolldatei an, die im Prozess verwendet werden soll.|
-|quiet|(Optional)</br>Unterdrückt die Bildschirmausgabe. Sie können weiterhin Analyseergebnisse anzeigen, indem Sie das Snap-in "Sicherheitskonfiguration und-Analyse" in der Microsoft Management Console (MMC) verwenden.|
-
-## <a name="remarks"></a>Hinweise
-
-Die Analyseergebnisse werden in einem separaten Bereich der-Datenbank gespeichert und können im Snap-in "Sicherheitskonfiguration und-Analyse" der MMC angezeigt werden.
-
-Wenn der Pfad für die Protokolldatei nicht bereitgestellt wird, wird die Standardprotokoll Datei (*systemroot*\Documents and Settings \* Useraccount<em>\My documents\security\logs \* DatabaseName</em>. log) verwendet.
-
-In Windows Server 2008 wurde durch `Secedit /refreshpolicy` ersetzt `gpupdate` . Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
+| Parameter | BESCHREIBUNG |
+|--|--|
+| /db | Erforderlich. Gibt den Pfad und den Dateinamen der Datenbank an, die die gespeicherte Konfiguration enthält, für die die Analyse ausgeführt wird. Wenn der Dateiname eine Datenbank angibt, der keine Sicherheits Vorlage (wie durch die Konfigurationsdatei dargestellt) zugeordnet ist, muss die `/cfg <configuration file name>` Option ebenfalls angegeben werden. |
+| /cfg | Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die zur Analyse in die Datenbank importiert werden. Diese Option ist nur gültig, wenn Sie mit dem-Parameter verwendet wird `/db <database file name>` . Wenn dieser Parameter nicht auch angegeben wird, wird die Analyse für jede Konfiguration ausgeführt, die bereits in der Datenbank gespeichert ist. |
+| /overwrite | Gibt an, ob die Sicherheits Vorlage im **/cfg** -Parameter alle Vorlagen oder Verbund Vorlagen überschreiben soll, die in der Datenbank gespeichert sind, anstatt die Ergebnisse an die gespeicherte Vorlage zu anhängen. Diese Option ist nur gültig, wenn der- `/cfg <configuration file name>` Parameter ebenfalls verwendet wird. Wenn dieser Parameter nicht auch angegeben wird, wird die Vorlage im **/cfg** -Parameter an die gespeicherte Vorlage angehängt. |
+| /Log | Gibt den Pfad und den Dateinamen der Protokolldatei an, die im Prozess verwendet werden soll. Wenn Sie keinen Speicherort für die Datei angeben, wird die Standardprotokoll Datei `<systemroot>\Documents and Settings\<UserAccount>\My Documents\Security\Logs\<databasename>.log` verwendet. |
+| /quiet | Unterdrückt die Bildschirmausgabe. Sie können weiterhin Analyseergebnisse anzeigen, indem Sie das Snap-in "Sicherheitskonfiguration und-Analyse" in der Microsoft Management Console (MMC) verwenden. |
 
 ## <a name="examples"></a>Beispiele
 
-Führen Sie die Analyse für die Sicherheitsparameter in der Sicherheitsdatenbank "secdbtso. sdb" aus, die Sie mit dem Snap-in "Sicherheitskonfiguration und-Analyse" erstellt haben. Leiten Sie die Ausgabe an die Datei weiter SecAnalysisContosoFY11 mit Aufforderung, damit Sie überprüfen können, ob der Befehl korrekt ausgeführt wurde.
+Zum Durchführen der Analyse für die Sicherheitsparameter in der Sicherheitsdatenbank, *secdbconfiguration. SDB*, und Weiterleiten der Ausgabe an die Datei *SecAnalysisContosoFY11*, einschließlich der Eingabe Aufforderungen zum Überprüfen, ob der Befehl ordnungsgemäß ausgeführt wurde, geben Sie Folgendes ein:
+
 ```
-Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /log C:\Security\FY11\SecAnalysisContosoFY11.log
-```
-Nehmen wir an, dass die Analyse einige Unzulänglichkeiten offenbarte, damit die Sicherheits Vorlage "secmso. inf" geändert wurde. Führen Sie den Befehl erneut aus, um die Änderungen einzubeziehen, und leiten Sie die Ausgabe an die vorhandene Datei SecAnalysisContosoFY11 ohne Aufforderung.
-```
-Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /overwrite /log C:\Security\FY11\SecAnalysisContosoFY11.xml /quiet
+secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /log C:\Security\FY11\SecAnalysisContosoFY11.log
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+Wenn Sie Änderungen, die für den Analyseprozess in der Datei " *secmso. inf* " erforderlich sind, einschließen und dann die Ausgabe an die vorhandene Datei weiterleiten möchten, geben Sie *SecAnalysisContosoFY11*ohne Eingabeaufforderung Folgendes ein:
 
--   [Secedit](secedit.md)
+```
+secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /overwrite /log C:\Security\FY11\SecAnalysisContosoFY11.xml /quiet
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [secedit/configure](secedit-configure.md)
+
+- [secedit/Export](secedit-export.md)
+
+- [secedit/generaterollback](secedit-generaterollback.md)
+
+- [secedit/Import](secedit-import.md)
+
+- [secedit/Validate](secedit-validate.md)

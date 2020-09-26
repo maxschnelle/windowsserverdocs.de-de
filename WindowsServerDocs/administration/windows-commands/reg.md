@@ -1,5 +1,5 @@
 ---
-title: abgewickelt
+title: reg-Befehle
 description: Referenz Artikel zu den reg-Befehlen, mit denen Vorgänge für Registrierungs Unterschlüssel Informationen und Werte in Registrierungs Einträgen durchgeführt werden.
 ms.topic: reference
 ms.assetid: c97496b2-d1ff-4887-b5d2-6e1524be465a
@@ -7,14 +7,14 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a39fc22c2fe845d8cbbb64cf751455316bdc8747
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 619f6ae1d03197754145d0daad029deb817efffe
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89639491"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388836"
 ---
-# <a name="reg"></a>abgewickelt
+# <a name="reg-commands"></a>reg-Befehle
 
 Führt Vorgänge für Registrierungs Unterschlüssel Informationen und Werte in Registrierungs Einträgen aus.
 
@@ -55,6 +55,6 @@ reg unload
 | [reg save](reg-save.md) | Speichert eine Kopie der angegebenen Unterschlüssel, Einträge und Werte der Registrierung in einer angegebenen Datei. |
 | [reg unload](reg-unload.md) | Entfernt einen Abschnitt der Registrierung, der mit dem reg- **Lade** Vorgang geladen wurde. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

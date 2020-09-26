@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: fb96624ee45e2b526ed2092c0593451d0492bf74
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: bc4f7bbb711b40f61042a2bfbb88884529cfbb1d
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89629540"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388064"
 ---
 # <a name="cmdkey"></a>cmdkey
 
@@ -35,7 +35,7 @@ cmdkey [{/add:<targetname>|/generic:<targetname>}] {/smartcard | /user:<username
 | /smartcard | Ruft die Anmelde Informationen von einer Smartcard ab. Wenn auf dem System mehr als eine Smartcard gefunden wird, wenn diese Option verwendet wird, werden von **cmdkey** Informationen zu allen verfügbaren Smartcards angezeigt, und der Benutzer wird aufgefordert, das zu verwendende Zertifikat anzugeben. |
 | /User`<username>` | Gibt den Namen des Benutzers oder des Kontos an, der mit diesem Eintrag gespeichert werden soll. Wenn `<username>` nicht angegeben wird, wird Sie angefordert. |
 |Tage`<password>` | Gibt das Kennwort an, das mit diesem Eintrag gespeichert werden soll. Wenn `<password>` nicht angegeben wird, wird Sie angefordert. Kenn Wörter werden nicht angezeigt, nachdem Sie gespeichert wurden. |
-| /delete{:`<targetname>` | shof | Löscht einen Benutzernamen und ein Kennwort aus der Liste. Wenn `<targetname>` angegeben wird, wird dieser Eintrag gelöscht. Wenn `/ras` angegeben wird, wird der gespeicherte Remote Zugriffs Eintrag gelöscht. |
+| /delete{:`<targetname> | /ras}` | Löscht einen Benutzernamen und ein Kennwort aus der Liste. Wenn `<targetname>` angegeben wird, wird dieser Eintrag gelöscht. Wenn `/ras` angegeben wird, wird der gespeicherte Remote Zugriffs Eintrag gelöscht. |
 | /List`<targetname>` | Zeigt die Liste der gespeicherten Benutzernamen und Anmelde Informationen an. Wenn `<targetname>` nicht angegeben ist, werden alle gespeicherten Benutzernamen und Anmelde Informationen aufgelistet. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
@@ -71,6 +71,6 @@ Geben Sie Folgendes ein, um die für *Server01*gespeicherten Anmelde Information
 cmdkey /delete:server01
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

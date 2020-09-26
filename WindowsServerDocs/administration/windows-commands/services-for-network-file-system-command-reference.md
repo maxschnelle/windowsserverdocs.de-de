@@ -1,31 +1,35 @@
 ---
-title: Dienste für Network File System-Befehlsreferenz
-description: Referenz Artikel für * * * *-
+title: Dienste für NFS (Network File System)-Befehlszeilen Tools
+description: Referenz Artikel zu Diensten für NFS (Network File System)-Befehlszeilen Tools
 ms.topic: reference
 ms.assetid: 06c81f88-a672-4405-9b73-085f8933114c
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: a246b240866a448de08b2a04d8c90162a869e9bd
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: cb8ca3f037a19a7b1d1e40c048bc2dab49a98a1a
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89637776"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91389104"
 ---
-# <a name="services-for-network-file-system-command-reference"></a>Dienste für Network File System-Befehlsreferenz
+# <a name="services-for-network-file-system-command-line-tools"></a>Dienste für die Netzwerkdatei System-Befehlszeilen Tools
 
-Services for Network File System (NFS) stellt eine Dateifreigabe Lösung bereit, die es Ihnen ermöglicht, Dateien zwischen Computern mit Windows Server 2008-und UNIX-Betriebssystemen mit dem NFS-Protokoll zu übertragen.
-Im folgenden finden Sie eine Liste der NFS-Befehlszeilen Tools:
+Dienste für Network File System (NFS) bieten eine Dateifreigabe Lösung, mit der Sie Dateien zwischen Computern mit Windows Server-und UNIX-Betriebssystemen mithilfe des NFS-Protokolls übertragen können.
 
+Informationen und Links zu den zugehörigen NFS-Befehlszeilen Tools:
 
-| Get-Help | BESCHREIBUNG |
-| ------- | ----------- |
+| Befehl | BESCHREIBUNG |
+|--|--|
 | [mapadmin](mapadmin.md) | Verwalten Sie Benutzernamenzuordnung für Microsoft-Dienste für das Netzwerkdatei System. |
-| [Einbinden](mount.md) | Einbinden von Network File System (NFS)-Netzwerkfreigaben. |
-| [Nfsadmin](nfsadmin.md) | Verwalten Sie Server für NFS und Client für NFS. |
-| [Nfsshare](nfsshare.md) | Steuern von NFS-Freigaben (Network File System). |
-| [Nfsstat](nfsstat.md) | Anzeigen oder Zurücksetzen der Anzahl der Aufrufe von Server für NFS. |
-| [Rpcinfo](rpcinfo.md) | Auflisten von Programmen auf Remote Computern. |
-| [Showmount](showmount.md)|Zeigt eingebundene Verzeichnisse an. |
+| [mount](mount.md) | Einbinden von Network File System (NFS)-Netzwerkfreigaben. |
+| [nfsadmin](nfsadmin.md) | Verwalten Sie Server für NFS und Client für NFS. |
+| [nfsshare](nfsshare.md) | Steuern von NFS-Freigaben (Network File System). |
+| [nfsstat](nfsstat.md) | Anzeigen oder Zurücksetzen der Anzahl der Aufrufe von Server für NFS. |
+| [rpcinfo](rpcinfo.md) | Auflisten von Programmen auf Remote Computern. |
+| [showmount](showmount.md) | Zeigt eingebundene Verzeichnisse an. |
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

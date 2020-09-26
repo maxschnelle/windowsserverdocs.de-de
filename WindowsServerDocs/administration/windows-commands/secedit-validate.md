@@ -1,57 +1,53 @@
 ---
-title: 'secedit: Validate'
-description: Referenz Artikel für * * * *-
+title: secedit validate
+description: Referenz Artikel zum Validate-Befehl "Secedit", mit dem die in einer Sicherheits Vorlage gespeicherten Sicherheitseinstellungen überprüft werden.
 ms.topic: reference
 ms.assetid: 9fb06354-f55a-4ca4-9fbc-9a872eb9b9cf
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: be7ae316a189203aa70769d1d37291f532166735
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 057573cf5bc28a47f5140fb58e23ee1ed4bbc4c1
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89635530"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388101"
 ---
-# <a name="seceditvalidate"></a>secedit: Validate
+# <a name="secedit-validate"></a>secedit/Validate
 
-
-
-Überprüft die Sicherheitseinstellungen, die in einer Sicherheits Vorlage (INF-Datei) gespeichert sind.
+Überprüft die Sicherheitseinstellungen, die in einer Sicherheits Vorlage (INF-Datei) gespeichert sind. Das Überprüfen von Sicherheits Vorlagen kann Ihnen helfen, zu bestimmen, ob eine beschädigte oder nicht ordnungsgemäß festgelegt ist. Beschädigte oder falsch festgelegte Sicherheits Vorlagen werden nicht angewendet.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-Secedit /validate <configuration file name>
-
+secedit /validate <configuration file name>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|Konfigurationsdateiname|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
-
-## <a name="remarks"></a>Hinweise
-
-Das Überprüfen von Sicherheits Vorlagen kann Ihnen helfen, wenn eine beschädigte oder nicht ordnungsgemäß festgelegt ist.
-
-Eine ungültige Sicherheits Vorlage wird nicht angewendet.
-
-Die Protokolldatei wird nicht aktualisiert.
-
-In Windows Server 2008 wurde durch `Secedit /refreshpolicy` ersetzt `gpupdate` . Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
+| Parameter | BESCHREIBUNG |
+|--|--|
+| `<configuration file name>` | Erforderlich. Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird. Die Protokolldateien werden mit diesem Befehl nicht aktualisiert. |
 
 ## <a name="examples"></a>Beispiele
 
-Nachdem ein Rollback für eine Sicherheits Vorlage ausgeführt wurde, sollten Sie überprüfen, ob die Rollback-INF-Datei "secrbkconfiguration. inf" gültig ist.
+Geben Sie Folgendes ein, um zu überprüfen, ob die Datei "Rollback. inf", " *secrbkconfiguration. inf*", nach dem Rollback weiterhin gültig ist:
+
 ```
-Secedit /validate secRBKcontoso.inf
+secedit /validate secRBKcontoso.inf
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Secedit:generaterollback](secedit-generaterollback.md)
--   [Secedit](secedit.md)
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [secedit/analyze](secedit-analyze.md)
+
+- [secedit/configure](secedit-configure.md)
+
+- [secedit/Export](secedit-export.md)
+
+- [secedit/generaterollback](secedit-generaterollback.md)
+
+- [secedit/Import](secedit-import.md)

@@ -1,20 +1,20 @@
 ---
-title: Verwenden von freigegebenen Clustervolumes in einem Failovercluster
+title: Verwenden freigegebener Clustervolumes in einem Failovercluster
 description: Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.date: 06/07/2019
+ms.date: 09/21/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1293abac44cc648442939784ed5bb2b8049e702f
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 51dcf4081828407bdfafeebcd4e8acb0f0d43dd5
+ms.sourcegitcommit: 8a826e992f28a70e75137f876a5d5e61238a24e4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87992863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91365343"
 ---
-# <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
+# <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden freigegebener Clustervolumes in einem Failovercluster
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
@@ -197,7 +197,7 @@ Der CSV-Cache ermöglicht das Zwischenspeichern von ungepufferten E/A-Vorgängen
 >[!NOTE]
 >Es wird empfohlen, dass Sie den CSV-Cache für alle geclusterten Hyper-V- und Dateiserverbereitstellungen mit horizontaler Skalierung aktivieren.
 
-In Windows Server 2012 ist der CSV-Cache standardmäßig deaktiviert. In Windows Server 2012 R2 und höher ist der CSV-Cache standardmäßig aktiviert. Sie müssen jedoch weiterhin die Größe des zu reservierenden Blockcache zuweisen.
+In Windows Server 2019 ist der CSV-Cache standardmäßig aktiviert, wobei 1 gibibyte (Gib) zugeordnet wird. In Windows Server 2016 und Windows Server 2012 ist es standardmäßig deaktiviert. In Windows Server 2012 R2 ist der CSV-Cache standardmäßig aktiviert. Sie müssen jedoch weiterhin die Größe des blockcache reservieren, der reserviert werden soll.
 
 In der folgenden Tabelle werden die beiden Konfigurationseinstellungen beschrieben, die den CSV-Cache steuern.
 

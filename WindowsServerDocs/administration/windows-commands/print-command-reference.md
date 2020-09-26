@@ -7,20 +7,20 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 54f69a7dc0841908d9fb4cc2bef81e4b2a85876a
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 7491070b7170ec6a47d4a2abe30c0ab7e5f4a28c
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89638396"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388299"
 ---
 # <a name="print-command-line-tool-reference"></a>Referenz zum Befehlszeilen Tool drucken
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Informationen und Links zu den zugehörigen Befehlszeilen Tools für den Druck.
+Informationen und Links zu den zugehörigen Befehlszeilen Tools für den Druck:
 
-| Get-Help | BESCHREIBUNG |
+| Befehl | BESCHREIBUNG |
 |--|--|
 | [lpq](lpq.md) | Zeigt den Status einer Druck Warteschlange auf einem Computer an, auf dem der Line Printer Daemon (LPD) ausgeführt wird. |
 | [lpr](lpr.md) | Sendet eine Datei an einen Computer oder ein Druckerfreigabe Gerät, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten. |
