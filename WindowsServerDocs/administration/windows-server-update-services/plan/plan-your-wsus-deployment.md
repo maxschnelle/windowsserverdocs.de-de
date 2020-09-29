@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 05/24/2018
-ms.openlocfilehash: 1d3638b7a05c406293035c7f0a0e8854ed2ecee9
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: cac6c2af4f0cf900abcfea82f80b07e627c7e1e4
+ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766803"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91388424"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
@@ -172,10 +172,10 @@ Sie können komplexe Hierarchien von WSUS-Servern erstellen. Da es möglich ist,
 Sie können WSUS-Server im autonomen Modus (verteilte Verwaltung) oder im Replikatmodus (zentrale Verwaltung) verbinden und ggf. eine Serverhierarchie mit beiden Modi bereitstellen: Die WSUS-Lösung kann sowohl autonome WSUS-Server als auch WSUS-Replikatserver enthalten.
 
 #### <a name="autonomous-mode"></a>Autonomer Modus
-Der autonome Modus (auch als verteilte Verwaltung bezeichnet) ist die Standardinstallationsoption für WSUS. Im autonomen Modus gibt ein WSUS-Upstreamserver während der Synchronisierung Updates für Downstreamserver frei. WSUS-Downstreamserver werden separat verwaltet und müssen weder den Genehmigungsstatus von Updates noch Computergruppeninformationen vom Upstreamserver empfangen. Beim verteilten Verwaltungsmodell werden von jedem WSUS-Serveradministrator Updatesprachen ausgewählt, Computergruppen erstellt, Computer Gruppen zugewiesen sowie Updates getestet und genehmigt. Außerdem stellt der Administrator sicher, dass die richtigen Updates auf den entsprechenden Computergruppen installiert werden. Die folgende Abbildung zeigt, wie autonome WSUS-Server in einer Filialenumgebung bereitgestellt werden können.
+Der autonome Modus (auch als verteilte Verwaltung bezeichnet) ist die Standardinstallationsoption für WSUS. Im autonomen Modus gibt ein WSUS-Upstreamserver während der Synchronisierung Updates für Downstreamserver frei. WSUS-Downstreamserver werden separat verwaltet und müssen weder den Genehmigungsstatus von Updates noch Computergruppeninformationen vom Upstreamserver empfangen. Beim verteilten Verwaltungsmodell werden von jedem WSUS-Serveradministrator Updatesprachen ausgewählt, Computergruppen erstellt, Computer Gruppen zugewiesen sowie Updates getestet und genehmigt. Außerdem stellt der Administrator sicher, dass die richtigen Updates auf den entsprechenden Computergruppen installiert werden.
 
 #### <a name="replica-mode"></a>Replikatmodus
-Beim Replikatmodus (auch als zentrale Verwaltung bezeichnet) wird ein WSUS-Upstreamserver eingesetzt, der Updates, Genehmigungsstatus und Computergruppen für Downstreamserver freigibt. Replikatserver erben Updategenehmigungen und werden nicht getrennt vom WSUS-Upstreamserver verwaltet. Die folgende Abbildung zeigt, wie WSUS-Replikatserver in einer Filialenumgebung bereitgestellt werden können.
+Beim Replikatmodus (auch als zentrale Verwaltung bezeichnet) wird ein WSUS-Upstreamserver eingesetzt, der Updates, Genehmigungsstatus und Computergruppen für Downstreamserver freigibt. Replikatserver erben Updategenehmigungen und werden nicht getrennt vom WSUS-Upstreamserver verwaltet.
 
 > [!NOTE]
 > Wenn Sie mehrere Replikatserver einrichten, die eine Verbindung mit einem einzigen WSUS-Upstreamserver herstellen, sollten Sie die Synchronisierung auf den einzelnen Replikatservern für unterschiedliche Zeitpunkte planen. So können Sie einen plötzlichen Anstieg der Bandbreitennutzung vermeiden.
