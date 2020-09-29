@@ -1,17 +1,16 @@
 ---
 title: Funktionsweise von cudever im Speicher Migrationsdienst
 description: Zusammenfassung und Details zu den Umfassungs Phasen im Speicher Migrationsdienst
-author: t-chrche
-ms.author: t-chrche
-manager: nedpyle
+author: nedpyle
+ms.author: nedpyle
 ms.date: 08/31/2020
 ms.topic: article
-ms.openlocfilehash: 1e886c505435976b6495e0460705821086781a62
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: 2f323b03052f0a920ff064860bf5cbf4c6a2f01e
+ms.sourcegitcommit: 014e730c7fb19ed06393d144a446e4248fc35444
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766903"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495647"
 ---
 # <a name="how-cutover-works-in-storage-migration-service"></a>Funktionsweise von cudever im Speicher Migrationsdienst
 
@@ -63,7 +62,7 @@ __Abbildung der cudever-Phase: Screenshot Abbildung 2: Storage Migration Service
 
 Sie können den Verlauf des Verlaufs durch Beschreibungen der einzelnen Phasen nachverfolgen, die in der obigen Abbildung angezeigt werden. In der folgenden Tabelle sind die einzelnen möglichen Phasen sowie der Fortschritt, die Beschreibung und die Anmerkungen zur Verdeutlichung aufgeführt.
 
-|  Fortschritt | BESCHREIBUNG                                                                                               |  Hinweise |
+|  Fortschritt | Beschreibung                                                                                               |  Hinweise |
 |:-----|:--------------------------------------------------------------------------------------------------------------------|:---|
 |  0 % | Der cuum befindet sich im Leerlauf. |   |
 | 2 %  | Verbindung mit dem Quellcomputer wird hergestellt... |   Stellen Sie sicher, dass die [Anforderungen für den Quell-und den Zielcomputer](./overview.md#security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports) erfüllt sind.|
@@ -102,7 +101,7 @@ Sie können den Verlauf des Verlaufs durch Beschreibungen der einzelnen Phasen n
 | 66 % | Der Zielcomputer wird neu gestartet... (1. Neustart) |   |
 | 69% | Es wird darauf gewartet, dass der Zielcomputer nach dem ersten Neustart antwortet... |   |
 | 72% | Netzwerkschnittstellen auf Zielcomputer werden Zuordnung... |  Ordnet jeden Netzwerkadapter und jede IP-Adresse vom Quellcomputer dem Zielcomputer zu und ersetzt dabei die Netzwerkinformationen des Ziels.   |
-| 75% | Der Zielcomputer wird umbenannt... |   |
+| 75 % | Der Zielcomputer wird umbenannt... |   |
 | 77 % | Der Zielcomputer wird der Domäne hinzugefügt... |  Der Zielcomputer übernimmt das Active Directory Objekt des alten Quell Computers. Dies kann fehlschlagen, wenn der Ziel Benutzer kein Mitglied der Gruppe "Domänen-Admins" ist oder nicht über Administratorrechte für den Quellcomputer Active Directory Objekt verfügt. Sie können alternative Ziel Anmelde Informationen im Schritt "Anmelde Informationen eingeben" angeben, bevor der cuum gestartet wird.|
 | 80 % | Der Zielcomputer wird neu gestartet... (1. Neustart) |   |
 | 83 % | Der Zielcomputer wird neu gestartet... (2. Neustart) |   |
@@ -134,7 +133,7 @@ Weitere Informationen zu den folgenden Problemen finden Sie auf der [Seite bekan
 
 * [__Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab.__](./known-issues.md#cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer)
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
