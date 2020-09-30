@@ -1,24 +1,24 @@
 ---
 title: Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
-description: Übersicht über das Dateiserver mit horizontaler Skalierung Feature für Windows Server 201 R2 und Windows Server 2012.
+description: Dateiserver mit horizontaler Skalierung ist darauf ausgelegt, Dateifreigaben mit horizontaler Skalierung bereitzustellen, die fortlaufend für dateibasierten Server Anwendungs Speicher verfügbar sind. Dateifreigaben mit horizontaler Skalierung ermöglichen das Freigeben eines Ordners von mehreren Knoten des gleichen Clusters. Der Schwerpunkt dieses Szenarios ist die Planung und Bereitstellung eines Dateiservers mit horizontaler Skalierung.
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 manager: lizross
-ms.date: 04/26/2018
+ms.date: 09/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 71c719bb4c148a0ff1b287011086ba75e5a3fc69
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: 5aca126d036dffc9b7463edd07e70a3dd02b7dbd
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517486"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
->Gilt für: Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der Dateiserver mit horizontaler Skalierung soll Dateifreigaben mit horizontaler Skalierung bereitstellen, die fortlaufend als dateibasierter Serveranwendungsspeicher verfügbar sind. Dateifreigaben mit horizontaler Skalierung ermöglichen das Freigeben eines Ordners von mehreren Knoten des gleichen Clusters. Der Schwerpunkt dieses Szenarios ist die Planung und Bereitstellung eines Dateiservers mit horizontaler Skalierung.
+Dateiserver mit horizontaler Skalierung ist darauf ausgelegt, Dateifreigaben mit horizontaler Skalierung bereitzustellen, die fortlaufend für dateibasierten Server Anwendungs Speicher verfügbar sind. Dateifreigaben mit horizontaler Skalierung ermöglichen das Freigeben eines Ordners von mehreren Knoten des gleichen Clusters. Der Schwerpunkt dieses Szenarios ist die Planung und Bereitstellung eines Dateiservers mit horizontaler Skalierung.
 
 Sie können mithilfe einer der folgenden Methoden einen gruppierten Dateiserver bereitstellen und konfigurieren:
 
@@ -64,7 +64,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <thead>
 <tr class="header">
 <th>Technologiebereich</th>
-<th>Funktion</th>
+<th>Feature</th>
 <th>Dateiservercluster zur allgemeinen Verwendung</th>
 <th>Dateiserver mit horizontaler Skalierung</th>
 </tr>
@@ -72,7 +72,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <tbody>
 <tr class="odd">
 <td>SMB</td>
-<td>Fortlaufende Verfügbarkeit von SMB</td>
+<td>Fortlaufende SMB-Verfügbarkeit (*)</td>
 <td>Ja</td>
 <td>Ja</td>
 </tr>
@@ -98,7 +98,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <td>SMB</td>
 <td>SMB – Transparentes Failover</td>
 <td>Ja (wenn kontinuierliche Verfügbarkeit aktiviert ist)</td>
-<td>Yes</td>
+<td>Ja</td>
 </tr>
 <tr class="even">
 <td>Dateisystem</td>
@@ -133,7 +133,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <tr class="odd">
 <td>Dateiverwaltung</td>
 <td>Datendeduplizierung (Windows Server 2012 R2)</td>
-<td>Yes</td>
+<td>Ja</td>
 <td>Ja (nur VDI)</td>
 </tr>
 <tr class="even">
@@ -175,25 +175,25 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <tr class="even">
 <td>Dateiverwaltung</td>
 <td>Ordnerumleitung</td>
-<td>Yes</td>
+<td>Ja</td>
 <td>Nicht empfohlen<em></td>
 </tr>
 <tr class="odd">
 <td>Dateiverwaltung</td>
 <td>Offlinedateien (clientseitiges Zwischenspeichern)</td>
-<td>Yes</td>
+<td>Ja</td>
 <td>Nicht empfohlen</em></td>
 </tr>
 <tr class="even">
 <td>Dateiverwaltung</td>
 <td>Roamingbenutzerprofile</td>
-<td>Yes</td>
+<td>Ja</td>
 <td>Nicht empfohlen<em></td>
 </tr>
 <tr class="odd">
 <td>Dateiverwaltung</td>
 <td>Basisverzeichnisse</td>
-<td>Yes</td>
+<td>Ja</td>
 <td>Nicht empfohlen</em></td>
 </tr>
 <tr class="even">
@@ -212,18 +212,21 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <td>Applications</td>
 <td>Hyper-V</td>
 <td>Nicht empfohlen</td>
-<td>Yes</td>
+<td>Ja</td>
 </tr>
 <tr class="odd">
 <td>Applications</td>
 <td>Microsoft SQL Server</td>
 <td>Nicht empfohlen</td>
-<td>Yes</td>
+<td>Ja</td>
 </tr>
 </tbody>
 </table>
 
-\* Ordner Umleitung, Offlinedateien, Roamingbenutzerprofile oder Basis Verzeichnisse generieren eine große Anzahl von Schreibvorgängen, die sofort auf den Datenträger geschrieben werden müssen (ohne Pufferung), wenn fortlaufend verfügbare Dateifreigaben verwendet werden und die Leistung im Vergleich zu allgemeinen Dateifreigaben reduziert wird Fortlaufend verfügbare Dateifreigaben sind zudem nicht mit dem Ressourcen-Manager für Dateiserver und PCs unter Windows XP kompatibel. Darüber hinaus wird Offlinedateien möglicherweise 3-6 Minuten lang nicht in den Offline Modus versetzt, nachdem ein Benutzer den Zugriff auf eine Freigabe verloren hat, was Benutzer stören kann, die noch nicht den Modus "immer offline" von Offlinedateien verwenden.
+\*<a href="https://docs.microsoft.com/windows-server/storage/storage-spaces/cluster-sets#scale-out-file-server-and-cluster-sets">SMB Loopback Continuous Availability (ca) in hyperkonvergierten Konfigurationen</a> ist in Windows Server 2019 verfügbar. 
+
+>[!NOTE]
+>Ordner Umleitung, Offlinedateien, Roamingbenutzerprofile oder Basis Verzeichnisse generieren eine große Anzahl von Schreibvorgängen, die sofort auf den Datenträger geschrieben werden müssen (ohne Pufferung), wenn fortlaufend verfügbare Dateifreigaben verwendet werden und die Leistung im Vergleich zu allgemeinen Dateifreigaben reduziert wird Fortlaufend verfügbare Dateifreigaben sind zudem nicht mit dem Ressourcen-Manager für Dateiserver und PCs unter Windows XP kompatibel. Darüber hinaus wird Offlinedateien möglicherweise 3-6 Minuten lang nicht in den Offline Modus versetzt, nachdem ein Benutzer den Zugriff auf eine Freigabe verloren hat, was Benutzer stören kann, die noch nicht den Modus "immer offline" von Offlinedateien verwenden.
 
 ## <a name="practical-applications"></a>Praktische Anwendung
 
@@ -248,7 +251,7 @@ In der folgenden Tabelle werden die Features dieses Szenarios und die Art der be
 <table>
 <thead>
 <tr class="header">
-<th>Funktion</th>
+<th>Feature</th>
 <th>Auf welche Weise dieses Szenario unterstützt wird</th>
 </tr>
 </thead>

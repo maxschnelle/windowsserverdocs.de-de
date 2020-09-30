@@ -5,13 +5,13 @@ author: Deland-Han
 manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
-ms.date: 12/25/2019
-ms.openlocfilehash: f96302242eca58d589586fa44e6e7cd04ef98cc1
-ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
+ms.date: 09/29/2020
+ms.openlocfilehash: 9008a3381ead368afb627bcfdcd8084a389afabb
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90083641"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517546"
 ---
 # <a name="how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows"></a>Erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windows
 
@@ -425,6 +425,30 @@ Führen Sie die folgenden Schritte aus, um dies mithilfe Gruppenrichtlinie zu ko
    > Wenn Sie Gruppenrichtlinien-Verwaltungskonsole verwenden, müssen Sie keine Anführungszeichen oder Kommas verwenden. Geben Sie einfach jeden Eintrag in einzelne Zeilen ein.
 
 6. Starten Sie die Zielsysteme neu, um die Deaktivierung von SMB v1 abzuschließen.
+
+### <a name="auditing-smbv1-usage"></a>Überwachung SMBv1 Verwendung
+
+Um zu ermitteln, welche Clients versuchen, eine Verbindung mit einem SMB-Server mit SMBv1 herzustellen, können Sie die Überwachung unter Windows Server 2016, Windows 10 und Windows Server 2019 aktivieren. Sie können Windows 7 und Windows Server 2008 R2 auch überwachen, wenn Sie das monatliche Update von Mai 2018 und unter Windows 8, Windows 8.1, Windows Server 2012 und Windows Server 2012 R2 installiert haben, wenn Sie das monatliche Update von Juli 2017 installiert haben. 
+
+- Aktivieren Sie:
+  
+  ```PowerShell
+  Set-SmbServerConfiguration –AuditSmb1Access $true
+  ```
+
+- Ier 
+  
+  ```PowerShell
+  Set-SmbServerConfiguration –AuditSmb1Access $false
+  ```
+  
+- Auf 
+  
+  ```PowerShell
+  Get-SmbServerConfiguration | Select AuditSmb1Access
+  ```
+
+Wenn SMBv1 Auditing aktiviert ist, wird das Ereignis 3000 im Ereignisprotokoll "Microsoft-Windows-SMBServer\Audit" angezeigt, das jeden Client identifiziert, der versucht, eine Verbindung mit SMBv1 herzustellen.
 
 ### <a name="summary"></a>Zusammenfassung
 

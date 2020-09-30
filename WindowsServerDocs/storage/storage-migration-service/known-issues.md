@@ -6,12 +6,12 @@ ms.author: nedpyle
 manager: tiaascs
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 0c3e52c11f7771856608b86ddd778ef51c4c8516
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: 6c3ca3a44665bab08c58853d569823f88c908f35
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766913"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517516"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -606,7 +606,7 @@ Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursa
 
 ## <a name="inventory-fails-with-element-not-found"></a>Inventur schlägt fehl, weil das Element nicht gefunden wurde.
 
-Nehmen Sie das folgende Szenario als Beispiel:
+Betrachten Sie das folgende Szenario:
 
 Sie verfügen über einen Quell Server mit einem DNS-Hostnamen und Active Directory Namen mit mehr als 15 Unicode-Zeichen, z. b. "iamaverylongcomputername". In Windows konnte der Legacy-NetBIOS-Name nicht so festgelegt werden, dass er so lange festgelegt wird, und warnte, als der Server benannt wurde, dass der NetBIOS-Name auf 15 Unicode-breit Zeichen gekürzt wird (Beispiel: "iamaverylongcom"). Wenn Sie versuchen, diesen Computer zu inventarisieren, erhalten Sie im Windows Admin Center und im Ereignisprotokoll Folgendes:
 
@@ -636,6 +636,17 @@ Guidance: Check the detailed error and make sure the inventory requirements are 
 ```
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht. Die einzige Problem Umgehung besteht darin, den Computer so umzubenennen, dass er den gleichen Namen wie der NetBIOS-Name hat, und dann mit [netdom computername/Add](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc835082(v=ws.11)) einen alternativen Computernamen hinzuzufügen, der den längeren Namen enthält, der vor dem Start des Inventars verwendet wurde. Storage Migration Service unterstützt die Migration alternativer Computernamen.
+
+## <a name="storage-migration-service-inventory-fails-with-a-parameter-cannot-be-found-that-matches-parameter-name-includedfsn"></a>Die Inventur des Speicher Migrations Dienstanbieter schlägt fehl, weil kein Parameter gefunden wurde, der mit dem Parameternamen "includedfsn" übereinstimmt. 
+
+Wenn Sie die Version 2009 von Windows Admin Center zum Verwalten eines Windows Server 2019 Orchestrator verwenden, erhalten Sie die folgende Fehlermeldung, wenn Sie versuchen, eine Inventur für einen Quellcomputer durchführen zu können:
+
+```
+Remote exception : a parameter cannot be found that matches parameter name 'IncludeDFSN'" 
+```
+
+Aktualisieren Sie die Erweiterung "Storage Migration Service" auf mindestens Version 1.113.0 im Windows Admin Center, um das Problem zu beheben. Das Update sollte automatisch im Feed angezeigt werden und zur Installation aufgefordert werden.
+
 
 ## <a name="see-also"></a>Weitere Informationen
 

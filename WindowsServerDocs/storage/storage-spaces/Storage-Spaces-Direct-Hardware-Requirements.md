@@ -5,14 +5,14 @@ ms.author: eldenc
 manager: eldenc
 ms.topic: article
 author: eldenchristensen
-ms.date: 07/24/2020
+ms.date: 09/24/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c53179f32f0e6837297859413fa0cb88d66a0d2
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: fcbd7a955efda11543010d3e4705bf52b7d9bdea
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961124"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517496"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -27,11 +27,11 @@ In der Produktionsumgebung empfiehlt Microsoft, eine überprüfte Hardware-/Soft
 
 ## <a name="base-requirements"></a>Basisanforderungen
 
-Systeme, Komponenten, Geräte und Treiber müssen gemäß dem [Windows Server-Katalog](https://www.windowsservercatalog.com) **Windows Server 2016-zertifiziert** sein. Außerdem wird empfohlen, dass Server, Laufwerke, Hostbus Adapter und Netzwerkadapter über das **Software-Defined Data Center (SDDC) Standard** -und/oder **Software-Defined Data Center (SDDC) Premium** -Standard Qualifizierungen (AQS) verfügen, wie unten dargestellt. Es sind mehr als 1.000 Komponenten mit dem SDDC AQS vorhanden.
+Systeme, Komponenten, Geräte und Treiber müssen für das Betriebssystem zertifiziert sein, das Sie im [Windows Server-Katalog](https://www.windowsservercatalog.com)verwenden. Außerdem wird empfohlen, dass Server, Laufwerke, Hostbus Adapter und Netzwerkadapter über das **Software-Defined Data Center (SDDC) Standard** -und/oder **Software-Defined Data Center (SDDC) Premium** -Standard Qualifizierungen (AQS) verfügen, wie unten dargestellt. Es sind mehr als 1.000 Komponenten mit dem SDDC AQS vorhanden.
 
-![Screenshot des Windows Server-Katalogs mit dem SDDC-AQS](media/hardware-requirements/sddc-aqs.png)
+![Screenshot des Windows Server-Katalogs mit einem System, das die Software-Defined Data Center (SDDC) Premium-Zertifizierung enthält](media/hardware-requirements/sddc-aqs.png)
 
-Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732035(v=ws.10)) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](/powershell/module/failoverclusters/test-cluster?view=win10-ps) in PowerShell bestehen.
+Der vollständig konfigurierte Cluster (Server, Netzwerk und Speicher) muss alle [Cluster Validierungstests](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732035(v=ws.10)) gemäß dem Assistenten in Failovercluster-Manager oder mit dem `Test-Cluster` [Cmdlet](/powershell/module/failoverclusters/test-cluster) in PowerShell bestehen.
 
 Außerdem gelten die folgenden Anforderungen:
 
@@ -97,7 +97,7 @@ So können Laufwerke für direkte Speicherplätze verbunden werden:
 - SAS-Hostbus Adapter (HBA) mit SATA-Laufwerken
 - **nicht unterstützt:** RAID-Controller-Karten oder SAN-Speicher (Fibre Channel, iSCSI, FCoE). Hostbusadapterkarten müssen einen einfachen Pass-Through-Modus implementieren.
 
-![Diagramm der unterstützten Laufwerk-Verbindungen](media/hardware-requirements/drive-interconnect-support-1.png)
+![Diagramm mit unterstützten Laufwerk-Verbindungen, bei denen keine RAID-Karten unterstützt werden](media/hardware-requirements/drive-interconnect-support-1.png)
 
 Laufwerke können intern im Server installiert sein oder sich in einem externen Gehäuse befinden, das nur mit einem Server verbunden ist. SES (SCSI Enclosure Services) ist für die Zuordnung und Identifikation von Slots erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) besitzen.
 
@@ -105,7 +105,7 @@ Laufwerke können intern im Server installiert sein oder sich in einem externen 
 - Laufwerke in einem externen Gehäuse ("JBOD"), die mit einem Server verbunden sind
 - **nicht unterstützt:** Freigegebene SAS-Gehäuse, die mit mehreren Servern oder einer beliebigen Form von Multipfad-e/a (MPIO) verbunden sind
 
-![Diagramm der unterstützten Laufwerk-Verbindungen](media/hardware-requirements/drive-interconnect-support-2.png)
+![Diagramm, das zeigt, wie interne und externe Laufwerke, die direkt mit einem Server verbunden sind, unterstützt werden, aber freigegebene SAS nicht](media/hardware-requirements/drive-interconnect-support-2.png)
 
 ### <a name="minimum-number-of-drives-excludes-boot-drive"></a>Mindestanzahl von Laufwerken (durch das Start Laufwerk ausgeschlossen)
 

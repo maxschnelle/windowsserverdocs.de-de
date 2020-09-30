@@ -6,12 +6,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: b4d7d039c775b85321d168f8de7415de6b92e784
-ms.sourcegitcommit: 97a65d8f52514848963e8917021bd9a1f6ee3b19
+ms.openlocfilehash: c062531e96e12ca73e001018ac3f640e27fdad99
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89287822"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517556"
 ---
 # <a name="windows-admin-center-known-issues"></a>Bekannte Probleme im Windows Admin Center
 
@@ -19,7 +19,7 @@ ms.locfileid: "89287822"
 
 Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [informieren Sie uns](https://aka.ms/WACfeedback)bitte.
 
-## <a name="installer"></a>Installer
+## <a name="installer"></a>Installationsprogramm
 
 - Beachten Sie beim Installieren des Windows Admin Centers mithilfe Ihres eigenen Zertifikats, dass Sie beim Kopieren des Fingerabdrucks aus dem Zertifikat-Manager-MMC-Tool [ein ungültiges Zeichen am Anfang enthalten.](https://support.microsoft.com/help/2023835/certificate-thumbprint-displayed-in-mmc-certificate-snap-in-has-extra) Um dieses Problem zu umgehen, geben Sie das erste Zeichen des Fingerabdrucks ein, kopieren Sie den Rest, und fügen Sie ihn ein.
 
@@ -96,7 +96,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Importieren nicht möglich. PFX-verschlüsseltes Zertifikat in den Speicher des aktuellen Benutzers. [11818622]
 
-### <a name="events"></a>Events
+### <a name="events"></a>Ereignisse
 
 - Ereignisse werden von der [WebSocket-Kompatibilität bei der Verwendung eines Proxy Dienstanbieter beeinflusst.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -104,7 +104,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
   - Um dieses Problem zu beheben, verwenden Sie den folgenden Befehl an einer Eingabeaufforderung mit erhöhten Rechten auf dem Gatewaycomputer: ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
-### <a name="files"></a>Dateien
+### <a name="files"></a>Files
 
 - Das Hochladen oder Herunterladen großer Dateien wurde noch nicht unterstützt. ( \~ Limit von 100 MB) [12524234]
 
@@ -160,7 +160,7 @@ Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren
 
 - Herabstufen: Wenn Sie ein neues Volume erstellen, unterstützt Refs nur die Größe der Zuordnungs Einheiten von 64 KB auf Computern mit Windows 2012 und 2012 R2. Wenn ein Refs-Volume mit einer geringeren Zuordnungs Einheitsgröße für Ziele auf niedrigerer Ebene erstellt wird, schlägt die Formatierung des Dateisystems fehl. Das neue Volume kann nicht verwendet werden. Die Lösung besteht darin, das Volume zu löschen und die Größe der Zuordnungs Einheiten von 64K zu verwenden.
 
-### <a name="updates"></a>Updates
+### <a name="updates"></a>Aktualisierungen
 
 - Nach der Installation von Updates kann der Installationsstatus zwischengespeichert werden und eine Browser Aktualisierung erfordern.
 
@@ -195,7 +195,7 @@ Die Lösung für die Computer Verwaltung enthält eine Teilmenge der Tools aus d
 
   - Um die Verwaltung des Windows 10-Clients zu aktivieren, müssen Sie den Befehl an ```Enable-PSRemoting``` einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausgeben.
 
-  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit zuzulassen ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any``` . Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1).
+  - Möglicherweise müssen Sie die Firewall auch aktualisieren, um Verbindungen von außerhalb des lokalen Subnetzes mit zuzulassen ```Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -RemoteAddress Any``` . Weitere einschränkende Netzwerk Szenarios finden Sie in [dieser Dokumentation](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1&preserve-view=true).
 
 ## <a name="cluster-deployment"></a>Cluster Bereitstellung
 
@@ -244,7 +244,7 @@ Disable-WsmanCredSSP -Role Server
 Test-ComputerSecureChannel -Verbose -Repair -Credential <account name>
 ```
 
-3. Zurücksetzen von Gruppenrichtlinien-datasregierten Daten mit dem Befehl
+3. Zurücksetzen von Gruppenrichtlinien Daten mithilfe des Befehls
 ```Command Line
 gpupdate /force
 ```
@@ -288,6 +288,17 @@ Der Assistent für die Cluster Bereitstellung in Windows Admin Center, Version 2
 - Einige Befehle, wie z. b. **Laufwerke-Firmware aktualisieren**, **Server-Remove** und **Volumes-Open** sind deaktiviert und werden zurzeit nicht unterstützt.
 
 ## <a name="azure-services"></a>Azure-Dienste
+
+### <a name="azure-login-and-gateway-registration"></a>Azure-Anmeldung und Gateway-Registrierung
+In der Version 2009 treten möglicherweise Probleme bei der Anmeldung bei Azure oder beim Registrieren Ihres Windows Admin Center-Gateways bei Azure auf. Die nachfolgende Anleitung soll Ihnen helfen, diese Probleme zu beheben: 
+
+* Stellen Sie sicher, dass Sie bei Ihrem Azure-Konto auf einer anderen Registerkarte oder einem anderen Fenster angemeldet sind, bevor Sie Azure-Funktionen im Windows Admin Center verwenden, einschließlich der gatewayregistrierung. Wir empfehlen Ihnen, sich über das [Azure-Portal](https://portal.azure.com/)anzumelden.  
+
+* Wenn Sie sich während der gatewayregistrierung erfolgreich bei Azure angemeldet haben, die visuelle Bestätigung aber auf der **Azure** -Seite der Windows Admin Center-Einstellungen nicht angezeigt wird, navigieren Sie zu einer anderen Seite in "Einstellungen", und navigieren Sie zurück zur Seite " **Azure** ". 
+
+* Das Popup-Popup-Popup-Popup wird in diesem Build möglicherweise häufiger angezeigt und erfordert möglicherweise, dass Administratoren Windows Admin Center-Berechtigungen häufiger erteilen. 
+
+* Wenn Sie bereits eine Administrator Genehmigung für Windows Admin Center im Azure-Portal erteilt haben und weiterhin eine Fehlermeldung mit der Meldung "Administrator Genehmigung erforderlich" angezeigt wird, versuchen Sie, sich mit einem der Banner im Windows Admin Center und nicht auf der Seite " **Einstellungen** " bei Azure anzumelden. 
 
 ### <a name="azure-file-sync-permissions"></a>Azure-Dateisynchronisierung Berechtigungen
 

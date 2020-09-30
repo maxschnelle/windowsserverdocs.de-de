@@ -1,15 +1,16 @@
 ---
 title: Bereitstellen hyperkonvergierter Infrastrukturen mit dem Windows Admin Center
+description: Stellen Sie eine hyperkonvergierte Infrastruktur mit dem Windows Admin Center bereit.
 ms.topic: article
 author: cosmosdarwin
 ms.author: cosdar
 ms.date: 11/04/2019
-ms.openlocfilehash: 06062f4add54fda3ddcda4d092d6eaf1d692ebf8
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1f8e8a5433b986333975f45009819a98d90b61fc
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87993492"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517506"
 ---
 # <a name="deploy-hyperconverged-infrastructure-with-windows-admin-center"></a>Bereitstellen hyperkonvergierter Infrastrukturen mit dem Windows Admin Center
 
@@ -17,7 +18,7 @@ ms.locfileid: "87993492"
 
 Sie können Windows Admin Center, [Version 1910](../overview.md) oder höher, verwenden, um eine hyperkonvergierte Infrastruktur mithilfe von mindestens zwei passenden Windows-Servern bereitzustellen. Dieses neue Feature ist ein mehrstufiger Workflow, der Sie durch die Installation von Features, das Konfigurieren von Netzwerken, das Erstellen des Clusters und das Bereitstellen von direkte Speicherplätze und/oder Software-Defined Networking (SDN) (sofern ausgewählt) führt.
 
-Ab Version 2007 des Windows Admin Centers unterstützt das Windows Admin Center die Azure Stack HCI-Betriebssystem. Weitere Informationen zum Bereitstellen [eines Clusters im Windows Admin Center finden Sie in der Azure Stack HCI](/azure-stack/hci/getting-started)-Dokumentation. Diese Dokumentation konzentriert sich auf Azure Stack HCI, die Anweisungen sind auch für Windows Server-bereit Stellungen geeignet.
+Ab Version 2007 des Windows Admin Centers unterstützt das Windows Admin Center die Azure Stack HCI-Betriebssystem. Weitere Informationen zum Bereitstellen [eines Clusters im Windows Admin Center finden Sie in der Azure Stack HCI](/azure-stack/hci/get-started)-Dokumentation. Obwohl sich diese Dokumentation auf Azure Stack HCI konzentriert, gelten die Anweisungen auch größtenteils für Windows Server-bereit Stellungen.
 
 ## <a name="undo-and-start-over"></a>Rückgängig machen und beginnen
 
@@ -86,7 +87,7 @@ Get-NetAdapter | Where Name -Ne "Management" | Set-NetAdapter -VlanID 0
 
 Sie sind jetzt bereit, um den Workflow zu starten.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Hallo, Windows Admin Center](../overview.md)
 - [Bereitstellen von direkten Speicherplätzen](../../../storage/storage-spaces/deploy-storage-spaces-direct.md)

@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 27ded378a40537455423f79869dfd07dcd2ba625
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 293fa8a617d7ceb1628ec72df2f015b6b2547f16
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87949595"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517586"
 ---
 # <a name="develop-a-solution-extension"></a>Entwickeln einer Lösungserweiterung
 
@@ -74,8 +74,9 @@ Nachdem Sie nun mit der Windows Admin Center-CLI eine Erweiterung erstellt haben
 - Erstellen eines [benutzerdefinierten Verbindungs Anbieters](guides/create-connection-provider.md)
 - Ändern des Verhaltens der Stamm [Navigation](guides/modify-root-navigation.md)
 
-Weitere Beispiele finden Sie auf unserer [GitHub SDK-Website](https://aka.ms/wacsdk):
--  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige Erweiterung, die im Windows Admin Center nebeneinander geladen werden kann und eine umfangreiche Sammlung von Beispiel Funktionen und Tool Beispielen enthält, die Sie in ihrer eigenen Erweiterung durchsuchen und verwenden können.
+Weitere Beispiele finden Sie im Entwicklerhandbuch. Das Entwicklerhandbuch ist eine voll funktionsfähige projektmappenerweiterung, die im Windows Admin Center nebeneinander geladen werden kann und eine umfangreiche Sammlung von Beispiel Funktionen und Tool Beispielen enthält, die Sie in ihrer eigenen Erweiterung durchsuchen und verwenden können. 
+
+Aktivieren Sie die Erweiterung Entwicklerhandbuch auf der Seite **erweitert** Ihrer Windows Admin Center-Einstellungen. 
 
 ## <a name="build-and-side-load-your-extension"></a>Erstellen und neben Laden Ihrer Erweiterung
 

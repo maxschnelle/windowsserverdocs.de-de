@@ -5,18 +5,19 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 01/06/2020
-ms.openlocfilehash: b78a8de53e315a3a2f9f546ed49c06b4bccfc682
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 9cb7624b2fb9469ecd0af93cdf5251878ecec74c
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87937589"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517476"
 ---
 # <a name="windows-admin-center-release-history"></a>Windows Admin Center-releaseverlauf
 
 Im folgenden finden Sie eine Liste unserer neuesten Features:
 
-- Version [2007](https://aka.ms/wac2007) ist die aktuellste GA-Version, die Unterstützung für die neuen Azure Stack HCI und neue Features für verschiedene Tools umfasst.
+- Version [2009](https://aka.ms/wac2009) ist die aktuellste allgemein verfügbare Version. Sie bietet Unterstützung für den Azure Kubernetes-Dienst auf Azure Stack HCI und wichtige Updates für die Tools für virtuelle Computer, Dateifreigaben und Container.
+- Version [2007](https://aka.ms/wac2007) bietet Unterstützung für die neuen Azure Stack HCI und neue Features für verschiedene Tools.
 - Version [1910,2](https://aka.ms/wac1910.2) enthält Updates für die Barrierefreiheit der Plattform und zahlreiche Fehlerbehebungen
 - In Version [1910](https://aka.ms/wac1910) werden mehrere neue Azure-Hybrid Dienste eingeführt, und Features, die zuvor als Vorschau Version verfügbar waren, werden auf dem GA-Kanal
 - In Version [1909](https://aka.ms/wac1909) wurde der Azure-VM-spezifische Verbindungstyp eingeführt und wurden die Verbindungstypen für herkömmliche Failovercluster und HCI-Cluster vereinheitlicht.
