@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 82ec683f0ed4723e7905daea759965690b8adcd5
-ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
+ms.openlocfilehash: 417a00dbb037c298784df81f9c5ed5e9c28485f8
+ms.sourcegitcommit: 881a5bd40026288afbcee5fdbf602fd55f833d47
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2020
-ms.locfileid: "91388304"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91586440"
 ---
 # <a name="setx"></a>setx
 
@@ -31,7 +31,7 @@ setx [/s <computer> [/u [<domain>\]<user name> [/p [<password>]]]] /f <filename>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | /s `<computer>` | Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der Name des lokalen Computers. |
 | /u `[<domain>\]<user name>` | Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Der Standardwert ist die System Berechtigungen. |
@@ -47,7 +47,7 @@ setx [/s <computer> [/u [<domain>\]<user name> [/p [<password>]]]] /f <filename>
 | /d `<delimiters>` | Gibt Trennzeichen wie oder an **,** **\\** die zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, EINGABETASTE und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Dieser Befehl ähnelt dem UNIX-Hilfsprogramm "\tenv".
 
@@ -64,6 +64,14 @@ setx [/s <computer> [/u [<domain>\]<user name> [/p [<password>]]]] /f <filename>
 - REG_DWORD Registrierungs Werte werden extrahiert und im Hexadezimal Modus verwendet.
 
 - Im Dateimodus wird nur das Übertragen von Textdateien in Wagen Rücklauf-und Zeilenvorschub (CRLF) unterstützt.
+
+- Wenn Sie diesen Befehl für eine vorhandene Variable ausführen, werden alle Variablen Verweise entfernt, und es werden erweiterte Werte verwendet.
+
+  Wenn die Variable "% Path%" beispielsweise einen Verweis auf "% javadir%" aufweist und "% Path%" mithilfe von " **setx**" manipuliert wird, wird% javadir% erweitert, und der zugehörige Wert wird direkt der Zielvariable "% Path%" zugewiesen. Dies bedeutet, dass zukünftige Updates für% javadir% **nicht** in der% PATH%-Variablen widergespiegelt werden.
+
+- Beachten Sie, dass es eine Beschränkung von 1024 Zeichen gibt, wenn Sie einer Variablen mithilfe von **setx**Inhalte zuweisen.
+
+  Dies bedeutet, dass der Inhalt zugeschnitten ist, wenn Sie mehr als 1024 Zeichen haben, und dass der abgeschnittene Text auf die Zielvariable angewendet wird. Wenn dieser abgeschnittene Text auf eine vorhandene Variable angewendet wird, kann dies zu einem Datenverlust führen, der zuvor von der Zielvariablen gehalten wurde.
 
 ## <a name="examples"></a>Beispiele
 
