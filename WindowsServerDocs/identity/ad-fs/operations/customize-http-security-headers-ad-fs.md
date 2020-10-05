@@ -7,24 +7,24 @@ manager: daveba
 ms.reviewer: akgoel23
 ms.date: 02/19/2019
 ms.topic: article
-ms.openlocfilehash: 0984625564bfc6dabf8951fdcdf09fe76b0fcbdf
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: ecb70f0b200ee1f143219fb6c88a15c5dc58a7d9
+ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87949704"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716921"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019
 
 Um vor allgemeinen Sicherheitsrisiken zu schützen und Administratoren die Möglichkeit zu bieten, die neuesten Verbesserungen in browserbasierten Schutzmechanismen zu nutzen, wurde AD FS 2019 die Funktionalität zum Anpassen der von AD FS gesendeten HTTP-Sicherheits Antwortheader hinzugefügt. Dies wird durch die Einführung zweier neuer Cmdlets erreicht: `Get-AdfsResponseHeaders` und `Set-AdfsResponseHeaders` .
 
->[!NOTE]
->Die Funktionalität zum Anpassen der http-Sicherheits Antwortheader (mit Ausnahme von cors-Headern) mithilfe von Cmdlets: `Get-AdfsResponseHeaders` und `Set-AdfsResponseHeaders` wurde auf AD FS 2016 zurückportiert. Sie können die Funktionalität Ihrer AD FS 2016 hinzufügen, indem Sie [KB4493473](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473) und [KB4507459](https://support.microsoft.com/help/4507459/windows-10-update-kb4507459)installieren.
+> [!NOTE]
+> Die Funktionalität zum Anpassen der http-Sicherheits Antwortheader (mit Ausnahme von cors-Headern) mithilfe von Cmdlets: `Get-AdfsResponseHeaders` und `Set-AdfsResponseHeaders` wurde auf AD FS 2016 zurückportiert. Sie können die Funktionalität Ihrer AD FS 2016 hinzufügen, indem Sie [KB4493473](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473) und [KB4507459](https://support.microsoft.com/help/4507459/windows-10-update-kb4507459)installieren.
 
 In diesem Dokument werden häufig verwendete Sicherheits Antwortheader erläutert, um zu veranschaulichen, wie von AD FS 2019 gesendete Header angepasst werden.
 
->[!NOTE]
->In diesem Dokument wird davon ausgegangen, dass AD FS 2019 installiert wurde.
+> [!NOTE]
+> In diesem Dokument wird davon ausgegangen, dass AD FS 2019 installiert wurde.
 
 
 Bevor wir Header erörtern, betrachten wir einige Szenarien, in denen die Notwendigkeit von Administratoren zum Anpassen von Sicherheits Headern erläutert wird.
@@ -142,8 +142,8 @@ Um die cors-Anforderung besser zu verstehen, betrachten wir ein Szenario, in dem
     - Access-Control-Request-Method – identifiziert die HTTP-Methode (z. b. Delete), die bei der tatsächlichen Anforderung verwendet werden soll.
     - Access-Control-Request-Headers: identifiziert die HTTP-Header, die verwendet werden sollen, wenn die tatsächliche Anforderung erfolgt.
 
-   >[!NOTE]
-   >Eine cors-Anforderung ähnelt einer Standard-HTTP-Anforderung. das vorhanden sein eines Ursprungs Headers signalisiert jedoch, dass die eingehende Anforderung mit cors verknüpft ist.
+   > [!NOTE]
+   > Eine cors-Anforderung ähnelt einer Standard-HTTP-Anforderung. das vorhanden sein eines Ursprungs Headers signalisiert jedoch, dass die eingehende Anforderung mit cors verknüpft ist.
 3. AD FS überprüft, ob der in der Kopfzeile enthaltene Web-API-Ursprung in den in AD FS konfigurierten vertrauenswürdigen Ursprüngen aufgeführt ist (Ausführliche Informationen zum Ändern von vertrauenswürdigen Ursprüngen im Abschnitt cors-Anpassung weiter unten). AD FS antwortet dann mit den folgenden Headern:
     - Access-Control-Allow-Origin – Wert identisch mit dem Wert im Ursprungs Header
     - Access-Control-Allow-Method – Wert identisch mit dem Wert im Access-Control-Request-Method-Header
@@ -205,8 +205,8 @@ Die folgenden Quellen können für die Default-src-Richtlinie definiert werden:
 - "None" – durch Angabe dieser Einschränkung wird der Inhalt von einem beliebigen Ursprung zum Laden eingeschränkt.
 - Daten: durch das Angeben von Daten: URIs können Inhalts Ersteller kleine Dateien Inline in Dokumente einbetten. Die Verwendung ist nicht empfehlenswert.
 
->[!NOTE]
->AD FS verwendet JavaScript im Authentifizierungsprozess und aktiviert daher JavaScript durch das Einschließen von "unsichere Inline" und "unsichere-eval"-Quellen in die Standard Richtlinie.
+> [!NOTE]
+> AD FS verwendet JavaScript im Authentifizierungsprozess und aktiviert daher JavaScript durch das Einschließen von "unsichere Inline" und "unsichere-eval"-Quellen in die Standard Richtlinie.
 
 ### <a name="custom-headers"></a>Benutzerdefinierte Header
 Zusätzlich zu den oben aufgeführten Sicherheits Antwort Headern (hsts, CSP, x-Frame-Options, x-XSS-Protection und cors) bietet AD FS 2019 die Möglichkeit, neue Header festzulegen.

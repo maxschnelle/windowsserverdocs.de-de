@@ -7,13 +7,16 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f8759679865c87c11417c64ef130736de2a1e9e
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 912f0e0cb3f3b632b25eda49f6f65338e7782326
+ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89634618"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716901"
 ---
+> [!IMPORTANT]
+> Der **graftabl** -Befehl ist ein Legacy-Befehl, der daher veraltet ist. Es ist normalerweise nicht in modernen Windows-Versionen installiert. Informationen zur Code Page Behandlung finden Sie auf der Seite " [chcp](https://docs.microsoft.com/windows-server/administration/windows-commands/chcp) ".
+
 # <a name="graftabl"></a>graftabl
 
 Ermöglicht Windows-Betriebssystemen das Anzeigen eines erweiterten Zeichensatzes im Grafikmodus. Bei Verwendung ohne Parameter zeigt **graftabl** die vorherige und die aktuelle Codepage an.
@@ -33,7 +36,7 @@ graftabl /status
 | /status | Zeigt die aktuelle Codepage an, die von diesem Befehl verwendet wird. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Der **graftabl** -Befehl wirkt sich nur auf die Anzeige von erweiterten Zeichen der von Ihnen angegebenen Codepage aus. Die tatsächliche Konsolen Eingabe Codepage wird nicht geändert. Zum Ändern der Konsolen Eingabe Codepage verwenden Sie den Befehl [Mode](mode.md) oder [chcp](chcp.md) .
 
@@ -67,7 +70,7 @@ Geben Sie Folgendes ein, um den Grafikzeichen Satz für Codepage 850 (mehrsprach
 graftabl 850
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

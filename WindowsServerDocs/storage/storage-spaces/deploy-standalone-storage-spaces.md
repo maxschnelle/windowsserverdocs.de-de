@@ -6,16 +6,16 @@ author: JasonGerend
 ms.author: jgerend
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5eddc639fd07516b95b23684ec4137f328b7c105
-ms.sourcegitcommit: 08da40966c5d633f8748c8ae348f12656a54d3b2
+ms.openlocfilehash: 4758cc67c1dd5dc77ecacf1a8229d59f27eac60e
+ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140297"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716867"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen Server
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird beschrieben, wie Sie Speicherplätze auf einem eigenständigen Server bereitstellen. Weitere Informationen zum Erstellen eines Cluster Speicherplatzes finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>).
 
@@ -23,8 +23,8 @@ Um einen Speicherplatz zu erstellen, müssen Sie zuerst einen oder mehrere Speic
 
 Aus einem Speicherpool können Sie einzelne oder mehrere virtuelle Datenträger erstellen. Diese virtuellen Datenträger werden auch als *Speicherplätze* bezeichnet. Ein Speicherplatz wird vom Windows-Betriebssystem als ein normaler Datenträger angesehen, von dem Sie formatierte Volumes erstellen können. Wenn Sie einen virtuellen Datenträger über die Benutzeroberfläche "Datei- und Speicherdienste" erstellen, können Sie den Resilienztyp (einfach, Spiegeln oder Parität), den Bereitstellungstyp (schlank oder fest) und die Größe konfigurieren. Über Windows PowerShell können Sie zusätzliche Parameter, wie die Anzahl der Spalten, den Überlappungswert und die im Pool zu verwendenden physischen Datenträger festlegen. Weitere Informationen zu diesen zusätzlichen Parametern finden Sie unter [New-virtualdisk](/powershell/module/storage/new-virtualdisk?view=win10-ps) und im [Windows Server Storage-Forum](/answers/topics/windows-server-storage.html).
 
->[!NOTE]
->Ein Speicherplatz kann nicht zum Hosten des Windows-Betriebssystems verwendet werden.
+> [!NOTE]
+> Ein Speicherplatz kann nicht zum Hosten des Windows-Betriebssystems verwendet werden.
 
 Von einem virtuellen Datenträger können Sie einzelne oder mehrere Volumes erstellen. Wenn Sie ein Volume erstellen, können Sie die Größe, den Laufwerk Buchstaben oder-Ordner, das Dateisystem (NTFS-Dateisystem oder Refs), die Größe der Zuordnungs Einheit und eine optionale Volumebezeichnung konfigurieren.
 
@@ -34,8 +34,8 @@ In der folgenden Abbildung ist der Speicherplatz-Workflow dargestellt.
 
 **Abbildung 1: Speicherplätze-Workflow**
 
->[!NOTE]
->Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [PowerShell](/powershell/scripting/powershell-scripting?view=powershell-6).
+> [!NOTE]
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [PowerShell](/powershell/scripting/powershell-scripting?view=powershell-6).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -46,10 +46,10 @@ Wenn Sie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten
 
 |Bereich|Anforderung|Notizen|
 |---|---|---|
-|Datenträgerbustypen|-Serial Attached SCSI (SAS)<br>-Serial Advanced Technology Attachment (SATA)<br>-iSCSI-und Fibre Channel Controller. |Sie können auch USB-Laufwerke verwenden. Es ist jedoch nicht optimal, USB-Laufwerke in einer Serverumgebung zu verwenden.<br>Speicherplätze werden auf iSCSI-und Fibre Channel (FC)-Controllern unterstützt, solange die darauf erstellten virtuellen Datenträger nicht stabil sind (einfach mit einer beliebigen Anzahl von Spalten).<br>|
+|Datenträgerbustypen|– Serial Attached SCSI (SAS)<br>– Serial Advanced Technology Attachment (SATA)<br>– iSCSI und Fibre Channel-Controller |Sie können auch USB-Laufwerke verwenden. Es ist jedoch nicht optimal, USB-Laufwerke in einer Serverumgebung zu verwenden.<br>Speicherplätze werden auf iSCSI-und Fibre Channel (FC)-Controllern unterstützt, solange die darauf erstellten virtuellen Datenträger nicht stabil sind (einfach mit einer beliebigen Anzahl von Spalten).<br>|
 |Datenträgerkonfiguration|-Der physische Datenträger muss mindestens 4 GB groß sein.<br>-Datenträger müssen leer und nicht formatiert sein. Erstellen Sie keine Volumes||
-|HBA-Überlegungen|-Einfache Hostbus Adapter (HBAs), die keine RAID-Funktionalität unterstützen, werden empfohlen.<br>: Wenn die RAID-fähig ist, müssen sich HBAs im nicht-RAID-Modus befinden, wobei alle RAID-Funktionen deaktiviert sind.<br>-Adapter dürfen die physischen Datenträger, Cache Daten oder alle angeschlossenen Geräte nicht abstrahieren. Dies gilt auch für Gehäusedienste, die von angeschlossenen JBOD-Geräten bereitgestellt werden. |Speicherplätze sind nur mit HBAs kompatibel, wenn Sie die gesamte RAID-Funktionalität vollständig deaktivieren können.|
-|JBOD-Gehäuse|-JBOD-Gehäuse sind optional<br>-Empfohlen zur Verwendung von Speicherplätzen Certified-Gehäusen, die im Windows Server-Katalog aufgelistet sind<br>Wenn Sie ein JBOD-Gehäuse verwenden, überprüfen Sie bei Ihrem Speicher Anbieter, ob das Gehäuse Speicherplätze unterstützt, um eine vollständige Funktionalität sicherzustellen.<br>-Führen Sie das folgende Windows PowerShell-Cmdlet aus, um zu bestimmen, ob das JBOD-Gehäuse Gehäuse-und Slot-Identifizierung unterstützt:<br><br>`Get-PhysicalDisk \| ? {$_.BusType –eq "SAS"} \| fc`<br><br>Wenn die Felder " **einclosurenumber** " und " **SlotNumber** " Werte enthalten, unterstützt das Gehäuse diese Funktionen.||
+|HBA-Überlegungen|– Einfache Hostbusadapter (HBAs), die keine RAID-Funktionalität unterstützen, werden empfohlen.<br>– Wenn HBAs RAID-fähig sind, müssen sie sich im Nicht-RAID-Modus befinden, in dem alle RAID-Funktionalitäten deaktiviert sind.<br>– Adapter dürfen die physischen Datenträger, Cachedaten oder alle angeschlossenen Geräte nicht abstrahieren. Dies gilt auch für Gehäusedienste, die von angeschlossenen JBOD-Geräten bereitgestellt werden. |Speicherplätze sind nur mit HBAs kompatibel, wenn Sie die gesamte RAID-Funktionalität vollständig deaktivieren können.|
+|JBOD-Gehäuse|-JBOD-Gehäuse sind optional<br>-Empfohlen zur Verwendung von Speicherplätzen Certified-Gehäusen, die im Windows Server-Katalog aufgelistet sind<br>Wenn Sie ein JBOD-Gehäuse verwenden, überprüfen Sie bei Ihrem Speicher Anbieter, ob das Gehäuse Speicherplätze unterstützt, um eine vollständige Funktionalität sicherzustellen.<br>-Führen Sie das folgende Windows PowerShell-Cmdlet aus, um zu bestimmen, ob das JBOD-Gehäuse Gehäuse-und Slot-Identifizierung unterstützt:<br><br> "Get-PhysicalDisk" \| ? {$_. BusType – EQ "SAS"} \| FC <br> | Wenn die Felder " **einclosurenumber** " und " **SlotNumber** " Werte enthalten, unterstützt das Gehäuse diese Funktionen.|
 
 Bei der Planung der Anzahl der physischen Datenträger und des gewünschten Resilienztyps für eine eigenständige Serverbereitstellung halten Sie sich an folgende Richtlinien.
 
@@ -57,7 +57,7 @@ Bei der Planung der Anzahl der physischen Datenträger und des gewünschten Resi
 |---|---|---|
 |**Einfach**<br><br>-Streifen Daten auf physischen Datenträgern<br>-Maximiert Datenträger Kapazität und erhöht den Durchsatz<br>-Keine Resilienz (schützt nicht vor Datenträger Fehlern)<br><br><br><br><br><br><br>|Erfordert mindestens einen physischen Datenträger.|Nicht zum Hosten unersetzbarer Daten verwenden. Einfache Leerzeichen schützen nicht vor Datenträger Fehlern.<br><br>Zum Hosten temporärer oder leicht wiederherstellbarer Daten zu reduzierten Kosten geeignet.<br><br>Geeignet für hochleistungsfähige Workloads, bei denen Resilienz nicht erforderlich ist oder bereits von der Anwendung bereitgestellt wird.|
 |**Spiegel**<br><br>-Speichert zwei oder drei Kopien der Daten auf der Gruppe physischer Datenträger.<br>-Erhöht die Zuverlässigkeit, verringert jedoch die Kapazität. Bei jedem Schreibvorgang wird dupliziert. Außerdem verteilt ein Spiegelspeicherplatz die Daten über mehrere physische Datenträger.<br>-Größerer Datendurchsatz und geringere Zugriffs Latenz als Parität<br>-Verwendet die Änderungs Bereichs Überwachung (Dirty Region Tracking, DRT), um Änderungen an den Datenträgern im Pool nachzuverfolgen. Wenn das System ungeplant heruntergefahren wurde und dann den Betrieb wieder aufnimmt und die Speicherplätze wieder online geschaltet werden, stimmt DRT die Datenträger im Pool erneut aufeinander ab.|Erfordert mindestens zwei physische Datenträger, um vor dem Ausfall einzelner Datenträger geschützt zu sein.<br><br>Erfordert mindestens fünf physische Datenträger, um vor dem gleichzeitigen Ausfall zweier Datenträger geschützt zu sein.|Wird für die meisten Bereitstellungen verwendet. Spiegelspeicherplätze sind beispielsweise für eine allgemeine Dateifreigabe oder eine virtuelle Festplattenbibliothek (Virtual Hard Disk, VHD) geeignet.|
-|**Parität**<br><br>-Streifen Daten und Paritätsinformationen auf physischen Datenträgern<br>-Erhöht die Zuverlässigkeit beim Vergleich mit einem einfachen Raum, verringert jedoch die Kapazität etwas<br>-Erhöht die Resilienz durch Journale. Dadurch kann eine Beschädigung der Daten verhindert werden, wenn das System unplanmäßig heruntergefahren wird.|Erfordert mindestens drei physische Datenträger, um vor dem Ausfall einzelner Datenträger geschützt zu sein.|Geeignet für stark sequenzielle Arbeitsauslastungen, z. B. bei Archiven oder Backups.|
+|**Parität**<br><br>-Streifen Daten und Paritätsinformationen auf physischen Datenträgern<br>-Erhöht die Zuverlässigkeit beim Vergleich mit einem einfachen Raum, verringert jedoch die Kapazität etwas<br>– Erhöht Resilienz durch Journaling Dadurch kann eine Beschädigung der Daten verhindert werden, wenn das System unplanmäßig heruntergefahren wird.|Erfordert mindestens drei physische Datenträger, um vor dem Ausfall einzelner Datenträger geschützt zu sein.|Geeignet für stark sequenzielle Arbeitsauslastungen, z. B. bei Archiven oder Backups.|
 
 ## <a name="step-1-create-a-storage-pool"></a>Schritt 1: Erstellen eines Speicherpools
 
@@ -69,8 +69,8 @@ Zuerst müssen Sie die verfügbaren physischen Datenträger in einzelne oder meh
 
     Verfügbare Datenträger werden standardmäßig in einem *ursprünglichen* Pool eingefügt. Wenn unter **SPEICHERPOOLS** kein ursprünglicher Pool aufgeführt ist, bedeutet das, dass der Speicher die Anforderungen für Speicherplätze nicht erfüllt. Stellen Sie sicher, dass die Datenträger die Anforderungen erfüllen, die im Abschnitt "Voraussetzungen" erläutert sind.
 
-    >[!TIP]
-    >Wenn Sie den ursprünglichen Speicherpool (**Primordial**) auswählen, werden die verfügbaren physischen Datenträger unter **PHYSISCHE DATENTRÄGER** aufgelistet.
+    > [!TIP]
+    > Wenn Sie den ursprünglichen Speicherpool (**Primordial**) auswählen, werden die verfügbaren physischen Datenträger unter **PHYSISCHE DATENTRÄGER** aufgelistet.
 
 3. Klicken Sie unter **Speicher Pools**auf die Liste **Aufgaben** , und wählen Sie dann **neuer Speicher Pool**aus. Der Assistent für neue Speicherpools wird geöffnet.
 
@@ -88,8 +88,8 @@ Zuerst müssen Sie die verfügbaren physischen Datenträger in einzelne oder meh
 
 8. Überprüfen Sie auf der Seite **Ergebnisse anzeigen** , ob alle Aufgaben abgeschlossen sind, und wählen Sie dann **Schließen**aus.
 
-    >[!NOTE]
-    >Sie haben auch die Möglichkeit, direkt mit dem nächsten Schritt fortzufahren, wenn Sie das Kontrollkästchen **Virtuellen Datenträger erstellen, wenn dieser Assistent geschlossen wird** aktivieren.
+    > [!NOTE]
+    > Sie haben auch die Möglichkeit, direkt mit dem nächsten Schritt fortzufahren, wenn Sie das Kontrollkästchen **Virtuellen Datenträger erstellen, wenn dieser Assistent geschlossen wird** aktivieren.
 
 9. Prüfen Sie unter **SPEICHERPOOLS**, ob der neue Speicherpool aufgeführt ist.
 
@@ -138,8 +138,8 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 
 6. Wählen Sie auf der Seite **Wählen Sie das Speicher Layout** aus das gewünschte Layout aus, und klicken Sie dann auf **weiter**.
 
-    >[!NOTE]
-    >Wenn Sie ein Layout auswählen, bei dem nicht genügend physische Datenträger vorhanden sind, erhalten Sie eine Fehlermeldung, wenn Sie auf **weiter**klicken. Informationen dazu, welches Layout und welche Datenträger Anforderungen zu verwenden sind, finden Sie unter [Voraussetzungen](#prerequisites).
+    > [!NOTE]
+    > Wenn Sie ein Layout auswählen, bei dem nicht genügend physische Datenträger vorhanden sind, erhalten Sie eine Fehlermeldung, wenn Sie auf **weiter**klicken. Informationen dazu, welches Layout und welche Datenträger Anforderungen zu verwenden sind, finden Sie unter [Voraussetzungen](#prerequisites).
 
 7. Wenn Sie **Spiegelung** als Speicher Layout ausgewählt haben und im Pool mindestens fünf Datenträger vorhanden sind, wird die Seite **resilienzeinstellungen konfigurieren** angezeigt. Wählen Sie eine der folgenden Optionen aus:
 
@@ -156,8 +156,8 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 
      Bei einer festen Bereitstellung wird die Speicherkapazität sofort beim Erstellen eines virtuellen Datenträgers zugeteilt. Daher entspricht der Speicherplatz, der bei einer festen Bereitstellung aus dem Speicherpool verwendet wird, der Größe des virtuellen Datenträgers.
 
-     >[!TIP]
-     >Mit Speicherplätzen können Sie im selben Speicherpool virtuelle Datenträger sowohl mit schlanker als auch fester Bereitstellung erstellen. Sie können beispielsweise sowohl einen virtuellen Datenträger mit schlanker Bereitstellung als Host für eine Datenbank als auch einen virtuellen Datenträger mit fester Bereitstellung als Host für die zugehörigen Protokolldateien verwenden.
+     > [!TIP]
+     > Mit Speicherplätzen können Sie im selben Speicherpool virtuelle Datenträger sowohl mit schlanker als auch fester Bereitstellung erstellen. Sie können beispielsweise sowohl einen virtuellen Datenträger mit schlanker Bereitstellung als Host für eine Datenbank als auch einen virtuellen Datenträger mit fester Bereitstellung als Host für die zugehörigen Protokolldateien verwenden.
 
 9. Auf der Seite **Geben Sie die Größe des virtuellen Datenträgers an** gehen Sie folgendermaßen vor:
 
@@ -179,8 +179,8 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 
 11. Überprüfen Sie auf der Seite **Ergebnisse anzeigen** , ob alle Aufgaben abgeschlossen sind, und wählen Sie dann **Schließen**aus.
 
-    >[!TIP]
-    >Das Kontrollkästchen **Volume erstellen, wenn dieser Assistent geschlossen wird** ist standardmäßig aktiviert. Daraufhin wird direkt zum nächsten Schritt weitergeleitet.
+    > [!TIP]
+    > Das Kontrollkästchen **Volume erstellen, wenn dieser Assistent geschlossen wird** ist standardmäßig aktiviert. Daraufhin wird direkt zum nächsten Schritt weitergeleitet.
 
 ### <a name="windows-powershell-equivalent-commands-for-creating-virtual-disks"></a>Entsprechende Windows PowerShell-Befehle zum Erstellen von virtuellen Datenträgern
 
@@ -206,8 +206,8 @@ New-VirtualDisk –StoragePoolFriendlyName StoragePool1 –FriendlyName VirtualD
 
 Im folgenden Beispiel wird ein virtueller Datenträger mit dem Namen *Bezeichnung virtualdisk1* in einem Speicherpool mit dem Namen *StoragePool1*erstellt. Der Datenträger nutzt die Drei-Wege-Spiegelung und hat eine feste Größe von 20 GB.
 
->[!NOTE]
->Damit dieses Cmdlet funktioniert, müssen mindestens fünf physische Datenträger im Speicherpool vorhanden sein. (Datenträger, die als Hotspares zugeteilt sind, sind davon ausgeschlossen.)
+> [!NOTE]
+> Damit dieses Cmdlet funktioniert, müssen mindestens fünf physische Datenträger im Speicherpool vorhanden sein. (Datenträger, die als Hotspares zugeteilt sind, sind davon ausgeschlossen.)
 
 ```PowerShell
 New-VirtualDisk -StoragePoolFriendlyName StoragePool1 -FriendlyName VirtualDisk1 -ResiliencySettingName Mirror -NumberOfDataCopies 3 -Size 20GB -ProvisioningType Fixed
@@ -239,8 +239,8 @@ Als Nächstes erstellen Sie ein Volume aus dem virtuellen Datenträger. Sie kön
 
     2. In der Liste **Größe der Zuordnungseinheiten** behalten Sie entweder die Einstellung **Standard** bei, oder legen Sie eine Größe für die Zuordnungseinheiten fest.
 
-        >[!NOTE]
-        >Weitere Informationen zur Größe der Zuordnungseinheiten finden Sie unter [Default cluster size for NTFS, FAT, and exFAT](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat).
+        > [!NOTE]
+        > Weitere Informationen zur Größe der Zuordnungseinheiten finden Sie unter [Default cluster size for NTFS, FAT, and exFAT](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat).
 
 
     3. Sie können auch im Feld **Volumebezeichnung** einen Namen für das Volume eingeben, z. B. **HR Data**.

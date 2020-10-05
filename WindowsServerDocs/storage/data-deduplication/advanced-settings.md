@@ -6,12 +6,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 73f9ce6e88fa56a645f0ffedba4f38dec87e973b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: b8410cb5804e8cbac3ce03e575c2f33c2bc61388
+ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87936379"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716860"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Erweiterte Einstellungen für die Datendeduplizierung
 
@@ -24,10 +24,10 @@ Die [standardmäßigen Auftragszeitpläne für die Datendeduplizierung](understa
 
 ### <a name="changing-a-data-deduplication-schedule"></a><a id="modifying-job-schedules-change-schedule"></a>Ändern eines Zeitplans für die Datendeduplizierung
 Datendeduplizierungsaufträge können über den Windows-Aufgabenplanungsdienst geplant und im Pfad „Microsoft\Windows\Deduplication“ angezeigt und bearbeitet werden. Zur Datendeduplizierung gehören mehrere Cmdlets, die die Planung erleichtern.
-* [`Get-DedupSchedule`](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11))zeigt die aktuell geplanten Aufträge an.
-* [`New-DedupSchedule`](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11))erstellt einen neuen geplanten Auftrag.
-* [`Set-DedupSchedule`](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11))ändert einen vorhandenen geplanten Auftrag.
-* [`Remove-DedupSchedule`](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730705(v=ws.11))entfernt einen geplanten Auftrag.
+* [`Get-DedupSchedule`](https://docs.microsoft.com/powershell/module/deduplication/get-dedupschedule?view=win10-ps) zeigt die aktuell geplanten Aufträge an.
+* [`New-DedupSchedule`](https://docs.microsoft.com/powershell/module/deduplication/new-dedupschedule?view=win10-ps) erstellt einen neuen geplanten Auftrag.
+* [`Set-DedupSchedule`](https://docs.microsoft.com/powershell/module/deduplication/set-dedupschedule?view=win10-ps) ändert einen vorhandenen geplanten Auftrag.
+* [`Remove-DedupSchedule`](https://docs.microsoft.com/powershell/module/deduplication/remove-dedupschedule?view=win10-ps) entfernt einen geplanten Auftrag.
 
 Am häufigsten wird der Zeitpunkt der Ausführung von Datendeduplizierungsaufträgen geändert, um sicherzustellen, dass Aufträge außerhalb der Geschäftszeiten ausgeführt werden. Im folgenden Beispiel wird Schritt für Schritt gezeigt, wie Sie den Zeitplan für die Datendeduplizierung in einem *einfachen* Szenario ändern: ein hyperkonvergenter Hyper-V-Host, der an Wochenenden und wochentags ab 19:00 Uhr im Leerlauf ist. Um den Zeitplan zu ändern, führen Sie die folgenden PowerShell-Cmdlets im Kontext eines Administrators aus.
 
@@ -74,11 +74,11 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
     </thead>
     <tbody>
         <tr>
-            <td>Typ</td>
+            <td>type</td>
             <td>Der Typ des Auftrags, der geplant werden soll</td>
             <td>
                 <ul>
-                    <li>Optimization (Optimierung)</li>
+                    <li>Optimization</li>
                     <li>GarbageCollection</li>
                     <li>Scrubbing (Bereinigung)</li>
                 </ul>
@@ -90,7 +90,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Die Systempriorität des geplanten Auftrags</td>
             <td>
                 <ul>
-                    <li>Hoch</li>
+                    <li>High</li>
                     <li>Medium</li>
                     <li>Niedrig</li>
                 </ul>
@@ -265,7 +265,7 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
             <td>Aktivieren Sie diese Einstellung, wenn Ihre Workload mit großen, häufig bearbeiteten Dateien arbeitet, bei denen ein Großteil des Dateiinhalts unverändert bleibt. Wenn diese Einstellung nicht aktiviert ist, würden diese Dateien nie optimiert werden, da sie weiter geändert werden, auch wenn der Großteil des Dateiinhalts für eine Optimierung bereit ist.</td>
         </tr>
         <tr>
-            <td>Überprüfung</td>
+            <td>Überprüfen</td>
             <td>Wenn, falls aktiviert, der Hash eines Blocks einem Block entspricht, der bereits im Blockspeicher enthalten ist, werden die Blöcke byteweise verglichen, um sicherzustellen, dass sie identisch sind.</td>
             <td>True/false</td>
             <td>Dies ist ein Integritätsfeature, das sicherstellt, dass der Hashalgorithmus, der die Blöcke vergleicht, nicht den Fehler macht, zwei Datenblöcke zu vergleichen, die eigentlich unterschiedlich sind, aber denselben Hash haben. In der Praxis ist es sehr unwahrscheinlich, dass dies jemals passiert. Das Aktivieren der Überprüfungsfunktion bedeutet für den Optimierungsauftrag einen beträchtlichen Mehraufwand.</td>
@@ -308,7 +308,7 @@ Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weit
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">vollständige Garbage Collection-Aufträge</a> werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige Garbage Collection für Volumes mit dem <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Verwendungstyp "Sicherung</a>" immer deaktiviert ist (unabhängig vom Registrierungs Wert). <code>Start-DedupJob -Type GarbageCollection -Full</code>kann verwendet werden, wenn eine vollständige Garbage Collection auf einem Sicherungs Volume gewünscht wird.</td>
+            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">vollständige Garbage Collection-Aufträge</a> werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige Garbage Collection für Volumes mit dem <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Verwendungstyp "Sicherung</a>" immer deaktiviert ist (unabhängig vom Registrierungs Wert). <code>Start-DedupJob -Type GarbageCollection -Full</code> kann verwendet werden, wenn eine vollständige Garbage Collection auf einem Sicherungs Volume gewünscht wird.</td>
             <td>Ganze Zahlen (-1 weist auf deaktiviert hin)</td>
             <td>Siehe <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">diese häufig gestellte</a> Frage</td>
         </tr>
