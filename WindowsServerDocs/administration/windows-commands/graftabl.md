@@ -7,19 +7,19 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 912f0e0cb3f3b632b25eda49f6f65338e7782326
-ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
+ms.openlocfilehash: cc7f3884912775ccca0f736637db9ae9bf53bffd
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716901"
+ms.locfileid: "91718407"
 ---
-> [!IMPORTANT]
-> Der **graftabl** -Befehl ist ein Legacy-Befehl, der daher veraltet ist. Es ist normalerweise nicht in modernen Windows-Versionen installiert. Informationen zur Code Page Behandlung finden Sie auf der Seite " [chcp](https://docs.microsoft.com/windows-server/administration/windows-commands/chcp) ".
-
 # <a name="graftabl"></a>graftabl
 
 Ermöglicht Windows-Betriebssystemen das Anzeigen eines erweiterten Zeichensatzes im Grafikmodus. Bei Verwendung ohne Parameter zeigt **graftabl** die vorherige und die aktuelle Codepage an.
+
+> [!IMPORTANT]
+> Der **graftabl** -Befehl ist ein Legacy-Befehl, der daher veraltet ist. Es ist normalerweise nicht in modernen Windows-Versionen installiert. Informationen zur Code Page Behandlung finden Sie auf der Seite " [chcp](https://docs.microsoft.com/windows-server/administration/windows-commands/chcp) ".
 
 ## <a name="syntax"></a>Syntax
 
