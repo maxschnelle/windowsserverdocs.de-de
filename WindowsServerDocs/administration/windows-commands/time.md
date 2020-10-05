@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4faa12cef8485be6b76b16ff2ab545d0eae06cb7
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 3bce9d2ac70af1983af6b85fdf3b12e8e573bc8a
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89640447"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91717877"
 ---
 # <a name="time"></a>time
 
@@ -36,14 +36,14 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 |/t|Zeigt die aktuelle Zeit an, ohne Sie zur Eingabe eines neuen Zeitraums aufzufordern.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Zum Ändern der aktuellen Zeit müssen Sie über Administrator Anmelde Informationen verfügen.
 -   Sie müssen die Werte für *HH*, *mm*und *SS* mit Doppelpunkten (:). *SS* und *NN* müssen durch einen Zeitraum (.) getrennt werden.
 -   Gültige *HH* -Werte sind 0 bis 24.
 -   Gültige *mm* -und *SS* -Werte sind 0 bis 59.
 
-## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Befehls Erweiterungen aktiviert sind, geben Sie Folgendes ein, um die aktuelle Systemzeit anzuzeigen:
 ```
@@ -61,6 +61,6 @@ Enter the new time:
 ```
 Drücken Sie die EINGABETASTE, um die aktuelle Uhrzeit beizubehalten und zur Eingabeaufforderung zurückzukehren. Um die aktuelle Uhrzeit zu ändern, geben Sie die neue Uhrzeit ein, und drücken Sie dann die EINGABETASTE.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

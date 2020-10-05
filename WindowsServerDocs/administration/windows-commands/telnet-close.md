@@ -1,18 +1,18 @@
 ---
 title: telnet close
-description: Referenz Artikel für Telnet Close, mit dem die aktuelle Telnet-Verbindung geschlossen wird.
+description: Referenz Artikel für den Telnet-Befehl "Close", mit dem die aktuelle Telnet-Verbindung geschlossen wird.
 ms.topic: reference
 ms.assetid: 9330a5e0-bdb5-446b-8c25-c2c460df8b6b
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 216b53004a0ef0ab6afb93c3eb93fc3c97f3a438
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 8e25a3a84e96db3e51e02472d726c9c7154bd255
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89640120"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91718017"
 ---
 # <a name="telnet-close"></a>Telnet: schließen
 
@@ -21,15 +21,19 @@ ms.locfileid: "89640120"
 Schließt die aktuelle Verbindung.
 
 ## <a name="syntax"></a>Syntax
+
 ```
 c[lose]
 ```
-#### <a name="parameters"></a>Parameter
-Keine
+
 ## <a name="examples"></a>Beispiele
-Schließen Sie die aktuelle Verbindung.
+
+Geben Sie Folgendes ein, um die aktuelle Telnet-Verbindung zu schließen:
+
 ```
 c
 ```
-## <a name="additional-references"></a>Weitere Verweise
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

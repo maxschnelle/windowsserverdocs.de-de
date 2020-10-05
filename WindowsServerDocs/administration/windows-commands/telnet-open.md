@@ -1,18 +1,18 @@
 ---
 title: telnet open
-description: Referenz Artikel für Telnet Open, das eine Verbindung mit einem Telnet-Server herstellt.
+description: Referenz Artikel für den Telnet Open-Befehl, der eine Verbindung mit einem Telnet-Server herstellt.
 s.topic: article
 ms.assetid: e30ad68c-2366-4754-ac36-311a2392902a
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 892d797c4b56acb46e8119237fd38296e4ae411c
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 6db7f428f4b8c85c6e953a8fe4a9328b965898f8
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89636784"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91718007"
 ---
 # <a name="telnet-open"></a>Telnet: offen
 
@@ -21,20 +21,26 @@ ms.locfileid: "89636784"
 Stellt eine Verbindung mit einem Telnet-Server her.
 
 ## <a name="syntax"></a>Syntax
-```
-o[pen] <hostname> [<Port>]
-```
-#### <a name="parameters"></a>Parameter
 
-| Parameter  |                                        BESCHREIBUNG                                         |
-|------------|--------------------------------------------------------------------------------------------|
-| <hostname> |                         Gibt den Computernamen oder die IP-Adresse an.                         |
-|  [<Port>]  | Gibt den TCP-Port an, an dem der Telnet-Server lauscht. Der Standardwert ist TCP-Port 23. |
+```
+o[pen] <hostname> [<port>]
+```
+
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+|--|--|
+| `<hostname>` | Gibt den Computernamen oder die IP-Adresse an. |
+| `[<port>]` | Gibt den TCP-Port an, an dem der Telnet-Server lauscht. Der Standardwert ist TCP-Port 23. |
 
 ## <a name="examples"></a>Beispiele
-Herstellen einer Verbindung mit einem Telnet-Server unter Telnet.Microsoft.com.
+
+Zum Herstellen einer Verbindung mit einem Telnet-Server unter *Telnet.Microsoft.com*geben Sie Folgendes ein:
+
 ```
 o telnet.microsoft.com
 ```
-## <a name="additional-references"></a>Weitere Verweise
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

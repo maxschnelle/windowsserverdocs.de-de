@@ -7,40 +7,42 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: aa3f30e9588a149ae4fe586532b2898a037257d9
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 7516eea3d6edd013b3f507671e6b219da7dfd632
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89638878"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91718367"
 ---
 # <a name="wdsutil"></a>wdsutil
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 WDSUTIL ist ein Befehlszeilenprogramm, das zum Verwalten des Windows-Bereitstellungsdiensteserver verwendet wird. Klicken Sie zum Ausführen dieser Befehle auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.
+
 ## <a name="commands"></a>Befehle
+
 |Get-Help|BESCHREIBUNG|
 |------|--------|
-|[Verwenden des Befehls "hinzufügen"](using-the-add-command.md)|Hinzufügen von Objekten oder vorab Stufen von Computern.|
-|[Verwenden des Befehls "genehmigen-AutoAddDevices"](using-the-approve-autoadddevices-command.md)|Genehmigt Computer mit ausstehender Administrator Genehmigung.|
-|[Verwenden des Befehls Convert-RiprepImage](using-the-convert-riprepimage-command.md)|Konvertiert ein vorhandenes RIPrep-Image (Remote Installation Preparation) in eine Windows-Abbild Datei (WIM-Datei).|
-|[Verwenden des Befehls "Copy"](using-the-copy-command.md)|Kopiert ein Bild oder eine Treiber Gruppe.|
-|[Verwenden des Befehls Delete-AutoAddDevices](using-the-delete-autoadddevices-command.md)|Hiermit werden Computer gelöscht, die sich in der Datenbank für das automatische Hinzufügen befinden (in der Informationen zu den Computern auf dem Server gespeichert werden).|
-|[Verwenden des Befehls "deaktivieren"](using-the-disable-command.md)|Deaktiviert alle Dienste für die Windows-Bereitstellungs Dienste.|
-|[Verwenden des Disconnect-Client-Befehls](using-the-disconnect-client-command.md)|Trennt einen Client von einer Multicast Übertragung oder einem Namespace.|
-|[Verwenden des Befehls "enable"](using-the-enable-command.md)|Aktiviert alle Dienste für die Windows-Bereitstellungs Dienste.|
-|[Verwenden des Befehls "Export-Image"](using-the-export-image-command.md)|Exportiert ein Bild aus dem Image Speicher in eine WIM-Datei.|
-|[Verwenden des Get-Befehls](using-the-get-command.md)|Ruft Eigenschaften und Attribute für das angegebene Objekt ab.|
-|[Verwenden des Befehls "Initialize-Server"](using-the-initialize-server-command.md)|Konfiguriert einen Windows-Bereitstellungsdiensteserver für die anfängliche Verwendung.|
-|[Verwenden des neuen Befehls](using-the-new-command.md)|erstellt neue Erfassungs-und Ermittlungs Images sowie Multicast Übertragungen und Namespaces.|
-|[Der Status Befehl](the-progress-command.md)|Zeigt den Status Status an, während ein Befehl ausgeführt wird.|
-|[Verwenden des ablehnen-AutoAddDevices-Befehls](using-the-reject-autoadddevices-command.md)|Lehnt Computer ab, für die die Administrator Genehmigung aussteht.|
-|[Verwenden des Remove-Befehls](using-the-remove-command.md)|entfernt-Objekte.|
-|[Verwenden des "Replace-Image"-Befehls](using-the-replace-image-command.md)|ersetzt ein Start-oder Installations Abbild durch eine neue Version des Abbilds.|
-|[Der SET-Befehl](the-set-command.md)|Legt Eigenschaften und Attribute für das angegebene Objekt fest.|
-|[Der Start Server-Befehl](the-start-server-command.md)|startet alle Dienste auf dem Windows-Bereitstellungsdiensteserver, einschließlich Multicast Übertragungen, Namespaces und dem Transport Server.|
-|[Der Befehl zum Abbrechen des Servers](the-stop-server-command.md)|Beendet alle Dienste auf dem Windows-Bereitstellungsdiensteserver.|
-|[Die Option "nicht initialisieren-Server"](the-uninitialize-server-option.md)|stellt bei der Server Initialisierung vorgenommene Änderungen wieder her.|
-|[Der Update-serverfiles-Befehl](the-update-serverfiles-command.md)|Aktualisiert Server Dateien auf der RemoteInstall-Freigabe.|
-|[Befehl "ausführliche"](the-verbose-command.md)|Zeigt die ausführliche Ausgabe für den angegebenen Befehl an.|
+|[Befehl zum Hinzufügen von WDSUTIL](wdsutil-add.md)|Hinzufügen von Objekten oder vorab Stufen von Computern.|
+|[Befehl "WDSUTIL genehmigen-AutoAddDevices"](wdsutil-approve-autoadddevices.md)|Genehmigt Computer mit ausstehender Administrator Genehmigung.|
+|[Befehl "Convert-RiprepImage" in WDSUTIL](wdsutil-convert-riprepimage.md)|Konvertiert ein vorhandenes RIPrep-Image (Remote Installation Preparation) in eine Windows-Abbild Datei (WIM-Datei).|
+|[Befehl "WDSUTIL Copy"](wdsutil-copy.md)|Kopiert ein Bild oder eine Treiber Gruppe.|
+|[WDSUTIL DELETE-AutoAddDevices-Befehl](wdsutil-delete-autoadddevices.md)|Hiermit werden Computer gelöscht, die sich in der Datenbank für das automatische Hinzufügen befinden (in der Informationen zu den Computern auf dem Server gespeichert werden).|
+|[Befehl "WDSUTIL deaktivieren"](wdsutil-disable.md)|Deaktiviert alle Dienste für die Windows-Bereitstellungs Dienste.|
+|[WDSUTIL Disconnect-Client-Befehl](wdsutil-disconnect-client.md)|Trennt einen Client von einer Multicast Übertragung oder einem Namespace.|
+|[Befehl "WDSUTIL Enable"](wdsutil-enable.md)|Aktiviert alle Dienste für die Windows-Bereitstellungs Dienste.|
+|[Befehl "WDSUTIL Export-Image"](wdsutil-export-image.md)|Exportiert ein Bild aus dem Image Speicher in eine WIM-Datei.|
+|[Befehl "WDSUTIL Get"](wdsutil-get.md)|Ruft Eigenschaften und Attribute für das angegebene Objekt ab.|
+|[Befehl "WDSUTIL Initialize-Server"](wdsutil-initialize-server.md)|Konfiguriert einen Windows-Bereitstellungsdiensteserver für die anfängliche Verwendung.|
+|[WDSUTIL (neuer Befehl)](wdsutil-new.md)|erstellt neue Erfassungs-und Ermittlungs Images sowie Multicast Übertragungen und Namespaces.|
+|[Befehl "WDSUTIL Progress"](wdsutil-progress.md)|Zeigt den Status Status an, während ein Befehl ausgeführt wird.|
+|[WDSUTIL ablehnen-AutoAddDevices-Befehl](wdsutil-reject-autoadddevices.md)|Lehnt Computer ab, für die die Administrator Genehmigung aussteht.|
+|[Befehl zum Entfernen von WDSUTIL](wdsutil-remove.md)|entfernt-Objekte.|
+|[Befehl "WDSUTIL Replace-Image"](wdsutil-replace-image.md)|ersetzt ein Start-oder Installations Abbild durch eine neue Version des Abbilds.|
+|[Befehl "WDSUTIL Set"](wdsutil-set.md)|Legt Eigenschaften und Attribute für das angegebene Objekt fest.|
+|[Befehl "WDSUTIL Start Server"](wdsutil-start-server.md)|startet alle Dienste auf dem Windows-Bereitstellungsdiensteserver, einschließlich Multicast Übertragungen, Namespaces und dem Transport Server.|
+|[WDSUTIL-Befehl zum Abbrechen des Servers](wdsutil-stop-server.md)|Beendet alle Dienste auf dem Windows-Bereitstellungsdiensteserver.|
+|[WDSUTIL-Befehl "Uninitialize-Server"](wdsutil-uninitialize-server.md)|stellt bei der Server Initialisierung vorgenommene Änderungen wieder her.|
+|[Befehl "WDSUTIL Update-serverfiles"](wdsutil-update-serverfiles.md)|Aktualisiert Server Dateien auf der RemoteInstall-Freigabe.|
+|[Befehl "WDSUTIL ausführliche"](wdsutil-verbose.md)|Zeigt die ausführliche Ausgabe für den angegebenen Befehl an.|

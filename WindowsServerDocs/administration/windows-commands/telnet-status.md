@@ -1,18 +1,18 @@
 ---
 title: telnet status
-description: Referenz Artikel für den Telnet-Status, in dem Statusinformationen angezeigt werden.
+description: Referenz Artikel für den Telnet-Status Befehl, in dem Statusinformationen angezeigt werden.
 ms.topic: reference
 ms.assetid: 4e819f11-3dc4-44d1-957b-1bcecf9fc1fc
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a383316ba9f860e362081ea2bc84b6ffad386af
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: bd55020fd276fc07d2f4d16c0d78690305fdb554
+ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89640831"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91717967"
 ---
 # <a name="telnet-status"></a>Telnet: Status
 
@@ -21,15 +21,19 @@ ms.locfileid: "89640831"
 Zeigt Statusinformationen an.
 
 ## <a name="syntax"></a>Syntax
+
 ```
 st[atus]
 ```
-#### <a name="parameters"></a>Parameter
-Keine
-## <a name="examples"></a>Beispiele
-Anzeigen von Statusinformationen.
+
+## <a name="example"></a>Beispiel
+
+Geben Sie Folgendes ein, um Statusinformationen anzuzeigen:
+
 ```
 st
 ```
-## <a name="additional-references"></a>Weitere Verweise
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
