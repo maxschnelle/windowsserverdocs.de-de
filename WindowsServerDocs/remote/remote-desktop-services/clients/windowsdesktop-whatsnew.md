@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 09/16/2020
+ms.date: 09/22/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d45bfad559069f9652768ba7f89bbdd3521ab8a
-ms.sourcegitcommit: d04f8fd54fe9aa5703af2f66a7150f4a6fb5bb37
+ms.openlocfilehash: 4edd85e305d30cfe22480021b67f3c0213275926
+ms.sourcegitcommit: c0e0bdc9a1b28bd21951d68b5cfd2cce48a770ef
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90718624"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90999254"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -24,16 +24,20 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Aktuelle Version  |Unterstützte Mindestversion |
 |-----------|----------------|--------------------------|
-|Öffentlich     |1.2.1272        |1.2.945                   |
-|Insider    |1.2.1357        |1.2.1357                  |
+|Öffentlich     |1.2.1364        |1.2.945                   |
+|Insider    |1.2.1364        |1.2.945                   |
 
-## <a name="updates-for-version-121357-insiders"></a>Updates für Version 1.2.1357 (Insider)
+## <a name="updates-for-version-121364"></a>Updates für Version 1.2.1364
 
-*Veröffentlicht am: 09.09.2020*
+*Veröffentlicht am: 22.9.2020*
 
-Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+Download: Windows [64 Bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32 Bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - Es wurde ein Problem behoben, bei dem Einmaliges Anmelden (Single Sign-On, SSO) unter Windows 7 nicht funktionierte.
+- Es wurde ein Verbindungsfehler behoben, der beim Tätigen von oder Beitreten zu Teams-Anrufen auftrat, wenn dabei in einer anderen App ein Audiodatenstrom im exklusiven Modus geöffnet und die Medienoptimierung für Teams aktiviert war.
+- Es wurde ein Fehler beim Auflisten von Audio- oder Videogeräten in Teams behoben, der auftrat, wenn die Medienoptimierung für Teams aktiviert war.
+- Ein Link namens „Need help with settings?“ (Benötigen Sie Hilfe mit den Einstellungen?), der zur Desktopeinstellungsseite führt, wurde ergänzt.
+- Es wurde ein Problem mit der Schaltfläche „Abonnieren“ behoben, das bei der Verwendung von dunklen Designs mit hohem Kontrast auftrat.
 
 ## <a name="updates-for-version-121275"></a>Updates für Version 1.2.1275
 
@@ -51,8 +55,6 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 ## <a name="updates-for-version-121186"></a>Updates für Version 1.2.1186
 
 *Veröffentlicht am: 28.7.2020*
-
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4C7Qy), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Ciex), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4C7Qx)
 
 - Sie können jetzt Arbeitsbereiche mit mehreren Benutzerkonten abonniert, indem Sie die Überlaufmenüoption ( **...** ) auf der Befehlsleiste oben im Client verwenden. Um Arbeitsbereiche zu unterscheiden, enthalten die Arbeitsbereichstitel jetzt den Benutzernamen, ebenso wie alle Titel von App-Verknüpfungen.
 - Zusätzliche Informationen zu Abonnementfehlermeldungen wurden hinzugefügt, um die Problembehandlung zu verbessern.
