@@ -6,12 +6,12 @@ ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
 ms.author: benarm
 author: BenjaminArmstrong
 ms.date: 09/21/2017
-ms.openlocfilehash: 49ea6e324a11d2261dae8133e29d86d2c5bacae7
-ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
+ms.openlocfilehash: 2a6107468e63f819e1957db0736c1a07c5dc24a0
+ms.sourcegitcommit: faa5db4cdba4ad2b3a65533b6b49d960080923c9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90746705"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91752885"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Neues in Hyper-V unter Windows Server
 
@@ -162,7 +162,7 @@ Nachdem Sie die Cluster Funktionsebene aktualisiert haben:
 
 -   Sie können neue Hyper-V-Features aktivieren.
 
--   Um neue Features für virtuelle Computer verfügbar zu machen, verwenden Sie das Update-vmconfigurationversion-Cmdlet, um die Konfigurations Ebene des virtuellen Computers manuell zu aktualisieren. Anweisungen finden Sie unter [Aktualisieren der Version der virtuellen Maschine](deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md).
+-   Um neue Features für virtuelle Computer verfügbar zu machen, verwenden `Update-vmVersion` Sie das Cmdlet, um die Konfigurations Ebene des virtuellen Computers manuell zu aktualisieren. Anweisungen finden Sie unter [Aktualisieren der Version der virtuellen Maschine](deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md).
 -   Sie können dem Hyper-V-Cluster, auf dem Windows Server 2012 R2 ausgeführt wird, keinen Knoten hinzufügen.
 
 > [!NOTE]

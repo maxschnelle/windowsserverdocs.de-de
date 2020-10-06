@@ -6,12 +6,12 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 ms.author: benarm
 author: BenjaminArmstrong
 ms.date: 04/07/2020
-ms.openlocfilehash: c0ea0a8e9a030c8d35bf3042b16108523753b36b
-ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
+ms.openlocfilehash: 440d3c0dc51cc9e7d9c4d8abe439f4adb5da07dc
+ms.sourcegitcommit: faa5db4cdba4ad2b3a65533b6b49d960080923c9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90746545"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91752892"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Debian-Computer in Hyper-V
 
@@ -54,7 +54,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
 | Größenänderung des Lauf Zeit Speichers                                                                                                                        | 2019, 2016                                  | &#10004; Hinweis 4       | &#10004; Hinweis 4       |                       |                       |
 | **[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                             |                       |                       |                       |                       |
 | Hyper-V-spezifisches Videogerät                                                                                                                | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              |                       |
-| **[Verschiedenes](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |
+| **[Sonstiges](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |
 | Schlüssel-Wert-Paar                                                                                                                               | 2019, 2016, 2012 R2          | &#10004; Hinweis 2       | &#10004; Hinweis 2       | &#10004; Hinweis 2       |                       |
 | Nicht mastbare Unterbrechung                                                                                                                       | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              |                       |
 | Dateikopie von Host zu Gast                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004; Hinweis 2       | &#10004; Hinweis 2       | &#10004; Hinweis 2       |                       |
@@ -66,7 +66,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
 | Sicherer Start                                                                                                                                  | 2019, 2016                                  | &#10004;              |                       |                       |                       |
 
 
-## <a name="notes"></a>Hinweise
+## <a name="notes"></a>Notizen
 
 1. Das Erstellen von Dateisystemen auf VHDs, die größer als 2 TB sind, wird nicht unterstützt.
 
@@ -77,11 +77,11 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
    ```Powershell
    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
    ```
-4. Die neuesten upstreamkernel-Funktionen sind nur verfügbar, wenn der mit dem Kernel enthaltene [debian-backports](https://wiki.debian.org/Backports)verwendet wird.
+4. Die neuesten Upstream-Kernelfunktionen sind nur verfügbar, wenn die im [debian-backports-Repository](https://wiki.debian.org/Backports)verfügbaren Kernel verwendet werden.
 
 5. Während Debian 7. x nicht unterstützt wird und einen älteren Kernel verwendet, hat der Kernel, der in den Debian-backports für Debian 7. x enthalten ist, die Hyper-V-Funktionen verbessert.
 
-Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
