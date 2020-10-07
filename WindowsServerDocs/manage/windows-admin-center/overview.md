@@ -6,18 +6,18 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 01/07/2020
 ms.localizationpriority: high
-ms.openlocfilehash: d6fa3e4535748b6c4d5b45755b0336dc26815bee
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: a62994667322b17d35c90e8bd231adc1d9ba0e6a
+ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766733"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91517566"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
 > Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Windows-Servern, Clustern, hyperkonvergenter Infrastruktur und Windows 10-PCs. Sie ist ohne über Windows hinausgehende Kosten erhältlich und für den Einsatz in Produktionsumgebungen bereit.
+Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Windows-Servern, Clustern, hyperkonvergenter Infrastruktur und Windows 10-PCs. Es handelt sich um ein kostenloses Produkt, das einsatzbereit für Produktionsumgebungen ist.
 
 Weitere Informationen zu den Neuerungen finden Sie unter [Versionsverlauf](support/release-history.md).
 

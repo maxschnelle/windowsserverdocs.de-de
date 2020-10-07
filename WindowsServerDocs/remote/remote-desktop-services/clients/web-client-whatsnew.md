@@ -7,12 +7,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 18142988108e1eafe59ca7fd83a29dd4dfb87720
-ms.sourcegitcommit: 664ed9bb0bbac2c9c0727fc2416d8c437f2d5cbe
+ms.openlocfilehash: e2bf87c27e8e61fa4baba81f234381d342af1343
+ms.sourcegitcommit: ed2b98e06bf7f616432bf8b6ad96544a34d5ce5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472030"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625472"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
@@ -23,6 +23,9 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 
 ## <a name="updates-for-10220"></a>Updates für 1.0.22.0
 *Veröffentlicht am: 2.9.2020*
+
+> [!IMPORTANT]
+> In Version 1.0.22.0 wurde eine Regression eingeführt, die sich auf einige Chromebook-Betriebssysteme auswirkt. Benutzer auf betroffenen Betriebssystemen können keine Verbindung zu einer Remotesitzung über den Webclient herstellen. Wir untersuchen dieses Problem derzeit und werden eine neue Version des Webclients veröffentlichen, sobald wir diese Regression behoben haben. In der Zwischenzeit können Sie das Problem vermeiden, indem Sie die Version 1.0.21.0 wiederherstellen. 
 
 - Benutzer können nun das minimierte Menü verschieben.
 - Die Unterstützung für 4K- und Ultra-Wide-Monitore wurde verbessert, und ein Problem wurde behoben, bei dem das Kopieren großer Datenmengen zum Absturz von Sitzungen führte.

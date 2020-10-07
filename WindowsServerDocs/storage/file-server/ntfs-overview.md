@@ -1,17 +1,17 @@
 ---
 title: Übersicht über NTFS
-description: Eine Erläuterung, was NTFS ist.
+description: NTFS ist das primäre Dateisystem für die aktuellsten Versionen von Windows und Windows Server und bietet alle Funktionen, einschließlich Sicherheitsdeskriptoren, Verschlüsselung, Datenträgerkontingente sowie umfangreiche Metadaten und kann mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) verwendet werden, um ständig verfügbare Volumes bereitzustellen, auf die gleichzeitig von mehreren Knoten eines Failoverclusters aus zugegriffen werden kann.
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.date: 06/17/2019
+ms.date: 09/30/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e781e8c4fda3cc3fe0af995fd26081b9b387f723
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 30fe719b7e36706e59650ab18a82276879f92830
+ms.sourcegitcommit: d04d63d48856bccf5d5a9b1df6b25e254e7eda2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954727"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91622845"
 ---
 # <a name="ntfs-overview"></a>Übersicht über NTFS
 
@@ -19,36 +19,43 @@ ms.locfileid: "87954727"
 
 NTFS ist das primäre Dateisystem für die aktuellsten Versionen von Windows und Windows Server und bietet alle Funktionen, einschließlich Sicherheitsdeskriptoren, Verschlüsselung, Datenträgerkontingente sowie umfangreiche Metadaten und kann mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) verwendet werden, um ständig verfügbare Volumes bereitzustellen, auf die gleichzeitig von mehreren Knoten eines Failoverclusters aus zugegriffen werden kann.
 
-Weitere Informationen zu neuen und geänderten Funktionen in NTFS unter Windows Server 2012 R2 finden Sie unter [Neuerungen in NTFS](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)). Weitere Informationen zum Feature finden Sie im Abschnitt [Zusätzliche Informationen](#additional-information) in diesem Thema. Weitere Informationen zum neueren robusten Dateisystem (Resilient File System, ReFS) finden Sie unter [Übersicht über das Robuste Dateisystem (Resilient File System, ReFS)](../refs/refs-overview.md).
+Weitere Informationen zum Feature finden Sie im Abschnitt [Zusätzliche Informationen](#additional-information) in diesem Thema. Informationen zum neueren robusten Dateisystem (Resilient File System, ReFS) finden Sie unter [Übersicht über das Robuste Dateisystem (Resilient File System, ReFS)](../refs/refs-overview.md).
 
-## <a name="practical-applications"></a>Praktische Anwendung
-
-### <a name="increased-reliability"></a>Erhöhte Zuverlässigkeit
+## <a name="increased-reliability"></a>Erhöhte Zuverlässigkeit
 
 NTFS verwendet Protokolldatei und Prüfpunktinformationen, um die Konsistenz des Dateisystems wiederherzustellen, wenn der Computer nach einem Systemausfall neu gestartet wird. Nach einem schwerwiegenden Sektorfehler nimmt NTFS eine dynamische Neuzuordnung des Clusters vor, der den fehlerhaften Sektor enthält, ordnet einen neuen Cluster für die Daten zu, markiert den ursprünglichen Cluster als „fehlerhaft“ und verwendet den alten Cluster nicht mehr. Beispielsweise kann NTFS nach einem Serverabsturz Daten wiederherstellen, indem die zugehörigen Protokolldateien wiedergegeben werden.
 
 NTFS überwacht und korrigiert kontinuierlich Probleme durch vorübergehende Beschädigungen im Hintergrund, ohne das Volume offline zu schalten (dieses Feature wird als [NTFS-Selbstkorrektur](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc771388(v=ws.10)) bezeichnet, und wurde in Windows Server 2008 eingeführt). Bei größeren Beschädigungen wird das Laufwerk in Windows Server 2012 und höher durch das Hilfsprogramm Chkdsk überprüft und analysiert, während das Volume online ist. Dadurch beschränkt sich die Offlinedauer auf die Zeit, die zum Wiederherstellen der Datenkonsistenz auf dem Volume erforderlich ist. Wenn NTFS mit freigegebenen Clustervolumes verwendet wird, entsteht keine Downtime. Weitere Informationen finden Sie unter [NTFS-Integrität und Chkdsk](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11)).
 
-### <a name="increased-security"></a>Erhöhte Sicherheit
+## <a name="increased-security"></a>Erhöhte Sicherheit
 
 - **Sicherheit basierend auf Zugriffssteuerungslisten (ACL) für Dateien und Ordner** – NTFS ermöglicht Ihnen, Berechtigungen für eine Datei oder einen Ordner festzulegen, die Gruppen und Benutzer anzugeben, deren Zugriff Sie einschränken oder zulassen möchten, und den Zugriffstyp auszuwählen.
 
 - **Unterstützung für BitLocker-Laufwerkverschlüsselung** – BitLocker-Laufwerkverschlüsselung bietet zusätzliche Sicherheit für wichtige Systeminformationen und andere Daten, die auf NTFS-Volumes gespeichert sind. Ab Windows Server 2012 R2 und Windows 8.1 unterstützt BitLocker die Geräteverschlüsselung auf x86- und x64-basierten Computern mit einem TPM (Trusted Platform Module), das den verbundenen Standbymodus unterstützt (zuvor nur auf Windows RT-Geräten verfügbar). Geräteverschlüsselung unterstützt Sie beim Schutz von Daten auf Windows-Computern und hilft dabei, böswillige Benutzer vom Zugriff auf Systemdateien abzuhalten, die sie zum Ausspähen von Kennwörtern benötigen, oder vom Zugriff auf Laufwerke durch Ausbauen physischer Geräte aus Ihrem PC und Installieren in einen anderen PC. Weitere Informationen finden Sie unter [Neuerungen in BitLocker](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn306081(v%3dws.11)).
 
-- **Unterstützung für große Volumes** – NTFS unterstützt Volumes mit einer Größe von bis zu 256 Terabyte. Die unterstützten Volumegrößen sind von der Clustergröße und der Anzahl der Cluster abhängig. Mit (2<sup>32</sup> – 1) Clustern (maximale Anzahl von Clustern, die von NTFS unterstützt werden) werden die folgenden Volumes und Dateigrößen unterstützt.
+## <a name="support-for-large-volumes"></a>Unterstützung für große Volumes
 
-  |Clustergröße|Größtes Volume|Größte Datei|
-  |---|---|---|
-  |4 KB (Standardgröße)|16 TB|16 TB|
-  |8 KB|32 TB|32 TB|
-  |16 KB|64 TB|64 TB|
-  |32 KB|128 TB|128 TB|
-  |64 KB (maximale Größe)|256 TB|256 TB|
+NTFS unterstützt Volumes bis zu einer Größe von 8 Petabyte auf Windows Server 2019 und neuer sowie Windows 10, Version 1709 und neuer (ältere Versionen unterstützen bis zu 256 TB). Die unterstützten Volumegrößen sind von der Clustergröße und der Anzahl der Cluster abhängig. Mit (2<sup>32</sup> – 1) Clustern (maximale Anzahl von Clustern, die von NTFS unterstützt werden) werden die folgenden Volumes und Dateigrößen unterstützt.
+
+  | Clustergröße         | Größtes Volume und größte Datei |
+  | -------------------  | -------------- |
+  | 4 KB (Standardgröße)  | 16 TB          |
+  | 8 KB                 | 32 TB          |
+  | 16 KB                | 64 TB          |
+  | 32 KB                | 128 TB         |
+  | 64 KB (früher max.)  | 256 TB         |
+  | 128 KB               | 512 TB         |
+  | 256 KB               | 1 PB           |
+  | 512 KB               | 2 PB           |
+  | 1024 KB              | 4 PB           |
+  | 2048 KB (max. Größe)   | 8 PB           |
+
+Beachten Sie, dass Sie den Fehler STATUS_UNRECOGNIZED_VOLUME erhalten, wenn Sie versuchen, ein Volume mit einer Clustergröße zu mounten, die größer als das unterstützte Maximum der von Ihnen verwendeten Windows-Version ist.
 
 >[!IMPORTANT]
 >Dienste und Apps können möglicherweise zusätzliche Beschränkungen für die Datei- und Volumegrößen vorsehen. Die Volumegröße beträgt z. B. 64 TB, wenn Sie das Feature „Vorherige Versionen“ oder eine Sicherungs-App verwenden, die Momentaufnahmen des Volumeschattenkopie-Diensts (VSS) nutzt (und Sie kein SAN- oder RAID-Gehäuse verwenden). Abhängig von der Workload und der Leistung Ihres Speichers müssen Sie jedoch möglicherweise kleinere Volumegrößen verwenden.
 
-### <a name="formatting-requirements-for-large-files"></a>Formatierungsanforderungen für große Dateien
+## <a name="formatting-requirements-for-large-files"></a>Formatierungsanforderungen für große Dateien
 
 Es gibt neue Empfehlungen für das Formatieren von Volumes, um eine ordnungsgemäße Erweiterung von großen VHDX-Dateien zuzulassen. Wenn Sie Volumes formatieren, die mit Datendeduplizierung verwendet werden oder sehr großer Dateien hosten, z. B. VHDX-Dateien, die größer als 1 TB sind, verwenden Sie das Cmdlet **Format-Volume** in Windows PowerShell mit den folgenden Parametern.
 
@@ -69,7 +76,7 @@ Sie können auch den Befehl **format** verwenden. Geben Sie an einer Systemeinga
 format /L /A:64k
 ```
 
-### <a name="maximum-file-name-and-path"></a>Maximale Länge für Dateinamen und Pfad
+## <a name="maximum-file-name-and-path"></a>Maximale Länge für Dateinamen und Pfad
 
 NTFS unterstützt lange Dateinamen und Pfade mit erweiterter Länge mit den folgenden Höchstwerten:
 
@@ -80,7 +87,7 @@ NTFS unterstützt lange Dateinamen und Pfade mit erweiterter Länge mit den folg
 
 - **Clusterspeicher** – Bei Verwendung in Failoverclustern unterstützt NTFS kontinuierlich verfügbare Volumes, auf die von mehreren Clusterknoten gleichzeitig zugegriffen werden kann, wenn sie in Verbindung mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) verwendet werden. Weitere Informationen finden Sie unter [Verwenden von freigegebenen Clustervolumes in einem Failovercluster](../../failover-clustering/failover-cluster-csvs.md).
 
-### <a name="flexible-allocation-of-capacity"></a>Flexible Kapazitätszuordnung
+## <a name="flexible-allocation-of-capacity"></a>Flexible Kapazitätszuordnung
 
 Wenn der Speicherplatz auf einem Volume eingeschränkt ist, bietet NTFS die folgenden Möglichkeiten, mit der Speicherkapazität eines Servers zu arbeiten:
 

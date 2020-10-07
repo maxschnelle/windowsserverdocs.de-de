@@ -5,20 +5,20 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.author: damaerte
 author: maertendmsft
-ms.openlocfilehash: cb17f4289483a76efaa3f848477f47edcf4a85b3
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: c722b9fb81dde8e695d6065d7b2268f862e71d39
+ms.sourcegitcommit: 00406560a665a24d5a2b01c68063afdba1c74715
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90078397"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716881"
 ---
 # <a name="openssh-key-management"></a>OpenSSH-Schlüsselverwaltung
 
 Die meisten Authentifizierungen in Windows-Umgebungen erfolgen mit einem Paar aus Benutzername und Kennwort.
 Dies funktioniert besonders gut bei Systemen, die eine gemeinsame Domäne verwenden.
-Bei domänenübergreifenden Arbeiten wie beispielsweise zwischen lokalen und in der Cloud gehosteten Systemen gestaltet sich dies schon schwieriger.
+Bei domänenübergreifenden Arbeiten wie beispielsweise zwischen lokalen und in der Cloud gehosteten Systemen kann dies zu Sicherheitslücken und Anfälligkeit für Brute-Force-Angriffe führen.
 
-Im Vergleich dazu verwenden Linux-Umgebungen für die Authentifizierung häufig Paare aus einem öffentlichen und einem privaten Schlüssel.
+Im Vergleich dazu verwenden Linux-Umgebungen für die Authentifizierung häufig Paare aus einem öffentlichen und einem privaten Schlüssel, die keine leicht zu erratenden Kennwörter erfordern.
 OpenSSH enthält Tools zur Unterstützung dieser Authentifizierungsmethoden einschließlich der folgenden:
 
 * __ssh-keygen__ zum Generieren sicherer Schlüssel
