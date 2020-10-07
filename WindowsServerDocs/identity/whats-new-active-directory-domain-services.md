@@ -6,12 +6,12 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: 666b05d4a08ad72a62bffec05051ceed2155c36f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 727e3dde99c0c2e7d4aa8999a91a2b913d9a314b
+ms.sourcegitcommit: 1808ce451b9e37ec1110bd684e1b0d3812fc77e0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87956027"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772400"
 ---
 # <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Neues in Active Directory Domain Services für Windows Server 2016
 
@@ -67,11 +67,11 @@ Vorteile:
    - Zugriff auf Microsoft Store mit Geschäftskonto
    - Live-Kacheln und-Benachrichtigungen
 
-- **Zugriff auf Organisations Ressourcen** auf mobilen Geräten (Smartphones, phablets), die nicht mit einer Windows-Domäne verknüpft werden können, unabhängig davon, ob Sie Corp-oder BYOD sind
+- **Greifen Sie auf Organisations Ressourcen** auf mobilen Geräten (Smartphones, Tablets) zu, die nicht mit einer Windows-Domäne verknüpft werden können, egal ob Sie Corp-oder BYOD sind.
 - **Einmaliges Anmelden** bei Office 365 und anderen Organisations-apps, Websites und Ressourcen.
 - Fügen Sie **auf BYOD-Geräten**ein Geschäftskonto (aus einer lokalen Domäne oder Azure AD) einem privaten Gerät hinzu, und profitieren Sie von einmaligem Anmelden für Ressourcen, über apps und im Web, um die Konformität mit neuen Funktionen wie z. b. bedingter Konto Kontrolle und Integrität für Geräte Nachweis sicherzustellen.
-- Mit der **MDM-Integration** können Sie Geräte automatisch für Ihre MDM registrieren (InTune oder Drittanbieter).
-- **Einrichten des Kiosk Modus und der freigegebenen Geräte** für mehrere Benutzer in Ihrer Organisation
+- Die **MDM-Integration** ermöglicht Ihnen das automatische Registrieren von Geräten bei ihrer MDM (InTune oder Drittanbieter).
+- **Einrichten des Kiosk Modus und der freigegebenen Geräte** für mehrere Benutzer in Ihrer Organisation.
 - Mit der **Entwickler** Funktion können Sie Apps erstellen, die sowohl für den Kontext von Unternehmen als auch für den persönlichen Kontext mit einem freigegebenen Programm Stapel
 - Mithilfe der Option " **Abbild** Erstellung" können Sie die Abbild Erstellung auswählen und Benutzern ermöglichen, unternehmenseigene Geräte direkt während der ersten Durchführung zu konfigurieren.
 
