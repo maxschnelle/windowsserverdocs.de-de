@@ -2,16 +2,16 @@
 ms.assetid: 5b5bab7a-727b-47ce-8efa-1d37a9639cba
 title: Eingehender Einblick in den Lastenausgleich virtueller Computer
 ms.topic: article
-author: bhattacharyaz
 manager: eldenc
-ms.author: subhatt
+ms.author: johnmar
+author: JasonGerend
 ms.date: 09/19/2016
-ms.openlocfilehash: cebdc8c192abd737478c3b7a0c3db3e4a2bc8091
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 7fc9b449b11b5faf05ac279628f093053e292e8c
+ms.sourcegitcommit: 7a8a608df059b4278a974c52ed7b865421a83aa6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957147"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91833311"
 ---
 # <a name="virtual-machine-load-balancing-deep-dive"></a>Eingehender Einblick in den Lastenausgleich virtueller Computer
 
@@ -43,7 +43,7 @@ Die Aggressivität des Ausgleichs basierend auf der Arbeitsspeicher-und CPU-Heur
 Der VM-Lastenausgleich ist standardmäßig aktiviert, und wenn ein Lastenausgleich durchgeführt wird, kann die allgemeine Eigenschaft "autobalancermode" des Clusters konfiguriert werden. So steuern Sie, wann die Knoten Fairness den Cluster ausgleicht
 
 ### <a name="using-failover-cluster-manager"></a>Verwenden von Failovercluster-Manager:
-1. Klicken Sie mit der rechten Maustaste auf den Cluster Namen, und wählen Sie die Option "Eigenschaften" ![ aus, um die Eigenschaft für den Cluster über Failovercluster-Manager](media/vm-load-balancing/detailed-VM-load-balancing-2.jpg)
+1. Klicken Sie mit der rechten Maustaste auf den Cluster Namen, und wählen Sie die Option "Eigenschaften"  ![ aus, um die Eigenschaft für den Cluster über Failovercluster-Manager](media/vm-load-balancing/detailed-VM-load-balancing-2.jpg)
 
 2.  Wählen Sie das Bereich "Balancer" ![ aus, indem Sie die Option "Balancer" durch Failovercluster-Manager auswählen.](media/vm-load-balancing/detailed-VM-load-balancing-3.jpg)
 

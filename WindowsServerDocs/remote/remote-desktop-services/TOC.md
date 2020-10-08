@@ -109,5 +109,6 @@
 #### [Remotedesktopclient wird getrennt und kann die Verbindung zur gleichen Sitzung nicht wiederherstellen](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
 #### [Remotelaptop trennt die WLAN-Verbindung](troubleshoot/remote-laptop-disconnects-wireless-network.md)
 #### [Eingeschränkte Leistung oder Anwendungsprobleme während der Remotedesktopverbindung](troubleshoot/poor-performance-or-application-problems.md)
+#### [Problem mit dem Eingabemethoden-Editor in RemoteApp-Szenarien](troubleshoot/input-method-editor-error.md)
 
 ## [Weitere Ressourcen](rds-get-support.md)
