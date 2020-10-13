@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 4edd85e305d30cfe22480021b67f3c0213275926
-ms.sourcegitcommit: c0e0bdc9a1b28bd21951d68b5cfd2cce48a770ef
+ms.openlocfilehash: 96a307b06b0a29cfb66ba52ca5d8ea031bd979e7
+ms.sourcegitcommit: 6931830a70c5849d8f884cdc7bd4f5afc1a00cce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90999254"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955761"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -38,6 +38,7 @@ Download: Windows [64 Bit](https://go.microsoft.com/fwlink/?linkid=2139369), [
 - Es wurde ein Fehler beim Auflisten von Audio- oder Videogeräten in Teams behoben, der auftrat, wenn die Medienoptimierung für Teams aktiviert war.
 - Ein Link namens „Need help with settings?“ (Benötigen Sie Hilfe mit den Einstellungen?), der zur Desktopeinstellungsseite führt, wurde ergänzt.
 - Es wurde ein Problem mit der Schaltfläche „Abonnieren“ behoben, das bei der Verwendung von dunklen Designs mit hohem Kontrast auftrat.
+- Eine Begrenzung auf bis zu 20 Sätze von Anmeldeinformationen pro App ist zulässig.
 
 ## <a name="updates-for-version-121275"></a>Updates für Version 1.2.1275
 

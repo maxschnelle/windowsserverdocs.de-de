@@ -7,12 +7,12 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.date: 02/19/2020
-ms.openlocfilehash: b0ff8f353d4536f89d698f362e2998d9682665f2
-ms.sourcegitcommit: e164aeffc01069b8f1f3248bf106fcdb7f64f894
+ms.openlocfilehash: 2caecd2b625de8790ddd0d1ebfeeb9db24d11635
+ms.sourcegitcommit: faa5db4cdba4ad2b3a65533b6b49d960080923c9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/26/2020
-ms.locfileid: "91389014"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91752912"
 ---
 # <a name="optimizing-windows-10-version-1909-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 
@@ -38,7 +38,7 @@ Es gibt einige Sicherheitseinstellungen, die nicht auf VDI-Umgebungen anwendbar 
 In Bezug auf Updates verwendet Windows 10 einen monatlichen Updatealgorithmus, sodass Clients nicht versuchen müssen, Updates auszuführen. In den meisten Fällen steuern die VDI-Administratoren den Updatevorgang durch das Herunterfahren von VMs auf der Basis eines Master- oder Goldimages. Sie entsiegeln dieses schreibgeschützte Image, patchen es, versiegeln es dann erneut und stellen es wieder in der Produktion bereit. Daher ist es nicht erforderlich, dass VDI-VMs Windows Update überprüfen. In bestimmten Fällen (z. B. bei dauerhaften VDI-VMs), finden normale Patchprozeduren nicht statt. Windows Update oder Microsoft Intune können ebenfalls verwendet werden. System Center Configuration Manager kann zum Verarbeiten von Updates und anderen Paketübermittlngen verwendet werden. Es liegt an jeder Organisation, den optimalen Ansatz zum Aktualisieren von VDI zu ermitteln.
 
 > [!TIP]
-> Ein Skript, das die in diesem Thema beschriebenen Optimierungen implementiert, sowie eine GPO-Exportdatei, die du mit **LGPO.exe** importieren kannst, sind unter [TheVDIGuys](https://github.com/TheVDIGuys) auf GitHub verfügbar.
+> Ein Skript, das die in diesem Thema beschriebenen Optimierungen implementiert, sowie eine GPO-Exportdatei, die du mit **LGPO.exe** importieren kannst, sind unter [The Virtual Desktop Team](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) auf GitHub verfügbar.
 
 Dieses Skript wurde für Ihre Umgebung und Ihre Anforderungen konzipiert. Der Hauptcode ist PowerShell, und die Arbeit erfolgt mithilfe von Eingabedateien (Nur-Text) und den Exportdateien des Tools des lokalen Gruppenrichtlinienobjekts (LGPO). Diese Dateien enthalten Liste mit den zu entfernenden Apps und den Diensten, die deaktiviert werden sollen. Wenn du nicht möchtest, dass eine bestimmte App entfernt oder ein bestimmter Dienst deaktiviert wird, bearbeitest du die entsprechende Textdatei und entfernst das Element. Schließlich gibt es lokale Richtlinieneinstellungen, die in Ihr Gerät importiert werden können. Es ist besser, einige Einstellungen innerhalb des Basisimages zu verwenden, anstatt die Einstellungen durch die Gruppenrichtlinie anzuwenden, da einige der Einstellungen beim nächsten Neustart wirksam werden oder wenn eine Komponente zum ersten Mal verwendet wird.
 
@@ -86,7 +86,7 @@ Ein wichtiger Aspekt der nicht dauerhaften VDI, die auf einem einzigen Image bas
 > Windows 10 führt in regelmäßigen Abständen automatisch eine Reihe von Wartungsaufgaben durch. Eine geplante Aufgabe wird standardmäßig jeden Tag um 3:00 Uhr ausgeführt. Diese geplante Aufgabe führt eine Liste von Aufgaben einschließlich der Windows Update-Bereinigung durch. Du kannst alle Kategorien der Wartung anzeigen, die automatisch mit dem folgenden PowerShell-Befehl ausgeführt werden:
 >
 >```powershell
->Get-ScheduledTask | ? {$_.Settings.MaintenanceSettings}
+>Get-ScheduledTask | Where-Object {$_.Settings.MaintenanceSettings}
 >```
 >
 
@@ -149,7 +149,7 @@ Konnektivität und Timing sind wichtige Faktoren, wenn es um die UWP-App-Bereini
 
 Wenn du deine WIM-Basisdatei änderst, mit der du Windows 10 installierst, und nicht benötigte UWP-Anwendungen vor der Installation aus der WIM-Datei entfernst, werden die Apps nicht von Anfang an installiert, und deine Profilerstellungszeiten werden kürzer. Später in diesem Abschnitt findest du Informationen zum Entfernen von UWP-Apps aus deiner WIM-Installationsdatei.
 
-Eine gute Strategie für VDI ist, die gewünschten Apps im Basisimage bereitzustellen und anschließend den Zugriff auf den Microsoft Store einzuschränken oder zu blockieren. Store-Apps werden auf normalen Computern in regelmäßigen Abständen im Hintergrund aktualisiert. Die UWP-Apps können während des Wartungsfensters aktualisiert werden, wenn andere Updates angewendet werden. Weitere Informationen findest du unter [UWP-Apps (Universelle Windows-Plattform)](https://docs.citrix.com/citrix-virtual-apps-desktops/manage-deployment/applications-manage/universal-apps.html)
+Eine gute Strategie für VDI ist, die gewünschten Apps im Basisimage bereitzustellen und anschließend den Zugriff auf den Microsoft Store einzuschränken oder zu blockieren. Store-Apps werden auf normalen Computern in regelmäßigen Abständen im Hintergrund aktualisiert. Die UWP-Apps können während des Wartungsfensters aktualisiert werden, wenn andere Updates angewendet werden. Weitere Informationen findest du unter [UWP-Apps (Universelle Windows-Plattform)](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/manage-deployment/applications-manage/universal-apps.html)
 
 #### <a name="delete-the-payload-of-uwp-apps"></a>Löschen der Nutzlast der UWP-Apps
 
@@ -571,7 +571,7 @@ Viele Dienste, die ggf. als gute Kandidaten zum Deaktivieren erscheinen, sind au
 | Diagnoserichtliniendienst | Ermöglicht die Problemerkennung und -lösung für Windows-Komponenten. Wenn dieser Dienst beendet wird, funktioniert die Diagnose nicht mehr. | |
 | Manager für heruntergeladene Karten | Windows-Dienst für den Anwendungszugriff auf heruntergeladene Karten. Dieser Dienst wird bedarfsgesteuert je nach der Anwendung gestartet, die auf heruntergeladene Karten zugreift. Wenn der Dienst deaktiviert wird, können Apps nicht auf Karten zugreifen. | |
 | Geolocation-Dienst | Überwacht die aktuelle Position des Systems und verwaltet die Geofences | |
-| GameDVR und Übertragungsbenutzerdienst | Dieser Benutzerdienst wird für Spielaufzeichnungen und Liveübertragungen verwendet. | Dies ist ein benutzerbezogener Dienst, und daher muss der Vorlagendienst deaktiviert sein. |
+| GameDVR und Übertragungsbenutzerdienst | Dieser Benutzerdienst wird für Spielaufzeichnungen und Liveübertragungen verwendet. | Dies ist ein benutzerbezogener Dienst, und daher muss der *Vorlagendienst* deaktiviert sein. |
 | MessagingService | Dienst, der SMS und verwandte Funktionen unterstützt. | Dies ist ein benutzerbezogener Dienst, und daher muss der *Vorlagendienst* deaktiviert sein. |
 | Laufwerke optimieren | Unterstützt den Computer bei einer effizienteren Ausführung durch das Optimieren von Dateien auf Speicherlaufwerken. | VDI-Lösungen profitieren normalerweise nicht von der Datenträgeroptimierung. Bei diesen „Laufwerken“ handelt es sich nicht um herkömmliche Laufwerke, sondern oft nur um eine temporäre Speicherbelegung. |
 | Superfetch | Verwaltet und verbessert die Systemleistung im Zeitablauf. | Verbessert im Allgemeinen nicht die VDI-Leistung, insbesondere nicht dauerhaft, da der Betriebssystemzustand bei jedem Neustart verworfen wird. |
@@ -722,7 +722,7 @@ Der oben genannte Artikel enthält Verfahren zur Wartung des VDI-Goldimages und 
 
 Es gibt einige Registrierungseinstellungen, mit denen die Netzwerkleistung gesteigert werden kann. Dies ist besonders wichtig in Umgebungen, in denen die VDI oder der Computer eine Workload hat, die hauptsächlich netzwerkbasiert ist. Die Einstellungen in diesem Abschnitt werden empfohlen, um die Leistung zugunsten des Netzwerks zu verzerren, indem sie zusätzliche Pufferung und Zwischenspeicherung von Verzeichniseinträgen usw. festlegen.
 
->[!NOTE]
+> [!NOTE]
 > Einige Einstellungen in diesem Abschnitt sind nur registrierungsbasiert und sollten in das Basisimage integriert werden, bevor das Image für die Produktion bereitgestellt wird.
 
 Die folgenden Einstellungen sind in den [Richtlinien zur Optimierung der Leistung für Windows Server 2016](../../administration/performance-tuning/index.md) dokumentiert, die von der Windows-Produktgruppe auf Microsoft.com veröffentlicht wurden.

@@ -6,14 +6,14 @@ ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/25/2020
+ms.date: 10/07/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a44926d50fae9dea38e3f5c46db423991a414a87
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 2c34ab9c769beb25437e26442d85f75d40db163e
+ms.sourcegitcommit: ed77cfe8140a480b025907716e3635d40a5e3303
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941510"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91806635"
 ---
 # <a name="compare-the-clients"></a>Vergleichen der Clients
 
@@ -29,7 +29,7 @@ Wenn Sie remote auf Ihren persönlichen Desktop zugreifen, stehen zusätzliche U
 
 ### <a name="input-redirection"></a>Eingabeumleitung
 
-| Umleitung | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Windows Store | Android | iOS | macOS | Webclient    |
+| Umleitung | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Microsoft Store-Client</br>(URDC) | Android | iOS | macOS | Webclient    |
 |-------------|---------------------------|-----------------------------|---------------|---------|-----|-------|---------------|
 | Tastatur    | X                         | X                           | X             | X       | X   | X     | X             |
 | Maus       | X                         | X                           | X             | X       | X\* | X     | X             |
@@ -40,7 +40,7 @@ Wenn Sie remote auf Ihren persönlichen Desktop zugreifen, stehen zusätzliche U
 
 ### <a name="port-redirection"></a>Anschlussumleitung
 
-| Umleitung | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Windows Store | Android | iOS | macOS | Webclient |
+| Umleitung | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Microsoft Store-Client</br>(URDC) | Android | iOS | macOS | Webclient |
 |-------------|---------------------------|-----------------------------|---------------|---------|-----|-------|------------|
 | Serieller Anschluss | X                         | X                           |               |         |     |       |            |
 | USB         | X                         | X                           |               |         |     |       |            |
@@ -49,7 +49,7 @@ Wenn Sie die USB-Anschlussumleitung aktivieren, werden alle am USB-Anschluss ang
 
 ### <a name="other-redirection-devices-etc"></a>Andere Umleitung (Geräte usw.)
 
-| Umleitung         | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Windows Store | Android | iOS         | macOS                           | Webclient    |
+| Umleitung         | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Microsoft Store-Client</br>(URDC) | Android | iOS         | macOS                           | Webclient    |
 |---------------------|---------------------------|-----------------------------|---------------|---------|-------------|---------------------------------|---------------|
 | Kameras             | X                         | X                           |               |     X    |   X         | X                               |               |
 | Zwischenablage           | X                         | X                           | X             | Text    | Text, Bilder | X                               | Text          |
