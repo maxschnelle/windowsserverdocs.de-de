@@ -5,15 +5,15 @@ ms.author: stevenek
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 07/24/2020
+ms.date: 09/09/2020
 description: Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: f0115e76ca297fa0af5fc57e197d75e428cb3e72
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c7ff6b1cf017405d90ae7e27d1d5853286a78b89
+ms.sourcegitcommit: c56e74743e5ad24b28ae81668668113d598047c6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997572"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91987310"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkten Speicherplätzen
 
@@ -47,15 +47,15 @@ Sammeln Sie die folgenden Informationen:
 
 ### <a name="step-11-install-the-operating-system"></a>Schritt 1,1: Installieren des Betriebssystems
 
-Der erste Schritt besteht darin, Windows Server auf allen Servern zu installieren, die sich im Cluster befinden. Direkte Speicherplätze erfordert Windows Server 2016 Datacenter Edition. Sie können die Server Core-Installationsoption oder Server mit Desktop Darstellung verwenden.
+Der erste Schritt besteht darin, Windows Server auf allen Servern zu installieren, die sich im Cluster befinden. Direkte Speicherplätze erfordert Windows Server Datacenter Edition. Sie können die Server Core-Installationsoption oder Server mit Desktop Darstellung verwenden.
 
-Wenn Sie Windows Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *Windows Server* (bezogen auf Server Core) und *Windows Server (Server mit Desktop Darstellung)* wählen. Dies entspricht der *vollständigen* Installationsoption, die in Windows Server 2012 R2 verfügbar ist. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installationsoptionen für Windows Server 2016](../../index.yml).
+Wenn Sie Windows Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *Windows Server* (bezogen auf Server Core) und *Windows Server (Server mit Desktop Darstellung)* wählen. Dies entspricht der *vollständigen* Installationsoption, die in Windows Server 2012 R2 verfügbar ist. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installieren von Server Core](/windows-server/get-started/getting-started-with-server-core).
 
 ### <a name="step-12-connect-to-the-servers"></a>Schritt 1,2: Herstellen einer Verbindung mit den Servern
 
 Dieser Leitfaden konzentriert sich auf die Server Core-Installationsoption und die Remote Bereitstellung/Verwaltung von einem separaten Verwaltungssystem, das Folgendes aufweisen muss:
 
-- Windows Server 2016 mit denselben Updates wie die von ihm verwalteten Server
+- Eine Version von Windows Server oder Windows 10 mindestens so neu wie die Server, die Sie verwalten, und mit den neuesten Updates
 - Netzwerk Konnektivität zu den verwalteten Servern
 - Mitglied der gleichen Domäne oder einer voll vertrauenswürdigen Domäne
 - Remoteserver-Verwaltungstools (RSAT) und PowerShell-Module für Hyper-V und Failoverclustering. RSAT-Tools und PowerShell-Module sind unter Windows Server verfügbar und können ohne Installation anderer Features installiert werden. Sie können die [Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520) auch auf einem Windows 10-Verwaltungs-PC installieren.
@@ -140,18 +140,18 @@ Invoke-Command ($ServerList) {
 
 Wenn Sie direkte Speicherplätze in virtuellen Computern bereitstellen, überspringen Sie diesen Abschnitt.
 
-Direkte Speicherplätze erfordert Netzwerkverbindungen mit geringer Bandbreite zwischen Servern im Cluster. Mindestens 10 GbE-Netzwerke sind erforderlich, und es wird der Remote Zugriff auf den direkten Speicher (RDMA) empfohlen. Sie können entweder IWarp oder ROCE verwenden, solange es das Windows Server 2016-Logo aufweist, aber IWarp ist in der Regel einfacher einzurichten.
+Direkte Speicherplätze erfordert Netzwerkverbindungen mit geringer Bandbreite zwischen Servern im Cluster. Mindestens 10 GbE-Netzwerke sind erforderlich, und es wird der Remote Zugriff auf den direkten Speicher (RDMA) empfohlen. Sie können entweder IWarp oder ROCE verwenden, solange das Windows Server-Logo mit ihrer Betriebssystemversion übereinstimmt, aber IWarp ist in der Regel einfacher einzurichten.
 
 > [!Important]
 > Abhängig von ihrer Netzwerkausrüstung und vor allem mit ROCE v2 ist möglicherweise eine Konfiguration des Top-of-Rack-Schalters erforderlich. Die richtige Switchkonfiguration ist wichtig, um die Zuverlässigkeit und Leistung von direkte Speicherplätze sicherzustellen.
 
-Windows Server 2016 führt Switch-Embedded-Team Vorgang (Set) im virtuellen Hyper-V-Switch ein. Dies ermöglicht die Verwendung derselben physischen NIC-Ports für den gesamten Netzwerk Datenverkehr bei Verwendung von RDMA, wodurch die Anzahl erforderlicher physischer NIC-Ports reduziert wird. Der Switch-Embedded-Team Vorgang wird für direkte Speicherplätze empfohlen.
+In Windows Server 2016 wurde Switch-Embedded Team Vorgang (Set) im virtuellen Hyper-V-Switch eingeführt. Dies ermöglicht die Verwendung derselben physischen NIC-Ports für den gesamten Netzwerk Datenverkehr bei Verwendung von RDMA, wodurch die Anzahl erforderlicher physischer NIC-Ports reduziert wird. Der Switch-Embedded-Team Vorgang wird für direkte Speicherplätze empfohlen.
 
 Umgeschaltete oder switchlose Knoten Verbindungen
 - Umgestellt: Netzwerk Switches müssen ordnungsgemäß für die Handhabung der Bandbreite und des Netzwerk Typs konfiguriert werden. Wenn Sie RDMA verwenden, das das ROCE-Protokoll implementiert, ist die Netzwerkgeräte-und Switchkonfiguration noch wichtiger.
 - Switchless: Knoten können mithilfe direkter Verbindungen miteinander verbunden werden, sodass die Verwendung eines Schalters vermieden wird. Es ist erforderlich, dass jeder Knoten über eine direkte Verbindung mit allen anderen Knoten des Clusters verfügt.
 
-Anweisungen zum Einrichten von Netzwerken für direkte Speicherplätze finden Sie unter [Windows Server 2016 konvergierte NIC und Bereitstellungs Handbuch für Gast-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+Anweisungen zum Einrichten von Netzwerken für direkte Speicherplätze finden Sie im [Bereitstellungs Handbuch für Windows Server 2016 und 2019 RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
 
 ## <a name="step-3-configure-storage-spaces-direct"></a>Schritt 3: Konfigurieren von „Direkte Speicherplätze“
 
@@ -262,7 +262,7 @@ Weitere Informationen finden Sie unter [Erstellen von Volumes in direkte Speiche
 
 ### <a name="step-37-optionally-enable-the-csv-cache"></a>Schritt 3,7: Aktivieren Sie optional den CSV-Cache.
 
-Optional können Sie den CSV-Cache (Cluster Shared Volume) für die Verwendung von System Arbeitsspeicher (RAM) als Schreibvorgang auf Blockebene von Lesevorgängen aktivieren, die nicht bereits vom Windows-Cache-Manager zwischengespeichert wurden. Dies kann die Leistung für Anwendungen wie Hyper-V verbessern. Der CSV-Cache kann die Leistung von Lese Anforderungen steigern und ist auch für Dateiserver mit horizontaler Skalierung-Szenarien nützlich.
+Optional können Sie den CSV-Cache (Cluster Shared Volume) für die Verwendung von System Arbeitsspeicher (RAM) als Schreibvorgang auf Blockebene von Lesevorgängen aktivieren, die nicht bereits vom Windows-Cache-Manager zwischengespeichert wurden. Dies kann die Leistung für Anwendungen wie Hyper-V verbessern. Der CSV-Cache kann die Leistung von Lese Anforderungen steigern und ist auch für Scale-Out Datei Server Szenarios nützlich.
 
 Wenn Sie den CSV-Cache aktivieren, verringert sich der Arbeitsspeicher, der für die Ausführung von VMS in einem hyperkonvergenten Cluster verfügbar ist. Daher müssen Sie die Speicherleistung mit dem für VHDs verfügbaren Arbeitsspeicher ausgleichen.
 
@@ -289,32 +289,32 @@ Die Dateien der virtuellen Maschine sollten im CSV-Namespace des Systems (z. b. 
 
 Sie können die in-Box-Tools oder andere Tools verwenden, um den Speicher und die virtuellen Maschinen zu verwalten, z. b. System Center Virtual Machine Manager.
 
-## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Schritt 4: Bereitstellen von Dateiserver mit horizontaler Skalierung für konvergierte Lösungen
+## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Schritt 4: bereitstellen Scale-Out Dateiservers für konvergierte Lösungen
 
-Wenn Sie eine konvergierte Lösung bereitstellen, ist der nächste Schritt das Erstellen einer Dateiserver mit horizontaler Skalierung Instanz und das Einrichten einiger Dateifreigaben. Wenn Sie einen hyperkonvergierten Cluster bereitstellen, sind Sie fertig und benötigen diesen Abschnitt nicht.
+Wenn Sie eine konvergierte Lösung bereitstellen, ist der nächste Schritt das Erstellen einer Scale-Out-Datei Server Instanz und das Einrichten einiger Dateifreigaben. Wenn Sie einen hyperkonvergierten Cluster bereitstellen, sind Sie fertig und benötigen diesen Abschnitt nicht.
 
-### <a name="step-41-create-the-scale-out-file-server-role"></a>Schritt 4,1: Erstellen der Dateiserver mit horizontaler Skalierung Rolle
+### <a name="step-41-create-the-scale-out-file-server-role"></a>Schritt 4,1: Erstellen der Scale-Out Datei Server Rolle
 
-Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver ist das Erstellen der Cluster Dateiserver-Rolle. Dies ist der Fall, wenn Sie die Dateiserver mit horizontaler Skalierung Instanz erstellen, auf der die fortlaufend verfügbaren Dateifreigaben gehostet werden.
+Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver ist das Erstellen der Cluster Dateiserver-Rolle. Dies ist der Fall, wenn Sie die Scale-Out Dateiserver Instanz erstellen, auf der die fortlaufend verfügbaren Dateifreigaben gehostet werden.
 
-#### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Server-Manager
+#### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Scale-Out-Datei Server Rolle mit Server-Manager
 
 1. Wählen Sie in Failovercluster-Manager den Cluster aus, navigieren Sie zu **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...**.<br>Der Assistent für hohe Verfügbarkeit wird angezeigt.
 2. Klicken Sie auf der Seite **Rolle auswählen** auf **Datei Server**.
 3. Klicken Sie auf der Seite **Datei Servertyp** auf **Dateiserver mit horizontaler Skalierung für Anwendungsdaten**.
-4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für das Dateiserver mit horizontaler Skalierung ein.
+4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für den Scale-Out Datei Server ein.
 5. Überprüfen Sie, ob die Rolle erfolgreich eingerichtet wurde, indem Sie zu **Rollen** wechseln und sicherstellen, dass in der Spalte **Status** neben der erstellten Cluster Dateiserver-Rolle **ausgeführt** wird, wie in Abbildung 1 dargestellt.
 
-   ![Screenshot der Failovercluster-Manager, die die Dateiserver mit horizontaler Skalierung anzeigt](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager, der die Dateiserver mit horizontaler Skalierung anzeigt")
+   ![Screenshot der Failovercluster-Manager, die den Scale-Out Datei Server anzeigt](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager, der den Scale-Out Datei Server anzeigt")
 
-    **Abbildung 1** Failovercluster-Manager mit dem Status "wird ausgeführt" Dateiserver mit horizontaler Skalierung angezeigt
+    **Abbildung 1** Failovercluster-Manager, der den Scale-Out Datei Server mit dem Status "wird ausgeführt" anzeigt
 
 > [!NOTE]
 >  Nach dem Erstellen der Cluster Rolle können einige Verzögerungen bei der Netzwerk Weitergabe auftreten, die das Erstellen von Dateifreigaben für ein paar Minuten oder potenziell länger verhindern können.
 
-#### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>So erstellen Sie eine Dateiserver mit horizontaler Skalierung Rolle mithilfe von Windows PowerShell
+#### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>So erstellen Sie eine Scale-Out-Datei Server Rolle mithilfe von Windows PowerShell
 
- Geben Sie in einer Windows PowerShell-Sitzung, die mit dem Dateiserver Cluster verbunden ist, die folgenden Befehle ein, um die Dateiserver mit horizontaler Skalierung-Rolle zu erstellen, und ändern Sie den *fscluester* so, dass er dem Namen Ihres Clusters entspricht, und *sofs* entsprechend dem Namen, den Sie der Dateiserver mit horizontaler Skalierung Rolle geben möchten:
+ Geben Sie in einer Windows PowerShell-Sitzung, die mit dem Dateiserver Cluster verbunden ist, die folgenden Befehle ein, um die Scale-Out Dateiserver *Rolle zu erstellen, und ändern Sie* die Datei mit dem Namen Ihres Clusters und *sofs* entsprechend dem Namen, den Sie der Scale-Out Dateiserver Rolle geben möchten:
 
 ```PowerShell
 Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
@@ -384,9 +384,9 @@ CD $ScriptFolder
 
 Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
+-   [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
 -   [Verstehen des Caches in direkten Speicherplätzen](understand-the-cache.md)
 -   [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
 -   [Fehlertoleranz bei Speicherplätzen](storage-spaces-fault-tolerance.md)
