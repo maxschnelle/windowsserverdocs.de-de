@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 04/01/2019
-ms.openlocfilehash: dedd7a3629b4381fd5f78f70a39f6906cab0573d
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c1d169147c6b09c8a238163a961c192e3e483728
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87995389"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92155957"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autorisieren von überwachten Hosts mithilfe von TPM-basiertem Nachweis
 
@@ -27,7 +27,7 @@ Der TPM-Modus verwendet einen TPM-Bezeichner (auch als Platt Form Bezeichner ode
 
     -  Dies gilt für alle Hyper-V-Hosts, die auf derselben Hardware Klasse ausgeführt werden.
 
-3.  Code Integritätsrichtlinie (eine Whitelist zulässiger Binärdateien)
+3.  Code Integritätsrichtlinie (eine Zulassungs zulässiger Binärdateien)
 
     -  Dies gilt für alle Hyper-V-Hosts, die gemeinsame Hardware und Software gemeinsam verwenden.
 
@@ -35,7 +35,7 @@ Es wird empfohlen, die Baseline-und CI-Richtlinie von einem "Verweis Host" zu er
 
 ## <a name="versioned-attestation-policies"></a>Nachweis Richtlinien mit Versions Angabe
 
-In Windows Server 2019 wird eine neue Methode für den Nachweis namens " *v2*-Nachweis" eingeführt, in der ein TPM-Zertifikat vorhanden sein muss, um die ekpub-Datei zu HGS hinzuzufügen. Mit der in Windows Server 2016 verwendeten v1-Nachweismethode konnten Sie diese Sicherheitsüberprüfung außer Kraft setzen, indem Sie das Flag "-Force" angeben, wenn Sie "Add-hgsattestationtpmhost" oder andere TPM-Nachweis-Cmdlets ausführen, um die Artefakte zu erfassen. Ab Windows Server 2019 wird der V2-Nachweis standardmäßig verwendet, und Sie müssen das Flag "-PolicyVersion v1" angeben, wenn Sie "Add-hgsattestationtpmhost" ausführen müssen, wenn Sie ein TPM ohne Zertifikat registrieren müssen. Das Flag-Force funktioniert nicht mit dem V2-Nachweis.
+In Windows Server 2019 wird eine neue Methode für den Nachweis namens " *v2*-Nachweis" eingeführt, in der ein TPM-Zertifikat vorhanden sein muss, um die ekpub-Datei zu HGS hinzuzufügen. Mit der in Windows Server 2016 verwendeten v1-Nachweismethode konnten Sie diese Sicherheitsüberprüfung außer Kraft setzen, indem Sie das Flag "-Force" angeben, wenn Sie Add-HgsAttestationTpmHost oder andere TPM-Nachweis-Cmdlets ausführen, um die Artefakte zu erfassen. Ab Windows Server 2019 wird der V2-Nachweis standardmäßig verwendet, und Sie müssen das Flag "-PolicyVersion v1" angeben, wenn Sie Add-HgsAttestationTpmHost ausführen, wenn Sie ein TPM ohne Zertifikat registrieren müssen. Das Flag-Force funktioniert nicht mit dem V2-Nachweis.
 
 Ein Host kann nur überzeugen, ob für alle Artefakte (ekpub + TPM-Baseline und CI-Richtlinie) dieselbe Version des Nachweis verwendet wird. Der V2-Nachweis wird zuerst ausprobiert, und wenn dies nicht möglich ist, wird der v1-Nachweis verwendet. Dies bedeutet Folgendes: Wenn Sie eine TPM-ID mithilfe des v1-Nachweis registrieren müssen, müssen Sie auch das Flag "-PolicyVersion v1" angeben, um den v1-Nachweis zu verwenden, wenn Sie die TPM-Baseline erfassen und die CI-Richtlinie erstellen. Wenn die TPM-Baseline und die CI-Richtlinie mit dem V2-Nachweis erstellt wurden und Sie später einen überwachten Host ohne TPM-Zertifikat hinzufügen müssen, müssen Sie jedes artefaktelement mit dem Flag "-PolicyVersion v1" neu erstellen.
 

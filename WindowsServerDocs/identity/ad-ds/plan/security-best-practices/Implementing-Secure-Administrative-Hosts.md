@@ -6,12 +6,12 @@ ms.author: iainfou
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 63f4f805ca5326f480ce3496deecf04a40d5ffa4
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: b5d559532393d120a9deb6337fe9125c101f34ef
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92155645"
 ---
 # <a name="implementing-secure-administrative-hosts"></a>Implementieren sicherer Verwaltungshosts
 
@@ -73,7 +73,7 @@ Bei [Microsoft Security Compliance Manager](/previous-versions/tn-archive/cc6770
 > Zum Zeitpunkt der Erstellung dieses Artikels enthält Microsoft Security Compliance Manager keine speziellen Einstellungen für Jump-Server oder andere sichere administrative Hosts, aber Security Compliance Manager (SCM) kann weiterhin verwendet werden, um anfängliche Basis Linien für Ihre administrativen Hosts zu erstellen. Zum ordnungsgemäßen Sichern der Hosts sollten Sie jedoch zusätzliche Sicherheitseinstellungen anwenden, die für hochgradig gesicherte Arbeitsstationen und Server geeignet sind.
 
 ### <a name="applocker"></a>AppLocker
-Administrative Hosts und virtuelle Maschinen sollten mit Skript-, Tool-und anwendungswhitelists über AppLocker oder eine Anwendungs Einschränkungs Software eines Drittanbieters konfiguriert werden. Alle administrativen Anwendungen oder Hilfsprogramme, die keine sicheren Einstellungen einhalten, sollten aktualisiert oder durch Tools ersetzt werden, die sicheren Entwicklungs-und Verwaltungsverfahren entsprechen. Wenn neue oder zusätzliche Tools auf einem administrativen Host benötigt werden, sollten die Anwendungen und Dienstprogramme gründlich getestet werden, und wenn die Tools für die Bereitstellung auf administrativen Hosts geeignet sind, können Sie den Whitelists der Systeme hinzugefügt werden.
+Administrative Hosts und virtuelle Computer sollten mit Skripts, Tools und Anwendungen über AppLocker oder eine Anwendungs Einschränkungs Software eines Drittanbieters konfiguriert werden. Alle administrativen Anwendungen oder Hilfsprogramme, die keine sicheren Einstellungen einhalten, sollten aktualisiert oder durch Tools ersetzt werden, die sicheren Entwicklungs-und Verwaltungsverfahren entsprechen. Wenn neue oder zusätzliche Tools auf einem administrativen Host benötigt werden, sollten die Anwendungen und Dienstprogramme gründlich getestet werden, und wenn die Tools für die Bereitstellung auf administrativen Hosts geeignet sind, können Sie dem System hinzugefügt werden.
 
 ### <a name="rdp-restrictions"></a>RDP-Einschränkungen
 Obwohl die spezifische Konfiguration in Abhängigkeit von der Architektur ihrer administrativen Systeme variiert, sollten Sie Einschränkungen beachten, welche Konten und Computer zum Einrichten von Remotedesktopprotokoll (RDP) mit verwalteten Systemen verwendet werden können, z. b. die Verwendung Remotedesktop Gateway (RD-Gateway) Jump-Servern, um den Zugriff auf Domänen Controller und andere verwaltete Systeme von autorisierten Benutzern und Systemen zu steuern.
@@ -86,7 +86,7 @@ Kleinere Organisationen können sich auf Angebote wie z. b. Windows Update oder 
 Obwohl Sie keine manuellen Update Prozesse für sichere Systeme implementieren sollten, sollten Sie eine separate Infrastruktur zum Aktualisieren sicherer Systeme konfigurieren. Auch in sehr großen Organisationen kann diese Infrastruktur in der Regel über dedizierte WSUS-Server und GPOs für gesicherte Systeme implementiert werden.
 
 ### <a name="blocking-internet-access"></a>Blockieren des Internet Zugriffs
-Administrator Hosts dürfen nicht auf das Internet zugreifen dürfen und sollten nicht in der Lage sein, das Intranet einer Organisation zu durchsuchen. Webbrowser und ähnliche Anwendungen sollten auf administrativen Hosts nicht zugelassen werden. Sie können den Internet Zugriff für sichere Hosts über eine Kombination aus Umkreis-Firewall-Einstellungen, wfas-Konfiguration und "Black Hole"-Proxykonfiguration auf sicheren Hosts blockieren. Sie können auch anwendungswhitelists verwenden, um zu verhindern, dass Webbrowser auf administrativen Hosts verwendet werden.
+Administrator Hosts dürfen nicht auf das Internet zugreifen dürfen und sollten nicht in der Lage sein, das Intranet einer Organisation zu durchsuchen. Webbrowser und ähnliche Anwendungen sollten auf administrativen Hosts nicht zugelassen werden. Sie können den Internet Zugriff für sichere Hosts über eine Kombination aus Umkreis-Firewall-Einstellungen, wfas-Konfiguration und "Black Hole"-Proxykonfiguration auf sicheren Hosts blockieren. Sie können auch die Anwendung "allowslist" verwenden, um zu verhindern, dass Webbrowser auf administrativen Hosts verwendet werden.
 
 ### <a name="virtualization"></a>Virtualisierung
 Wenn möglich, sollten Sie die Implementierung virtueller Maschinen als administrative Hosts in Erwägung gezogen. Mithilfe der Virtualisierung können Sie benutzerspezifische Verwaltungssysteme erstellen, die zentral gespeichert und verwaltet werden und problemlos heruntergefahren werden können, wenn Sie nicht verwendet werden. Dadurch wird sichergestellt, dass die Anmelde Informationen auf den administrativen Systemen nicht aktiviert sind. Außerdem kann es erforderlich sein, dass virtuelle administrative Hosts nach jeder Verwendung auf eine anfängliche Momentaufnahme zurückgesetzt werden, um sicherzustellen, dass die virtuellen Computer intakt bleiben. Weitere Informationen zu den Optionen für die Virtualisierung von administrativen Hosts finden Sie im folgenden Abschnitt.

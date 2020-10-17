@@ -6,12 +6,12 @@ ms.topic: get-started-article
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 10/02/2018
-ms.openlocfilehash: be28e5b3b9939907398b0c245fc49fcfd6f5e49a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a9e939b4a810848e91b5d2cb8e4b878bbcf56e84
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87954016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92156468"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Messen des ausgehenden Datenverkehrs in einem virtuellen Netzwerk
 
@@ -22,7 +22,7 @@ Ein grundlegender Aspekt der cloudantennetzwerkmonetarisierung ist die Abrechnun
 
 Die ausgehende Messung des SDN-Netzwerk Datenverkehrs in Windows Server 2019 ermöglicht das anbieten von Nutzungs Zählern für ausgehende Datenübertragungen. Netzwerk Datenverkehr, der die einzelnen virtuellen Netzwerke verlässt, aber innerhalb des Rechenzentrums verbleibt, kann einzeln nachverfolgt werden, sodass Sie von Abrechnungs Berechnungen ausgeschlossen werden können. An Ziel-IP-Adressen gebundene Pakete, die nicht in einem der nicht berechneten Adressbereiche enthalten sind, werden als in Rechnung gestellte ausgehende Datenübertragungen nachverfolgt.
 
-## <a name="virtual-network-unbilled-address-ranges-whitelist-of-ip-ranges"></a>Nicht berechnete Adressbereiche des virtuellen Netzwerks (Whitelist von IP-Bereichen)
+## <a name="virtual-network-unbilled-address-ranges-allowlist-of-ip-ranges"></a>Nicht berechnete Adressbereiche des virtuellen Netzwerks (AllowList von IP-Bereichen)
 
 Sie finden nicht berechnete Adressbereiche unter der **unbilledaddressranges** -Eigenschaft eines vorhandenen virtuellen Netzwerks. Standardmäßig werden keine Adressbereiche hinzugefügt.
 

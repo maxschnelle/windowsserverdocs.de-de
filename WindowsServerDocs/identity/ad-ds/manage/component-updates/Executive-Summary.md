@@ -6,12 +6,12 @@ ms.author: iainfou
 manager: daveba
 ms.date: 05/08/2018
 ms.topic: article
-ms.openlocfilehash: b67dbb8c22545b55b7b07565c4c92bc363070bc1
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: ffd3cf45d276445bca36f9e01651b74468446f61
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941330"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92155935"
 ---
 # <a name="executive-summary"></a>Kurzfassung
 
@@ -78,7 +78,7 @@ Dieser Abschnitt konzentriert sich auf technische Kontrollen, um die Angriffsfl�
 
 - Im Abschnitt **privilegierte Konten und Gruppen in Active Directory** werden die Konten und Gruppen mit den höchsten Berechtigungen in Active Directory sowie die Mechanismen erläutert, mit denen privilegierte Konten geschützt werden. In Active Directory sind drei integrierte Gruppen die höchsten Berechtigungs Gruppen im Verzeichnis (Organisations-Admins, Domänen-Admins und Administratoren), obwohl eine Reihe zusätzlicher Gruppen und Konten ebenfalls geschützt werden sollten.
 
-- Der Abschnitt zur **Implementierung von Verwaltungs Modellen mit geringsten Rechten** konzentriert sich auf die Ermittlung des Risikos, dass die Verwendung von Konten mit hohen Berechtigungen für die tägliche Verwaltung und die Bereitstellung von Empfehlungen zur Minderung dieses Risikos.
+- Im Abschnitt **Implementieren von Least-Privilege administrativen Modellen** geht es um das Risiko, dass die Verwendung von Konten mit hohen Berechtigungen für die tägliche Verwaltung und die Bereitstellung von Empfehlungen zur Minderung des Risikos mit sich bringt.
 
 Übermäßige Berechtigungen werden nicht nur in Active Directory in kompromittierten Umgebungen gefunden. Wenn eine Organisation die Gewohnheit hat, mehr Berechtigungen zu erteilen, als erforderlich ist, wird Sie in der Regel in der gesamten Infrastruktur gefunden:
 
@@ -139,11 +139,11 @@ Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, 
 
 - Verwalten **einer sichereren Umgebung** : enthält allgemeine Empfehlungen, die als Richtlinien für die Entwicklung nicht nur effektiver Sicherheit, sondern für eine effektive Lebenszyklus Verwaltung verwendet werden sollen. Dieser Abschnitt enthält die folgenden Themen:
 
-    - **Erstellen von geschäftsorientierten Sicherheitsmethoden für Active Directory** : um den Lebenszyklus der Benutzer, Daten, Anwendungen und Systeme, die von Active Directory verwaltet werden, effektiv zu verwalten, befolgen Sie diese Prinzipien.
+    - **Erstellen Business-Centric Sicherheitspraktiken für Active Directory** : um den Lebenszyklus der Benutzer, Daten, Anwendungen und Systeme, die von Active Directory verwaltet werden, effektiv zu verwalten, befolgen Sie diese Prinzipien.
 
         - **Weisen Sie Active Directory Daten einen Geschäfts Besitz** zu, und weisen Sie ihm den Besitz von Infrastrukturkomponenten zu. für Daten, die Active Directory Domain Services (AD DS) hinzugefügt werden, um das Unternehmen zu unterstützen, z. b. neue Mitarbeiter, neue Anwendungen und neue Informations Depots, sollte eine bestimmte Geschäftseinheit oder ein bestimmtes Benutzer mit den Daten verknüpft werden.
 
-        - **Implementieren der geschäftsorientierten Lebenszyklus Verwaltung** : die Lebenszyklus Verwaltung sollte für Daten in Active Directory implementiert werden.
+        - **Implementieren von Business-Driven Lifecycle Management** : die Lebenszyklus Verwaltung sollte für Daten in Active Directory implementiert werden.
 
         - **Klassifizieren Sie alle Active Directory Daten** : Geschäftsinhaber sollten die Klassifizierung für Daten in Active Directory bereitstellen. Innerhalb des Daten Klassifizierungs Modells sollte die Klassifizierung für die folgenden Active Directory Daten eingeschlossen werden:
 
@@ -169,7 +169,7 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 | Entfernen Sie permanente Mitgliedschaft in Gruppen mit hohen Berechtigungen. | Taktisch | Vorbeugend |
 | Implementieren Sie Steuerelemente, um bei Bedarf temporäre Mitgliedschaften in privilegierten Gruppen zu erteilen. | Taktisch | Vorbeugend |
 | Implementieren Sie sichere administrative Hosts. | Taktisch | Vorbeugend |
-| Verwenden Sie anwendungswhitelists auf Domänen Controllern, administrativen Hosts und anderen sensiblen Systemen. | Taktisch | Vorbeugend |
+| Verwenden Sie die Anwendungs-allowslists auf Domänen Controllern, administrativen Hosts und anderen sensiblen Systemen. | Taktisch | Vorbeugend |
 | Identifizieren Sie wichtige Assets, und priorisieren Sie Ihre Sicherheit und Überwachung. | Taktisch | Beide |
 | Implementieren Sie für die Verwaltung des Verzeichnisses, der unterstützenden Infrastruktur und der in die Domäne eingebundenen Systeme die geringsten Berechtigungen, rollenbasierte Zugriffs Steuerungen. | Strategisch | Vorbeugend |
 | Isolieren Sie ältere Systeme und Anwendungen. | Taktisch | Vorbeugend |
@@ -180,5 +180,5 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 | Vereinfachen Sie die Sicherheit für Endbenutzer. | Strategisch | Vorbeugend |
 | Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation. | Taktisch | Vorbeugend |
 | Patchen von Geräten. | Taktisch | Vorbeugend |
-| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | – |
+| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | N/V |
 | Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle. | Strategisch | Nicht zutreffend |

@@ -1,26 +1,24 @@
 ---
 title: wbadmin get disks
-description: Referenz Artikel für Wbadmin Get Disks, der die internen und externen Datenträger auflistet, die derzeit für den lokalen Computer online sind.
+description: Referenz Artikel für den Befehl Wbadmin Get Disks, der die internen und externen Datenträger auflistet, die derzeit für den lokalen Computer online sind.
 ms.topic: reference
 ms.assetid: 320edef1-df11-446b-a183-9f81811ef938
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 5965c9106d19fca2619feee610829dbe1c4a0de4
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 185d8bf01e867b0c34467221a60d86fd912a2f18
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89640738"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92156030"
 ---
 # <a name="wbadmin-get-disks"></a>wbadmin get disks
 
-
-
 Listet die internen und externen Datenträger auf, die derzeit für den lokalen Computer online sind.
 
-Zum Auflisten der Datenträger, die mit diesem Unterbefehl online sind, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
+Um die Online Datenträger mit diesem Befehl aufzulisten, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen, indem Sie mit der rechten Maustaste auf **Eingabeaufforderung**klicken und dann **als Administrator ausführen**auswählen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,12 +26,10 @@ Zum Auflisten der Datenträger, die mit diesem Unterbefehl online sind, müssen 
 wbadmin get disks
 ```
 
-### <a name="parameters"></a>Parameter
-
-Dieser Unterbefehl weist keine Parameter auf.
-
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Wbadmin](wbadmin.md)
--   Cmdlet " [Get-wbdisk](/powershell/module/windowserverbackup/?view=winserver2012r2-ps) "
+
+- [Wbadmin-Befehl](wbadmin.md)
+
+- [Get-wbdisk](/powershell/module/windowserverbackup/Get-WBDisk)

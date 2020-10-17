@@ -62,11 +62,11 @@
 #### [Verwalten der Benutzerzugriffsprotokollierung](user-access-logging/manage-user-access-logging.md)
 
 ## Optimieren der Leistung Ihrer Windows Server
-### [Richtlinien zur Leistungsoptimierung](performance-tuning/index.md) 
+### [Richtlinien zur Leistungsoptimierung](performance-tuning/index.md)
 ### [Microsoft Server Performance Advisor](server-performance-advisor/microsoft-server-performance-advisor.md)
 #### [Server Performance Advisor-Benutzerhandbuch](server-performance-advisor/server-performance-advisor-users-guide.md)
 #### [Server Performance Advisor Pack-Entwicklungsleitfaden](server-performance-advisor/server-performance-advisor-pack-development-guide.md)
 
 ## Automatisieren der Windows Server-Verwaltung
-### [Windows PowerShell-Skripting](/powershell/scripting/powershell-scripting?view=powershell-5.1)
+### [Windows PowerShell-Skripting](/powershell/scripting/overview)
 ### [Windows-Befehle](windows-commands/windows-commands.md)

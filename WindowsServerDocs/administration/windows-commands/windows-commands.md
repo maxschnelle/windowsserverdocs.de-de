@@ -7,12 +7,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.date: 06/29/2020
-ms.openlocfilehash: c389d0889d4dfca46472215f014e77e9b2346f87
-ms.sourcegitcommit: 96d46c702e7a9c3a321bbbb5284f73911c7baa3c
+ms.openlocfilehash: ad0c9b5aba9148a2763e8fde6c9ff5eb6556918f
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022847"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92155842"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -45,7 +45,7 @@ PowerShell wurde entwickelt, um die Funktionen der Befehlsshell zum Ausführen v
 Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShell anstelle von Windows-Befehlen oder Windows Script Host für Windows Automation zu verwenden.
 
 > [!NOTE]
->Sie können auch [PowerShell Core](/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell.
+>Sie können auch [PowerShell Core](/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6&preserve-view=true)herunterladen und installieren, die Open Source-Version von PowerShell.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
@@ -53,7 +53,7 @@ Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShe
 > [!NOTE]
 > Führen Sie **regedit.exe** aus, und legen Sie den folgenden **reg_DWOrd Wert**fest, um die Vervollständigung von Datei-und Verzeichnisnamen in der Befehlsshell für eine Computer-oder Benutzer Anmelde Sitzung zu aktivieren bzw
 >
-> HKEY_LOCAL_MACHINE \software\microsoft\command processor\completionchar\ reg_DWOrd
+> HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
 >
 > Um den **reg_DWOrd** Wert festzulegen, verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 9** ist Tab und **0 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
@@ -63,7 +63,7 @@ Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie i
 
 [A](#a)  |  [B](#b)  |  [C](#c)  |  [D](#d)  |  [E](#e)  |  [F](#f)  |  [G](#g)  |  [H](#h)  |  [I](#i)  |  [J](#j)  |  [K](#k)  |  [L](#l)  |  [M](#m)  |  [N](#n)  |  [O](#o)  |  [P](#p)  |  [F](#q)  |  [R](#r)  |  [S](#s)  |  [T](#t)  |  [U](#u)  |  [V](#v)  |  [W](#w)  |  [X](#x) | J | Z
 
-### <a name="a"></a>Ein
+### <a name="a"></a>A
 
 - [active](active.md)
 - [add](add.md)
@@ -769,17 +769,17 @@ Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie i
   - [telnet unset](telnet-unset.md)
 - [tftp](tftp.md)
 - [time](time.md)
-- [timeout](timeout_1.md)
-- [title](title_1.md)
+- [timeout](timeout.md)
+- [title](title.md)
 - [tlntadmn](tlntadmn.md)
 - [tpmtool](tpmtool.md)
 - [tpmvscmgr](tpmvscmgr.md)
-- [tracerpt](tracerpt_1.md)
+- [tracerpt](tracerpt.md)
 - [tracert](tracert.md)
 - [tree](tree.md)
 - [tscon](tscon.md)
 - [tsdiscon](tsdiscon.md)
-- [tsecimp](tsecimp_1.md)
+- [tsecimp](tsecimp.md)
 - [tskill](tskill.md)
 - [tsprof](tsprof.md)
 - [type](type.md)
@@ -790,13 +790,13 @@ Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie i
 
 - [unexpose](unexpose.md)
 - [uniqueid](uniqueid.md)
-- [unlodctr](unlodctr_1.md)
+- [unlodctr](unlodctr.md)
 
 ### <a name="v"></a>V
 
 - [ver](ver.md)
 - [verifier](verifier.md)
-- [verify](verify_1.md)
+- [verify](verify.md)
 - [vol](vol.md)
 - [vssadmin](vssadmin.md)
   - [vssadmin delete shadows](vssadmin-delete-shadows.md)
@@ -826,7 +826,7 @@ Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie i
 - [wdsutil](wdsutil.md)
 - [wecutil](wecutil.md)
 - [wevtutil](wevtutil.md)
-- [where](where_1.md)
+- [where](where.md)
 - [whoami](whoami.md)
 - [winnt](winnt.md)
 - [winnt32](winnt32.md)

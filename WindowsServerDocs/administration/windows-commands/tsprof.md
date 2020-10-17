@@ -1,65 +1,69 @@
 ---
 title: tsprof
-description: Referenz Artikel für TSPROF, der die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer auf einen anderen kopiert.
+description: Referenz Artikel für den Befehl "TSPROF", mit dem die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer auf einen anderen kopiert werden.
 ms.topic: reference
 ms.assetid: 27047868-b706-4208-b7e0-1437a2325dd3
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: de1acc0c99f91f3ebf01d09d39d9fb0685d7f8f6
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: e18f736a31af3cc649d4921197710f713e7df6af
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89626695"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92156346"
 ---
 # <a name="tsprof"></a>tsprof
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Kopiert die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer in einen anderen.
-Die Remotedesktopdienste Benutzer Konfigurationsinformationen werden in den Remotedesktopdienste-Erweiterungen für lokale Benutzer und Gruppen sowie für Active Directory-Benutzer und-Computer angezeigt.
-
-**TSPROF** kann auch den Profilpfad für einen Benutzer festlegen.
+Kopiert die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer in einen anderen. Die Remotedesktopdienste Benutzer Konfigurationsinformationen werden in den Remotedesktopdienste-Erweiterungen für lokale Benutzer und Gruppen sowie für Active Directory-Benutzer und-Computer angezeigt.
 
 > [!NOTE]
-> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](/previous-versions/orphan-topics/ws.11/hh831527(v=ws.11)) in der TechNet-Bibliothek für Windows Server.
+> Sie können auch den [TSPROF-Befehl](tsprof.md) verwenden, um den Profilpfad für einen Benutzer festzulegen.
+>
+> Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn283323(v=ws.11)).
 
 ## <a name="syntax"></a>Syntax
+
 ```
-tsprof /update {/domain:<DomainName> | /local} /profile:<path> <UserName>
-tsprof /copy {/domain:<DomainName> | /local} [/profile:<path>] <Src_usr> <Dest_usr>
-tsprof /q {/domain:<DomainName> | /local} <UserName>
+tsprof /update {/domain:<Domainname> | /local} /profile:<path> <username>
+tsprof /copy {/domain:<Domainname> | /local} [/profile:<path>] <src_user> <dest_user>
+tsprof /q {/domain:<Domainname> | /local} <username>
 ```
 
 ### <a name="parameters"></a>Parameter
-|Parameter|BESCHREIBUNG|
-|-------|--------|
-|/update|Aktualisiert Profilpfad Informationen für <*Benutzernamen*> in *Domänen* <Domain Name> auf <*ProfilePath* ->.|
-|/Domain\<DomainName>|Gibt den Namen der Domäne an, in der der Vorgang angewendet wird.|
-|/local ein|Wendet den Vorgang nur auf lokale Benutzerkonten an.|
-|/profile\<path>|Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird.|
-|\<UserName>|Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten.|
-|/Copy|Kopiert Benutzer Konfigurationsinformationen aus \<*SourceUser*> in \<*DestinationUser*> und aktualisiert die Profilpfad Informationen für \<*DestinationUser*> in \<*Profilepath*> . Sowohl \<*SourceUser*> als auch \<*DestinationUser*> müssen entweder lokal oder in der Domäne sein \<*DomainName*> .|
-|\<Src_usr>|Gibt den Namen des Benutzers an, von dem Sie die Benutzer Konfigurationsinformationen kopieren möchten.|
-|\<Dest_usr>|Gibt den Namen des Benutzers an, in den die Benutzer Konfigurationsinformationen kopiert werden sollen.|
-|/q|Zeigt den aktuellen Profilpfad des Benutzers an, für den Sie den Serverprofil Pfad Abfragen möchten.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
--   Der Befehl " **TSPROF** " ist nur verfügbar, wenn Sie den Terminal Server-Rollen Dienst auf einem Computer mit Windows Server 2008 oder RD-Sitzungshost Rollen Dienst auf einem Computer mit Windows Server 2008 R2 installiert haben.
+| Parameter | BESCHREIBUNG |
+|--|--|
+| /update | Aktualisiert Profilpfad Informationen für `<username>` in der Domäne in `<domainname>` `<profilepath>` . |
+| /Domain`<Domainname>` | Gibt den Namen der Domäne an, in der der Vorgang angewendet wird. |
+| /local ein | Wendet den Vorgang nur auf lokale Benutzerkonten an. |
+| /profile`<path>` | Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird. |
+| `<username>` | Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten. |
+| /Copy | Kopiert Benutzer Konfigurationsinformationen aus `<src_user>` in `<dest_user>` und aktualisiert die Profilpfad Informationen für `<dest_user>` in `<profilepath>` . Sowohl `<src_user>` als auch `<dest_user>` müssen entweder lokal oder in der Domäne sein `<domainname>` . |
+| `<src_user>` | Gibt den Namen des Benutzers an, von dem Sie die Benutzer Konfigurationsinformationen kopieren möchten. Wird auch als Quell Benutzer bezeichnet. |
+| `<dest_user>` | Gibt den Namen des Benutzers an, in den die Benutzer Konfigurationsinformationen kopiert werden sollen. Wird auch als Ziel Benutzer bezeichnet. |
+| /q | Zeigt den aktuellen Profilpfad des Benutzers an, für den Sie den Serverprofil Pfad Abfragen möchten. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="examples"></a>Beispiele
--   Um Benutzer Konfigurationsinformationen von LocalUser1 nach LocalUser2 zu kopieren, geben Sie Folgendes ein:
-    ```
-    tsprof /copy /local LocalUser1 LocalUser2
-    ```
--   Um den Remotedesktopdienste Profilpfad für LocalUser1 auf ein Verzeichnis namens c:\Profiles festzulegen, geben Sie Folgendes ein:
-    ```
-    tsprof /update /local /profile:c:\profiles LocalUser1
-    ```
 
-## <a name="additional-references"></a>Weitere Verweise
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
- [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+Um Benutzer Konfigurationsinformationen von *LocalUser1* nach *LocalUser2*zu kopieren, geben Sie Folgendes ein:
+
+```
+tsprof /copy /local LocalUser1 LocalUser2
+```
+
+Um den Remotedesktopdienste Profilpfad für *LocalUser1* auf ein Verzeichnis namens *c:\Profiles*festzulegen, geben Sie Folgendes ein:
+
+```
+tsprof /update /local /profile:c:\profiles LocalUser1
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
