@@ -9,12 +9,12 @@ ms.author: helohr
 ms.topic: article
 manager: ''
 ms.date: 09/24/2020
-ms.openlocfilehash: b39207461d9ee99a2da0bdf07a9190c769b7511f
-ms.sourcegitcommit: fa74f7297855ff1c9cb7df4b784b946cdce99e22
+ms.openlocfilehash: 129bbc8387be655cca563935cb7ff891664da357
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91206409"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92155891"
 ---
 # <a name="optimizing-windows-10-version-2004-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 2004, für eine VDI-Rolle (Virtual Desktop Infrastructure)
 
@@ -117,7 +117,7 @@ Berücksichtigen Sie die Unterstützbarkeit, wenn Sie Änderungen an den Standar
 
 Sie können die Suchparameter `"start value" site:support.microsoft.com` mit Ihrer bevorzugten Suchmaschine verwenden, um nach bekannten Problemen hinsichtlich der Standardstartwerte für Dienste zu suchen.
 
-Möglicherweise stellen Sie fest, dass in dieser Dokumentation und den zugehörigen Skripts auf GitHub keine Änderungen an den Standardberechtigungen vorgenommen werden. Wenn Sie daran interessiert sind, Ihre Sicherheitseinstellungen auf unterstützte und robuste Weise zu verstärken, beginnen Sie mit dem sogenannten Projekt **AaronLocker**, das Sie unter [ANKÜNDIGUNG: Anwendungswhitelisting mit „AaronLocker“](https://blogs.msdn.microsoft.com/aaron_margosis/2018/06/26/announcing-application-whitelisting-with-aaronlocker/) finden.
+Möglicherweise wirst du feststellen, dass in diesem Dokument und den zugehörigen Skripts auf GitHub keine Standardberechtigungen geändert werden. Wenn du deine Sicherheitseinstellungen erhöhen möchten, beginnst du mit dem Projekt, das als **AaronLocker** bezeichnet wird. Weitere Informationen finden Sie in der [Übersicht über „AaronLocker“](https://github.com/microsoft/AaronLocker).
 
 ### <a name="virtual-desktop-optimization-categories"></a>Kategorien für die Optimierung von virtuellen Desktops
 
@@ -563,7 +563,7 @@ Die folgende Tabelle enthält einige Dienste, die in virtuellen Desktopumgebunge
 |Kontaktdaten|PimIndexMaintenanceSvc|Indiziert Kontaktdaten für die schnelle Kontaktsuche. Wenn du diesen Dienst beendest oder deaktivierst, können Kontakte in den Suchergebnissen fehlen.|Dies ist ein benutzerbezogener Dienst, daher muss der Vorlagendienst deaktiviert sein.|
 |Leistung|Leistung|Verwaltet die Energierichtlinie und die Zustellung der Energierichtlinienbenachrichtigung.|Virtueller Computer haben praktisch keinen Einfluss auf Energieeigenschaften. Wenn dieser Dienst deaktiviert ist, sind die Energieverwaltung und die entsprechende Berichterstellung nicht verfügbar. Weitere Informationen findest du in [diesem Artikel](/windows-hardware/drivers/powermeter/user-mode-power-service).|
 |Zahlungs- und NFC/SE-Manager|SEMgrSvc|Verwaltet Zahlungen und sichere Elemente, die auf NFC (Near Field Communication) basieren.|In einer Unternehmensumgebung ist dieser Dienst für Zahlungen möglicherweise nicht erforderlich.|
-|Microsoft Windows SMS-Routerdienst|SmsRouter|Leitet Nachrichten regelbasiert an die entsprechenden Clients weiter.|Dieser Dienst ist möglicherweise nicht erforderlich, wenn für das Messaging andere Tools wie z. B. Teams, Skype oder ähnliches verwendet werden. Weitere Informationen findest du in [diesem Artikel](/dotnet/framework/wcf/feature-details/routing-service).|“.
+|Microsoft Windows SMS-Routerdienst|SmsRouter|Leitet Nachrichten regelbasiert an die entsprechenden Clients weiter.|Dieser Dienst ist möglicherweise nicht erforderlich, wenn für das Messaging andere Tools wie z. B. Teams, Skype oder ähnliches verwendet werden. Weitere Informationen findest du in [diesem Artikel](/dotnet/framework/wcf/feature-details/routing-service).|.
 |Superfetch (SysMain)|SysMain|Verwaltet und verbessert die Systemleistung im Zeitablauf.|Superfetch verbessert die Leistung in virtuellen Desktopumgebungen in der Regel aus verschiedenen Gründen nicht. Der zugrunde liegende Speicher ist häufig virtualisiert und möglicherweise per Striping auf mehrere Laufwerke verteilt. In einigen virtuellen Desktoplösungen wird der kumulierte Benutzerzustand verworfen, wenn der Benutzer sich abmeldet. Das SysMain-Feature sollte für jede Umgebung bewertet werden.|
 |Dienst für Bildschirmtastatur und Schreibbereich|TabletInputService|Aktiviert die Stift- und Freihandfunktionalität der Bildschirmtastatur und des Schreibbereichs.|Nicht erforderlich, es sei denn, es wird ein aktiver Touchscreen oder ein Gerät für die handschriftliche Eingabe verwendet.|
 |Update-Orchestrator-Dienst|UsoSvc|Verwaltet Windows-Updates. Falls beendet, können die neuesten Updates nicht auf Geräte heruntergeladen und dort installiert werden.|Virtuelle Desktopgeräte werden im Hinblick auf Updates meist sorgfältig verwaltet. Die Wartung erfolgt in der Regel innerhalb von Wartungsfenstern. In einigen Fällen kann ein Updateclient verwendet werden, z. B. SCCM. Eine Ausnahme hiervon sind Updates für Sicherheitssignaturen. Diese werden jederzeit auf jedem virtuellen Desktopgerät angewendet, damit die Signaturen immer aktuell sind. Wenn du diesen Dienst deaktivierst, führe einen Test aus, um sicherzustellen, dass Sicherheitssignaturen weiterhin installiert werden können.|

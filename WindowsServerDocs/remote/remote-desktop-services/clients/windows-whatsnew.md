@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 10/02/2020
+ms.date: 10/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a02cc0ba9c373c208cda9e75ea5105ab52ae7432
-ms.sourcegitcommit: ee9253a8ac0d96c1b43bf6d44bba978187931a57
+ms.openlocfilehash: 63f3ccb3b105bf59033214d426650dd727509095
+ms.sourcegitcommit: 45099dfe3682df1e2bc0bd5998594a79cfff16fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91659514"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079829"
 ---
 # <a name="whats-new-in-the-microsoft-store-client"></a>Neuerungen im Microsoft Store-Client
 
@@ -33,6 +33,7 @@ Der [Microsoft Store-Client](windows.md) wird regelmäßig mit neuen Features un
 - Ein aktualisiertes Abonnement kann jetzt erkennen, ob Sie Windows Virtual Desktop oder Windows Virtual Desktop (klassisch) verwenden.
 - Problem beim Kopieren von Dateien auf Remote-PCs wurde behoben.
 - Häufig gemeldete Barrierefreiheitsprobleme mit Schaltflächen wurde behoben.
+- Eine Begrenzung auf bis zu 20 Sätze von Anmeldeinformationen pro App ist zulässig.
 
 ## <a name="updates-for-version-1011215"></a>Updates für Version 10.1.1215
 
