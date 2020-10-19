@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 81f6aba6dce5bce28311a789f803ac2c7117fd0f
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: df9866682d96358c63b8ea708c05cdbd8216138a
+ms.sourcegitcommit: ccd38245f1b766be005d0c257962f756ff0c4e76
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89628900"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92175790"
 ---
 # <a name="defrag"></a>defrag
 
@@ -53,7 +53,7 @@ defrag <volume> [<parameters>]
 | /x | Führen Sie die Konsolidierung des freien Speicherplatzes auf den angegebenen Volumes aus. |
 | /? | Zeigt diese Hilfe Informationen an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Sie können keine bestimmten Dateisystemvolumes oder-Laufwerke defragmentieren, einschließlich:
 
@@ -66,8 +66,6 @@ defrag <volume> [<parameters>]
   - CD-ROMs.
 
   - Datei Systemvolumes, bei denen es sich nicht um **NTFS**, **Refs**, **FAT** oder **FAT32**handelt.
-
-- Sie können das Defragmentieren eines Solid-State-Laufwerks (SSD) oder eines Volumes auf einer virtuellen Festplatte (VHD), die sich auf einem SSD befindet, nicht planen.
 
 - Um diese Schritte auszuführen, müssen Sie Mitglied der Gruppe "Administratoren" auf dem lokalen Computer sein, oder die entsprechende Berechtigung muss an Sie delegiert worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als bewährte Sicherheitsmaßnahme sollten Sie die Verwendung von " **Ausführen als** " verwenden, um dieses Verfahren auszuführen.
 
@@ -115,7 +113,7 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
 - Bei der Ausführung aus dem geplanten Task verwendet **Defragmentierung** die unten aufgeführten Richtlinien für SSDs:
 
-  - **Herkömmliche Optimierungsprozesse**. Schließt die **herkömmliche Defragmentierung**ein, **z. b**. das Verschieben von Dateien, um Sie in angemessener zusammenhängend zu machen. Dies erfolgt einmal pro Monat. Wenn jedoch sowohl die **herkömmliche Defragmentierung** als auch der **Abruf** Vorgang übersprungen werden, wird die **Analyse** nicht ausgeführt.
+  - **Herkömmliche Optimierungsprozesse**. Schließt die **herkömmliche Defragmentierung**ein, **z. b**. das Verschieben von Dateien, um Sie in angemessener zusammenhängend zu machen. Dies erfolgt einmal pro Monat. Wenn jedoch sowohl die **herkömmliche Defragmentierung** als auch der **Abruf** Vorgang übersprungen werden, wird die **Analyse** nicht ausgeführt. Wenn Sie die Häufigkeit des geplanten Tasks ändern, wirkt sich dies nicht auf den Monat pro Monat für die SSDs aus.
 
   - Wenn Sie die **herkömmliche Defragmentierung** auf einem SSD manuell ausführen, werden bei der nächsten geplanten Ausführung von der nächsten geplanten Aufgaben **Analyse** und **Abruf**Vorgänge ausgeführt, die **herkömmliche Defragmentierung** auf diesem SSD wird jedoch überladen.
 
@@ -129,7 +127,7 @@ Der Defragmentierungsprozess führt die geplante Aufgabe als Wartungs Task aus, 
 
     - Der Computer wurde erneut gestartet (im Leerlauf wieder aufgenommen).
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
