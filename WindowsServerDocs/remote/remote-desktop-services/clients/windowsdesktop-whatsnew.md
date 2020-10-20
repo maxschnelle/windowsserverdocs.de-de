@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 10/09/2020
+ms.date: 10/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 96a307b06b0a29cfb66ba52ca5d8ea031bd979e7
-ms.sourcegitcommit: 6931830a70c5849d8f884cdc7bd4f5afc1a00cce
+ms.openlocfilehash: 8708f8ab6e8fb751f0ca39238574823ae5b499c4
+ms.sourcegitcommit: 45099dfe3682df1e2bc0bd5998594a79cfff16fe
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91955761"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079839"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -25,20 +25,29 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Aktuelle Version  |Unterstützte Mindestversion |
 |-----------|----------------|--------------------------|
 |Öffentlich     |1.2.1364        |1.2.945                   |
-|Insider    |1.2.1364        |1.2.945                   |
+|Insider    |1.2.1440        |1.2.945                   |
+
+## <a name="updates-for-version-121440-insiders"></a>Updates für Version 1.2.1440 (Insider)
+
+*Veröffentlicht am: 13.10.2020*
+
+Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Der Client unterscheidet nun zwischen verschiedenen Feeds im Connection Center.
+- Es wurde ein Problem behoben, bei dem das Abonnementkonto nicht mit dem Konto übereinstimmt, mit dem sich der Benutzer angemeldet hat.
+- Ein Problem mit der Smartcard-Umleitung wurde behoben.
 
 ## <a name="updates-for-version-121364"></a>Updates für Version 1.2.1364
 
 *Veröffentlicht am: 22.9.2020*
 
-Download: Windows [64 Bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32 Bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 - Es wurde ein Problem behoben, bei dem Einmaliges Anmelden (Single Sign-On, SSO) unter Windows 7 nicht funktionierte.
 - Es wurde ein Verbindungsfehler behoben, der beim Tätigen von oder Beitreten zu Teams-Anrufen auftrat, wenn dabei in einer anderen App ein Audiodatenstrom im exklusiven Modus geöffnet und die Medienoptimierung für Teams aktiviert war.
 - Es wurde ein Fehler beim Auflisten von Audio- oder Videogeräten in Teams behoben, der auftrat, wenn die Medienoptimierung für Teams aktiviert war.
 - Ein Link namens „Need help with settings?“ (Benötigen Sie Hilfe mit den Einstellungen?), der zur Desktopeinstellungsseite führt, wurde ergänzt.
 - Es wurde ein Problem mit der Schaltfläche „Abonnieren“ behoben, das bei der Verwendung von dunklen Designs mit hohem Kontrast auftrat.
-- Eine Begrenzung auf bis zu 20 Sätze von Anmeldeinformationen pro App ist zulässig.
 
 ## <a name="updates-for-version-121275"></a>Updates für Version 1.2.1275
 
@@ -86,7 +95,7 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 - Die Eingabeaufforderung „Abonnement kündigen“ weist nun ein Warnsymbol auf und zeigt die Namen der Arbeitsbereiche als Aufzählung an.
 - Der Abschnitt „Details“ wurde in weiteren Fehlerdialogfeldern hinzugefügt, um bei der Diagnose von Problemen zu helfen.
 - Dem Abschnitt „Details“ in Fehlerdialogfeldern wurde ein Zeitstempel hinzugefügt.
-- Es wurde ein Problem behoben, bei dem die RDP-Dateieinstellung **desktop size id** nicht ordnungsgemäß funktionierte.
+- Es wurde ein Problem behoben, bei dem die RDP-Dateieinstellung **desktop size ID** nicht ordnungsgemäß funktionierte.
 - Es wurde ein Problem behoben, bei dem die Anzeigeeinstellung **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) nach dem Starten der Sitzung nicht angewandt wurde.
 - Es wurden Lokalisierungsprobleme im Bereich „Desktopeinstellungen“ behoben.
 - Die Größe des Fokusfelds beim Wechseln der Steuerelemente mit der TAB-TASTE im Bereich „Desktopeinstellungen“ wurde korrigiert.

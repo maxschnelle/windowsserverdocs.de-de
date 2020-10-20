@@ -8,12 +8,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 6dbaf3fe76ce6c2ac79a0c835a320241e47f4068
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: b10e9f74fa3ca78a3b35a4b2f9ee5c1448a0d2af
+ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766353"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92156003"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -929,7 +929,7 @@ Führen Sie die folgenden Schritte aus, um diese Phase zu konfigurieren:
       Weitere Informationen zu Windows Hello for Business findest du im Artikel [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
    * **Azure Multi-Factor Authentication**:  Azure Multi-Factor Authentication (MFA) von Azure bietet die Sicherheit eines zweiten Überprüfungsfaktors sowie einen erweiterten Schutz durch Überwachung und Machine Learning-basierte Analysen.  Die Azure MFA bietet nicht nur Sicherheit und Schutz für Azure-Administratoren, sondern auch für viele weitere Lösungen, wie z.B. Webanwendungen, Azure Active Directory und lokale Lösungen wie Remotezugriff und Remotedesktop.  Weitere Informationen zur Azure Multi-Factor Authentication finden Sie im Artikel [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication).
 
-2. **Trage vertrauenswürdige Anwendungen über die Windows Defender-Anwendungssteuerung und/oder AppLocker auf einer Whitelist ein**.  Indem Sie die Möglichkeit einschränken, dass nicht vertrauenswürdiger oder nicht signierter Code auf einer PAW ausgeführt wird, können Sie die Wahrscheinlichkeit schädlicher Aktivitäten und Gefährdungen weiter verringern.  Windows bietet zwei primäre Optionen für die Anwendungssteuerung:
+2. **Tragen Sie vertrauenswürdige Anwendungen über die Windows Defender-Anwendungssteuerung und/oder AppLocker in eine Zulassungsliste ein**.  Indem Sie die Möglichkeit einschränken, dass nicht vertrauenswürdiger oder nicht signierter Code auf einer PAW ausgeführt wird, können Sie die Wahrscheinlichkeit schädlicher Aktivitäten und Gefährdungen weiter verringern.  Windows bietet zwei primäre Optionen für die Anwendungssteuerung:
 
    * **AppLocker**:  Mit AppLocker können Administratoren steuern, welche Anwendungen und Dateien von Benutzern auf einem bestimmten System ausgeführt werden können.  AppLocker kann über Gruppenrichtlinien zentral gesteuert und auf bestimmte Benutzer oder Gruppen angewendet werden (beispielsweise für eine bestimmte Zielanwendung auf die Benutzer einer PAW).  Weitere Informationen zu AppLocker finden Sie im TechNet-Artikel [Technische Übersicht über AppLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831440(v=ws.11)).
    * **Windows Defender-Anwendungssteuerung**: Das neue Feature „Windows Defender-Anwendungssteuerung“ ermöglicht eine erweiterte hardwarebasierte Anwendungssteuerung, die – im Gegensatz zu AppLocker – auf dem betroffenen Gerät nicht außer Kraft gesetzt werden kann.  Wie AppLocker auch, kann die Windows Defender-Anwendungssteuerung per Gruppenrichtlinie gesteuert und auf bestimmte Benutzer ausgerichtet werden.  Weitere Informationen zum Einschränken der Anwendungsnutzung mit der Windows Defender-Anwendungssteuerung findest du unter [Planen und erste Schritte beim Bereitstellungsprozess für die Windows Defender-Anwendungssteuerung](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).

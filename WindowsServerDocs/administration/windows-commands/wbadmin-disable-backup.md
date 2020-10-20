@@ -28,7 +28,7 @@ wbadmin disable backup [-quiet]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 |--|--|
 | -quiet | Führt den Befehl ohne Aufforderungen an den Benutzer aus. |
 
