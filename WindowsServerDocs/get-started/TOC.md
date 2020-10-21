@@ -1,7 +1,8 @@
 # Erste Schritte
 ## [Erste Schritte mit Windows Server 2016](Server-Basics.md)
 ## [Neuerungen in Windows Server 2012](whats-new-in-windows-server.md)
-### [Neuerungen in Windows Server, Version 2004](whats-new-in-windows-server-2004.md)
+### [Neuerungen in Windows Server, Version 2004 und 20H2](whats-new-in-windows-server-2004.md)
+### [Neuerungen in Windows Server, Version 1903 und 1909](..\get-started-19\whats-new-in-windows-server-1903-1909.md)
 ### [Neues in Windows Server 2019](../get-started-19/whats-new-19.md)
 ### [Neuerungen in Windows Server 2016](whats-new-in-windows-server-2016.md)
 ### [Für Windows Server 2016 verfügbare Schnellupdates](express-updates.md)
