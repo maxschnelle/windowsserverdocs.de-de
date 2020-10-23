@@ -6,12 +6,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: victorcheng7
 ms.author: vichen
 ms.date: 08/14/2020
-ms.openlocfilehash: 28ce502a78c58eda74d5b412fe4e4d0d3279d442
-ms.sourcegitcommit: dac52260fdcc3721daf7e32cd45760a0ced96de7
+ms.openlocfilehash: fb03201ce4f76a25b00fb37365597147e473b306
+ms.sourcegitcommit: 3c6c257526b243e876aed59e3f2dec42697f232d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663681"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92418157"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Linux-Softwarerepository für Microsoft-Produkte
 
@@ -23,7 +23,7 @@ Das Linux-Softwarerepository von Microsoft besteht aus mehreren untergeordneten 
 
  - Prod – das produktionssubrepository ist für Pakete vorgesehen, die für die Verwendung in der Produktion bestimmt sind. Diese Pakete werden kommerziell von Microsoft gemäß den Bedingungen des anwendbaren Supportvertrags oder des Programms, das Sie mit Microsoft haben, unterstützt.
 
- - MSSQL-Server: diese Depots enthalten Pakete für Microsoft SQL Server für Linux-siehe auch: [SQL Server für Linux](https://www.microsoft.com/sql-server/sql-server-vnext-including-Linux).
+ - MSSQL-Server: diese Depots enthalten Pakete für Microsoft SQL Server für Linux-siehe auch: [SQL Server für Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
 
 > [!NOTE]
 > Pakete in den Linux-Softwarerepositorys unterliegen den Lizenzbedingungen, die sich in den Paketen befinden. Lesen Sie vor Verwendung des Pakets die Lizenzbedingungen. Durch die Installation und Nutzung des Pakets erklären Sie sich mit diesen Bedingungen einverstanden. Wenn Sie mit den Lizenzbedingungen nicht einverstanden sind, verwenden Sie das Paket nicht.
