@@ -7,18 +7,18 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 42d579b7139f7ff516d9ff239c535ecd2be42474
-ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
+ms.openlocfilehash: c61da4f608e825a7cb19c8fb80f8f4b3a5c26fed
+ms.sourcegitcommit: 554d274fea48a4d47c19845d969a9ec93dec82de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91730218"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92524275"
 ---
 # <a name="wdsutil-initialize-server"></a>WDSUTIL Initialize-Server
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Konfiguriert einen Windows-Bereitstellungsdiensteserver für die erstmalige Verwendung, nachdem die Server Rolle installiert wurde. Nachdem Sie diesen Befehl ausgeführt haben, sollten Sie den [Befehl wdsutiladd-Image](wdsutil-add-image.md) verwenden, um dem Server Images hinzuzufügen.
+Konfiguriert einen Windows-Bereitstellungsdiensteserver für die erstmalige Verwendung, nachdem die Server Rolle installiert wurde. Nachdem Sie diesen Befehl ausgeführt haben, sollten Sie den [Befehl WDSUTIL Add-Image](wdsutil-add-image.md) verwenden, um dem Server Images hinzuzufügen.
 ## <a name="syntax"></a>Syntax
 ```
 wdsutil /Initialize-Server [/Server:<Server name>] /remInst:<Full path> [/Authorize]

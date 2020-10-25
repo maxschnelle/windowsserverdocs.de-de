@@ -1,18 +1,18 @@
 ---
 title: WDSUTIL Add-drivergroup
-description: Referenz Artikel zu "WDSUTIL Add-drivergroup", mit dem dem Server eine Treiber Gruppe hinzugefügt wird.
+description: Referenz Artikel für den Befehl "WDSUTIL Add-drivergroup", durch den dem Server eine Treiber Gruppe hinzugefügt wird.
 ms.topic: reference
 ms.assetid: 2a92fe8f-03f9-462a-b99e-f23275259807
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: 90c5f3427929d60f3c907746c88133606b239ded
-ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
+ms.openlocfilehash: 68583ba35c141df03cbc5e351da6c4dc8ea4e161
+ms.sourcegitcommit: 554d274fea48a4d47c19845d969a9ec93dec82de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91730460"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92524615"
 ---
 # <a name="wdsutil-add-drivergroup"></a>WDSUTIL Add-drivergroup
 
@@ -21,31 +21,43 @@ ms.locfileid: "91730460"
 Fügt dem Server eine Treiber Gruppe hinzu.
 
 ## <a name="syntax"></a>Syntax
+
 ```
-wdsutil /add-DriverGroup /DriverGroup:<Group Name>\n\ [/Server:<Server name>] [/Enabled:{Yes | No}] [/Applicability:{Matched | All}] [/Filtertype:<Filter type> /Policy:{Include | Exclude} /Value:<Value> [/Value:<Value> ...]]
+wdsutil /add-DriverGroup /DriverGroup:<Groupname>\n\ [/Server:<Servername>] [/Enabled:{Yes | No}] [/Applicability:{Matched | All}] [/Filtertype:<Filtertype> /Policy:{Include | Exclude} /Value:<Value> [/Value:<Value> ...]]
 ```
+
 ### <a name="parameters"></a>Parameter
 
-|              Parameter              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /DriverGroup:<Group Name>      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Gibt den Namen der neuen Treiber Gruppe an.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|        Servers<Server name>        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|      /Enabled: {yes &#124; No}       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Aktiviert oder deaktiviert das Paket.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| /Applicability: {abgeglichen &#124; alle} |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Gibt an, welche Pakete installiert werden sollen, wenn die Filterkriterien erfüllt sind. **Übereinstimmende** bedeutet, dass nur die Treiber Pakete installiert werden, die mit einer Client-e- **Alle** bedeutet, dass alle Pakete unabhängig von Ihrer Hardware auf Clients installiert werden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|      Filter Type<Filtertype>       |                                                                                                                                                                                                                                                                          Gibt den Typ des Filters an, der der Gruppe hinzugefügt werden soll. Sie können mehrere Filtertypen in einem einzelnen Befehl angeben. Auf jeden Filtertyp muss **/Policy** und mindestens ein **/value**folgen. <Filtertype> kann eines der folgenden sein:<p>**Biosvendor**<p>**Biosversion**<p>**Chassistype**<p>**Manufacturer**<p>**UUID**<p>**OSVersion**<p>**Odition**<p>**OSLanguage**<p>Weitere Informationen zum Abrufen von Werten für alle anderen Filtertypen finden Sie unter [Treiber Gruppen Filter](https://go.microsoft.com/fwlink/?LinkID=155158) ( <https://go.microsoft.com/fwlink/?LinkID=155158> ).                                                                                                                                                                                                                                                                           |
-| [/Policy: {include &#124; Exclude}]  |                                                                                                                                                                                                                                                                                                                                                                                                                                                 Gibt die Richtlinie an, die für den Filter festgelegt werden soll. Wenn **/Policy** auf **include**festgelegt ist, können Client Computer, die dem Filter entsprechen, die Treiber in dieser Gruppe installieren. Wenn **/Policy** auf **Exclude**festgelegt ist, sind Client Computer, die dem Filter entsprechen, nicht berechtigt, die Treiber in dieser Gruppe zu installieren.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|          /Value<Value>]           | Gibt den Client Wert an, der **/FilterType**entspricht. Sie können mehrere Werte für einen einzelnen Typ angeben. In der folgenden Liste finden Sie gültige Werte für bestimmte Filtertypen. Die folgenden Attribute sind für **chassistype**. Weitere Informationen zum Abrufen der Werte für alle anderen Filtertypen finden Sie unter [Treiber Gruppen Filter](https://go.microsoft.com/fwlink/?LinkID=155158) ( <https://go.microsoft.com/fwlink/?LinkID=155158> ).<p>**Andere**<p>**Unknownchassis**<p>**Desktop**<p>**Lowprofiledesktop**<p>**Pizzabox**<p>**Minitower**<p>**Kühl**<p>**Tabel**<p>**Laptop**<p>**Notebook**<p>**Gehaltenen**<p>**Dockingstation**<p>**AllInOne**<p>**Unter Notebook**<p>**Spacesaving**<p>**Lunchbox**<p>**Mainsystemchassis**<p>**Expansions Chassis**<p>**Subchassis**<p>**Busexpansionchassis**<p>**Peripherie Chassis**<p>**Storaechassis**<p>**Rackmountchassis**<p>**Versiegencasecomputer**<p>**Multisystemchassis**<p>**CompactPCI**<p>**AdvancedTCA** |
+| Parameter | BESCHREIBUNG |
+|--|--|
+| /DriverGroup:`<Groupname>` | Gibt den Namen der neuen Treiber Gruppe an. |
+| Servers`<Servername>` | Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet. |
+| Wodurch`{Yes|No}` | Aktiviert oder deaktiviert das Paket. |
+| Barkeits`{Matched|All}` | Gibt an, welche Pakete installiert werden sollen, wenn die Filterkriterien erfüllt sind. **Übereinstimmende** bedeutet, dass nur die Treiber Pakete installiert werden, die mit einer Client-e- **Alle** bedeutet, dass alle Pakete unabhängig von Ihrer Hardware auf Clients installiert werden. |
+| Filter Type`<Filtertype>` | Gibt den Typ des Filters an, der der Gruppe hinzugefügt werden soll. Sie können mehrere Filtertypen in einem einzelnen Befehl angeben. Auf jeden Filtertyp muss **/Policy** und mindestens ein **/value**folgen. Gültige Werte:<ul><li>Biosvendor</li><li>Biosversion</li><li>Chassistype</li><li>Hersteller</li><li>Uuid</li><li>OSVersion</li><li>Odition</li><li>OSLanguage</li></ul> Informationen zum erhalten von Werten für alle anderen Filtertypen finden Sie unter [Treiber Gruppen Filter](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759191(v=ws.11)). |
+| [/Policy: `{Include|Exclude}` ] | Gibt die Richtlinie an, die für den Filter festgelegt werden soll. Wenn **/Policy** auf **include**festgelegt ist, können Client Computer, die dem Filter entsprechen, die Treiber in dieser Gruppe installieren. Wenn **/Policy** auf **Exclude**festgelegt ist, sind Client Computer, die dem Filter entsprechen, nicht berechtigt, die Treiber in dieser Gruppe zu installieren. |
+| [/Value: `<Value>` ] | Gibt den Client Wert an, der **/FilterType**entspricht. Sie können mehrere Werte für einen einzelnen Typ angeben. Informationen zu zulässigen Filtertyp Werten finden Sie unter [Treiber Gruppen Filter](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759191(v=ws.11)). |
 
 ## <a name="examples"></a>Beispiele
-Zum Hinzufügen einer Treiber Gruppe geben Sie eine der folgenden Informationen ein:
+
+Zum Hinzufügen einer Treiber Gruppe geben Sie Folgendes ein:
+
 ```
 wdsutil /add-DriverGroup /DriverGroup:printerdrivers /Enabled:Yes
 ```
+
 ```
 wdsutil /add-DriverGroup /DriverGroup:printerdrivers /Applicability:All /Filtertype:Manufacturer /Policy:Include /Value:Name1 /Filtertype:Chassistype /Policy:Exclude /Value:Tower /Value:MiniTower
 ```
+
 ## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-- [wdsutiladd-Befehl "drivergrouppackage"](wdsutil-add-drivergrouppackage.md)
-- [wdsutiladd-Befehl "drivergrouppackages"](wdsutil-add-drivergrouppackages.md)
-- [wdsutiladd-drivergroupfilter-Befehl](wdsutil-add-drivergroupfilter.md)
+
+- [WDSUTIL-Befehl "Add-drivergrouppackage"](wdsutil-add-drivergrouppackage.md)
+
+- [WDSUTIL-Befehl "Add-drivergrouppackages"](wdsutil-add-drivergrouppackages.md)
+
+- [WDSUTIL-Befehl "Add-drivergroupfilter"](wdsutil-add-drivergroupfilter.md)
+
+- [Cmdlets für die Windows-Bereitstellungs Dienste](/powershell/module/wds)

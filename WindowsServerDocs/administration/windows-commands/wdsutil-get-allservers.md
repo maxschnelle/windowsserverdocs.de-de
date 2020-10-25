@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: b60fb7710699c4fff6656a0e2a34684a538b116d
-ms.sourcegitcommit: 720455aad2bac78cf64997d196a13f35ea0acb73
+ms.openlocfilehash: 450c864bef3b3f17f3912a06aa72aa56ce6e529a
+ms.sourcegitcommit: 554d274fea48a4d47c19845d969a9ec93dec82de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91730293"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92524445"
 ---
 # <a name="get-allservers"></a>"Get-allservers"
 
@@ -24,7 +24,7 @@ Ruft Informationen zu allen Windows-Bereitstellungsdiensteserver ab.
 ## <a name="syntax"></a>Syntax
 
 ```
-WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Forest:{Yes | No}]
+wdsutil [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Forest:{Yes | No}]
 ```
 
 ### <a name="parameters"></a>Parameter
@@ -39,11 +39,11 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 
 Geben Sie Folgendes ein, um Informationen zu allen Servern anzuzeigen:
 ```
-WDSUTIL /Get-AllServers /Show:Config
+wdsutil /Get-AllServers /Show:Config
 ```
 Wenn Sie ausführliche Informationen zu allen Servern anzeigen möchten, geben Sie Folgendes ein:
 ```
-WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
+wdsutil /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
