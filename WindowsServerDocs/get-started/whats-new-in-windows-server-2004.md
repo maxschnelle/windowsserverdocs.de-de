@@ -1,23 +1,25 @@
 ---
-title: Neuerungen in Windows Server, Version 2004
-description: Neue Features in Windows Server, Version 2004
+title: Neuerungen in Windows Server, Version 2004 und 20H2
+description: Neue Features in Windows Server, Version 2004 und 20H2.
 ms.topic: article
 author: Heidilohr
 ms.author: helohr
 ms.date: 05/27/2020
 ms.localizationpriority: high
-ms.openlocfilehash: 210aa06711c67af46d35a38fe4308bc4060691e8
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: f44dcc7a1c7fab2d99f0358794bd5b2aedb87b75
+ms.sourcegitcommit: b82dfbfdc5df1327feb8be053a760739b01e3031
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957007"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92255867"
 ---
-# <a name="whats-new-in-windows-server-version-2004"></a>Neuerungen in Windows Server, Version 2004
+# <a name="whats-new-in-windows-server-version-2004-and-20h2"></a>Neuerungen in Windows Server, Version 2004 und 20H2
 
 >Gilt für: Windows Server (Halbjährlicher Kanal)
 
-Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Thema werden einige der neuen Features in Windows Server, Version 2004, beschrieben.
+Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Thema werden einige der neuen Features in Windows Server, Version 2004 und 20H2, beschrieben.
+
+Windows Server, Version 20H2, ist das nächste Release von Windows Server, Version 2004, im halbjährlichen Kanal. Diese Version konzentriert sich auf Zuverlässigkeit, Leistung und andere allgemeine Verbesserungen, bietet aber keine neuen Features. Wie bei anderen Releases des halbjährlichen Kanals wird es nach der Veröffentlichung 18 Monate lang unterstützt. Weitere Informationen zu den Supportterminen für Releases im halbjährlichen Kanal finden Sie unter [Versionsinformationen zu Windows Server](windows-server-release-info.md).
 
 ## <a name="server-core-container-improvements"></a>Server Core-Containerverbesserungen
 
