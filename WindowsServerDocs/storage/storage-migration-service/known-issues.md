@@ -4,20 +4,20 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: tiaascs
-ms.date: 07/29/2020
+ms.date: 10/23/2020
 ms.topic: article
-ms.openlocfilehash: 6c3ca3a44665bab08c58853d569823f88c908f35
-ms.sourcegitcommit: f89639d3861c61620275c69f31f4b02fd48327ab
+ms.openlocfilehash: 25d0c6666e0706b1c772957d9328db43ecfc5b18
+ms.sourcegitcommit: 1b214ca5030c77900f095d77c73cedc6381eb0e4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91517516"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92639043"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
 Dieses Thema enthält Antworten auf bekannte Probleme bei der Verwendung von [Storage Migration Service](overview.md) zum Migrieren von Servern.
 
-Storage Migration Service wird in zwei Teilen veröffentlicht: der-Dienst in Windows Server und die Benutzeroberfläche im Windows Admin Center. Der Dienst ist in Windows Server, langfristig Wartungs Kanal sowie Windows Server, halbjährlicher Kanal, verfügbar. Obwohl Windows Admin Center als separater Download verfügbar ist. Wir schließen auch regelmäßig Änderungen an kumulativen Updates für Windows Server ein, die über Windows Update veröffentlicht werden.
+Storage Migration Service wird in zwei Teilen veröffentlicht: der-Dienst in Windows Server und die Benutzeroberfläche im Windows Admin Center. Der Dienst ist in Windows Server, Long-Term Wartungs Kanal und Windows Server, Semi-Annual Channel verfügbar. Obwohl Windows Admin Center als separater Download verfügbar ist. Wir schließen auch regelmäßig Änderungen an kumulativen Updates für Windows Server ein, die über Windows Update veröffentlicht werden.
 
 Beispielsweise enthält Windows Server, Version 1903, neue Features und Korrekturen für den Speicher Migrationsdienst, die auch für Windows Server 2019 und Windows Server, Version 1809, verfügbar sind, indem Sie [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)installieren.
 
@@ -26,7 +26,7 @@ Beispielsweise enthält Windows Server, Version 1903, neue Features und Korrektu
 Der Speicher Migrationsdienst enthält Ereignisprotokolle für den Orchestrator-Dienst und den Proxy Dienst. Der Orchestrator-Server enthält immer Ereignisprotokolle, und Zielserver, auf denen der Proxy Dienst installiert ist, enthalten die Proxy Protokolle. Diese Protokolle befinden sich unter:
 
 - Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice
-- Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice-Proxy
+- Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ StorageMigrationService-Proxy
 
 Wenn Sie diese Protokolle für die Offline Anzeige oder das Senden an Microsoft-Support erfassen müssen, ist auf GitHub ein Open-Source-PowerShell-Skript verfügbar:
 
@@ -118,7 +118,7 @@ Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-
 
 ## <a name="certain-files-dont-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien werden nicht inventarisiert oder übertragen, Fehler 5: "Zugriff verweigert"
 
-Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzerberechtigungen für die Administratoren Gruppe entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
+Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzerberechtigungen für die Administratoren Gruppe entfernt hat, nicht migriert werden. Unter Überprüfen der Speicher Migration Service-Proxy Debuggen:
 
 ```
 Log Name: Microsoft-Windows-StorageMigrationService-Proxy/Debug
@@ -418,13 +418,19 @@ Für dieses Problem gibt es zwei Lösungen:
 
 1. Dieses Problem wurde zuerst durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update gelöst. Der vorherige Code Fehler verhinderte die Verwendung statischer IP-Adressen.
 
-2. Wenn Sie auf den Netzwerkschnittstellen des Quell Computers keine Standard-Gateway-IP-Adresse angegeben haben, tritt dieses Problem auch mit dem KB4537818-Update auf. Um dieses Problem zu umgehen, legen Sie eine gültige Standard-IP-Adresse auf den Netzwerkschnittstellen fest, indem Sie das Applet Network Connections (NCPA.CPL) oder das PowerShell-Cmdlet Set-nettroute verwenden.
+2. Wenn Sie auf den Netzwerkschnittstellen des Quell Computers keine Standard-Gateway-IP-Adresse angegeben haben, tritt dieses Problem auch mit dem KB4537818-Update auf. Um dieses Problem zu umgehen, legen Sie eine gültige Standard-IP-Adresse auf den Netzwerkschnittstellen fest, indem Sie das Applet "Netzwerkverbindungen" (NCPA.CPL) oder Set-NetRoute PowerShell-Cmdlet verwenden.
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Langsamer als erwartete erneute Übertragungsleistung
 
-Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben.
+Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben. 
 
-Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](./faq.md#optimizing-inventory-and-transfer-performance).
+Dieses Problem wird durch [kb4580390](https://support.microsoft.com/help/4580390/windows-10-update-kb4580390)gelöst. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](./faq.md#optimizing-inventory-and-transfer-performance).
+
+## <a name="slower-than-expected-inventory-performance"></a>Langsamer als erwartete Inventur Leistung
+
+Beim Inventarisieren eines Quell Servers wird die Datei Inventur sehr lange dauern, wenn viele Dateien oder Ordner vorhanden sind. Millionen von Dateien und Ordnern können dazu führen, dass Inventuren auch bei schnellen Speicherkonfigurationen viele Stunden in Anspruch nehmen. 
+
+Dieses Problem wird durch [kb4580390](https://support.microsoft.com/help/4580390/windows-10-update-kb4580390)gelöst.
 
 ## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Die Daten werden nicht übertragen, der Benutzer wurde bei der Migration zu oder von einem Domänen Controller umbenannt.
 
@@ -535,7 +541,7 @@ Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Que
  - Der Remote Registrierungsdienst wird nicht auf dem Quellcomputer ausgeführt.
  - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
  - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
- - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\lanmanserver".
+ - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer".
 
 ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab.
 
@@ -562,7 +568,7 @@ Error Message: Unknown error (0xa00a)
 Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
 ```
 
-Dieses Problem wird durch Gruppenrichtlinie verursacht, bei der der folgende Registrierungs Wert auf dem Quellcomputer festgelegt wird: "HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system\localaccountdekenfilterpolicy = 0"
+Dieses Problem wird durch Gruppenrichtlinie verursacht, bei der der folgende Registrierungs Wert auf dem Quellcomputer festgelegt wird: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LocalAccountTokenFilterPolicy = 0"
 
 Diese Einstellung ist nicht Bestandteil von Standard Gruppenrichtlinie, sondern ein Add-on, das mit dem [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319)konfiguriert wurde:
 
@@ -606,7 +612,7 @@ Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursa
 
 ## <a name="inventory-fails-with-element-not-found"></a>Inventur schlägt fehl, weil das Element nicht gefunden wurde.
 
-Betrachten Sie das folgende Szenario:
+Als Beispiel dient das folgende Szenario:
 
 Sie verfügen über einen Quell Server mit einem DNS-Hostnamen und Active Directory Namen mit mehr als 15 Unicode-Zeichen, z. b. "iamaverylongcomputername". In Windows konnte der Legacy-NetBIOS-Name nicht so festgelegt werden, dass er so lange festgelegt wird, und warnte, als der Server benannt wurde, dass der NetBIOS-Name auf 15 Unicode-breit Zeichen gekürzt wird (Beispiel: "iamaverylongcom"). Wenn Sie versuchen, diesen Computer zu inventarisieren, erhalten Sie im Windows Admin Center und im Ereignisprotokoll Folgendes:
 
