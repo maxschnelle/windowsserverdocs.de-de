@@ -6,12 +6,12 @@ ms.author: iainfou
 manager: daveba
 ms.date: 04/11/2019
 ms.topic: article
-ms.openlocfilehash: 98725e194226f048de5bc8332c02ec54c7525ee1
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: e95aea80bea16322f66a14c12b0a1388897c1b11
+ms.sourcegitcommit: 40466c8af1fc60dfca733ea476f088549cedba65
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940120"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793587"
 ---
 # <a name="install-a-new-active-directory-forest-using-azure-cli"></a>Installieren einer neuen Active Directory-Gesamtstruktur mit der Azure CLI
 
@@ -148,7 +148,6 @@ az vm create \
     --data-disk-caching None \
     --nsg $NetworkSecurityGroup \
     --private-ip-address $DC2IP
-
 ```
 
 ## <a name="dns-and-active-directory"></a>DNS und Active Directory
@@ -161,7 +160,7 @@ Informationen zum Erweitern eines lokalen Netzwerks auf Azure finden Sie im Arti
 
 ## <a name="configure-the-vms-and-install-active-directory-domain-services"></a>Konfigurieren Sie die VMs, und installieren Sie Active Directory Domain Services
 
-Nachdem das Skript abgeschlossen ist, navigieren Sie zum [Azure-Portal](https://portal.azure.com)und dann zu **virtuelle**Computer.
+Nachdem das Skript abgeschlossen ist, navigieren Sie zum [Azure-Portal](https://portal.azure.com)und dann zu **virtuelle** Computer.
 
 ### <a name="configure-the-first-domain-controller"></a>Konfigurieren des ersten Domänen Controllers
 
@@ -169,7 +168,7 @@ Stellen Sie eine Verbindung mit AZDC01 her, indem Sie die im Skript angegebenen 
 
 * Initialisieren und formatieren Sie den Datenträger als F:
    * Öffnen Sie das Startmenü, und navigieren Sie zu **Computer Verwaltung** .
-   * Navigieren Sie zu **Speicher**Datenträger  >  **Verwaltung** .
+   * Navigieren Sie zu **Speicher** Datenträger  >  **Verwaltung** .
    * Initialisieren des Datenträgers als MBR
    * Erstellen eines neuen einfachen Volumes und Zuweisen des Laufwerk Buchstabens F: Sie können eine Volumebezeichnung angeben, wenn Sie möchten.
 * Installieren von Active Directory Domain Services mithilfe Server-Manager
@@ -193,13 +192,17 @@ Wenn der virtuelle Computer neu gestartet wurde, melden Sie sich mit den zuvor v
 
 [Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
 
+### <a name="configure-dns"></a>Konfigurieren des DNS
+
+Nachdem Sie den ersten Server in Azure herauf gestuft haben, müssen die Server auf die primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und überschreiten herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](/azure/virtual-network/manage-virtual-network#change-dns-servers).
+
 ### <a name="configure-the-second-domain-controller"></a>Konfigurieren des zweiten Domänen Controllers
 
 Stellen Sie eine Verbindung mit AZDC02 her, indem Sie die im Skript angegebenen Anmelde Informationen verwenden.
 
 * Initialisieren und formatieren Sie den Datenträger als F:
    * Öffnen Sie das Startmenü, und navigieren Sie zu **Computer Verwaltung** .
-   * Navigieren Sie zu **Speicher**Datenträger  >  **Verwaltung** .
+   * Navigieren Sie zu **Speicher** Datenträger  >  **Verwaltung** .
    * Initialisieren des Datenträgers als MBR
    * Erstellen eines neuen einfachen Volumes und Zuweisen des Laufwerk Buchstabens F: (Sie können bei Bedarf eine Volumebezeichnung angeben)
 * Installieren von Active Directory Domain Services mithilfe Server-Manager
@@ -220,11 +223,7 @@ Nachdem der Assistent den Installationsvorgang abgeschlossen hat, wird der virtu
 
 Wenn der virtuelle Computer neu gestartet wurde, melden Sie sich mit den zuvor verwendeten Anmelde Informationen wieder an, aber dieses Mal als Mitglied der contoso.com-Domäne.
 
-[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6) , aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
-
-### <a name="configure-dns"></a>Konfigurieren des DNS
-
-Nachdem Sie die neuen Domänen Controller in Azure herauf gestuft haben, müssen Sie auf den primären und sekundären DNS-Server für das virtuelle Netzwerk festgelegt werden, und alle lokalen DNS-Server werden in den tertiären und darüber hinaus herabgestuft. Weitere Informationen zum Ändern von DNS-Servern finden Sie im Artikel [erstellen, ändern oder Löschen eines virtuellen Netzwerks](/azure/virtual-network/manage-virtual-network#change-dns-servers).
+[Virtuelle Azure-Netzwerke unterstützen jetzt IPv6](/azure/virtual-network/virtual-networks-faq#do-vnets-support-ipv6), aber falls Sie Ihre VMs für die Verwendung von IPv4 gegenüber IPv6 festlegen möchten, finden Sie Informationen zum Ausführen dieser Aufgabe im KB-Artikel [Leitfaden zum Konfigurieren von IPv6 in Windows für fortgeschrittene Benutzer](https://support.microsoft.com/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users).
 
 ### <a name="wrap-up"></a>Zusammenfassung
 
@@ -236,7 +235,7 @@ Wenn Sie die Umgebung entfernen möchten, können Sie die oben erstellte Ressour
 
 ### <a name="remove-using-the-azure-portal"></a>Entfernen mithilfe des Azure-Portal
 
-Navigieren Sie im Azure-Portal zu **Ressourcengruppen** , und wählen Sie die Ressourcengruppe aus, die wir erstellt haben (in diesem Beispiel adonazurevms), und wählen Sie dann **Ressourcengruppe löschen**aus. Der Prozess fordert eine Bestätigung an, bevor alle in der Ressourcengruppe enthaltenen Ressourcen gelöscht werden.
+Navigieren Sie im Azure-Portal zu **Ressourcengruppen** , und wählen Sie die Ressourcengruppe aus, die wir erstellt haben (in diesem Beispiel adonazurevms), und wählen Sie dann **Ressourcengruppe löschen** aus. Der Prozess fordert eine Bestätigung an, bevor alle in der Ressourcengruppe enthaltenen Ressourcen gelöscht werden.
 
 ### <a name="remove-using-the-azure-cli"></a>Entfernen mithilfe des Azure CLI
 

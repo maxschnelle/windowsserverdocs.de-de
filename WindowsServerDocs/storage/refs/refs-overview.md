@@ -5,12 +5,12 @@ manager: mchad
 ms.topic: article
 author: gawatu
 ms.date: 06/29/2019
-ms.openlocfilehash: 668ee7a0c9e948c12140d3e25309a68ad3b2148b
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 65ae84f354f535ba94a7331680234b3ad32d230d
+ms.sourcegitcommit: 92e46b11154bab929e2c622d759ef62ec264c4e6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87957267"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734743"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Robustes Dateisystem (ReFS) : Übersicht
 
@@ -67,7 +67,7 @@ Microsoft hat NTFS speziell für die allgemeine Verwendung mit einer Vielzahl vo
 > [!NOTE]
 > Alle von refs unterstützten Konfigurationen müssen die [Windows Server-Katalog](https://www.WindowsServerCatalog.com) zertifizierte Hardware verwenden und die Anwendungsanforderungen erfüllen.
 
-### <a name="storage-spaces-direct"></a>Speicherplätze DAS
+### <a name="storage-spaces-direct"></a>Speicherplätze direkt
 
 Das Bereitstellen von Refs auf direkte Speicherplätze wird für virtualisierte Workloads oder netzwerkgebundenen Speicher empfohlen:
 - Eine Spiegel beschleunigte Parität und [der Cache in direkte Speicherplätze](../storage-spaces/understand-the-cache.md) bieten hochleistungsfähigen und Kapazitäts effizienten Speicher.
@@ -89,6 +89,10 @@ Das Bereitstellen von Refs auf direkte Speicherplätze wird für virtualisierte 
 Das Bereitstellen von refs für Basis Datenträger eignet sich am besten für Anwendungen, die ihre eigenen Lösungen für Software Resilienz und Verfügbarkeit
 - Anwendungen, die ihre eigenen Softwarelösungen für Resilienz und Verfügbarkeit einführen, können Integritäts Datenströme, Block Klonen und die Möglichkeit zum Skalieren und unterstützen großer Datasets nutzen.
 
+> [!IMPORTANT]
+> Wenn Sie die Verwendung von refs für CSV (freigegebene Clustervolumes) planen, berücksichtigen Sie die Einschränkungen für das Vorformatieren ihrer späteren CSV-Volumes mit refs.
+> Für CSV: NTFS sollte für herkömmliche Sans verwendet werden. Refs sollten zusätzlich zu S2D verwendet werden.
+
 > [!NOTE]
 > Zu den Basis Datenträgern gehören lokale nicht austauschbare direkt Anfügung über bustypes SATA, SAS, nvme oder RAID. Basis Datenträger enthalten keine Speicherplätze.
 
@@ -104,7 +108,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 
 ### <a name="limits"></a>Einschränkungen
 
-| Feature       | ReFS                                        | NTFS |
+| Funktion       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
 | Maximale Dateinamenslänge | 255 Unicode-Zeichen  | 255 Unicode-Zeichen               |
 | Maximale Pfadnamenslänge |32.000 Unicode-Zeichen | 32.000 Unicode-Zeichen                |
@@ -119,7 +123,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 |---------------------------|------------------|-----------------------|
 | BitLocker-Verschlüsselung | Ja | Ja |
 | Datendeduplizierung | Ja<sup>1</sup> | Ja |
-| Volumes mit freigegebener Unterstützung (Cluster Shared Volume, CSV) | Ja<sup>2</sup> | Ja |
+| Volumes mit freigegebener Unterstützung (Cluster Shared Volume, CSV) | Ja<sup>2</sup> <sup>4</sup> | Ja |
 | Weiche Links | Ja | Ja |
 | Failover-Clusterunterstützung | Ja | Ja |
 | Zugriffssteuerungslisten | Ja | Ja |
@@ -135,9 +139,10 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 | Benannte Datenströme | Ja | Ja |
 | Schlanke Speicherzuweisung | Ja<sup>3</sup> | Ja |
 | Trim/unmap | Ja<sup>3</sup> | Ja |
-1. Verfügbar unter Windows Server, Version 1709 und höher.
+1. Verfügbar unter Windows Server, Version 1709 und höher, Windows Server 2019 (1809) LTSC oder höher.
 2. Verfügbar unter Windows Server 2012 R2 und höher.
 3. Nur Speicherplätze
+4. CSV verwendet keine direkte e/a-Vorgänge in Verbindung mit Speicherplatz, direkte Speicherplätze (S2D) oder San
 
 #### <a name="the-following-features-are-only-available-on-refs"></a>Die folgenden Features sind nur in Refs verfügbar:
 
@@ -154,7 +159,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 | Komprimierung des Dateisystems | Nein | Ja |
 | Verschlüsseln des Dateisystems | Nein | Ja |
 | Transaktionen | Nein | Ja |
-| Feste Links | Nein | Ja |
+| Feste Links | Ja<sup>1</sup> | Ja |
 | Objekt-IDs | Nein | Ja |
 | Offloaded Datenübertragung (ODX) | Nein | Ja |
 | Kurze Namen | Nein | Ja |
@@ -164,6 +169,8 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 | Unterstützung von Seiten Dateien | Nein | Ja |
 | Auf Wechselmedien unterstützt | Nein | Ja |
 
+1. Version Refs 3,5 formatiert durch Windows 10 Enterprise Insider Preview Build 19536. Unterstützung für hardlink hinzugefügt, wenn **Neues formatiertes Volume. Hardlink kann bei einem Upgrade von einer früheren Version nicht verwendet werden** .
+
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
@@ -171,3 +178,5 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 - [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
 - [ReFS Integrity Streams](integrity-streams.md)
 - [Problembehandlung bei Refs mit Ref](../../administration/windows-commands/refsutil.md)
+- [Verwendung von refs mit Cluster-Shared Volumes](../../failover-clustering/failover-cluster-csvs.md)
+- [Refs-Versionen und Kompatibilitäts Matrix](https://gist.github.com/0xbadfca11/da0598e47dd643d933dc)
