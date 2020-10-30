@@ -2,16 +2,16 @@
 title: cleanmgr
 description: Konfigurieren Sie das Tool für die Datenträger Bereinigung (Cleanmgr.exe), um bestimmte Dateien automatisch zu bereinigen.
 ms.reviewer: cosmosdarwin
-author: iangpgh
+author: JasonGerend
 ms.author: jgerend
 manager: daveba
 ms.date: 06/20/2019
-ms.openlocfilehash: 81a9283ef75ef76b14a8ee8a5ecc3ab225207560
-ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
+ms.openlocfilehash: dd8a015ff27809d0ef960241ce9221b4215c20aa
+ms.sourcegitcommit: 7499749ce7baaf58a523cae2dd46737d635475ce
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90083661"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043882"
 ---
 # <a name="cleanmgr"></a>cleanmgr
 
@@ -66,7 +66,7 @@ Zu den Optionen für die Dateien, die Sie für die Datenträger Bereinigung mith
 
 ## <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um die Datenträger Bereinigungs-APP so auszuführen, dass Sie in Ihrem Dialogfeld Optionen für die spätere Verwendung angeben können, indem Sie die Einstellungen in Set **1**speichern:
+Geben Sie Folgendes ein, um die Datenträger Bereinigungs-APP so auszuführen, dass Sie in Ihrem Dialogfeld Optionen für die spätere Verwendung angeben können, indem Sie die Einstellungen in Set **1** speichern:
 
 ```
 cleanmgr /sageset:1
