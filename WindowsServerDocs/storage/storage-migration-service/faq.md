@@ -6,12 +6,12 @@ ms.author: nedpyle
 manager: siroy
 ms.date: 06/02/2020
 ms.topic: article
-ms.openlocfilehash: e8e327fcf2f9173c7fb571580280ba4d5b7389fe
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: c59be01c856cac27f4372291b52bd43419c9ac46
+ms.sourcegitcommit: 65eef102021ed2b5abd73dca8a0ffd6eb174d705
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035776"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -53,7 +53,7 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
 - Freigabe Status
 - Verfügbarkeitsart
 - Freigabetyp
-- Ordner *enumerationsmodus (auch als Zugriffs basierte Enumeration oder Abe bezeichnet)*
+- Ordner enumerationsmodus *(auch Access-Based Enumeration oder Abe)*
 - Cache Modus
 - Leasing Modus
 - SMB-Instanz
@@ -65,7 +65,7 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
 - Identitäts-Remoting
 - Infrastruktur
 - Name
-- Pfad
+- `Path`
 - Bereichsbezogen
 - Bereichsname
 - Sicherheitsbeschreibung
@@ -90,6 +90,8 @@ Die in Windows Server 2019 enthaltene Version des Storage Migration Service unte
 Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, die als Storage Migration Service-Proxy Dienst bezeichnet wird, der sowohl schnell als auch eine perfekte Daten Treue mit vielen Tools zum Kopieren von Dateien enthält. Obwohl die Standardkonfiguration für viele Kunden optimal ist, gibt es Möglichkeiten, die SMS-Leistung während des Inventars und der Übertragung zu verbessern.
 
 - **Verwenden Sie Windows Server 2019 für das Ziel Betriebssystem.** Windows Server 2019 enthält den Proxy Dienst für den Speicher Migrationsdienst. Wenn Sie dieses Feature installieren und zu Windows Server 2019-Zielen migrieren, werden alle Übertragungen als direkte Linie zwischen Quelle und Ziel ausgeführt. Dieser Dienst wird während der Übertragung auf dem Orchestrator ausgeführt, wenn es sich bei den Ziel Computern um Windows Server 2012 R2 oder Windows Server 2016 handelt, was bedeutet, dass der Double-Hop übertragen wird und viel langsamer ist. Wenn mehrere Aufträge mit Windows Server 2012 R2-oder Windows Server 2016-Zielen ausgeführt werden, wird der Orchestrator zu einem Engpass.
+
+- **Installieren Sie das aktuellste monatliche kumulative Update.** Wir haben den Proxy Dienst für den Speicher Migrationsdienst in mehreren Updates verbessert, um die Leistung zu verbessern und die Leistung zu verbessern und die Leistung zu verbessern. Installieren Sie [KB4580390 Kumulatives Update vom Oktober 2020](https://support.microsoft.com/help/4580390/windows-10-update-kb4580390) oder höher, um eine beträchtliche Geschwindigkeit zu erzielen.
 
 - **Standard Übertragungs Threads ändern.** Der Speicher Migrationsdienst-Proxy Dienst kopiert 8 Dateien gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen kopierthreads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert Name in Decimal auf jedem Knoten mit dem Speicher Migrationsdienst-Proxy anpassen:
 
@@ -118,13 +120,13 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 - **Verwenden Sie SMB 3 Multichannel.** Bei der Übertragung von einem Quellcomputer mit Windows Server 2012 oder höher unterstützt SMB 3. x Multichannel-Kopien, die die Datei Kopier Leistung erheblich verbessern können. Diese Funktion funktioniert automatisch so lange, wie Quelle und Ziel beide:
 
    - Mehrere Netzwerkadapter
-   - Ein oder mehrere Netzwerkadapter, die die Empfangs seitige Skalierung unterstützen (RSS)
+   - Mindestens ein Netzwerkadapter mit Unterstützung für RSS (Receive Side Scaling)
    - Einer von mehreren Netzwerkadaptern, die mithilfe des NIC-Team Vorgangs konfiguriert werden
    - Ein oder mehrere Netzwerkadapter, die RDMA unterstützen
 
 - **Aktualisieren von Treibern.** Installieren Sie ggf. den aktuellen Hersteller Speicher und die Gehäuse Firmware und-Treiber, die neuesten Hersteller-HBA-Treiber, die neueste BIOS-/UEP-Firmwareversion, die neuesten Netzwerktreiber des Anbieters und die neuesten Server für die Hauptschlüssel-Chipsätze auf den Quell-, Ziel Starten Sie die Knoten gegebenenfalls neu. Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.
 
-- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben.
+- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie bei Bedarf einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben.
 
 - **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](../../administration/performance-tuning/index.md) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](../../networking/technologies/network-subsystem/net-sub-performance-tuning-nics.md) enthält besonders wertvolle Informationen.
 
@@ -164,7 +166,7 @@ Beim Durchführen einer Übertragung wird vom Speicher Migrationsdienst versucht
 
 Die meisten Fehler in der CSV-Übertragungs Datei sind Windows-System Fehler Codes. Informationen zu den einzelnen Fehlern finden Sie in der Dokumentation zu [Win32-Fehlercodes](/windows/win32/debug/system-error-codes).
 
-## <a name="what-are-my-options-to-give-feedback-file-bugs-or-get-support"></a><a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
+## <a name="what-are-my-options-to-give-feedback-file-bugs-or-get-support"></a><a name="give-feedback"></a> Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
 
 So geben Sie Feedback zum Speicher Migrationsdienst an:
 
