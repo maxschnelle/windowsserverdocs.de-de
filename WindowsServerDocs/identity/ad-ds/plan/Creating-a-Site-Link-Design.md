@@ -1,17 +1,17 @@
 ---
 ms.assetid: 206b8072-1d0c-4a0b-ba8a-35a868d67b4c
 title: Erstellen eines Entwurfs für Standortverknüpfungen
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/08/2018
 ms.topic: article
-ms.openlocfilehash: 881ca5f2d932a8e13aaa7467179360ca8bb4af66
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 390cc0d69fa4d43a957500c0078d53dcdc69c10c
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068772"
 ---
 # <a name="creating-a-site-link-design"></a>Erstellen eines Entwurfs für Standortverknüpfungen
 
@@ -21,7 +21,7 @@ Erstellen Sie einen Standort Verknüpfungs Entwurf, um Ihre Standorte mit Stando
 
 ## <a name="connecting-sites-with-site-links"></a>Verbinden von Standorten mit Standortverknüpfungen
 
-Um Standorte mit Standort Verknüpfungen zu verbinden, identifizieren Sie die Mitgliedsstandorte, die Sie mit der Standort Verknüpfung verbinden möchten, erstellen Sie ein Standort Verknüpfungs Objekt in dem entsprechenden standortübergreifenden Transportcontainer, und benennen Sie die Standort Verknüpfung. Nachdem Sie die Standort Verknüpfung erstellt haben, können Sie mit dem Festlegen der Standort Verknüpfungs Eigenschaften fortfahren.
+Um Standorte mit Standort Verknüpfungen zu verbinden, geben Sie die Mitgliedsstandorte an, die Sie mit der Standort Verknüpfung verbinden möchten, erstellen Sie ein Standort Verknüpfungs Objekt im jeweiligen Container Inter-Site Transports, und benennen Sie die Standort Verknüpfung. Nachdem Sie die Standort Verknüpfung erstellt haben, können Sie mit dem Festlegen der Standort Verknüpfungs Eigenschaften fortfahren.
 
 Wenn Sie Standort Verknüpfungen erstellen, stellen Sie sicher, dass jeder Standort in einer Standort Verknüpfung enthalten ist. Stellen Sie darüber hinaus sicher, dass alle Standorte über andere Standort Verknüpfungen miteinander verbunden sind, damit die Änderungen von Domänen Controllern an allen Standorten repliziert werden können. Wenn Sie dies nicht tun, wird im Verzeichnisdienst Ereignisanzeige Protokoll eine Fehlermeldung mit dem Hinweis generiert, dass die Standort Topologie nicht verbunden ist.
 
@@ -29,12 +29,12 @@ Wenn Sie Websites zu einer neu erstellten Standort Verknüpfung hinzufügen, ste
 
 Verwenden Sie die Liste der Standorte und verknüpften Speicherorte, die Sie im Arbeitsblatt "geografische Standorte und Kommunikations Links" (DSSTOPO_1.doc) notiert haben, um die Mitgliedsstandorte zu identifizieren, die Sie mit einer Standort Verknüpfung verbinden möchten. Wenn mehrere Standorte die gleiche Konnektivität und Verfügbarkeit aufweisen, können Sie Sie mit derselben Standort Verknüpfung verbinden.
 
-Der Container für standortübergreifende Transporte bietet die Möglichkeit zum Mapping von Standort Verknüpfungen zu dem Transport, den der Link verwendet. Wenn Sie ein Standort Verknüpfungs Objekt erstellen, erstellen Sie es entweder in dem IP-Container, der die Standort Verknüpfung mit dem Remote Prozedur Aufruf (RPC) über den IP-Transport verknüpft, oder den Simple Mail Transfer Protocol (SMTP)-Container, der die Standort Verknüpfung dem SMTP-Transport zuordnet.
+Der Container für Inter-Site Transporte bietet die Möglichkeit zum Mapping von Standort Verknüpfungen zu dem Transport, den der Link verwendet. Wenn Sie ein Standort Verknüpfungs Objekt erstellen, erstellen Sie es entweder in dem IP-Container, der die Standort Verknüpfung mit dem Remote Prozedur Aufruf (RPC) über den IP-Transport verknüpft, oder den Simple Mail Transfer Protocol (SMTP)-Container, der die Standort Verknüpfung dem SMTP-Transport zuordnet.
 
 > [!NOTE]
 > Die SMTP-Replikation wird in zukünftigen Versionen von Active Directory Domain Services (AD DS) nicht unterstützt. Daher wird das Erstellen von Standort Verknüpfungs Objekten im SMTP-Container nicht empfohlen.
 
-Wenn Sie ein Standort Verknüpfungs Objekt im entsprechenden standortübergreifenden Transportcontainer erstellen, verwendet AD DS RPC-over-IP, um die standortübergreifende und Standort interne Replikation zwischen Domänen Controllern zu übertragen. Um Daten während der Übertragung sicher zu halten, verwendet die RPC-over-IP-Replikation sowohl das Kerberos-Authentifizierungsprotokoll als auch die Datenverschlüsselung
+Wenn Sie ein Standort Verknüpfungs Objekt in der jeweiligen Inter-Site Transports-Container erstellen, verwendet AD DS RPC-over-IP, um die standortübergreifende und Standort interne Replikation zwischen Domänen Controllern zu übertragen. Um Daten während der Übertragung sicher zu halten, verwendet die RPC-over-IP-Replikation sowohl das Kerberos-Authentifizierungsprotokoll als auch die Datenverschlüsselung
 
 Wenn keine direkte IP-Verbindung verfügbar ist, können Sie die Replikation Zwischenstand Orten für die Verwendung von SMTP konfigurieren. Die SMTP-Replikations Funktionalität ist jedoch begrenzt und erfordert eine Unternehmens Zertifizierungsstelle (Certification Authority, ca). SMTP kann nur die Konfigurations-, Schema-und Anwendungsverzeichnis Partitionen replizieren. die Replikation von Domänen Verzeichnis Partitionen wird nicht unterstützt.
 

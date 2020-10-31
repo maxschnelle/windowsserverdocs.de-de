@@ -1,17 +1,17 @@
 ---
 ms.assetid: 7a7ab95c-9cb3-4a7b-985a-3fc08334cf4f
 title: Implementieren von Verwaltungsmodellen der geringste Rechte
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: ab4d6f282de88b7d55256ecd3a9ff4a82a7881fb
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 95f8158f5565c57904b7423456eb7189f9e58a2a
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941450"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069662"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 
@@ -86,16 +86,16 @@ Ausführliche Anweisungen zum Implementieren dieser Steuerelemente finden Sie im
 
 Integrierte Administrator Konten sollten nie als Dienst Konten auf Mitglieds Servern verwendet werden, und Sie sollten nicht für die Anmeldung bei lokalen Computern (außer im abgesicherten Modus) verwendet werden, auch wenn das Konto deaktiviert ist. Das Ziel der Implementierung der hier beschriebenen Einstellungen besteht darin, zu verhindern, dass das lokale Administrator Konto jedes Computers verwendet wird, es sei denn, die Schutz Kontrollen werden zum ersten Mal umgekehrt Indem Sie diese Steuerelemente implementieren und Administrator Konten für Änderungen überwachen, können Sie die Wahrscheinlichkeit eines Erfolgs eines Angriffs, der auf lokale Administrator Konten abzielt, erheblich reduzieren.
 
-##### <a name="configuring-gpos-to-restrict-administrator-accounts-on-domain-joined-systems"></a>Konfigurieren von Gruppenrichtlinien Objekten zum Einschränken von Administrator Konten auf in die Domäne eingebundenen Systemen
+##### <a name="configuring-gpos-to-restrict-administrator-accounts-on-domain-joined-systems"></a>Konfigurieren von GPOs zum Einschränken von Administrator Konten auf Domain-Joined Systemen
 
-Fügen Sie in jeder Domäne in mindestens einem Gruppenrichtlinien Objekt, das Sie erstellen und mit der Arbeitsstation und den Mitglieds Server Organisationseinheiten verknüpft sind, das Administrator Konto den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzerrechten
+Fügen Sie in jeder Domäne in mindestens einem Gruppenrichtlinien Objekt, das Sie erstellen und mit der Arbeitsstation und den Mitglieds Server Organisationseinheiten verknüpft sind, das Administrator Konto den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien\Zuweisen von Benutzerrechten
 
 - Zugriff vom Netzwerk auf diesen Computer verweigern
 - Anmelden als Batchauftrag verweigern
 - Anmelden als Dienst verweigern
 - Anmelden über Remotedesktopdienste verweigern
 
-Wenn Sie diesen Benutzerrechten Administrator Konten hinzufügen, geben Sie an, ob Sie das lokale Administrator Konto oder das Domänen Administrator Konto hinzufügen, indem Sie das Konto bezeichnen. Wenn Sie z. b. das Administrator Konto der Domäne nwtraders zu diesen Verweigerungs rechten hinzufügen möchten, geben Sie das Konto als **NWTRADERS\Administrator**ein, oder navigieren Sie zum Administrator Konto für die Domäne nwtraders. Um sicherzustellen, dass Sie das lokale Administrator Konto einschränken, geben Sie in der Gruppenrichtlinienobjekt-Editor in den Einstellungen für Benutzerrechte **Administrator** ein.
+Wenn Sie diesen Benutzerrechten Administrator Konten hinzufügen, geben Sie an, ob Sie das lokale Administrator Konto oder das Domänen Administrator Konto hinzufügen, indem Sie das Konto bezeichnen. Wenn Sie z. b. das Administrator Konto der Domäne nwtraders zu diesen Verweigerungs rechten hinzufügen möchten, geben Sie das Konto als **NWTRADERS\Administrator** ein, oder navigieren Sie zum Administrator Konto für die Domäne nwtraders. Um sicherzustellen, dass Sie das lokale Administrator Konto einschränken, geben Sie in der Gruppenrichtlinienobjekt-Editor in den Einstellungen für Benutzerrechte **Administrator** ein.
 
 > [!NOTE]
 > Auch wenn lokale Administrator Konten umbenannt werden, gelten die Richtlinien weiterhin.
@@ -108,13 +108,13 @@ Sollte ein Mitglieds Server oder eine Arbeitsstation von der Domäne getrennt we
 
 *Recht Nummer 6: ein Computer ist nur so sicher, wie der Administrator vertrauenswürdig ist.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)
 
-Die Informationen, die hier bereitgestellt werden, sollen allgemeine Richtlinien zum Sichern der integrierten Konten und Gruppen mit den meisten Berechtigungen in Active Directory bereitstellen. Ausführliche Schritt-für-Schritt-Anweisungen finden Sie auch in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md), Anhang E: Schützen von Organisations- [Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md), [Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)und in [Anhang G: Sichern von Administratoren Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md).
+Die Informationen, die hier bereitgestellt werden, sollen allgemeine Richtlinien zum Sichern der integrierten Konten und Gruppen mit den meisten Berechtigungen in Active Directory bereitstellen. Ausführliche Schritt-für-Schritt-Anweisungen finden Sie auch in [Anhang D: schützen Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md), Anhang E: Schützen von Organisations- [Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md), [Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)und in [Anhang G: Sichern von Administratoren Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md).
 
 Bevor Sie eine dieser Einstellungen implementieren, sollten Sie auch alle Einstellungen gründlich testen, um zu ermitteln, ob Sie für Ihre Umgebung geeignet sind. Nicht alle Organisationen können diese Einstellungen implementieren.
 
 #### <a name="securing-built-in-administrator-accounts-in-active-directory"></a>Sichern integrierter Administrator Konten in Active Directory
 
-In jeder Domäne in Active Directory wird ein Administrator Konto im Rahmen der Erstellung der Domäne erstellt. Dieses Konto ist standardmäßig Mitglied der Gruppe "Domänen-Admins" und "Administratoren" in der Domäne. wenn es sich bei der Domäne um die Stamm Domäne der Gesamtstruktur handelt, ist das Konto auch Mitglied der Gruppe "Organisations-Admins". Die Verwendung des lokalen Administrator Kontos einer Domäne sollte nur für anfängliche buildaktivitäten und möglicherweise für Notfall Wiederherstellungs Szenarien reserviert werden. Um sicherzustellen, dass ein integriertes Administrator Konto verwendet werden kann, um Reparaturen zu beeinflussen, wenn keine anderen Konten verwendet werden können, sollten Sie die Standardmitgliedschaft des Administrator Kontos in keiner Domäne in der Gesamtstruktur ändern. Stattdessen sollten Sie die Richtlinien befolgen, um das Administrator Konto in jeder Domäne in der Gesamtstruktur zu schützen. Ausführliche Anweisungen zum Implementieren dieser Steuerelemente finden Sie in [Anhang D: sichern integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).
+In jeder Domäne in Active Directory wird ein Administrator Konto im Rahmen der Erstellung der Domäne erstellt. Dieses Konto ist standardmäßig Mitglied der Gruppe "Domänen-Admins" und "Administratoren" in der Domäne. wenn es sich bei der Domäne um die Stamm Domäne der Gesamtstruktur handelt, ist das Konto auch Mitglied der Gruppe "Organisations-Admins". Die Verwendung des lokalen Administrator Kontos einer Domäne sollte nur für anfängliche buildaktivitäten und möglicherweise für Notfall Wiederherstellungs Szenarien reserviert werden. Um sicherzustellen, dass ein integriertes Administrator Konto verwendet werden kann, um Reparaturen zu beeinflussen, wenn keine anderen Konten verwendet werden können, sollten Sie die Standardmitgliedschaft des Administrator Kontos in keiner Domäne in der Gesamtstruktur ändern. Stattdessen sollten Sie die Richtlinien befolgen, um das Administrator Konto in jeder Domäne in der Gesamtstruktur zu schützen. Ausführliche Anweisungen zum Implementieren dieser Steuerelemente finden Sie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).
 
 #### <a name="controls-for-built-in-administrator-accounts"></a>Steuerelemente für integrierte Administrator Konten
 
@@ -130,11 +130,11 @@ Wenn Sie die **Smartcard für das interaktive Anmelde Attribut für** ein Konto 
 
 Obwohl das Festlegen der **Smartcard für das interaktive Anmelde** Kennzeichen das Kennwort des Kontos zurücksetzt, verhindert es, dass ein Benutzer mit rechten das Konto Kennwort zurücksetzt, indem er das Konto auf einen bekannten Wert festlegt und den Kontonamen und das neue Kennwort für den Zugriff auf Ressourcen im Netzwerk verwendet. Aus diesem Grund sollten Sie die folgenden zusätzlichen Steuerelemente für das Konto implementieren.
 
-##### <a name="configuring-gpos-to-restrict-domains-administrator-accounts-on-domain-joined-systems"></a>Konfigurieren von GPOs zum Einschränken von Domänen Administrator Konten auf in die Domäne eingebundenen Systemen
+##### <a name="configuring-gpos-to-restrict-domains-administrator-accounts-on-domain-joined-systems"></a>Konfigurieren von GPOs zum Einschränken von Domänen Administrator Konten auf Domain-Joined Systemen
 
 Obwohl das deaktivierte Administrator Konto in einer Domäne das Konto effektiv unbrauchbar macht, sollten Sie zusätzliche Einschränkungen für das Konto implementieren, falls das Konto versehentlich oder böswillig aktiviert ist. Obwohl diese Steuerelemente letztendlich durch das Administrator Konto umgekehrt werden können, besteht das Ziel darin, Steuerelemente zu erstellen, die den Fortschritt eines Angreifers verlangsamen, und die Schäden einzuschränken, die das Konto verursachen kann.
 
-Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit der Arbeitsstation und dem Mitglieds Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzer
+Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit der Arbeitsstation und dem Mitglieds Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien\Zuweisen von Benutzer
 
 - Zugriff vom Netzwerk auf diesen Computer verweigern
 - Anmelden als Batchauftrag verweigern
@@ -142,13 +142,13 @@ Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen
 - Anmelden über Remotedesktopdienste verweigern
 
 > [!NOTE]
-> Wenn Sie dieser Einstellung lokale Administrator Konten hinzufügen, müssen Sie angeben, ob Sie lokale Administrator Konten oder Domänen Administrator Konten konfigurieren möchten. Wenn Sie z. b. das lokale Administrator Konto der NWTraders-Domäne zu diesen Ablehnungs rechten hinzufügen möchten, müssen Sie das Konto entweder als **NWTRADERS\Administrator**eingeben oder zum lokalen Administrator Konto für die Domäne nwtraders navigieren. Wenn Sie in der Gruppenrichtlinienobjekt-Editor in diese Benutzerrechte Einstellungen **Administrator** eingeben, beschränken Sie das lokale Administrator Konto auf jedem Computer, auf den das Gruppenrichtlinien Objekt angewendet wird.
+> Wenn Sie dieser Einstellung lokale Administrator Konten hinzufügen, müssen Sie angeben, ob Sie lokale Administrator Konten oder Domänen Administrator Konten konfigurieren möchten. Wenn Sie z. b. das lokale Administrator Konto der NWTraders-Domäne zu diesen Ablehnungs rechten hinzufügen möchten, müssen Sie das Konto entweder als **NWTRADERS\Administrator** eingeben oder zum lokalen Administrator Konto für die Domäne nwtraders navigieren. Wenn Sie in der Gruppenrichtlinienobjekt-Editor in diese Benutzerrechte Einstellungen **Administrator** eingeben, beschränken Sie das lokale Administrator Konto auf jedem Computer, auf den das Gruppenrichtlinien Objekt angewendet wird.
 >
 > Es wird empfohlen, lokale Administrator Konten auf Mitglieds Servern und Arbeitsstationen auf die gleiche Weise wie Domänen basierte Administrator Konten zu beschränken. Daher sollten Sie in der Regel das Administrator Konto für jede Domäne in der Gesamtstruktur und das Administrator Konto für die lokalen Computer zu diesen Benutzerrechten Einstellungen hinzufügen.
 
 ##### <a name="configuring-gpos-to-restrict-administrator-accounts-on-domain-controllers"></a>Konfigurieren von GPOs zum Einschränken von Administrator Konten auf Domänen Controllern
 
-In jeder Domäne in der Gesamtstruktur sollte die Standard Domänen Controller-Richtlinie oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von
+In jeder Domäne in der Gesamtstruktur sollte die Standard Domänen Controller-Richtlinie oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien\Zuweisen von
 
 - Zugriff vom Netzwerk auf diesen Computer verweigern
 - Anmelden als Batchauftrag verweigern
@@ -166,13 +166,13 @@ Wenn Sie das Administrator Konto jeder Domäne gesichert und deaktiviert haben, 
 
 #### <a name="securing-enterprise-admin-groups"></a>Sichern von Unternehmens Administrator Gruppen
 
-Die Gruppe "Organisations-Admins", die in der Stamm Domäne der Gesamtstruktur enthalten ist, sollte täglich keine Benutzer enthalten, mit Ausnahme des lokalen Administrator Kontos der Domäne, vorausgesetzt, Sie ist wie zuvor beschrieben geschützt und in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).
+Die Gruppe "Organisations-Admins", die in der Stamm Domäne der Gesamtstruktur enthalten ist, sollte täglich keine Benutzer enthalten, mit einer Ausnahme, die das lokale Administrator Konto der Domäne ist, vorausgesetzt, Sie ist wie zuvor beschrieben und in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)gesichert.
 
 Wenn EA-Zugriff erforderlich ist, sollten die Benutzer, deren Konten EA-Rechte und-Berechtigungen benötigen, vorübergehend in der Gruppe Organisations-Admins abgelegt werden. Obwohl Benutzer die Konten mit hohen Berechtigungen verwenden, sollten ihre Aktivitäten überwacht und vorzugsweise mit einem Benutzer durchgeführt werden, der die Änderungen durchführt, und ein anderer Benutzer, der die Änderungen beobachtet, um die Wahrscheinlichkeit von unbeabsichtigtem Missbrauch oder falscher Konfiguration zu minimieren. Wenn die Aktivitäten abgeschlossen sind, sollten die Konten aus der EA-Gruppe entfernt werden. Dies kann mithilfe von manuellen Prozeduren und dokumentierten Prozessen, einer Drittanbieter-Software mit privilegierter Identitäts-/Zugriffsverwaltung (PIM/PAM) oder einer Kombination aus beidem erreicht werden. Richtlinien zum Erstellen von Konten, die zum Steuern der Mitgliedschaft von privilegierten Gruppen in Active Directory verwendet werden können, werden in [attraktiven Konten für den Diebstahl von](../../../ad-ds/plan/security-best-practices/Attractive-Accounts-for-Credential-Theft.md) Anmelde Informationen bereitgestellt. Ausführliche Anweisungen finden Sie in [Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).
 
 Organisations-Admins sind standardmäßig Mitglieder der integrierten Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur. Das Entfernen der Gruppe "Organisations-Admins" aus den Administratoren Gruppen in den einzelnen Domänen ist eine ungeeignete Änderung. im Falle eines Notfall Wiederherstellungs Szenarios für die Gesamtstruktur sind EA-Rechte wahrscheinlich erforderlich. Wenn die Gruppe "Organisations-Admins" aus Administratoren Gruppen in einer Gesamtstruktur entfernt wurde, sollte Sie der Gruppe "Administratoren" in jeder Domäne hinzugefügt werden, und die folgenden zusätzlichen Steuerelemente müssen implementiert werden:
 
-- Wie bereits erwähnt, sollte die Gruppe "Organisations-Admins" keine Benutzer täglich enthalten, mit der möglichen Ausnahme des Administrator Kontos der Gesamtstruktur-Stamm Domäne, das wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben werden sollte.
+- Wie bereits erwähnt, sollte die Gruppe "Organisations-Admins" keine Benutzer täglich enthalten, mit der möglichen Ausnahme des Administrator Kontos der Gesamtstruktur-Stamm Domäne, das wie in [Anhang D: schützen Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben geschützt werden muss.
 - In GPOs, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die EA-Gruppe den folgenden Benutzerrechten hinzugefügt werden:
    - Zugriff vom Netzwerk auf diesen Computer verweigern
    - Anmelden als Batchauftrag verweigern
@@ -186,7 +186,7 @@ Dadurch wird verhindert, dass Mitglieder der EA-Gruppe sich bei Mitglieds Server
 
 #### <a name="securing-domain-admins-groups"></a>Sichern von Domänen Administratoren Gruppen
 
-Wie bei der Gruppe "Organisations-Admins" sollten Mitglieder der Gruppe "Domänen-Admins" nur in Szenarios für die Erstellung oder Notfall Wiederherstellung benötigt werden. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "da" vorhanden sein, mit Ausnahme des lokalen Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+Wie bei der Gruppe "Organisations-Admins" sollten Mitglieder der Gruppe "Domänen-Admins" nur in Szenarios für die Erstellung oder Notfall Wiederherstellung benötigt werden. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "da" vorhanden sein, mit Ausnahme des lokalen Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 
 Wenn der Zugriff auf das Konto erforderlich ist, sollten die Konten, die diese Zugriffsebene benötigen, vorübergehend in der Gruppe "da" für die betreffende Domäne platziert werden. Obwohl die Benutzer die Konten mit hohen Berechtigungen verwenden, sollten Aktivitäten überwacht und vorzugsweise mit einem Benutzer durchgeführt werden, der die Änderungen durchführt, und ein anderer Benutzer, der die Änderungen beobachtet, um die Wahrscheinlichkeit von unbeabsichtigtem Missbrauch oder falscher Konfiguration zu minimieren. Nachdem die Aktivitäten abgeschlossen wurden, sollten die Konten aus der Gruppe Domänen-Admins entfernt werden. Dies kann mithilfe von manuellen Prozeduren und dokumentierten Prozessen, über die bevorzugte Identitäts-/zugriffsverwaltungssoftware (PIM/PAM) von Drittanbietern oder eine Kombination aus beidem erreicht werden. Richtlinien zum Erstellen von Konten, die zum Steuern der Mitgliedschaft von privilegierten Gruppen in Active Directory verwendet werden können, finden Sie in [Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).
 
@@ -194,7 +194,7 @@ Domänen-Admins sind standardmäßig Mitglieder der lokalen Administratoren Grup
 
 Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
-1. Entfernen Sie alle Mitglieder aus der Gruppe "da" mit der möglichen Ausnahme des integrierten Administrator Kontos für die Domäne, vorausgesetzt, dass Sie wie in [Anhang D: sichern integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+1. Entfernen Sie alle Mitglieder aus der Gruppe "da" mit der möglichen Ausnahme des integrierten Administrator Kontos für die Domäne, vorausgesetzt, dass Sie wie in [Anhang D: schützen Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 2. In GPOs, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die Gruppe "da" den folgenden Benutzerrechten hinzugefügt werden:
    - Zugriff vom Netzwerk auf diesen Computer verweigern
    - Anmelden als Batchauftrag verweigern
@@ -208,13 +208,13 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="securing-administrators-groups-in-active-directory"></a>Schützen von Administratorgruppen in Active Directory
 
-Wie bei den EA-und da-Gruppen sollte die Mitgliedschaft in der Gruppe Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des lokalen Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+Wie bei den EA-und da-Gruppen sollte die Mitgliedschaft in der Gruppe Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des lokalen Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 
 Wenn Administrator Zugriff erforderlich ist, sollten die Konten, die diese Zugriffsebene benötigen, vorübergehend in der Gruppe "Administratoren" für die betreffende Domäne platziert werden. Obwohl die Benutzer die Konten mit hohen Berechtigungen verwenden, sollten Aktivitäten überwacht und vorzugsweise mit einem Benutzer durchgeführt werden, der die Änderungen durchführt, und ein anderer Benutzer, der die Änderungen beobachtet, um die Wahrscheinlichkeit von unbeabsichtigtem Missbrauch oder falscher Konfiguration zu minimieren. Nachdem die Aktivitäten abgeschlossen wurden, sollten die Konten sofort aus der Gruppe "Administratoren" entfernt werden. Dies kann mithilfe von manuellen Prozeduren und dokumentierten Prozessen, über die bevorzugte Identitäts-/zugriffsverwaltungssoftware (PIM/PAM) von Drittanbietern oder eine Kombination aus beidem erreicht werden.
 
 Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren jeweiligen Domänen. Die Mitgliedschaft in dieser Gruppe ist möglicherweise in Build-und Notfall Wiederherstellungs Szenarien erforderlich, in denen der Besitz oder die Fähigkeit, Objekte zu übernehmen, erforderlich ist. Außerdem erben das und EAS aufgrund der Standardmitgliedschaft in der Gruppe "Administratoren" eine Reihe ihrer Rechte und Berechtigungen. Die Standard Gruppen Schachtelung für privilegierte Gruppen in Active Directory sollte nicht geändert werden, und die Administratoren Gruppe jeder Domäne sollte wie in [Anhang G: Sichern von Administratoren Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md)beschrieben und in den folgenden allgemeinen Anweisungen gesichert werden.
 
-1. Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das lokale Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+1. Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das lokale Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 2. Mitglieder der Gruppe "Administratoren" der Domäne sollten sich nie bei Mitglieds Servern oder Arbeitsstationen anmelden müssen. In mindestens einem Gruppenrichtlinien Objekt, das mit der Arbeitsstation und dem Mitglied Server Organisationseinheiten in jeder Domäne verknüpft ist, sollte die Gruppe Administratoren den folgenden Benutzerrechten hinzugefügt werden:
    - Zugriff vom Netzwerk auf diesen Computer verweigern
    - Anmelden als Batch Auftrag verweigern
@@ -233,7 +233,7 @@ Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren
 >
 > ![Verwaltungsmodelle mit geringsten Rechten](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)
 
-### <a name="role-based-access-controls-rbac-for-active-directory"></a>Rollenbasierte Zugriffs Steuerung (Role-Based Access Control, RBAC) für Active Directory
+### <a name="role-based-access-controls-rbac-for-active-directory"></a>Role-Based Access Control (RBAC) für Active Directory
 
 Im Allgemeinen handelt es sich bei der rollenbasierten Zugriffs Steuerung (Role-Based Access Control, RBAC) um einen Mechanismus zum Gruppieren von Benutzern und zum Bereitstellen des Zugriffs auf Ressourcen basierend auf Im Fall von Active Directory ist die Implementierung von RBAC für AD DS das Erstellen von Rollen, an die Rechte und Berechtigungen delegiert werden, damit Mitglieder der Rolle alltägliche administrative Aufgaben ausführen können, ohne dass Ihnen übermäßig viele Berechtigungen gewährt werden. RBAC für Active Directory kann mithilfe von systemeigenen Tools und Schnittstellen entworfen und implementiert werden, indem Software genutzt wird, die Sie bereits besitzen, indem Sie Produkte von Drittanbietern oder eine beliebige Kombination aus diesen Ansätzen erwerben. Dieser Abschnitt enthält keine Schritt-für-Schritt-Anweisungen zur Implementierung der rollenbasierten Zugriffs Steuerung (RBAC) für Active Directory, sondern erläutert Faktoren, die Sie bei der Auswahl eines Ansatzes zur Implementierung von RBAC in ihren AD DS-Installationen berücksichtigen sollten.
 

@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Ausführen der ersten Wiederherstellung'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.openlocfilehash: 1b63d2dc379ae4e218bca9f39aab92eb74d6f5e5
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 8b0498b30966c22ec8dca267988e109d976f6b69
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939500"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067742"
 ---
 # <a name="perform-initial-recovery"></a>Anfängliche Wiederherstellung ausführen
 
@@ -50,7 +50,7 @@ Führen Sie anschließend die folgenden Schritte aus. Verfahren zum Ausführen b
 
       **Hklm\system\currentcontrolset\services\ntds\parameters\repl führt anfängliche Synchronisierung aus.**
 
-      Erstellen Sie den Eintrag mit dem Datentyp **REG_DWORD** und dem Wert **0**. Nachdem die Gesamtstruktur vollständig wieder hergestellt wurde, können Sie den Wert dieses Eintrags auf den Wert **1**zurücksetzen. hierfür ist ein Domänen Controller erforderlich, der neu gestartet wird und Betriebs Master Rollen enthält, damit er erfolgreich AD DS eingehende und ausgehende Replikation mit den bekannten Replikat Partnern durchführt, bevor er sich selbst als Domänen Controller bereitstellt und Dienst Weitere Informationen zu den Anforderungen für die anfängliche Synchronisierung finden Sie im KB-Artikel [305476](https://support.microsoft.com/kb/305476).
+      Erstellen Sie den Eintrag mit dem Datentyp **REG_DWORD** und dem Wert **0** . Nachdem die Gesamtstruktur vollständig wieder hergestellt wurde, können Sie den Wert dieses Eintrags auf den Wert **1** zurücksetzen. hierfür ist ein Domänen Controller erforderlich, der neu gestartet wird und Betriebs Master Rollen enthält, damit er erfolgreich AD DS eingehende und ausgehende Replikation mit den bekannten Replikat Partnern durchführt, bevor er sich selbst als Domänen Controller bereitstellt und Dienst Weitere Informationen zu den Anforderungen für die anfängliche Synchronisierung finden Sie im KB-Artikel [305476](https://support.microsoft.com/kb/305476).
 
       Fahren Sie mit den nächsten Schritten erst fort, nachdem Sie die Daten wieder hergestellt und überprüft haben und bevor Sie diesen Computer dem Produktionsnetzwerk hinzufügen.
 
@@ -123,7 +123,7 @@ Fügen Sie nach der Überprüfung die DCS zum Produktionsnetzwerk hinzu, und fü
 
 - Um die Namensauflösung zu beheben, erstellen Sie DNS-Delegierungs Einträge und konfigurieren DNS-Weiterleitung und Stamm Hinweise nach Bedarf. Führen Sie **repadmin/replsum** zum Überprüfen der Replikation zwischen DCS aus.
 - Wenn die wiederhergestellten Domänen Controller keine direkten Replikations Partner sind, wird die Replikations Wiederherstellung erheblich beschleunigt, indem temporäre Verbindungs Objekte zwischen Ihnen erstellt werden.
-- Um die Metadatenbereinigung zu überprüfen, führen Sie **repadmin/viewlist \\ *** für eine Liste aller DCS in der Gesamtstruktur aus. Führen Sie **nltest/DCList:** *<\> Domäne* aus, um eine Liste aller DCS in der Domäne zu finden.
+- Führen Sie zum Überprüfen der Metadatenbereinigung **repadmin/viewlist \\** _ aus, um eine Liste aller DCS in der Gesamtstruktur zu erhalten. Führen Sie _ *nltest/DCList:* *  *<\> Domäne* aus, um eine Liste aller DCS in der Domäne zu finden.
 - Führen Sie dcdiag/v aus, um Fehler für alle DCS in der Gesamtstruktur zu melden.
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Hinzufügen des globalen Katalogs zu einem Domänen Controller in der Stamm Domäne der Gesamtstruktur

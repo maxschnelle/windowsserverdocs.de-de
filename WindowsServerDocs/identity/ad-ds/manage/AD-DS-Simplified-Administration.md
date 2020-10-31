@@ -1,17 +1,17 @@
 ---
 ms.assetid: f74eec9a-2485-4ee0-a0d8-cce01250a294
 title: Vereinfachte Verwaltung für AD DS
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 5fec303bb5681147d1a2d9ab008ad40ac6a1b52c
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 6390fcea3cf0b08cf36b9c8e73514b3af284122e
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940050"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068132"
 ---
 # <a name="ad-ds-simplified-administration"></a>Vereinfachte Verwaltung für AD DS
 
@@ -174,7 +174,7 @@ Der zuvor in ADprep.exe untergebrachte AD-Vorbereitungscode ist nun in adprep.dl
 
 Das in den verwalteten Code von ADDSDeployment Windows PowerShell integrierte System zur Voraussetzungsprüfung funktioniert je nach Operation auf unterschiedliche Arten. Die folgenden Tabellen beschreiben die einzelnen Tests, deren jeweilige Anwendungsfälle und erläutern, was und wie genau geprüft wird. Diese Tabellen sind hilfreich, wenn Probleme auftreten, bei denen die Prüfung fehlschlägt und die Fehlermeldung nicht zur Problembehandlung ausreicht.
 
-Diese Tests schreiben in den Ereignisprotokollkanal **Verzeichnisdienste-Bereitstellung** unter der Aufgabenkategorie **Core**, immer mit der Ereignis-ID **103**.
+Diese Tests schreiben in den Ereignisprotokollkanal **Verzeichnisdienste-Bereitstellung** unter der Aufgabenkategorie **Core** , immer mit der Ereignis-ID **103** .
 
 ### <a name="prerequisite-windows-powershell"></a>Windows PowerShell - Voraussetzungen
 
@@ -195,7 +195,7 @@ Diese Cmdlets müssen normalerweise nicht ausgeführt werden, da sie standardmä
 | VerifyAdminTrusted<p>ForDelegationProvider | LDAP | Prüft, ob Sie die Berechtigung "Ermöglichen, dass Computer- und Benutzerkonten für Delegierungszwecke vertraut wird" (SeEnableDelegationPrivilege) auf dem existierenden Partner-Domänencontroller haben. Hierfür wird Zugriff auf Ihr konstruiertes tokenGroups-Attribut benötigt.<p>Wird nicht verwendet, wenn ein Microsoft Windows Server 2003-Domänencontroller kontaktier wird. Sie müssen diese Berechtigung vor der Heraufstufung manuell bestätigen |
 | VerifyADPrep<p>Voraussetzungen (Gesamtstruktur) | LDAP | Sucht und kontaktiert den Schemamaster mithilfe des rootDSE namingContexts-Attributs und dem Schema-Namenskontext-Attribut fsmoRoleOwner. Ermittelt, welche Vorbereitungsoperationen (forestprep, domainprep oder rodcprep) für die AD DS-Installation benötigt werden. Prüft, ob objectVersion für das Schema wie erwartet ist und ob eine weitere Erweiterung benötigt wird. |
 | VerifyADPrep<p>Voraussetzungen (Domäne und RODC) | LDAP | Sucht und kontaktiert den Infrastruktur-Master mithilfe des rootDSE namingContexts-Attributs und dem Infrastrukturcontainer-Attribut fsmoRoleOwner. Im Fall einer RODC-Installation wird bei dieser Prüfung der Domänennamenmaster gesucht und sichergestellt, dass dieser online ist. |
-| CheckGroup<p>Mitgliedschaft | LDAP,<p>RPC über SMB (LSARPC) | Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne) |
+| CheckGroup<p>Membership | LDAP,<p>RPC über SMB (LSARPC) | Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne) |
 | CheckForestPrep<p>GroupMembership | LDAP,<p>RPC über SMB (LSARPC) | Prüft, ob der Benutzer Mitglied der Gruppen Schema-Admins und Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat |
 | CheckDomainPrep<p>GroupMembership | LDAP,<p>RPC über SMB (LSARPC) | Prüft, ob der Benutzer Mitglied der Gruppe Domänen-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat |
 | CheckRODCPrep<p>GroupMembership | LDAP,<p>RPC über SMB (LSARPC) | Prüft, ob der Benutzer Mitglied der Gruppe Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat |

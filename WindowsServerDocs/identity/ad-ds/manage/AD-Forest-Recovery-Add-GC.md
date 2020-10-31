@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Hinzufügen der GC'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.openlocfilehash: 00a95269891074f95184c52f5244176f18de7b37
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 91f638c5a73b334c63a1ce765aaf0fb776806d5d
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939940"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067992"
 ---
 # <a name="ad-forest-recovery---adding-the-gc"></a>AD-Gesamtstruktur Wiederherstellung: Hinzufügen der GC
 
@@ -21,10 +21,10 @@ Gehen Sie wie folgt vor, um den globalen Katalog einem DC hinzuzufügen.
 
 ## <a name="to-add-the-global-catalog"></a>So fügen Sie den globalen Katalog hinzu
 
-1. Klicken Sie auf **Start**, zeigen Sie auf **Alle Programme**und auf **Verwaltung**, und klicken Sie dann auf **Active Directory Websites und Dienste**.
+1. Klicken Sie auf **Start** , zeigen Sie auf **Alle Programme** und auf **Verwaltung** , und klicken Sie dann auf **Active Directory Websites und Dienste** .
 2. Erweitern Sie in der Konsolen Struktur den Container **Standorte** , und wählen Sie dann den entsprechenden Standort aus, der den Zielserver enthält.
 3. Erweitern Sie den Container **Server** , und erweitern Sie dann das Server Objekt für den Domänen Controller, dem Sie den globalen Katalog hinzufügen möchten.
-4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**.
+4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen** , und klicken Sie auf **Eigenschaften** .
 5. Aktivieren Sie das Kontrollkästchen **globaler Katalog** .
 ![GC hinzufügen](media/AD-Forest-Recovery-Add-GC/addgc1.png)
 
@@ -47,7 +47,7 @@ Im folgenden finden Sie Möglichkeiten, den Prozess des Hinzufügens des globale
    ```
 
    ```
-   repadmin /options DSA -Disable_NTDSCONN_XLATE
+   repadmin /options DSA -Disable_NTDSCONN_XLATE
    ```
 
    Das Format für den *sourcedomaincontrollercname* lautet wie folgt:

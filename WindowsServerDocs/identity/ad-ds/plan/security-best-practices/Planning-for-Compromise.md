@@ -2,16 +2,16 @@
 ms.assetid: 6f50476c-a1f1-48fb-999b-76c4c3816496
 title: Planen der Gefährdung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 9be3768f4ac0f95c1c268d9a4efb55af3f74d304
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: b4cdd6d9383a27b97d3368903fed4b41fe5b5952
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069572"
 ---
 # <a name="planning-for-compromise"></a>Planen der Gefährdung
 
@@ -92,7 +92,7 @@ Unabhängig davon, ob Ihre ursprüngliche Gesamtstruktur eine Handvoll Benutzer 
 
 5.  Erlauben Sie nicht, ältere Betriebssysteme oder Anwendungen in der ursprünglichen Gesamtstruktur zu installieren. Wenn eine Anwendung nicht aktualisiert und neu installiert werden kann, lassen Sie Sie in der Legacy-Gesamtstruktur aus, und denken Sie daran, die Funktionalität der Anwendung zu ersetzen.
 
-### <a name="defining-a-limited-risk-based-migration-plan"></a>Definieren eines beschränkten, risikobasierten Migrationsplans
+### <a name="defining-a-limited-risk-based-migration-plan"></a>Definieren eines eingeschränkten, Risk-Based Migrationsplans
 Das Erstellen eines beschränkten, risikobasierten Migrationsplans bedeutet einfach, dass Sie bei der Entscheidung, welche Benutzer, Anwendungen und Daten in ihre ursprüngliche Gesamtstruktur migriert werden sollen, Migrations Ziele ermitteln müssen, die auf dem Grad des Risikos basieren, für das Ihre Organisation verfügbar ist, wenn einer der Benutzer oder Systeme gefährdet ist. VIP-Benutzer, deren Konten höchstwahrscheinlich von Angreifern als Ziel festgenommen werden, sollten in der unberührten Gesamtstruktur abgelegt werden. Anwendungen, die wichtige Geschäftsfunktionen bereitstellen, sollten auf neu erstellten Servern in der ursprünglichen Gesamtstruktur installiert werden, und hochsensible Daten sollten auf gesicherte Server in der ursprünglichen Gesamtstruktur verschoben werden.
 
 Wenn Sie nicht bereits über ein eindeutiges Bild der geschäftskritischen Benutzer, Systeme, Anwendungen und Daten in Ihrer Active Directory Umgebung verfügen, können Sie die Geschäftseinheiten verwenden, um Sie zu identifizieren. Alle Anwendungen, die für das Unternehmen erforderlich sind, sollten identifiziert werden, ebenso wie alle Server, auf denen kritische Anwendungen ausgeführt werden, oder wichtige Daten gespeichert werden. Indem Sie die Benutzer und Ressourcen identifizieren, die für Ihre Organisation erforderlich sind, können Sie eine auf natürliche Weise priorisierte Sammlung von Ressourcen erstellen, auf die Sie sich konzentrieren möchten.

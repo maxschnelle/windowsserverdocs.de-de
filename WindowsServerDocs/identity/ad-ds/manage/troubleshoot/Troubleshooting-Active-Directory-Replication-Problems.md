@@ -2,16 +2,16 @@
 ms.assetid: b11f7a65-ec7b-4c11-8dc4-d7cabb54cd94
 title: Problembehandlung für Active Directory-Replikationsprobleme
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 2ceb13e3729310e01063c0c5c3694806b1565363
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: aef89bb1d57aff57b90f0eaeed67832f8778ba8c
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941490"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068962"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Problembehandlung für Active Directory-Replikationsprobleme
 
@@ -108,13 +108,13 @@ Der Replikations Status ist eine wichtige Möglichkeit zum Auswerten des Status 
 - Kerberos-Authentifizierungsprotokoll
 - Windows-Zeit Dienst (W32Time)
 - Remoteprozeduraufruf (RPC)
-- Netzwerkkonnektivität
+- Netzwerkverbindungen
 
 Verwenden Sie Repadmin, um den Replikations Status täglich zu überwachen, indem Sie einen Befehl ausführen, mit dem der Replikations Status aller Domänen Controller in der Die Prozedur generiert eine CSV-Datei, die Sie in Microsoft Excel öffnen und nach Replikations Fehlern filtern können.
 
 Mit dem folgenden Verfahren können Sie den Replikations Status aller Domänen Controller in der Gesamtstruktur abrufen.
 
-Requirements (Anforderungen)
+Anforderungen
 
 Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in **Unternehmensadministratoren** oder eine entsprechende Berechtigung erforderlich.
 

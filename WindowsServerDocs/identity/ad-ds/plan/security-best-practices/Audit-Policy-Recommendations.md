@@ -2,16 +2,16 @@
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
 title: Audit Policy Recommendations
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 33ce3713f95b995fdab63b9e3bd27650fae58347
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 98751ae022d1915f5363e2ead110511bbb482f90
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069702"
 ---
 # <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
 
@@ -49,12 +49,12 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 **Legende für Überwachungs Richtlinien Tabellen**
 
-|**Notation**|**Empfehlung**|
+|**Angabe**|**Empfehlung**|
 |--|--|
 |YES|In allgemeinen Szenarien aktivieren|
 |Nein|**Nicht** in allgemeinen Szenarien aktivieren|
 |IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|
-|DC|Aktivieren auf Domänen Controllern|
+|SL|Aktivieren auf Domänen Controllern|
 |Blitz|Keine Empfehlung|
 
 **Empfehlungen zu Überwachungs Einstellungen für Windows 10, Windows 8 und Windows 7**
@@ -111,12 +111,12 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Wechselmedien überwachen |  |  |  |
 | SAM überwachen |  |  |  |
 | Staging zentraler Zugriffsrichtlinien überwachen |  |  |  |
-| **Richtlinienänderung** |  |  |  |
+| **Richtlinien Änderung** |  |  |  |
 | Überwachungsrichtlinienänderung überwachen | Ja Nein | Ja, ja | Ja, ja |
 | Authentifizierungsrichtlinienänderung überwachen | Ja Nein | Ja Nein | Ja, ja |
 | Autorisierungsrichtlinienänderung überwachen |  |  |  |
 | Filterplattform-Richtlinienänderung überwachen |  |  |  |
-| MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Ja |
+| MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Yes |
 | Andere Richtlinienänderungsereignisse überwachen |  |  |  |
 | **Berechtigungen** |  |  |  |
 | Nicht sensible Verwendung von Rechten überwachen |  |  |  |
@@ -189,12 +189,12 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Wechselmedien überwachen |  |  |  |
 | SAM überwachen |  |  |  |
 | Staging zentraler Zugriffsrichtlinien überwachen |  |  |  |
-| **Richtlinienänderung** |  |  |  |
+| **Richtlinien Änderung** |  |  |  |
 | Überwachungsrichtlinienänderung überwachen | Ja Nein | Ja, ja | Ja, ja |
 | Authentifizierungsrichtlinienänderung überwachen | Ja Nein | Ja Nein | Ja, ja |
 | Autorisierungsrichtlinienänderung überwachen |  |  |  |
 | Filterplattform-Richtlinienänderung überwachen |  |  |  |
-| MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Ja |
+| MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Yes |
 | Andere Richtlinienänderungsereignisse überwachen |  |  |  |
 | **Berechtigungen** |  |  |  |
 | Nicht sensible Verwendung von Rechten überwachen |  |  |  |

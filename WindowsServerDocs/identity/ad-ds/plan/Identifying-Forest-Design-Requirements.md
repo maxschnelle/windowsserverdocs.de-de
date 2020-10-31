@@ -1,17 +1,17 @@
 ---
 ms.assetid: 7d957ebb-3476-49d8-b00b-6e93b4a94778
 title: Identifizieren von Gesamtstruktur-Entwurfsanforderungen
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: 9c5278fa01d34b5ed0bf77153dce1575ee6ac509
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 0a94f1ce10ec1574fda6776fac85bf80db75f749
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068443"
 ---
 # <a name="identifying-forest-design-requirements"></a>Identifizieren von Gesamtstruktur-Entwurfsanforderungen
 
@@ -23,9 +23,9 @@ Mit Active Directory Domain Services (AD DS) können Sie eine Verzeichnis Infras
 
 Für Gruppen in Ihrer Organisation sind möglicherweise einige der folgenden Arten von Anforderungen erforderlich:
 
-- **Anforderungen an die Organisationsstruktur**. Teile einer Organisation könnten an einer gemeinsam genutzten Infrastruktur teilnehmen, um Kosten zu sparen, müssen jedoch unabhängig vom Rest der Organisation agieren können. Beispielsweise muss eine Forschungsgruppe innerhalb einer großen Organisation möglicherweise die Kontrolle über alle eigenen Forschungsdaten behalten.
+- **Anforderungen an die Organisationsstruktur** . Teile einer Organisation könnten an einer gemeinsam genutzten Infrastruktur teilnehmen, um Kosten zu sparen, müssen jedoch unabhängig vom Rest der Organisation agieren können. Beispielsweise muss eine Forschungsgruppe innerhalb einer großen Organisation möglicherweise die Kontrolle über alle eigenen Forschungsdaten behalten.
 
-- **Betriebliche Anforderungen**. Ein Teil einer Organisation kann eindeutige Einschränkungen der Verzeichnisdienst Konfiguration, der Verfügbarkeit oder der Sicherheit oder Anwendungen verwenden, die UNIQUE-Einschränkungen für das Verzeichnis platzieren. Beispielsweise können einzelne Geschäftseinheiten innerhalb eines Unternehmens Verzeichnis aktivierte Anwendungen bereitstellen, die das Verzeichnisschema ändern, das nicht von anderen Geschäftseinheiten bereitgestellt wird. Da das Verzeichnisschema für alle Domänen in der Gesamtstruktur freigegeben ist, ist das Erstellen mehrerer Gesamtstrukturen eine Lösung für ein solches Szenario. Weitere Beispiele finden Sie in den folgenden Organisationen und Szenarien:
+- **Betriebliche Anforderungen** . Ein Teil einer Organisation kann eindeutige Einschränkungen der Verzeichnisdienst Konfiguration, der Verfügbarkeit oder der Sicherheit oder Anwendungen verwenden, die UNIQUE-Einschränkungen für das Verzeichnis platzieren. Beispielsweise können einzelne Geschäftseinheiten innerhalb eines Unternehmens Verzeichnis aktivierte Anwendungen bereitstellen, die das Verzeichnisschema ändern, das nicht von anderen Geschäftseinheiten bereitgestellt wird. Da das Verzeichnisschema für alle Domänen in der Gesamtstruktur freigegeben ist, ist das Erstellen mehrerer Gesamtstrukturen eine Lösung für ein solches Szenario. Weitere Beispiele finden Sie in den folgenden Organisationen und Szenarien:
 
     - Militärische Organisationen
 
@@ -33,7 +33,7 @@ Für Gruppen in Ihrer Organisation sind möglicherweise einige der folgenden Art
 
     - Organisationen verwalten ein Verzeichnis, das sowohl intern als auch extern verfügbar ist (z. b. öffentlich zugänglichen Benutzern im Internet).
 
-- **Rechtliche Anforderungen**. Einige Organisationen haben gesetzliche Anforderungen für eine bestimmte Methode, z. b. das Einschränken des Zugriffs auf bestimmte Informationen, wie in einem Geschäftsvertrag angegeben. Einige Organisationen verfügen über Sicherheitsanforderungen, um auf isolierten internen Netzwerken zu arbeiten. Wenn diese Anforderungen nicht erfüllt werden, kann dies zu einem Verlust des Vertrags und möglicherweise zu rechtlichen Aktionen führen.
+- **Rechtliche Anforderungen** . Einige Organisationen haben gesetzliche Anforderungen für eine bestimmte Methode, z. b. das Einschränken des Zugriffs auf bestimmte Informationen, wie in einem Geschäftsvertrag angegeben. Einige Organisationen verfügen über Sicherheitsanforderungen, um auf isolierten internen Netzwerken zu arbeiten. Wenn diese Anforderungen nicht erfüllt werden, kann dies zu einem Verlust des Vertrags und möglicherweise zu rechtlichen Aktionen führen.
 
 Zum Identifizieren der Gesamtstruktur-Entwurfs Anforderungen müssen Sie angeben, inwieweit Gruppen in Ihrer Organisation den potenziellen Gesamtstruktur Besitzern und deren Dienst Administratoren vertrauen können und welche Autonomie-und Isolations Anforderungen für die einzelnen Gruppen in Ihrem Unternehmen gelten.
 

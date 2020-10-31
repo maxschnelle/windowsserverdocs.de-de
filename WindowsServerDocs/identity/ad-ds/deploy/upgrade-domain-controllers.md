@@ -1,17 +1,17 @@
 ---
 title: Aktualisieren von Domänencontrollern auf Windows Server 2016
 description: In diesem Dokument wird beschrieben, wie Sie ein Upgrade von Windows Server 2012 R2 auf Windows Server 2016 durchführen.
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 747c71d3c0b3dd7afb0fb1dda1b922ac58330e02
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 4a00bc2c6eabd8b5419d3a0d867efba9dfc1592a
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940240"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069172"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Aktualisieren von Domänencontrollern auf Windows Server 2016
 
@@ -30,8 +30,8 @@ Die empfohlene Vorgehensweise zum Aktualisieren einer Domäne ist die herauf Stu
 1. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen.
 1. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind.
    - Um den ersten Domänen Controller, auf dem Windows Server 2016 ausgeführt wird, in einer vorhandenen Domäne und Gesamtstruktur zu installieren, benötigt der Computer, auf dem die Installation ausgeführt wird, eine Verbindung mit dem **Schema Master** , um adprep/forestprep und den Infrastruktur Master zum Ausführen von adprep/domainprep auszuführen.
-   - Um den ersten Domänen Controller in einer Domäne zu installieren, in der das Gesamtstruktur Schema bereits erweitert ist, benötigen Sie nur eine Verbindung mit dem **Infrastruktur Master**.
-   - Sie benötigen eine Verbindung mit dem **Domänen Namen Master**, um eine Domäne in einer vorhandenen Gesamtstruktur zu installieren oder zu entfernen.
+   - Um den ersten Domänen Controller in einer Domäne zu installieren, in der das Gesamtstruktur Schema bereits erweitert ist, benötigen Sie nur eine Verbindung mit dem **Infrastruktur Master** .
+   - Sie benötigen eine Verbindung mit dem **Domänen Namen Master** , um eine Domäne in einer vorhandenen Gesamtstruktur zu installieren oder zu entfernen.
    - Für jede Domänen Controller Installation ist auch eine Verbindung mit dem **RID-Master erforderlich.**
    - Wenn Sie den ersten schreibgeschützten Domänen Controller in einer vorhandenen Gesamtstruktur installieren, benötigen Sie eine Verbindung mit dem **Infrastruktur Master** für jede Anwendungsverzeichnis Partition (auch als nicht-Domänen namens Kontext oder NDNC bezeichnet).
 
@@ -129,11 +129,11 @@ Im folgenden finden Sie ein einfaches Beispiel für das Upgrade der Gesamtstrukt
    ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
 
 1. Melden Sie sich mit einem Domänen Administrator Konto beim neuen Windows Server 2016 an.
-1. Installieren Sie in **Server-Manager**unter **Rollen und Features hinzufügen** **Active Directory Domain Services** auf dem neuen Windows Server 2016. Dadurch wird adprep automatisch in der 2012 R2-Gesamtstruktur und-Domäne ausgeführt.
+1. Installieren Sie in **Server-Manager** unter **Rollen und Features hinzufügen** **Active Directory Domain Services** auf dem neuen Windows Server 2016. Dadurch wird adprep automatisch in der 2012 R2-Gesamtstruktur und-Domäne ausgeführt.
 
    ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png)
 
-1. Klicken Sie in **Server-Manager**auf das gelbe Dreieck, und klicken Sie in der Dropdown-Dropdown-Datei auf **Server zu einem Domänen Controller**herauf Stufen.
+1. Klicken Sie in **Server-Manager** auf das gelbe Dreieck, und klicken Sie in der Dropdown-Dropdown-Datei auf **Server zu einem Domänen Controller** herauf Stufen.
 
    ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
 
@@ -142,13 +142,13 @@ Im folgenden finden Sie ein einfaches Beispiel für das Upgrade der Gesamtstrukt
    ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
 
 1. Geben Sie auf dem Bildschirm **Domänen Controller Optionen** das DSRM-Kennwort **(Directory Services Restore Mode)** ein, und klicken Sie auf Weiter.
-1. Klicken Sie in den restlichen Bildschirmen auf **weiter**.
-1. Klicken Sie im Bildschirm Voraussetzungs **Prüfung** auf **Installieren**. Nachdem der Neustart abgeschlossen ist, können Sie sich wieder anmelden.
-1. Wählen Sie auf dem Windows Server 2012 R2-Server in **Server-Manager**unter Extras **Active Directory Modul für Windows PowerShell aus**.
+1. Klicken Sie in den restlichen Bildschirmen auf **weiter** .
+1. Klicken Sie im Bildschirm Voraussetzungs **Prüfung** auf **Installieren** . Nachdem der Neustart abgeschlossen ist, können Sie sich wieder anmelden.
+1. Wählen Sie auf dem Windows Server 2012 R2-Server in **Server-Manager** unter Extras **Active Directory Modul für Windows PowerShell aus** .
 
    ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
 
-1. Verwenden Sie in den PowerShell-Fenstern die Move-addirector yserveroperationmasterrole, um die FSMO-Rollen zu verschieben. Sie können den Namen der einzelnen operationmasterrole eingeben oder Zahlen zum Angeben der Rollen verwenden. Weitere Informationen finden Sie unter [Move-addirector yserveroperationmasterrole](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)) .
+1. Verwenden Sie in den PowerShell-Fenstern die Move-ADDirectoryServerOperationMasterRole, um die FSMO-Rollen zu verschieben. Sie können den Namen der einzelnen operationmasterrole eingeben oder Zahlen zum Angeben der Rollen verwenden. Weitere Informationen finden Sie unter [Move-addirector yserveroperationmasterrole](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)) .
 
     ``` powershell
     Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
@@ -156,7 +156,7 @@ Im folgenden finden Sie ein einfaches Beispiel für das Upgrade der Gesamtstrukt
 
     ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)
 
-1. Vergewissern Sie sich, dass die Rollen verschoben **wurden, indem**Sie auf dem Windows Server 2016-Server in **Server-Manager**unter Extras **Active Directory Modul für Windows PowerShell**auswählen. Verwenden `Get-ADDomain` Sie die-und- `Get-ADForest` Cmdlets, um die FSMO-Rollen Inhaber anzuzeigen.
+1. Vergewissern Sie sich, dass die Rollen verschoben **wurden, indem** Sie auf dem Windows Server 2016-Server in **Server-Manager** unter Extras **Active Directory Modul für Windows PowerShell** auswählen. Verwenden `Get-ADDomain` Sie die-und- `Get-ADForest` Cmdlets, um die FSMO-Rollen Inhaber anzuzeigen.
 
     ![Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
 

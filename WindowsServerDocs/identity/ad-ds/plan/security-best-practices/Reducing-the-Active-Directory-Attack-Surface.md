@@ -2,16 +2,16 @@
 ms.assetid: 864ad4bc-8428-4a8b-8671-cb93b68b0c03
 title: Reduzieren der Angriffsfläche für Active Directory
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 5c151f0b152fadc4c86fc7bc0a414e9a190c0080
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 8802091de7746844176a97acf5e958d55b0b1f92
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941390"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069512"
 ---
 # <a name="reducing-the-active-directory-attack-surface"></a>Reduzieren der Angriffsfläche für Active Directory
 
@@ -19,14 +19,14 @@ ms.locfileid: "88941390"
 
 Dieser Abschnitt konzentriert sich auf technische Kontrollen, die implementiert werden müssen, um die Angriffsfläche der Active Directory Installation zu verringern. Der-Abschnitt enthält die folgenden Informationen:
 
-- Bei der [Implementierung von Verwaltungs Modellen mit geringsten Rechten](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) geht es um das Risiko, dass die Verwendung von Konten mit hohen Berechtigungen für die tägliche Verwaltung und die Implementierung von Empfehlungen für die Implementierung von, um das Risiko von privilegierten Konten zu verringern.
+- Bei der [Implementierung von Least-Privilege administrativen Modellen](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) geht es um das Risiko, dass die Verwendung von Konten mit hohen Berechtigungen für die tägliche Verwaltung und die Implementierung von Empfehlungen für die Implementierung von, um das Risiko von privilegierten Konten zu verringern.
 
 - Die [Implementierung sicherer administrativer Hosts](../../../ad-ds/plan/security-best-practices/Implementing-Secure-Administrative-Hosts.md) beschreibt die Prinzipien der Bereitstellung dedizierter, sicherer Verwaltungssysteme sowie einige Beispiel Ansätze für eine sichere administrative Host Bereitstellung.
 
 - Das Schützen von [Domänen Controllern gegen Angriffe](../../../ad-ds/plan/security-best-practices/Securing-Domain-Controllers-Against-Attack.md) erläutert Richtlinien und Einstellungen, die, obwohl Sie den Empfehlungen für die Implementierung sicherer administrativer Hosts ähneln, einige Domänen Controller spezifische Empfehlungen enthalten, mit denen sichergestellt werden kann, dass die Domänen Controller und die Systeme, die zur Verwaltung verwendet werden, gut geschützt sind.
 
 ## <a name="privileged-accounts-and-groups-in-active-directory"></a>Privilegierte Konten und Gruppen in Active Directory
-Dieser Abschnitt enthält Hintergrundinformationen zu privilegierten Konten und Gruppen in Active Directory, die die Gemeinsamkeiten und Unterschiede zwischen privilegierten Konten und Gruppen in Active Directory erläutern sollen. Wenn Sie diese Unterschiede verstehen, ob Sie die Empfehlungen in der [Implementierung von Verwaltungs Modellen mit geringsten Rechten](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) wörtlich implementieren oder Sie für Ihre Organisation anpassen möchten, verfügen Sie über die Tools, die Sie zum sicheren schützen der einzelnen Gruppen und Konten benötigen.
+Dieser Abschnitt enthält Hintergrundinformationen zu privilegierten Konten und Gruppen in Active Directory, die die Gemeinsamkeiten und Unterschiede zwischen privilegierten Konten und Gruppen in Active Directory erläutern sollen. Wenn Sie diese Unterschiede verstanden haben, unabhängig davon, ob Sie die Empfehlungen implementieren, um [Least-Privilege-Verwaltungsmodelle](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) wörtlich zu implementieren oder Sie für Ihre Organisation anzupassen, verfügen Sie über die Tools, die Sie zum sicheren schützen der einzelnen Gruppen und Konten benötigen.
 
 ### <a name="built-in-privileged-accounts-and-groups"></a>Integrierte privilegierte Konten und Gruppen
 Active Directory ermöglicht die Delegierung der Verwaltung und unterstützt das Prinzip der geringsten Rechte bei der Zuweisung von Rechten und Berechtigungen. "Reguläre" Benutzer, die über Konten in einer Domäne verfügen, sind standardmäßig in der Lage, einen Großteil der im Verzeichnis gespeicherten Daten zu lesen, aber nur eine sehr begrenzte Menge von Daten im Verzeichnis ändern zu können. Benutzern, die zusätzliche Berechtigungen benötigen, kann die Mitgliedschaft in verschiedenen "privilegierten" Gruppen erteilt werden, die in das Verzeichnis integriert sind, damit Sie bestimmte Aufgaben im Zusammenhang mit ihren Rollen ausführen können, aber keine Aufgaben ausführen können, die für ihre Aufgaben nicht relevant sind. Organisationen können auch Gruppen erstellen, die auf bestimmte Auftrags Zuständigkeiten zugeschnitten sind und über differenzierte Rechte und Berechtigungen verfügen, mit denen IT-Mitarbeiter alltägliche administrative Funktionen ausführen können, ohne Rechte und Berechtigungen zu erteilen, die überschreiten, was für diese Funktionen erforderlich ist.

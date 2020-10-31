@@ -2,16 +2,16 @@
 ms.assetid: e3ea1f67-60d4-4566-b24c-37faa95c3b2a
 title: Bestimmen der Kosten
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: acf68e45a1d914bcbf5e780f51d2455fe43ab3e3
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 9da1c4f247a1acfe982a2d5444fc3385806ce039
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069202"
 ---
 # <a name="determining-the-cost"></a>Bestimmen der Kosten
 
@@ -42,7 +42,7 @@ Verwenden Sie die folgende Tabelle, um die Kosten der einzelnen Standort Verknü
 
 |Verfügbare Bandbreite (KB)|Kosten|
 |--------------------------------|--------|
-|9.6|1.042|
+|9,6|1.042|
 |19,2|798|
 |38,4|644|
 |56|586|

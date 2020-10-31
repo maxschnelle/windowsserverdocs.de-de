@@ -2,16 +2,16 @@
 ms.assetid: d7a4d2e1-217d-4ffc-93f0-817149bd9e7f
 title: Wege der Gefährdung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 31d936647be758c3f9cf2cd6d922f00ec5554e98
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 58578d96f3a66177f858f78861cb93be51df3a1e
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938210"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069682"
 ---
 # <a name="avenues-to-compromise"></a>Wege der Gefährdung
 
@@ -122,7 +122,7 @@ Wenn das lokale Administrator Konto dem gleichen Wert Server übergreifend zugew
 Solange ein anderer Computer über ein lokales Konto mit dem gleichen Benutzernamen und Kennwort (oder Kenn Wort Hash) wie die angezeigten Konto Anmelde Informationen verfügt, ist der Anmeldeversuch erfolgreich, und der Angreifer erhält privilegierten Zugriff auf den Zielcomputer. In den aktuellen Versionen von Windows ist das integrierte Administrator Konto [standardmäßig deaktiviert](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753450(v=ws.11)), aber in älteren Betriebssystemen ist das Konto standardmäßig aktiviert.
 
 > [!NOTE]
-> Einige Organisationen haben absichtlich lokale Administrator Konten so konfiguriert, dass Sie in der Annahme aktiviert werden, dass dies ein "failsafe" ist, wenn alle anderen privilegierten Konten von einem System gesperrt sind. Auch wenn das lokale Administrator Konto deaktiviert ist und keine anderen Konten verfügbar sind, die das Konto aktivieren oder sich am System mit Administrator Rechten anmelden können, kann das System im abgesicherten Modus gestartet werden, und das integrierte lokale Administrator Konto kann erneut aktiviert werden, wie in [Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777)beschrieben. Wenn das System GPOs weiterhin erfolgreich anwendet, kann ein GPO geändert werden (vorübergehend), um das Administrator Konto erneut zu aktivieren, oder es können eingeschränkte Gruppen konfiguriert werden, um der lokalen Administrator Gruppe ein domänenbasiertes Konto hinzuzufügen. Reparaturen können ausgeführt werden, und das Administrator Konto kann erneut deaktiviert werden. Um eine lateral Kompromittierung, bei der die Anmelde Informationen des integrierten lokalen Administrator Kontos verwendet werden, effektiv zu verhindern, müssen eindeutige Benutzernamen und Kenn Wörter für lokale Administrator Konten konfiguriert werden. Informationen zum Bereitstellen eindeutiger Kenn Wörter für lokale Administrator Konten über ein GPO finden Sie unter [Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über das](/previous-versions/mt227395(v=msdn.10)) Gruppenrichtlinien Objekt auf TechNet.  
+> Einige Organisationen haben absichtlich lokale Administrator Konten so konfiguriert, dass Sie in der Annahme aktiviert werden, dass dies ein "failsafe" ist, wenn alle anderen privilegierten Konten von einem System gesperrt sind. Auch wenn das lokale Administrator Konto deaktiviert ist und keine anderen Konten verfügbar sind, die das Konto aktivieren oder sich am System mit Administrator Rechten anmelden können, kann das System im abgesicherten Modus gestartet werden, und das integrierte lokale Administrator Konto kann erneut aktiviert werden, wie in [Microsoft-Support Artikel 814777](https://support.microsoft.com/kb/814777)beschrieben. Wenn das System GPOs weiterhin erfolgreich anwendet, kann ein GPO geändert werden (vorübergehend), um das Administrator Konto erneut zu aktivieren, oder es können eingeschränkte Gruppen konfiguriert werden, um der lokalen Administrator Gruppe ein domänenbasiertes Konto hinzuzufügen. Reparaturen können ausgeführt werden, und das Administrator Konto kann erneut deaktiviert werden. Um eine lateral Kompromittierung, bei der die Anmelde Informationen des integrierten lokalen Administrator Kontos verwendet werden, effektiv zu verhindern, müssen eindeutige Benutzernamen und Kenn Wörter für lokale Administrator Konten konfiguriert werden. Informationen zum Bereitstellen eindeutiger Kenn Wörter für lokale Administrator Konten über ein GPO finden Sie unter [Lösung für die Verwaltung des integrierten Administrator Konto Kennworts über das](/previous-versions/mt227395(v=msdn.10)) Gruppenrichtlinien Objekt auf TechNet.  
 
 ##### <a name="permitting-installation-of-unauthorized-applications"></a>Zulassen der Installation nicht autorisierter Anwendungen
 *Recht Nummer eins: Wenn ein fehlerhafter Experte Sie dazu überreden kann, sein Programm auf Ihrem Computer auszuführen, ist es nicht mehr allein der Computer.* - [Zehn unveränderliche Sicherheitsgesetze (Version 2,0)](https://www.microsoft.com/en-us/msrc?rtc=1)

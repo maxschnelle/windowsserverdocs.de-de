@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Sichern eines vollständigen Servers'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 398918dc-c8ab-41a6-a377-95681ec0b543
-ms.openlocfilehash: ef1eb77a108d742d4fe6c7b76bfe412c7eac95bc
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 93771bcac84680f07a39ce2791b67c2b35aff8dc
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939920"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067962"
 ---
 # <a name="ad-forest-recovery---backing-up-a-full-server"></a>AD-Gesamtstruktur Wiederherstellung: Sichern eines vollständigen Servers
 
@@ -30,43 +30,43 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 
 ### <a name="to-install-windows-server-backup"></a>So installieren Sie Windows Server-Sicherung
 
-1. Öffnen Sie **Server-Manager** , und klicken Sie auf **Rollen und Features hinzufügen**.
-2. Klicken Sie im **Assistenten zum Hinzufügen von Rollen und Features** auf **weiter**.
-3. Belassen Sie auf dem Bildschirm **Installationstyp** die Standard **rollenbasierte oder featurebasierte Installation** , und klicken Sie auf **weiter**.
-4. Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter**.
-5. Klicken Sie auf dem Bildschirm **Server Rollen** auf **weiter**.
+1. Öffnen Sie **Server-Manager** , und klicken Sie auf **Rollen und Features hinzufügen** .
+2. Klicken Sie im **Assistenten zum Hinzufügen von Rollen und Features** auf **weiter** .
+3. Belassen Sie auf dem Bildschirm **Installationstyp** die Standard **rollenbasierte oder featurebasierte Installation** , und klicken Sie auf **weiter** .
+4. Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter** .
+5. Klicken Sie auf dem Bildschirm **Server Rollen** auf **weiter** .
 6. Wählen Sie auf dem Bildschirm **Features** **Windows Server-Sicherung** aus, und klicken Sie auf **weiter** 
     ![ Installation](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup2.png)
-7. Klicken Sie auf **Installieren**.
-8. Klicken Sie nach Abschluss der Installation auf **Schließen**.
+7. Klicken Sie auf **Installieren** .
+8. Klicken Sie nach Abschluss der Installation auf **Schließen** .
 
 ### <a name="to-perform-a-backup-with-windows-server-backup"></a>So führen Sie eine Sicherung mit Windows Server-Sicherung aus
 
-1. Öffnen Sie **Server-Manager**, **Klicken Sie**auf Extras, und klicken Sie dann auf **Windows Server-Sicherung**.
-   - Klicken Sie unter Windows Server 2008 R2 und Windows Server 2008 auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Windows Server-Sicherung**.
+1. Öffnen Sie **Server-Manager** , **Klicken Sie** auf Extras, und klicken Sie dann auf **Windows Server-Sicherung** .
+   - Klicken Sie unter Windows Server 2008 R2 und Windows Server 2008 auf **Start** , zeigen Sie auf **Verwaltung** , und klicken Sie dann auf **Windows Server-Sicherung** .
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup1.png)
 
-2. Wenn Sie dazu aufgefordert werden, geben Sie im Dialogfeld **Benutzerkontensteuerung** die Anmelde Informationen für den Sicherungs Operator an, und klicken Sie dann auf **OK**.
-3. Klicken Sie auf **lokale Sicherung**.
-4. Klicken Sie im Menü **Aktion** auf **Einmal sichern**.
-5. Klicken Sie im Assistenten für die einmalige Sicherung auf der Seite **Sicherungs Optionen** auf **verschiedene Optionen**, und klicken Sie dann auf **weiter**.
+2. Wenn Sie dazu aufgefordert werden, geben Sie im Dialogfeld **Benutzerkontensteuerung** die Anmelde Informationen für den Sicherungs Operator an, und klicken Sie dann auf **OK** .
+3. Klicken Sie auf **lokale Sicherung** .
+4. Klicken Sie im Menü **Aktion** auf **Einmal sichern** .
+5. Klicken Sie im Assistenten für die einmalige Sicherung auf der Seite **Sicherungs Optionen** auf **verschiedene Optionen** , und klicken Sie dann auf **weiter** .
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup3.png)
 
-6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **vollständiger Server (empfohlen)**, und klicken Sie dann auf **weiter**.
-7. Klicken Sie auf der Seite **Zieltyp angeben** auf **lokale Laufwerke** oder frei gegebener **Remote Ordner**, und klicken Sie dann auf **weiter**.
+6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **vollständiger Server (empfohlen)** , und klicken Sie dann auf **weiter** .
+7. Klicken Sie auf der Seite **Zieltyp angeben** auf **lokale Laufwerke** oder frei gegebener **Remote Ordner** , und klicken Sie dann auf **weiter** .
 8. Wählen Sie auf der Seite **Sicherungs Ziel auswählen** den Speicherort der Sicherung aus.  Wenn Sie lokales Laufwerk ausgewählt haben, wählen Sie ein lokales Laufwerk aus, oder wählen Sie Remote Freigabe eine Netzwerkfreigabe aus.
-9. Klicken Sie auf dem Bestätigungsbildschirm auf **Sicherung**.
+9. Klicken Sie auf dem Bestätigungsbildschirm auf **Sicherung** .
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup4.png)
 
-10. Klicken Sie nach Abschluss des Vorgangs auf **Schließen**.
+10. Klicken Sie nach Abschluss des Vorgangs auf **Schließen** .
 11. Schließen Sie Windows Server-Sicherung.
 
 >[!NOTE]
 >Wenn Sie eine Fehlermeldung erhalten, dass kein Sicherungs Speicherort verfügbar ist, müssen Sie entweder eines der ausgewählten Volumes ausschließen oder ein neues Volume oder eine Remote Freigabe hinzufügen.
->Wenn eine Warnung angezeigt wird, die besagt, dass das ausgewählte Volume auch in der Liste der zu sichernden Elemente enthalten ist, legen Sie fest, ob Sie entfernt werden sollen, und klicken Sie auf **OK**.
+>Wenn eine Warnung angezeigt wird, die besagt, dass das ausgewählte Volume auch in der Liste der zu sichernden Elemente enthalten ist, legen Sie fest, ob Sie entfernt werden sollen, und klicken Sie auf **OK** .
 
 ## <a name="using-wbadminexe-to-backup-a-windows-server"></a>Verwenden von Wbadmin.exe zum Sichern eines Windows-Servers
 

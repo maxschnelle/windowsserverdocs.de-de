@@ -1,17 +1,17 @@
 ---
 ms.assetid: 093ef1ae-ebc1-490f-9fb1-2c000ce89eb6
 title: Verwenden des Domänen Gesamtstruktur Modells der Organisation
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: a464d455712a5796844d5946cc9f6598bee9397e
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 8300633d39e8ba7e5b19bfe8703d0cd9357423b4
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069142"
 ---
 # <a name="using-the-organizational-domain-forest-model"></a>Verwenden des Domänen Gesamtstruktur Modells der Organisation
 
@@ -55,4 +55,4 @@ Beachten Sie Folgendes: Wenn ein Gesamtstruktur Besitzer die Dienst Verwaltung a
 Alle Domänen Besitzer müssen sich bewusst sein, dass die Organisations Domänen in eine Bereitstellung mit mehreren Gesamtstrukturen verschoben werden können, wenn sich diese Bedingungen in der Zukunft ändern.
 
 > [!NOTE]
-> Eine weitere Möglichkeit zur Minimierung von Sicherheitsrisiken für eine Windows Server 2008-Active Directory Domäne besteht darin, die Administrator Rollen Trennung zu verwenden, die die Bereitstellung eines schreibgeschützten Domänen Controllers (Read-Only Domain Controller, RODC) in Ihrer Active Directory-Infrastruktur erfordert Ein RODC ist eine neue Art von Domänen Controller im Betriebssystem Windows Server 2008, das schreibgeschützte Partitionen der Active Directory-Datenbank hostet. Vor der Veröffentlichung von Windows Server 2008 musste jede Server Wartung auf einem Domänen Controller von einem Domänen Administrator ausgeführt werden. In Windows Server 2008 können Sie lokale Administrator Berechtigungen für einen RODC an beliebige Domänen Benutzer delegieren, ohne dass diesem Benutzer Administratorrechte für die Domäne oder andere Domänen Controller gewährt werden. Dies ermöglicht es dem Delegierten Benutzer, sich bei einem RODC anzumelden und Wartungsarbeiten wie das Upgrade eines Treibers auf dem Server auszuführen. Allerdings kann sich dieser Delegierte Benutzer nicht bei einem anderen Domänen Controller anmelden oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann jeder vertrauenswürdige Benutzer die Fähigkeit zur effektiven Verwaltung des RODC delegieren, ohne die Sicherheit der übrigen Domäne zu beeinträchtigen. Weitere Informationen zu RODCs finden Sie unter [AD DS: schreibgeschützte Domänen Controller](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).
+> Eine weitere Möglichkeit zur Minimierung von Sicherheitsrisiken für eine Windows Server 2008-Active Directory Domäne besteht darin, die Administrator Rollen Trennung zu verwenden, die die Bereitstellung eines schreibgeschützten Domänen Controllers (Read-Only Domain Controller, RODC) in Ihrer Active Directory-Infrastruktur erfordert Ein RODC ist eine neue Art von Domänen Controller im Betriebssystem Windows Server 2008, das schreibgeschützte Partitionen der Active Directory-Datenbank hostet. Vor der Veröffentlichung von Windows Server 2008 musste jede Server Wartung auf einem Domänen Controller von einem Domänen Administrator ausgeführt werden. In Windows Server 2008 können Sie lokale Administrator Berechtigungen für einen RODC an beliebige Domänen Benutzer delegieren, ohne dass diesem Benutzer Administratorrechte für die Domäne oder andere Domänen Controller gewährt werden. Dies ermöglicht es dem Delegierten Benutzer, sich bei einem RODC anzumelden und Wartungsarbeiten wie das Upgrade eines Treibers auf dem Server auszuführen. Allerdings kann sich dieser Delegierte Benutzer nicht bei einem anderen Domänen Controller anmelden oder andere administrative Aufgaben in der Domäne ausführen. Auf diese Weise kann jeder vertrauenswürdige Benutzer die Fähigkeit zur effektiven Verwaltung des RODC delegieren, ohne die Sicherheit der übrigen Domäne zu beeinträchtigen. Weitere Informationen zu RODCs finden Sie unter [AD DS: Read-Only-Domänen Controllern](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).

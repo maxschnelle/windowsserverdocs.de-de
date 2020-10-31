@@ -2,16 +2,16 @@
 ms.assetid: eca5bbf0-088e-4753-bf49-4d6c1125f689
 title: Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: f4e444eec232bb6dabfd4acfdce9f4cc7e007bf8
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: b5edda407ce85ec8024f6cc1c9a6e9ec463e7618
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068563"
 ---
 # <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
 
@@ -25,7 +25,7 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
 
 - Weitere Informationen zum überspannen von Strukturen und Active Directory Replikations Topologie finden Sie unter [Technische Referenz für die Active Directory Replikations Topologie](/previous-versions/windows/it-pro/windows-server-2003/cc755326(v=ws.10)).
 
-- Weitere Informationen zum Verwenden von Adlb.exe und Verwalten von Umgebungen mit 100 oder mehr Zweigstellen finden Sie unter [Überprüfen der Verbesserungen des Bridgehead-Server-Lasten Ausgleichs mit Windows Server 2008 RODCs](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd735927(v%3dws.10)).
+- Weitere Informationen zum Verwenden von Adlb.exe und Verwalten von Umgebungen mit 100 oder mehr Zweigstellen finden Sie unter [Überprüfen von Bridgehead-Server Load-Balancing-Verbesserungen mit Windows Server 2008 RODCs](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd735927(v%3dws.10)).
 
 - Weitere Informationen zum Installieren von Netzwerkmonitor finden Sie unter über [Wachen von Netzwerk Datenverkehr](/previous-versions/windows/it-pro/windows-server-2003/cc783075(v=ws.10)).
 
@@ -49,6 +49,6 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
 
 - Informationen zum Verwalten der Replikation über Firewalls finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://microsoft.com/download/details.aspx?familyid=c2ef3846-43f0-4caf-9767-a9166368434e)sind.
 
-- Weitere Informationen zu den Features für schreibgeschützte Domänen Controller (Read-Only Domain Controller, RODC) finden [Sie unter AD DS: schreibgeschützte Domänen](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10))Controller.
+- Weitere Informationen zu den Features für schreibgeschützte Domänen Controller (RODC) finden Sie unter [AD DS: Read-Only Domänen Controllern](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).
 
 - Weitere Informationen zum Bereitstellen eines RODC finden Sie in der [schrittweisen Anleitung](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc772234(v=ws.10))für die schreibgeschützten Domänen Controller.

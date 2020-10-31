@@ -2,16 +2,16 @@
 ms.assetid: 19feca0e-a6d0-4d27-93b0-cb44f8c26484
 title: Delegieren der Verwaltung von Konten- und Ressourcenorganisationseinheiten
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 00a8eec9936b03fffa9718bc31bfb05e733d1022
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: a3da376f3e84d0fb16145d6de3677896db753d26
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069462"
 ---
 # <a name="delegating-administration-of-account-ous-and-resource-ous"></a>Delegieren der Verwaltung von Konten- und Ressourcenorganisationseinheiten
 

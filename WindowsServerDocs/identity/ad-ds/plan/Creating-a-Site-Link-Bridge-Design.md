@@ -1,17 +1,17 @@
 ---
 ms.assetid: 64142026-07b5-4601-840a-c8dcf6ab9814
 title: Erstellen eines Entwurfs für Standortverknüpfungsbrücken
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/08/2018
 ms.topic: article
-ms.openlocfilehash: d4b4047ccdbe32a40f512c42182d15a41709db3d
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 190ded76c03c9f38edb0a2a0400a04b3adc69179
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941130"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069119"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Erstellen eines Entwurfs für Standortverknüpfungsbrücken
 
@@ -21,7 +21,7 @@ Eine Standort Verknüpfungs Brücke verbindet zwei oder Mehrstandort Verknüpfun
 
 Standardmäßig sind alle Standort Verknüpfungen transitiv. Es wird empfohlen, die Transitivität zu aktivieren, indem Sie nicht den Standardwert **Bridge alle Standort Verknüpfungen überbrücken** (standardmäßig aktiviert) ändern. Allerdings müssen Sie **alle Standort Verknüpfungen überbrücken** deaktivieren und den Entwurf einer Standort Verknüpfungs Brücke durchführen, wenn Folgendes gilt:
 
-- Ihr IP-Netzwerk wird nicht vollständig weitergeleitet. Wenn Sie **alle Standort Verknüpfungen überbrücken**deaktivieren, werden alle Standort Verknüpfungen als nicht transitiv betrachtet, und Sie können Standort Verknüpfungs Brücken-Objekte erstellen und konfigurieren, um das tatsächliche Routing Verhalten Ihres Netzwerks zu modellieren.
+- Ihr IP-Netzwerk wird nicht vollständig weitergeleitet. Wenn Sie **alle Standort Verknüpfungen überbrücken** deaktivieren, werden alle Standort Verknüpfungen als nicht transitiv betrachtet, und Sie können Standort Verknüpfungs Brücken-Objekte erstellen und konfigurieren, um das tatsächliche Routing Verhalten Ihres Netzwerks zu modellieren.
 - Sie müssen den Replikations Fluss der in Active Directory Domain Services vorgenommenen Änderungen (AD DS) steuern. Durch Deaktivieren der **Bridge aller Standort Verknüpfungen** für den IP-Transport der Standort Verknüpfung und Konfigurieren einer Standort Verknüpfungs Brücke wird die Standort Verknüpfungs Brücke zum Äquivalent zu einem separaten Netzwerk. Alle Standort Verknüpfungen innerhalb der Standort Verknüpfungs Brücke können transitiv weitergeleitet werden, Sie werden jedoch nicht außerhalb der Standort Verknüpfungs Brücke weitergeleitet.
 
 Weitere Informationen zur Verwendung des Snap-Ins "Active Directory Standorte und Dienste" zum Deaktivieren der Einstellung " **alle Standort Verknüpfungen überbrücken** " finden Sie im Artikel [Aktivieren oder Deaktivieren von Standort](/previous-versions/windows/it-pro/windows-server-2003/cc738789(v=ws.10))Verknüpfungs Brücken.

@@ -1,16 +1,16 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 5ed2c279dec2fc6599c46488a0147092b5259364
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 6dd9caff9f4dc36ee2e55850bb764dd298c2bc7e
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938950"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067952"
 ---
 # <a name="ad-forest-recovery---configuring-the-dns-server-service"></a>AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server Dienstes
 
@@ -29,19 +29,19 @@ Führen Sie die folgenden Schritte zur Installation und Konfiguration aus.
 
 ### <a name="to-install-and-the-dns-server-service-using-server-manager"></a>So installieren Sie und den DNS-Server Dienst mithilfe von Server-Manager
 
-1. Öffnen Sie Server-Manager, und klicken Sie auf **Rollen und Features hinzufügen**.
-2. Wenn im Assistenten zum Hinzufügen von Rollen die Seite **Vorbemerkungen** angezeigt wird, klicken Sie auf **Weiter**.
+1. Öffnen Sie Server-Manager, und klicken Sie auf **Rollen und Features hinzufügen** .
+2. Wenn im Assistenten zum Hinzufügen von Rollen die Seite **Vorbemerkungen** angezeigt wird, klicken Sie auf **Weiter** .
 3. Wählen Sie auf der Seite **Installationstyp** die Option **rollenbasierte oder featurebasierte Installation** aus, und klicken Sie auf **weiter**
-4. Wählen Sie auf dem Bildschirm **Server Auswahl** den Server aus, und klicken Sie auf **weiter**.
-5. Wählen Sie auf dem Bildschirm **Server Rollen** die Option **DNS-Server**aus, und **Klicken Sie**bei entsprechender Aufforderung auf **Features hinzufügen**
-6. Klicken Sie auf dem Bildschirm **Features** auf **weiter**.
-7. Lesen Sie die Informationen auf der Seite **DNS-Server** , und klicken Sie dann auf **weiter**.
+4. Wählen Sie auf dem Bildschirm **Server Auswahl** den Server aus, und klicken Sie auf **weiter** .
+5. Wählen Sie auf dem Bildschirm **Server Rollen** die Option **DNS-Server** aus, und **Klicken Sie** bei entsprechender Aufforderung auf **Features hinzufügen**
+6. Klicken Sie auf dem Bildschirm **Features** auf **weiter** .
+7. Lesen Sie die Informationen auf der Seite **DNS-Server** , und klicken Sie dann auf **weiter** .
    ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns1.png)
-8. Überprüfen Sie auf der Seite **Bestätigung** , ob die DNS-Server Rolle installiert wird, und klicken Sie dann auf **Installieren**.
+8. Überprüfen Sie auf der Seite **Bestätigung** , ob die DNS-Server Rolle installiert wird, und klicken Sie dann auf **Installieren** .
 
 ### <a name="to-configure-the-dns-server-service"></a>So konfigurieren Sie den DNS-Server Dienst
 
-1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **DNS**.
+1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **DNS** .
    ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Erstellen Sie DNS-Zonen für die gleichen DNS-Domänen Namen, die vor dem kritischen Funktionsfehler auf den DNS-Servern gehostet wurden. Weitere Informationen finden Sie unter Hinzufügen einer Forward-Lookupzone ( [https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574) ).
 3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Beispiel:

@@ -2,16 +2,16 @@
 ms.assetid: a7ef2fba-b05c-4be2-93b2-b9456244c3ad
 title: Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 9b7aafb92b354181957c6c304ad9b366b4413e65
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: fb688e49e0c3a498ee3b5a2ed25801ea01bc37eb
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069642"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
@@ -88,7 +88,7 @@ Es gibt Dutzende von Benutzerrechten und-Berechtigungen in Windows (z. b. als Ba
 ##### <a name="audit-process-tracking"></a>Überwachungsprozess Verfolgung
 Mit dieser Richtlinien Einstellung wird festgelegt, ob ausführliche Prozess nach Verfolgungs Informationen für Ereignisse wie Programm Aktivierung, Prozess Beendigung, Duplizierung von Objekten und indirekter Objektzugriff überwacht werden sollen. Es ist nützlich, wenn böswillige Benutzer und die von Ihnen verwendeten Programme nachverfolgt werden.
 
-Durch das Aktivieren der Überwachungsprozess Verfolgung wird eine große Anzahl von Ereignissen generiert, sodass Sie in der Regel auf **keine**Überwachung festgelegt ist. Diese Einstellung kann jedoch während einer Reaktion auf Vorfälle aus dem detaillierten Protokoll der gestarteten Prozesse und der Startzeit des Starts einen großen Vorteil bieten. Für Domänen Controller und andere Infrastruktur Server mit nur einer Rolle kann diese Kategorie sicher jederzeit aktiviert werden. Einzelne Rollen Server generieren im normalen Verlauf ihrer Aufgaben keinen großen Prozess nach Verfolgungs Datenverkehr. Daher können Sie aktiviert werden, um nicht autorisierte Ereignisse zu erfassen, wenn Sie auftreten.
+Durch das Aktivieren der Überwachungsprozess Verfolgung wird eine große Anzahl von Ereignissen generiert, sodass Sie in der Regel auf **keine** Überwachung festgelegt ist. Diese Einstellung kann jedoch während einer Reaktion auf Vorfälle aus dem detaillierten Protokoll der gestarteten Prozesse und der Startzeit des Starts einen großen Vorteil bieten. Für Domänen Controller und andere Infrastruktur Server mit nur einer Rolle kann diese Kategorie sicher jederzeit aktiviert werden. Einzelne Rollen Server generieren im normalen Verlauf ihrer Aufgaben keinen großen Prozess nach Verfolgungs Datenverkehr. Daher können Sie aktiviert werden, um nicht autorisierte Ereignisse zu erfassen, wenn Sie auftreten.
 
 ##### <a name="system-events-audit"></a>Überwachung von System Ereignissen
 
@@ -195,11 +195,11 @@ Diese Unterkategorie meldet ausführliche Informationen zu den Informationen, di
 
 #### <a name="logonlogoff"></a>Anmeldung/Abmeldung
 
-##### <a name="logon"></a>Anmelden
-Diese Unterkategorie meldet, wenn ein Benutzer versucht, sich am System anzumelden. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.
+##### <a name="logon"></a>Anmeldung
+Diese Unterkategorie meldet, wenn ein Benutzer versucht, sich am System anzumelden. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine** Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.
 
 ##### <a name="network-policy-server"></a>Netzwerkrichtlinienserver
-Diese Unterkategorie meldet Ereignisse, die von RADIUS-(IAS) und NAP-Benutzer Zugriffs Anforderungen (Network Access Protection) generiert wurden. Diese Anforderungen können **Grant**, **Deny**, **verwerfen**, **Quarantäne**, **Lock**und **Unlock**sein. Wenn Sie diese Einstellung überwachen, führt dies zu einer mittleren oder großen Anzahl von Datensätzen auf NPS-und IAS-Servern.
+Diese Unterkategorie meldet Ereignisse, die von RADIUS-(IAS) und NAP-Benutzer Zugriffs Anforderungen (Network Access Protection) generiert wurden. Diese Anforderungen können **Grant** , **Deny** , **verwerfen** , **Quarantäne** , **Lock** und **Unlock** sein. Wenn Sie diese Einstellung überwachen, führt dies zu einer mittleren oder großen Anzahl von Datensätzen auf NPS-und IAS-Servern.
 
 ##### <a name="ipsec-main-mode"></a>IPSec-Hauptmodus
 Diese Unterkategorie meldet die Ergebnisse des Internetschlüsselaustausch (IKE)-Protokolls und authentifiziertes Internetprotokoll (AuthIP) während der Hauptmodusverhandlung.
@@ -211,7 +211,7 @@ Diese Unterkategorie meldet die Ergebnisse von AuthIP während der Aushandlungen
 Diese Unterkategorie meldet andere Anmelde-und Abmelde bezogene Ereignisse, z. b. Remotedesktopdienste Sitzung die Verbindung trennt und die Verbindung wiederherstellt, mithilfe von runas Prozesse unter einem anderen Konto ausführen und eine Arbeitsstation sperren und entsperren.
 
 ##### <a name="logoff"></a>Abmelden (Logoff)
-Diese Unterkategorie meldet, wenn sich ein Benutzer beim System anmeldet. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.
+Diese Unterkategorie meldet, wenn sich ein Benutzer beim System anmeldet. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine** Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.
 
 ##### <a name="account-lockout"></a>Kontosperrung
 In dieser Unterkategorie wird berichtet, wenn das Konto eines Benutzers aufgrund zu vieler fehlgeschlagener Anmeldeversuche gesperrt ist.
@@ -233,7 +233,7 @@ Diese Unterkategorie meldet Änderungen in der Authentifizierungs Richtlinie.
 ##### <a name="authorization-policy-change"></a>Autorisierungs Richtlinien Änderung
 Diese Unterkategorie meldet Änderungen an der Autorisierungs Richtlinie einschließlich der Änderungen an Berechtigungen (DACL).
 
-##### <a name="mpssvc-rule-level-policy-change"></a>Richtlinien Änderung auf mpssvc-Regel Ebene
+##### <a name="mpssvc-rule-level-policy-change"></a>Mpssvc-Rule-Level Richtlinien Änderung
 Diese Unterkategorie meldet Änderungen in Richtlinien Regeln, die vom Microsoft Protection Service (MPSSVC.exe) verwendet werden. Dieser Dienst wird von der Windows-Firewall verwendet.
 
 ##### <a name="filtering-platform-policy-change"></a>Filtern von Platt Form Richtlinien Änderungen
@@ -258,7 +258,7 @@ Diese Sicherheitsrichtlinien Einstellung wird derzeit nicht verwendet.
 ##### <a name="file-system"></a>Dateisystem
 Diese Unterkategorie meldet, wenn auf Dateisystem Objekte zugegriffen wird. Nur Dateisystem Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise auf Sie zugegriffen wird, die ihren SACL-Einträgen entspricht. Diese Richtlinien Einstellung bewirkt, dass keine Ereignisse überwacht werden. Es bestimmt, ob das Ereignis eines Benutzers überwacht werden soll, der auf ein Dateisystem Objekt zugreift, das über eine angegebene System Zugriffs Steuerungs Liste (SACL) verfügt, sodass die Überwachung wirksam wird.
 
-Wenn die Einstellung Objektzugriff überwachen für **Erfolg**konfiguriert ist, wird jedes Mal, wenn ein Benutzer erfolgreich auf ein Objekt mit einer angegebenen SACL zugreift, ein Überwachungs Eintrag generiert. Wenn diese Richtlinien Einstellung auf **Fehler**festgelegt ist, wird jedes Mal ein Überwachungs Eintrag generiert, wenn ein Benutzer versucht, auf ein Objekt mit einer angegebenen SACL zuzugreifen.
+Wenn die Einstellung Objektzugriff überwachen für **Erfolg** konfiguriert ist, wird jedes Mal, wenn ein Benutzer erfolgreich auf ein Objekt mit einer angegebenen SACL zugreift, ein Überwachungs Eintrag generiert. Wenn diese Richtlinien Einstellung auf **Fehler** festgelegt ist, wird jedes Mal ein Überwachungs Eintrag generiert, wenn ein Benutzer versucht, auf ein Objekt mit einer angegebenen SACL zuzugreifen.
 
 ##### <a name="registry"></a>Registrierung
 Diese Unterkategorie meldet, wenn auf Registrierungs Objekte zugegriffen wird. Nur Registrierungs Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise auf Sie zugegriffen wird, die ihren SACL-Einträgen entspricht. Diese Richtlinien Einstellung bewirkt, dass keine Ereignisse überwacht werden.
@@ -321,11 +321,11 @@ Die Windows-Überwachungsrichtlinie kann mithilfe von Gruppenrichtlinien, auditp
 
 ### <a name="setting-windows-audit-policy-by-using-group-policy"></a>Festlegen der Windows-Überwachungsrichtlinie mithilfe von Gruppenrichtlinie
 
-Zum Festlegen der Überwachungsrichtlinie mithilfe von Gruppenrichtlinien konfigurieren Sie die entsprechenden Überwachungs Kategorien unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien \ Überwachungsrichtlinie (ein Beispiel aus der Editor für lokale Gruppenrichtlinien (gpeer dit. msc) finden Sie im folgenden Screenshot). Jede Überwachungs Richtlinien Kategorie kann für **Erfolgs**-, **Fehler**-oder **Erfolgs** -und Fehlerereignisse aktiviert werden.
+Zum Festlegen der Überwachungsrichtlinie mithilfe von Gruppenrichtlinien konfigurieren Sie die entsprechenden Überwachungs Kategorien unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien \ Überwachungsrichtlinie (ein Beispiel aus der Editor für lokale Gruppenrichtlinien (gpeer dit. msc) finden Sie im folgenden Screenshot). Jede Überwachungs Richtlinien Kategorie kann für **Erfolgs** -, **Fehler** -oder **Erfolgs** -und Fehlerereignisse aktiviert werden.
 
 ![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_6.gif)
 
-Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder lokalen Gruppenrichtlinien festgelegt werden. Zum Festlegen der erweiterten Überwachungsrichtlinie konfigurieren Sie die entsprechenden Unterkategorien, die sich unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Erweiterte Überwachungsrichtlinie** befinden (im folgenden Screenshot finden Sie ein Beispiel aus der Editor für lokale Gruppenrichtlinien (gpeer dit. msc)). Jede Unterkategorie der Überwachungsrichtlinie kann für **Erfolgs**-, **Fehler**-oder **Erfolgs** -und **Fehler** Ereignisse aktiviert werden.
+Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder lokalen Gruppenrichtlinien festgelegt werden. Zum Festlegen der erweiterten Überwachungsrichtlinie konfigurieren Sie die entsprechenden Unterkategorien, die sich unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Erweiterte Überwachungsrichtlinie** befinden (im folgenden Screenshot finden Sie ein Beispiel aus der Editor für lokale Gruppenrichtlinien (gpeer dit. msc)). Jede Unterkategorie der Überwachungsrichtlinie kann für **Erfolgs** -, **Fehler** -oder **Erfolgs** -und **Fehler** Ereignisse aktiviert werden.
 
 ![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)
 
@@ -364,13 +364,13 @@ Auditpol.exe können zum Speichern und Wiederherstellen einer lokalen Überwachu
 
 `auditpol /restore /file:<filename>` -Wird verwendet, um eine zuvor gespeicherte Überwachungs Richtlinien Datei in eine lokale Überwachungsrichtlinie zu importieren.
 
-`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>` Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit der Meldung "Pause: C0000244 {Audit failed}"), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben**. Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).
+`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>` Wenn diese Überwachungs Richtlinien Einstellung aktiviert ist, bewirkt dies, dass das System sofort beendet wird (mit der Meldung "Pause: C0000244 {Audit failed}"), wenn eine Sicherheitsüberprüfung aus irgendeinem Grund nicht protokolliert werden kann. In der Regel kann ein Ereignis nicht protokolliert werden, wenn das Sicherheits Überwachungs Protokoll voll ist, und die für das Sicherheitsprotokoll angegebene Beibehaltungs Methode **nicht Ereignisse überschreiben** oder **Ereignisse nach Tagen überschreiben** . Sie wird in der Regel nur von Umgebungen aktiviert, die höhere Sicherheit bei der Protokollierung des Sicherheitsprotokolls erfordern. Wenn diese Option aktiviert ist, müssen Administratoren die Größe des Sicherheitsprotokolls genau beobachten und Protokolle nach Bedarf rotieren. Er kann auch mit Gruppenrichtlinie festgelegt werden, indem die Sicherheitsoption Überwachung **: Herunterfahren des Systems sofort geändert wird, wenn Sicherheits Überwachungen nicht protokolliert** werden können (Standardeinstellung = deaktiviert).
 
 `auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung bestimmt, ob der Zugriff auf globale Systemobjekte überprüft werden soll. Wenn diese Richtlinie aktiviert ist, bewirkt dies, dass Systemobjekte, z. b. Mutexes, Ereignisse, Semaphore und DOS-Geräte, mit einer Standard-System Zugriffs Steuerungs Liste (SACL) erstellt werden. Die meisten Administratoren sollten globale Systemobjekte so überwachen, dass Sie zu "unschädlich" werden, und Sie werden nur aktiviert, wenn böswillige Hacker vermutet werden. Nur benannte Objekte erhalten eine SACL. Wenn die Überwachungsrichtlinie für Überwachungs Objektzugriff (oder die Unterkategorie "Kernel Objektüberwachung") ebenfalls aktiviert ist, wird der Zugriff auf diese Systemobjekte überprüft. Wenn Sie diese Sicherheitseinstellung konfigurieren, werden die Änderungen erst wirksam, wenn Sie Windows neu starten. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachen des Zugriffs globaler Systemobjekte (Standardeinstellung = deaktiviert) ändern.
 
 `auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung gibt an, dass benannte Kernel Objekte (z. b. Mutexen und Semaphore) bei der Erstellung mit SACLs versehen werden sollen. Auditbasedirectories wirkt sich auf Containerobjekte aus, während auditbaseobjects sich auf Objekte auswirkt, die keine anderen Objekte enthalten können.
 
-`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen**ändern.
+`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>` -Diese Überwachungs Richtlinien Einstellung gibt an, ob der Client ein Ereignis generiert, wenn mindestens eine dieser Berechtigungen einem Benutzer Sicherheits Token zugewiesen ist: Zuordnungen von "zukenprivilege", "auditprivilege", "backupprivilege", "comatetokenprivilege", "Debug Privilege", "enabledelegationprivilege", "Identität", "loaddriverprivilege", "restoreprivilege", "securityprivilege", "systemumgebprivilege", "takebesitzshipprivilege" Wenn diese Option nicht aktiviert ist (Standardeinstellung = deaktiviert), werden die Berechtigungen backupprivilege und restoreprivilege nicht aufgezeichnet. Wenn Sie diese Option aktivieren, kann das Sicherheitsprotokoll während eines Sicherungs Vorgangs äußerst laut (manchmal Hunderte von Ereignissen pro Sekunde) werden. Diese Richtlinie kann auch mit Gruppenrichtlinie festgelegt werden, indem Sie die Sicherheitsoption Überwachung: überwachen **der Verwendung von Sicherungs-und Wiederherstellungs Berechtigungen** ändern.
 
 > [!NOTE]
 > Einige der hier bereitgestellten Informationen stammen aus dem Microsoft [Audit-Optionstyp](/openspecs/windows_protocols/ms-gpac/262a2bed-93d4-4c04-abec-cf06e9ec72fd) und dem Microsoft SCM-Tool.

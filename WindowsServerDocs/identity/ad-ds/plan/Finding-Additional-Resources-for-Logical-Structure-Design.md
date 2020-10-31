@@ -2,16 +2,16 @@
 ms.assetid: 8b900c2b-35b1-4c95-a73d-e5f2e9cf0adb
 title: Suchen zusätzliche Ressourcen für den Entwurf der logischen Struktur
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 25fdb357ae4be103a6c543a6969f72f1a5df91e1
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: c2b445661fb10e03a3d764611a1a3e213613b69e
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068571"
 ---
 # <a name="finding-additional-resources-for-logical-structure-design"></a>Suchen zusätzliche Ressourcen für den Entwurf der logischen Struktur
 
@@ -53,8 +53,8 @@ Weitere Ressourcen für den Entwurf logischer Strukturen finden Sie in der folge
 
 - Weitere Informationen zur Gruppenrichtlinie-Infrastruktur finden Sie unter [Entwerfen einer Gruppenrichtlinie-Infrastruktur](/previous-versions/windows/it-pro/windows-server-2003/cc786524(v=ws.10)).
 
-- Weitere Informationen zu schreibgeschützten Domänen Controllern (Read-Only Domain Controllers, RODCs) finden Sie unter [AD DS: schreibgeschützte Domänen Controller](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).
+- Weitere Informationen zu schreibgeschützten Domänen Controllern (Read-Only Domain Controllers, RODCs) finden Sie unter [AD DS: Read-Only Domain Controllers](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).
 
-- Weitere Informationen zu differenzierten Kennwort-und Konto Sperrungs Richtlinien finden Sie in der [schrittweisen Anleitung für die AD DS differenzierte Kenn Wort-und Konto](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770842(v=ws.10))Sperrungs Richtlinie.
+- Weitere Informationen zu differenzierten Kennwort-und Konto Sperrungs Richtlinien finden Sie in der [schrittweisen Anleitung für die AD DS Fine-Grained Kennwort-und Konto](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770842(v=ws.10))Sperrungs Richtlinie.
 
 - Weitere Informationen zu Benennungs Konventionen in AD DS finden Sie im Artikel 909264 in der Microsoft Knowledge Base, [Namenskonventionen in Active Directory für Computer, Domänen, Standorte und](https://support.microsoft.com/help/909264/)Organisationseinheiten.

@@ -2,16 +2,16 @@
 ms.assetid: 70c99703-ff0d-4278-9629-b8493b43c833
 title: Leitfaden zum Konfigurieren geschützter Konten
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: e8d16d1d33e8e0bd55457daa98b4aad454dafe3f
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: ada9ebb22e4e98f1caa63fb66ff3aaaf2b231df7
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067982"
 ---
 # <a name="guidance-about-how-to-configure-protected-accounts"></a>Leitfaden zum Konfigurieren geschützter Konten
 
@@ -63,7 +63,7 @@ Wenn Sie der Gruppe Benutzer hinzufügen möchten, können Sie Benutzeroberfläc
 
 Mitglieder der Gruppe Geschützte Benutzer müssen in der Lage sein, sich mit dem erweiterten Verschlüsselungsstandard (AES) und Kerberos anzumelden. Für diese Methode sind AES-Schlüssel in Active Directory erforderlich. Der integrierte Administrator verfügt über keinen AES-Schlüssel, es sei denn, das Kennwort wurde auf einem Domänen Controller geändert, auf dem Windows Server 2008 oder höher ausgeführt wird. Außerdem wird jedes Konto, das über ein Kennwort verfügt, das auf einem Domänen Controller mit einer früheren Version von Windows Server geändert wurde, gesperrt. Befolgen Sie daher die folgenden bewährten Methoden:
 
--   Testen Sie die Domänen nur dann, wenn auf **allen Domänen Controllern Windows Server 2008 oder höher ausgeführt**wird.
+-   Testen Sie die Domänen nur dann, wenn auf **allen Domänen Controllern Windows Server 2008 oder höher ausgeführt** wird.
 
 -   **Ändern Sie die Kennwörter** aller Domänenkonten, die *vor* der Domänenerstellung erstellt wurden. Andernfalls können sich diese Konten nicht mehr authentifizieren.
 
@@ -81,7 +81,7 @@ Dieser Abschnitt behandelt neue Protokollereignisse im Zusammenhang mit geschüt
 
 #### <a name="new-logs-for-protected-users"></a>Neue Protokolle für geschützte Benutzer
 
-Es stehen zwei neue operative administrative Protokolle zur Verfügung, die bei der Problembehandlung bei Ereignissen im Zusammenhang mit geschützten Benutzern helfen: geschütztes Benutzer-Client Protokoll und geschützte Benutzerfehler-Domänen Controller Protokoll. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Um ein Protokoll zu aktivieren, klicken Sie auf **Anwendungs- und Dienstprotokolle**, klicken Sie auf **Microsoft**, dann auf **Windows**, auf **Authentifizierung**. Klicken Sie anschließend auf den Namen des Protokolls und klicken Sie auf **Aktion** (bzw. klicken Sie mit der rechten Maustaste auf das Protokoll) und klicken Sie auf **Protokoll aktivieren**.
+Es stehen zwei neue operative administrative Protokolle zur Verfügung, die bei der Problembehandlung bei Ereignissen im Zusammenhang mit geschützten Benutzern helfen: geschütztes Benutzer-Client Protokoll und geschützte Benutzerfehler-Domänen Controller Protokoll. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Um ein Protokoll zu aktivieren, klicken Sie auf **Anwendungs- und Dienstprotokolle** , klicken Sie auf **Microsoft** , dann auf **Windows** , auf **Authentifizierung** . Klicken Sie anschließend auf den Namen des Protokolls und klicken Sie auf **Aktion** (bzw. klicken Sie mit der rechten Maustaste auf das Protokoll) und klicken Sie auf **Protokoll aktivieren** .
 
 Weitere Informationen zu Ereignissen in diesen Protokollen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486813(v=ws.11)).
 
@@ -169,7 +169,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
 
 ### <a name="requirements-for-using-authentication-policies"></a><a name="BKMK_ReqForAuthnPolicies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien
 
-|Richtlinie|Requirements (Anforderungen)|
+|Policy|Anforderungen|
 |----------|----------------|
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|
@@ -177,7 +177,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
 |Einschränken der Dienstticket-Ausstellung auf Basis von Benutzeransprüchen, Gerätekonten, Sicherheitsgruppen oder Ansprüchen| Ressourcen Domänen auf Windows Server 2012 R2-Domänen Funktionsebene mit dynamischer Access Control Unterstützung|
 
 ### <a name="restrict-a-user-account-to-specific-devices-and-hosts"></a>Einschränken von Benutzerkonten auf bestimmte Geräte und Hosts
-Besonders wichtige Konten mit Administratorrechten sollten Mitglieder der Gruppe **Geschützte Benutzer** sein. Standardmäßig sind keine Benutzerkonten Mitglieder der Gruppe **Geschützte Benutzer**. Bevor Sie Konten zur Gruppe hinzufügen, sollten Sie die Domänencontroller-Unterstützung konfigurieren und eine Überwachungsrichtlinie erstellen, um sicherzugehen, dass keine blockierenden Probleme vorliegen.
+Besonders wichtige Konten mit Administratorrechten sollten Mitglieder der Gruppe **Geschützte Benutzer** sein. Standardmäßig sind keine Benutzerkonten Mitglieder der Gruppe **Geschützte Benutzer** . Bevor Sie Konten zur Gruppe hinzufügen, sollten Sie die Domänencontroller-Unterstützung konfigurieren und eine Überwachungsrichtlinie erstellen, um sicherzugehen, dass keine blockierenden Probleme vorliegen.
 
 #### <a name="configure-domain-controller-support"></a>Konfigurieren der Domänencontroller-Unterstützung
 
@@ -185,7 +185,7 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
 
 **Konfigurieren der Unterstützung für die dynamische Zugriffssteuerung**
 
-1.  Klicken Sie in der Standard-Domänencontrollerrichtlinie auf **Aktiviert**, um **die Clientunterstützung für das Schlüsselverteilungscenter (Key Distribution Center KDC) für Ansprüche, Verbundauthentifizierung und Kerberos Armoring** unter Computerkonfiguration | Administrative Vorlagen | System | KDC zu aktivieren.
+1.  Klicken Sie in der Standard-Domänencontrollerrichtlinie auf **Aktiviert** , um **die Clientunterstützung für das Schlüsselverteilungscenter (Key Distribution Center KDC) für Ansprüche, Verbundauthentifizierung und Kerberos Armoring** unter Computerkonfiguration | Administrative Vorlagen | System | KDC zu aktivieren.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_EnableKDCClaims.gif)
 
@@ -208,13 +208,13 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
     > [!NOTE]
     > Der ausgewählte **Authentifizierungs** Knoten ist für Domänen unter Windows Server 2012 R2-DFL sichtbar. Wenn der Knoten nicht angezeigt wird, versuchen Sie es erneut, indem Sie ein Domänen Administrator Konto aus einer Domäne unter Windows Server 2012 R2-DFL verwenden.
 
-2.  Klicken Sie auf **Authentifizierungsrichtlinien** und auf **Neu**, um eine neue Richtlinie zu erstellen.
+2.  Klicken Sie auf **Authentifizierungsrichtlinien** und auf **Neu** , um eine neue Richtlinie zu erstellen.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_NewAuthNPolicy.gif)
 
     Authentifizierungsrichtlinien müssen einen Anzeigenamen haben und werden standardmäßig erzwungen.
 
-3.  Klicken Sie auf **Nur Richtlinieneinschränkungen überwachen**, um eine Richtlinie zur reinen Überwachung zu erstellen.
+3.  Klicken Sie auf **Nur Richtlinieneinschränkungen überwachen** , um eine Richtlinie zur reinen Überwachung zu erstellen.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_NewAuthNPolicyAuditOnly.gif)
 
@@ -240,32 +240,32 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_EditAuthNPolicy.gif)
 
-6.  Klicken Sie im Fenster **Bedingungen für die Zugriffssteuerung bearbeiten** auf **Bedingung hinzufügen**.
+6.  Klicken Sie im Fenster **Bedingungen für die Zugriffssteuerung bearbeiten** auf **Bedingung hinzufügen** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AddCondition.png)
 
 ##### <a name="add-computer-account-or-group-conditions"></a>Computerkonto- oder Gruppenbedingungen hinzufügen
 
-1.  Um Computerkonten oder Gruppen zu konfigurieren, ändern Sie im Dropdown-Listenfeld den Wert von **Mitglied aller Gruppen** zu **Mitglied einer oder mehrer Gruppen**.
+1.  Um Computerkonten oder Gruppen zu konfigurieren, ändern Sie im Dropdown-Listenfeld den Wert von **Mitglied aller Gruppen** zu **Mitglied einer oder mehrer Gruppen** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AddCompMember.png)
 
     > [!NOTE]
     > Diese Zugriffssteuerung definiert die Bedingungen für das Gerät bzw. den Host, von dem sich der Benutzer anmeldet. In der Zugriffssteuerungs-Terminologie ist das Computerkonto für das Gerät oder den Host der Benutzer. Daher ist **Benutzer** die einzige auswählbare Option.
 
-2.  Klicken Sie auf **Elemente hinzufügen**.
+2.  Klicken Sie auf **Elemente hinzufügen** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AddCompAddItems.png)
 
-3.  Klicken Sie auf **Objekttypen**, um die Objekttypen zu ändern.
+3.  Klicken Sie auf **Objekttypen** , um die Objekttypen zu ändern.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_ChangeObjects.gif)
 
-4.  Klicken Sie auf **Computer** und auf **OK**, um Computerobjekte in Active Directory auszuwählen.
+4.  Klicken Sie auf **Computer** und auf **OK** , um Computerobjekte in Active Directory auszuwählen.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_ChangeObjectsComputers.gif)
 
-5.  Geben Sie die Namen der Computer ein, auf die der Benutzer eingeschränkt werden soll, und klicken Sie auf **Namen überprüfen**.
+5.  Geben Sie die Namen der Computer ein, auf die der Benutzer eingeschränkt werden soll, und klicken Sie auf **Namen überprüfen** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_ChangeObjectsCompName.gif)
 
@@ -273,7 +273,7 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AddCompAddConditions.png)
 
-7.  Wenn Sie fertig sind, klicken Sie auf **OK**, um die definierten Bedingungen für das Computerkonto zu übernehmen.
+7.  Wenn Sie fertig sind, klicken Sie auf **OK** , um die definierten Bedingungen für das Computerkonto zu übernehmen.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AddCompDone.png)
 
@@ -294,23 +294,23 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_CompClaimComplete.gif)
 
 ##### <a name="troubleshoot-missing-computer-claims"></a>Problembehandlung für fehlende Computeransprüche
-Falls ein Anspruch konfiguriert wurde und nicht verfügbar ist, kann es sein, dass dieser nur für die **Computer**-Klassen konfiguriert wurde.
+Falls ein Anspruch konfiguriert wurde und nicht verfügbar ist, kann es sein, dass dieser nur für die **Computer** -Klassen konfiguriert wurde.
 
 Nehmen wir an, Sie möchten die Authentifizierung auf der Grundlage der Organisationseinheit (OU) des Computers beschränken, die bereits konfiguriert war, aber nur für **Computer** Klassen.
 
 ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_RestrictComputers.gif)
 
-Markieren Sie das Kontrollkästchen **Benutzer**, um den Anspruch zum Einschränken der Benutzeranmeldung am Gerät verfügbar zu machen.
+Markieren Sie das Kontrollkästchen **Benutzer** , um den Anspruch zum Einschränken der Benutzeranmeldung am Gerät verfügbar zu machen.
 
 ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_RestrictUsersComputers.gif)
 
 #### <a name="provision-a-user-account-with-an-authentication-policy-with-adac"></a>Einrichten eines Benutzerkontos mit Authentifizierungsrichtlinie in ADAC
 
-1.  Klicken Sie im **Benutzerkonto** auf **Richtlinien**.
+1.  Klicken Sie im **Benutzerkonto** auf **Richtlinien** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_UserPolicy.gif)
 
-2.  Aktivieren Sie das Kontrollkästchen **Diesem Konto eine Authentifizierungsrichtlinie zuweisen**.
+2.  Aktivieren Sie das Kontrollkästchen **Diesem Konto eine Authentifizierungsrichtlinie zuweisen** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_UserPolicyAssign.gif)
 
@@ -333,35 +333,35 @@ Im Bereich Konten für die Authentifizierungsrichtlinie werden die Konten angeze
 ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_AccountsAssigned.gif)
 
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>Verwenden des Authentifizierungs Richtlinien Fehlers-Domänen Controller-Verwaltungs Protokoll
-Neue **Authentifizierungs Richtlinien Fehler:** das Administrator Protokoll des Domänen Controllers unter **Anwendungs-und Dienst Protokolle**  >  **Microsoft**  >  **Windows**-  >  **Authentifizierung** wurde erstellt, um das Ermitteln von Fehlern aufgrund von Authentifizierungs Richtlinien zu vereinfachen. Dieses Protokoll ist standardmäßig deaktiviert. Klicken Sie mit der rechten Maustaste auf das Protokoll und klicken Sie auf **Protokoll aktivieren,** um dieses Protokoll zu aktivieren. Die neuen Ereignisse sind den existierenden Ereignissen für Kerberos TGT und die Überwachung von Diensttickets inhaltlich sehr ähnlich. Weitere Informationen zu diesen Ereignissen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486813(v=ws.11)).
+Neue **Authentifizierungs Richtlinien Fehler:** das Administrator Protokoll des Domänen Controllers unter **Anwendungs-und Dienst Protokolle**  >  **Microsoft**  >  **Windows** -  >  **Authentifizierung** wurde erstellt, um das Ermitteln von Fehlern aufgrund von Authentifizierungs Richtlinien zu vereinfachen. Dieses Protokoll ist standardmäßig deaktiviert. Klicken Sie mit der rechten Maustaste auf das Protokoll und klicken Sie auf **Protokoll aktivieren,** um dieses Protokoll zu aktivieren. Die neuen Ereignisse sind den existierenden Ereignissen für Kerberos TGT und die Überwachung von Diensttickets inhaltlich sehr ähnlich. Weitere Informationen zu diesen Ereignissen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486813(v=ws.11)).
 
 ### <a name="manage-authentication-policies-by-using-windows-powershell"></a><a name="BKMK_ManageAuthnPoliciesUsingPSH"></a>Verwalten von Authentifizierungsrichtlinien mit Windows PowerShell
-Dieser Befehl erstellt eine Authentifizierungsrichtlinie mit dem Namen **TestAuthenticationPolicy**. Der **UserAllowedToAuthenticateFrom**-Parameter gibt die Geräte, an denen sich Benutzer anmelden können, in Form einer SDDL-Zeichenfolge in der Datei mit dem Namen someFile.txt an.
+Dieser Befehl erstellt eine Authentifizierungsrichtlinie mit dem Namen **TestAuthenticationPolicy** . Der **UserAllowedToAuthenticateFrom** -Parameter gibt die Geräte, an denen sich Benutzer anmelden können, in Form einer SDDL-Zeichenfolge in der Datei mit dem Namen someFile.txt an.
 
 ```
 PS C:\> New-ADAuthenticationPolicy testAuthenticationPolicy -UserAllowedToAuthenticateFrom (Get-Acl .\someFile.txt).sddl
 ```
 
-Dieser Befehl ruft alle Authentifizierungsrichtlinien ab, die mit dem im **Filter**-Parameter angegebenen Filter übereinstimmen.
+Dieser Befehl ruft alle Authentifizierungsrichtlinien ab, die mit dem im **Filter** -Parameter angegebenen Filter übereinstimmen.
 
 ```
 PS C:\> Get-ADAuthenticationPolicy -Filter "Name -like 'testADAuthenticationPolicy*'" -Server Server02.Contoso.com
 
 ```
 
-Dieser Befehl ändert die Beschreibung und die **UserTGTLifetimeMins**-Eigenschaften der angegebenen Authentifizierungsrichtlinie.
+Dieser Befehl ändert die Beschreibung und die **UserTGTLifetimeMins** -Eigenschaften der angegebenen Authentifizierungsrichtlinie.
 
 ```
 PS C:\> Set-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1 -Description "Description" -UserTGTLifetimeMins 45
 ```
 
-Dieser Befehl entfernt die im **Identity**-Parameter angegebene Authentifizierungsrichtlinien.
+Dieser Befehl entfernt die im **Identity** -Parameter angegebene Authentifizierungsrichtlinien.
 
 ```
 PS C:\> Remove-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1
 ```
 
-Dieser Befehl verwendet das **Get-ADAuthenticationPolicy**-Cmdlet mit dem **Filter**-Parameter, um alle nicht erzwungenen Authentifizierungsrichtlinien abzurufen. Das Ergebnis wird an das **Remove-ADAuthenticationPolicy**-Cmdlet weitergereicht.
+Dieser Befehl verwendet das **Get-ADAuthenticationPolicy** -Cmdlet mit dem **Filter** -Parameter, um alle nicht erzwungenen Authentifizierungsrichtlinien abzurufen. Das Ergebnis wird an das **Remove-ADAuthenticationPolicy** -Cmdlet weitergereicht.
 
 ```
 PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthenticationPolicy
@@ -417,11 +417,11 @@ Sie können ein Authentifizierungs Richtlinien Silo mithilfe von Active Director
 
 #### <a name="to-create-an-authentication-policy-silo-by-using-active-directory-administrative-center"></a>Erstellen von Authentifizierungsrichtliniensilos im Active Directory-Verwaltungscenter
 
-1.  Öffnen Sie das **Active Directory-Verwaltungscenter**, klicken Sie auf **Authentifizierung**, klicken Sie mit der rechten Maustaste auf **Authentifizierungsrichtliniensilos**, klicken Sie auf **Neu** und anschließend auf **Authentifizierungsrichtliniensilo**.
+1.  Öffnen Sie das **Active Directory-Verwaltungscenter** , klicken Sie auf **Authentifizierung** , klicken Sie mit der rechten Maustaste auf **Authentifizierungsrichtliniensilos** , klicken Sie auf **Neu** und anschließend auf **Authentifizierungsrichtliniensilo** .
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_CreateNewAuthNPolicySilo.gif)
 
-2.  Geben Sie unter **Anzeigename** einen Namen für den Silo ein. Klicken Sie unter **Erlaubte Konten** auf **Hinzufügen**, geben Sie die Namen der Konten ein und klicken Sie auf **OK**. Sie können Benutzer, Computer oder Dienstkonten angeben. Wählen Sie anschließend aus, ob Sie eine einzige Richtlinie für alle Prinzipale oder eine Richtlinie pro Prinzipal verwenden möchten, und geben Sie die Namen der Richtlinie(n) an.
+2.  Geben Sie unter **Anzeigename** einen Namen für den Silo ein. Klicken Sie unter **Erlaubte Konten** auf **Hinzufügen** , geben Sie die Namen der Konten ein und klicken Sie auf **OK** . Sie können Benutzer, Computer oder Dienstkonten angeben. Wählen Sie anschließend aus, ob Sie eine einzige Richtlinie für alle Prinzipale oder eine Richtlinie pro Prinzipal verwenden möchten, und geben Sie die Namen der Richtlinie(n) an.
 
     ![geschützte Konten](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_NewAuthNPolicySiloDisplayName.gif)
 
@@ -432,7 +432,7 @@ Dieser Befehl erstellt und erzwingt ein Authentifizierungsrichtliniensilo-Objekt
 PS C:\>New-ADAuthenticationPolicySilo -Name newSilo -Enforce
 ```
 
-Dieser Befehl ruft alle Authentifizierungsrichtliniensilos ab, die mit dem im **Filter**-Parameter angegebenen Filter übereinstimmen. Die Ausgabe wird anschließend an das **Format-Table**-Cmdlet weitergereicht, um den Namen der Richtlinie und den Wert für **Enforce** in den einzelnen Richtlinien anzuzeigen.
+Dieser Befehl ruft alle Authentifizierungsrichtliniensilos ab, die mit dem im **Filter** -Parameter angegebenen Filter übereinstimmen. Die Ausgabe wird anschließend an das **Format-Table** -Cmdlet weitergereicht, um den Namen der Richtlinie und den Wert für **Enforce** in den einzelnen Richtlinien anzuzeigen.
 
 ```
 PS C:\>Get-ADAuthenticationPolicySilo -Filter 'Name -like "*silo*"' | Format-Table Name, Enforce -AutoSize
@@ -444,25 +444,25 @@ silos   False
 
 ```
 
-Dieser Befehl verwendet das **Get-ADAuthenticationPolicySilo**-Cmdlet mit dem **Filter**-Parameter, um alle nicht erzwungenen Authentifizierungsrichtliniensilos abzurufen, die nicht erzwungen werden, und reicht das Ergebnis des Filters an das **Remove-ADAuthenticationPolicySilo**-Cmdlet weiter.
+Dieser Befehl verwendet das **Get-ADAuthenticationPolicySilo** -Cmdlet mit dem **Filter** -Parameter, um alle nicht erzwungenen Authentifizierungsrichtliniensilos abzurufen, die nicht erzwungen werden, und reicht das Ergebnis des Filters an das **Remove-ADAuthenticationPolicySilo** -Cmdlet weiter.
 
 ```
 PS C:\>Get-ADAuthenticationPolicySilo -Filter 'Enforce -eq $False' | Remove-ADAuthenticationPolicySilo
 ```
 
-Dieser Befehl bietet Zugriff auf das Authentifizierungsrichtliniensilo mit dem Namen *Silo* für das Benutzerkonto mit dem Namen *User01*.
+Dieser Befehl bietet Zugriff auf das Authentifizierungsrichtliniensilo mit dem Namen *Silo* für das Benutzerkonto mit dem Namen *User01* .
 
 ```
 PS C:\>Grant-ADAuthenticationPolicySiloAccess -Identity Silo -Account User01
 ```
 
-Dieser Befehl entzieht den Zugriff auf das Authentifizierungsrichtliniensilo mit dem Namen *Silo* für das Benutzerkonto mit dem Namen *User01*. Da der Parameter **Confirm** mit **$False** angegeben ist, wird keine Bestätigungsmeldung angezeigt.
+Dieser Befehl entzieht den Zugriff auf das Authentifizierungsrichtliniensilo mit dem Namen *Silo* für das Benutzerkonto mit dem Namen *User01* . Da der Parameter **Confirm** mit **$False** angegeben ist, wird keine Bestätigungsmeldung angezeigt.
 
 ```
 PS C:\>Revoke-ADAuthenticationPolicySiloAccess -Identity Silo -Account User01 -Confirm:$False
 ```
 
-Dieses Beispiel ruft zunächst das **Get-ADComputer**-Cmdlet auf, um alle Computerkonten abzurufen, die mit dem **Filter**-Parameter übereinstimmen. Anschließend wird die Ausgabe an **Set-ADAccountAuthenticatinPolicySilo** weitergereicht, um diesen Konten das Authentifizierungsrichtliniensilo mit dem Namen *Silo* und die Authentifizierungsrichtlinie mit dem Namen *AuthenticationPolicy02* zuzuweisen.
+Dieses Beispiel ruft zunächst das **Get-ADComputer** -Cmdlet auf, um alle Computerkonten abzurufen, die mit dem **Filter** -Parameter übereinstimmen. Anschließend wird die Ausgabe an **Set-ADAccountAuthenticatinPolicySilo** weitergereicht, um diesen Konten das Authentifizierungsrichtliniensilo mit dem Namen *Silo* und die Authentifizierungsrichtlinie mit dem Namen *AuthenticationPolicy02* zuzuweisen.
 
 ```
 PS C:\>Get-ADComputer -Filter 'Name -like "newComputer*"' | Set-ADAccountAuthenticationPolicySilo -AuthenticationPolicySilo Silo -AuthenticationPolicy AuthenticationPolicy02

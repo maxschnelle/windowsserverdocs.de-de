@@ -2,15 +2,15 @@
 title: Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 description: Überlegungen zur Virtualisierung von Windows Server Active Directory-Domäne-Controllern in Hyper-V
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 ms.date: 04/19/2018
 ms.topic: article
-ms.openlocfilehash: 55895a86521cc7d093c474fb8e4d3c53e4132894
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: cb01ef2c7a483b1160e68ea34ef38de67f7ff581
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940070"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068172"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänen Controllern mithilfe von Hyper-V
 
@@ -30,7 +30,7 @@ Zum Installieren und Verwenden der Hyper-V-Rolle benötigen Sie Folgendes:
 
    - **Ein x64-Prozessor**
       - Hyper-V ist in x64-basierten Versionen von Windows Server 2008 oder höher verfügbar.
-   - **Hardware gestützte Virtualisierung**
+   - **Hardwareunterstützte Virtualisierung**
       - Dieses Feature ist für Prozessoren mit Virtualisierungsoption (Intel Virtualization Technology (Intel VT) oder AMD Virtualization (AMD-V)) verfügbar.
    - **Hardware-Datenausführungsschutz (DEP)**
       - Die Hardware-DEP muss verfügbar und aktiviert sein. Das heißt, Sie müssen Intel XD-Bit (Execute Disable Bit) oder AMD NX-Bit (No Execute Bit) aktivieren.
@@ -44,7 +44,7 @@ Bei der Planung für die Bereitstellung virtualisierter Domänencontroller sollt
 3. Domänencontroller sollten möglichst auf Hardware ausgeführt werden, die sich in unterschiedlichen geografischen Regionen befindet. Dies verringert die Auswirkungen von Notfällen oder Fehlern an einem bestimmten Standort, an dem Domänencontroller gehostet werden.
 4. Versehen Sie all Ihre Domänen mit physischen Domänencontrollern. Dies verringert die Auswirkungen einer Fehlfunktion einer Virtualisierungsplattform (von der auch die von der Plattform abhängigen Hostsysteme betroffen wären).
 
-## <a name="security-considerations"></a>Sicherheitsüberlegungen
+## <a name="security-considerations"></a>Sicherheitshinweise
 
 Der Hostcomputer, auf dem die virtuellen Domänencontroller ausgeführt werden, muss ebenso sorgfältig wie ein beschreibbarer Domänencontroller verwaltet werden, selbst wenn es sich nur um ein Domänenmitglied oder einen Arbeitsgruppencomputer handelt. Dies ist ein wichtiger Sicherheitsaspekt. Ein unzureichend verwalteter Host ist anfällig für Rechteerweiterungsangriffe (d. h., ein böswilliger Benutzer verschafft sich Zugriff und erlangt Systemberechtigungen, die nicht autorisiert oder nicht ordnungsgemäß zugewiesen wurden). Durch einen solchen Angriff können alle vom betroffenen Computer gehosteten virtuellen Computer, Domänen und Gesamtstrukturen gefährdet werden.
 
@@ -239,13 +239,13 @@ Um den Hyper-V-Zeit Synchronisierungs Anbieter zu deaktivieren, fahren Sie den v
 
 Verwenden Sie die folgenden Empfehlungen zum Speichern von Betriebssystem-, Active Directory-und VHD-Dateien, um die Leistung des virtuellen Computers mit dem Domänen Controller zu optimieren und die Dauerhaftigkeit Active Directory Schreibvorgängen sicherzustellen:
 
-- **Gastspeicherung**: Speichern Sie die Active Directory-Datenbankdatei (%%amp;quot; Ntds.dit%%amp;quot;) sowie die Protokoll- und SYSVOL-Dateien auf einem anderen virtuellen Datenträger als die Betriebssystemdateien. Erstellen Sie eine zweite VHD, die an einen virtuellen SCSI-Controller angefügt ist, und speichern Sie die Datenbank, Protokolle und SYSVOL auf dem virtuellen SCSI-Datenträger der virtuellen Maschine. Virtuelle SCSI-Datenträger bieten eine bessere Leistung im Vergleich zur virtuellen IDE und unterstützen den erzwungenen Einheiten Zugriff Fua stellt sicher, dass das Betriebssystem Daten direkt aus dem Medium schreibt und liest, wobei alle zwischen Speicherungs Mechanismen umgangen werden.
+- **Gastspeicherung** : Speichern Sie die Active Directory-Datenbankdatei (%%amp;quot; Ntds.dit%%amp;quot;) sowie die Protokoll- und SYSVOL-Dateien auf einem anderen virtuellen Datenträger als die Betriebssystemdateien. Erstellen Sie eine zweite VHD, die an einen virtuellen SCSI-Controller angefügt ist, und speichern Sie die Datenbank, Protokolle und SYSVOL auf dem virtuellen SCSI-Datenträger der virtuellen Maschine. Virtuelle SCSI-Datenträger bieten eine bessere Leistung im Vergleich zur virtuellen IDE und unterstützen den erzwungenen Einheiten Zugriff Fua stellt sicher, dass das Betriebssystem Daten direkt aus dem Medium schreibt und liest, wobei alle zwischen Speicherungs Mechanismen umgangen werden.
 
   > [!NOTE]
   > Wenn Sie BitLocker für den Gast des virtuellen Domänen Controllers verwenden möchten, müssen Sie sicherstellen, dass die zusätzlichen Volumes für die automatische Entsperrung konfiguriert sind.
   > Weitere Informationen zum Konfigurieren der automatischen Entsperrung finden Sie unter [enable-bitlockerautounlock](/powershell/module/bitlocker/enable-bitlockerautounlock) .
 
-- **Hostspeicherung von VHD-Dateien**: Die Empfehlungen für die Hostspeicherung beziehen sich auf die Speicherung von VHD-Dateien. Zur Optimierung der Leistung sollten Sie VHD-Dateien nicht auf einem Datenträger speichern, der häufig von anderen Diensten oder Anwendungen verwendet wird, wie z. B. auf dem Systemdatenträger, auf dem das Windows-Hostbetriebssystem installiert ist. Speichern Sie jede der VHD-Dateien auf einer vom Hostbetriebssystem und anderen VHD-Dateien getrennten Partition. Die ideale Konfiguration ist die Speicherung jeder VHD-Datei auf einem separaten physischen Laufwerk.
+- **Hostspeicherung von VHD-Dateien** : Die Empfehlungen für die Hostspeicherung beziehen sich auf die Speicherung von VHD-Dateien. Zur Optimierung der Leistung sollten Sie VHD-Dateien nicht auf einem Datenträger speichern, der häufig von anderen Diensten oder Anwendungen verwendet wird, wie z. B. auf dem Systemdatenträger, auf dem das Windows-Hostbetriebssystem installiert ist. Speichern Sie jede der VHD-Dateien auf einer vom Hostbetriebssystem und anderen VHD-Dateien getrennten Partition. Die ideale Konfiguration ist die Speicherung jeder VHD-Datei auf einem separaten physischen Laufwerk.
 
   Das System des physischen Host Datenträgers muss auch **mindestens eines** der folgenden Kriterien erfüllen, um die Anforderungen an die Integrität der virtualisierten Arbeits Auslastungs Daten zu erfüllen:
 
@@ -255,7 +255,7 @@ Verwenden Sie die folgenden Empfehlungen zum Speichern von Betriebssystem-, Acti
    - Das System stellt sicher, dass die Stromversorgung des Datenträgers durch eine unterbrechungsfreie Stromversorgung (USV) geschützt ist.
    - Das System stellt sicher, dass das Write-Caching-Feature des Datenträgers deaktiviert ist.
 
-- **Feste virtuelle Festplatten oder Pass-Through-Datenträger**: Es gibt viele Methoden zum Konfigurieren der Speicherung für virtuelle Computer. Wenn VHD-Dateien verwendet werden, sind virtuelle Festplatten mit fester Größe effizienter als dynamische virtuelle Festplatten, da der Arbeitsspeicher für virtuelle Festplatten mit fester Größe beim Erstellen zugeordnet wird. Eine noch höhere Leistung ermöglichen Pass-Through-Datenträger, die von virtuellen Computern für den Zugriff auf physische Speichermedien verwendet werden können. Pass-Through-Datenträger sind im Prinzip physische Datenträger oder logische Gerätenummern (Logical Unit Numbers, LUNs), die einem virtuellen Computer zugeordnet sind. Das Snapshotfeature wird von Pass-Through-Datenträgern nicht unterstützt. Dies macht Pass-Through-Datenträger zur bevorzugten Festplattenkonfiguration, da bei Domänencontrollern von der Verwendung von Snapshots abgeraten wird.
+- **Feste virtuelle Festplatten oder Pass-Through-Datenträger** : Es gibt viele Methoden zum Konfigurieren der Speicherung für virtuelle Computer. Wenn VHD-Dateien verwendet werden, sind virtuelle Festplatten mit fester Größe effizienter als dynamische virtuelle Festplatten, da der Arbeitsspeicher für virtuelle Festplatten mit fester Größe beim Erstellen zugeordnet wird. Eine noch höhere Leistung ermöglichen Pass-Through-Datenträger, die von virtuellen Computern für den Zugriff auf physische Speichermedien verwendet werden können. Pass-Through-Datenträger sind im Prinzip physische Datenträger oder logische Gerätenummern (Logical Unit Numbers, LUNs), die einem virtuellen Computer zugeordnet sind. Das Snapshotfeature wird von Pass-Through-Datenträgern nicht unterstützt. Dies macht Pass-Through-Datenträger zur bevorzugten Festplattenkonfiguration, da bei Domänencontrollern von der Verwendung von Snapshots abgeraten wird.
 
 Verwenden Sie virtuelle SCSI-Controller, um die Gefahr der Beschädigung von Active Directory Daten zu verringern:
 
@@ -330,12 +330,12 @@ Wenn eine gültige Systemstatussicherung für den virtuellen Computer eines Dom�
 
 ## <a name="to-restore-the-system-state-backup-of-a-virtual-domain-controller"></a>So stellen Sie die Systemstatussicherung eines virtuellen Domänencontrollers wieder her
 
-1. Starten Sie den virtuellen Computer des Domänen Controllers, und drücken Sie F5, um auf den Bildschirm Windows-Start-Manager zuzugreifen. Falls Sie Anmeldeinformationen für die Verbindung eingeben müssen, klicken Sie auf dem virtuellen Computer sofort auf die Schaltfläche **Pause**, damit der Startvorgang nicht fortgesetzt wird. Geben Sie anschließend die Anmeldeinformationen für die Verbindung ein, und klicken Sie auf dem virtuellen Computer auf die Schaltfläche **Wiedergabe**. Klicken Sie auf eine Stelle im Fenster des virtuellen Computers, und drücken Sie dann die Taste F5.
+1. Starten Sie den virtuellen Computer des Domänen Controllers, und drücken Sie F5, um auf den Bildschirm Windows-Start-Manager zuzugreifen. Falls Sie Anmeldeinformationen für die Verbindung eingeben müssen, klicken Sie auf dem virtuellen Computer sofort auf die Schaltfläche **Pause** , damit der Startvorgang nicht fortgesetzt wird. Geben Sie anschließend die Anmeldeinformationen für die Verbindung ein, und klicken Sie auf dem virtuellen Computer auf die Schaltfläche **Wiedergabe** . Klicken Sie auf eine Stelle im Fenster des virtuellen Computers, und drücken Sie dann die Taste F5.
 
    Wenn der Bildschirm des Windows-Start-Managers nicht angezeigt wird, schalten Sie den virtuellen Computer aus, bevor der Domänencontroller im normalen Modus gestartet werden kann. Wiederholen Sie diesen Schritt so oft wie nötig, bis Sie auf den Bildschirm des Windows-Start-Managers zugreifen können. Über das Menü %%amp;quot;Windows-Fehlerbehebung%%amp;quot; kann der Verzeichnisdienst-Wiederherstellungsmodus nicht aufgerufen werden. Wenn das Menü %%amp;quot;Windows-Fehlerbehebung%%amp;quot; angezeigt wird, schalten Sie den Computer aus, und versuchen Sie es erneut.
 
 2. Drücken Sie im Bildschirm des Windows-Start-Managers die Taste F8, um auf die erweiterten Startoptionen zuzugreifen.
-3. Markieren Sie im Bildschirm **Erweiterte Startoptionen** die Option **Verzeichnisdienstwiederherstellung**, und drücken Sie dann die EINGABETASTE. Dadurch wird der Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus gestartet.
+3. Markieren Sie im Bildschirm **Erweiterte Startoptionen** die Option **Verzeichnisdienstwiederherstellung** , und drücken Sie dann die EINGABETASTE. Dadurch wird der Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus gestartet.
 4. Verwenden Sie das passende Wiederherstellungsverfahren für das Tool, mit dem Sie die Systemstatussicherung erstellt haben. Wenn Sie Windows Server-Sicherung verwendet haben, finden Sie weitere Informationen unter [Ausführen einer nicht autorisierenden Wiederherstellung AD DS](https://go.microsoft.com/fwlink/?linkid=132637).
 
 ## <a name="restoring-a-virtual-domain-controller-when-an-appropriate-system-state-data-backup-is-not-available"></a>Wiederherstellen eines virtuellen Domänencontrollers, wenn keine geeignete Sicherung der Systemstatusdaten verfügbar ist
@@ -350,14 +350,14 @@ Wenn vor dem Auftreten des Fehlers beim virtuellen Computer keine Systemstatussi
 ## <a name="to-restore-a-previous-version-of-a-virtual-domain-controller-vhd-without-system-state-data-backup"></a>So stellen Sie für einen virtuellen Domänencontroller eine vorherige VHD-Version wieder her, wenn keine Sicherung der Systemstatusdaten verfügbar ist
 
 1. Starten Sie den virtuellen Domänencontroller wie im vorherigen Abschnitt beschrieben im Verzeichnisdienst-Wiederherstellungsmodus, wobei Sie die vorherige VHD-Datei verwenden. Der Domänencontroller darf nicht im normalen Modus gestartet werden. Wenn der Bildschirm des Windows-Start-Managers nicht angezeigt wird, schalten Sie den virtuellen Computer aus, bevor der Domänencontroller im normalen Modus gestartet werden kann. Ausführliche Anweisungen zum Aktivieren des Verzeichnisdienst-Wiederherstellungsmodus finden Sie im vorherigen Abschnitt.
-2. Öffnen Sie den Registrierungs-Editor. Klicken Sie zum Öffnen des Registrierungs-Editors auf **Start**und auf **Ausführen**, geben Sie **Regedit**ein, und klicken Sie dann auf OK. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**. Erweitern Sie im Registrierungs-Editor den folgenden Pfad: **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Services \\ NTDS \\ Parameters**. Suchen Sie nach dem Wert **DSA Previous Restore Count**. Wenn dieser Wert vorhanden ist, notieren Sie sich die Einstellung. Wenn dieser Wert nicht vorhanden ist, entspricht die Einstellung dem Standardwert, also Null. Fügen Sie keinen Wert hinzu, falls kein Wert angezeigt wird.
-3. Klicken Sie mit der rechten Maustaste auf den Registrierungsschlüssel **Parameters**, klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)**.
+2. Öffnen Sie den Registrierungs-Editor. Klicken Sie zum Öffnen des Registrierungs-Editors auf **Start** und auf **Ausführen** , geben Sie **Regedit** ein, und klicken Sie dann auf OK. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja** . Erweitern Sie im Registrierungs-Editor den folgenden Pfad: **HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Services \\ NTDS \\ Parameters** . Suchen Sie nach dem Wert **DSA Previous Restore Count** . Wenn dieser Wert vorhanden ist, notieren Sie sich die Einstellung. Wenn dieser Wert nicht vorhanden ist, entspricht die Einstellung dem Standardwert, also Null. Fügen Sie keinen Wert hinzu, falls kein Wert angezeigt wird.
+3. Klicken Sie mit der rechten Maustaste auf den Registrierungsschlüssel **Parameters** , klicken Sie auf **Neu** , und klicken Sie dann auf **DWORD-Wert (32-Bit)** .
 4. Geben Sie den neuen Namen **Von Sicherung wiederhergestellte Datenbank** ein, und drücken Sie die EINGABETASTE.
 5. Doppelklicken Sie auf den soeben erstellten Wert, um das Dialogfeld **DWORD-Wert (32-Bit) bearbeiten** zu öffnen, und geben Sie dann **1** im Feld **Wert** ein. Die Option **aus Sicherungs Eintrag wiederhergestellte Datenbank** ist auf Domänen Controllern verfügbar, auf denen Windows 2000 Server mit Service Pack 4 (SP4) ausgeführt wird, Windows Server 2003 mit den Updates, die in [erkennen und Wiederherstellen von einem Wiederherstellungs-Rollback in Windows Server 2003, Windows Server 2008 und Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) in der installierten Microsoft Knowledge Base und Windows Server 2008 enthalten sind.
 6. Starten Sie den Domänencontroller im normalen Modus neu.
-7. Wenn der Domänencontroller neu gestartet wird, öffnen Sie die Ereignisanzeige. Klicken Sie zum Öffnen der Ereignisanzeige auf **Start** und auf **Systemsteuerung**, doppelklicken Sie auf **Verwaltung** und dann auf **Ereignisanzeige**.
-8. Erweitern Sie **Anwendungs- und Dienstprotokolle**, und klicken Sie dann auf das Protokoll **Verzeichnisdienste**. Vergewissern Sie sich, dass im Detailbereich Ereignisse angezeigt werden.
-9. Klicken Sie mit der rechten Maustaste auf das Protokoll **Verzeichnisdienste**, und klicken Sie dann auf **Suchen**. Geben Sie im Feld **Suchen nach** die Zeichenfolge **1109** ein, und klicken Sie auf **Weitersuchen**.
+7. Wenn der Domänencontroller neu gestartet wird, öffnen Sie die Ereignisanzeige. Klicken Sie zum Öffnen der Ereignisanzeige auf **Start** und auf **Systemsteuerung** , doppelklicken Sie auf **Verwaltung** und dann auf **Ereignisanzeige** .
+8. Erweitern Sie **Anwendungs- und Dienstprotokolle** , und klicken Sie dann auf das Protokoll **Verzeichnisdienste** . Vergewissern Sie sich, dass im Detailbereich Ereignisse angezeigt werden.
+9. Klicken Sie mit der rechten Maustaste auf das Protokoll **Verzeichnisdienste** , und klicken Sie dann auf **Suchen** . Geben Sie im Feld **Suchen nach** die Zeichenfolge **1109** ein, und klicken Sie auf **Weitersuchen** .
 10. Es sollte mindestens ein Eintrag mit der Ereignis-ID 1109 angezeigt werden. Falls dieser Eintrag nicht angezeigt wird, führen Sie den nächsten Schritt aus. Doppelklicken Sie andernfalls auf den Eintrag. Die Aktualisierung des invocationID-Werts sollte mit dem folgenden (oder einem ähnlichen) Text bestätigt werden:
 
     ```
@@ -388,16 +388,16 @@ Für jede auf einem Zieldomänencontroller gespeicherte Verzeichnispartition wer
 
 Die USNs sind in zwei Tabellen mit Replikationsmetadaten enthalten. Sie werden vom Quell- und Zieldomänencontroller verwendet, um die vom Zieldomänencontroller benötigten Änderungen zu bestimmen.
 
-1. **Aktualitätsvektor**: Eine vom Zieldomänencontroller verwaltete Tabelle zum Nachverfolgen der Quellupdates, die von den verschiedenen Quelldomänencontrollern eingehen. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Der Quell Domänen Controller sendet seinen Aktualitäts Vektor beim Abschluss eines erfolgreichen Replikations Prozesses an das Ziel, um sicherzustellen, dass der Zieldomänen Controller weiß, dass er mit den Ursprungs Updates aller Domänen Controller synchronisiert wurde und sich die Updates auf derselben Ebene wie die Quelle befinden.
-2. **Obere Kontingentgrenze**: Ein vom Zieldomänencontroller verwalteter Wert zum Nachverfolgen der letzten Änderungen, die von einem bestimmten Quelldomänencontroller für eine bestimmte Partition eingegangen sind. Die obere Kontingentgrenze verhindert, dass dem Zieldomänencontroller vom Quelldomänencontroller wiederholt dieselben Änderungen gesendet werden.
+1. **Aktualitätsvektor** : Eine vom Zieldomänencontroller verwaltete Tabelle zum Nachverfolgen der Quellupdates, die von den verschiedenen Quelldomänencontrollern eingehen. Wenn ein Zieldomänencontroller Änderungen für eine Verzeichnispartition anfordert, stellt er dem Quelldomänencontroller seinen Aktualitätsvektor bereit. Der Quelldomänencontroller filtert dann mithilfe dieses Werts die dem Zieldomänencontroller zu sendenden Updates. Der Quell Domänen Controller sendet seinen Aktualitäts Vektor beim Abschluss eines erfolgreichen Replikations Prozesses an das Ziel, um sicherzustellen, dass der Zieldomänen Controller weiß, dass er mit den Ursprungs Updates aller Domänen Controller synchronisiert wurde und sich die Updates auf derselben Ebene wie die Quelle befinden.
+2. **Obere Kontingentgrenze** : Ein vom Zieldomänencontroller verwalteter Wert zum Nachverfolgen der letzten Änderungen, die von einem bestimmten Quelldomänencontroller für eine bestimmte Partition eingegangen sind. Die obere Kontingentgrenze verhindert, dass dem Zieldomänencontroller vom Quelldomänencontroller wiederholt dieselben Änderungen gesendet werden.
 
 ## <a name="directory-database-identity"></a>Verzeichnisdatenbankidentität
 
-Neben USNs wird von Domänencontrollern auch die Verzeichnisdatenbankidentität der Quellreplikationspartner nachverfolgt. Die Identität der auf dem Server ausgeführten Verzeichnisdatenbank wird separat von der Identität des Serverobjekts selbst verwaltet. Die Verzeichnisdatenbankidentität wird auf den einzelnen Domänencontrollern im **invocationID**-Attribut des NTDS-Einstellungsobjekts gespeichert, das sich im folgenden LDAP-Pfad (Lightweight Directory Access-Protokoll) befindet: cn=NTDS Settings, cn=ServerName, cn=Servers, cn=*SiteName*, cn=Sites, cn=Configuration, dc=*ForestRootDomain*. Die Serverobjektidentität wird im **objectGUID**-Attribut des NTDS-Einstellungsobjekts gespeichert. Die Identität des Serverobjekts bleibt unverändert. Die Identität der Verzeichnisdatenbank hingegen ändert sich, wenn auf dem Server eine Systemstatuswiederherstellung ausgeführt wird oder wenn eine Anwendungsverzeichnispartition auf dem Server hinzugefügt, entfernt und dann erneut hinzugefügt wird. (anderes Szenario: Wenn eine HyperV-Instanz die VSS-Writer auf einer Partition auslöst, die die virtuelle Festplatte eines virtuellen Domänen Controllers enthält, löst der Gast wiederum seine eigenen VSS-Writer aus (derselbe Mechanismus, der von der Sicherung/Wiederherstellung verwendet wird), was zu einer anderen Methode führt, mit der invocationID zurückgesetzt wird.
+Neben USNs wird von Domänencontrollern auch die Verzeichnisdatenbankidentität der Quellreplikationspartner nachverfolgt. Die Identität der auf dem Server ausgeführten Verzeichnisdatenbank wird separat von der Identität des Serverobjekts selbst verwaltet. Die Verzeichnisdatenbankidentität wird auf den einzelnen Domänencontrollern im **invocationID** -Attribut des NTDS-Einstellungsobjekts gespeichert, das sich im folgenden LDAP-Pfad (Lightweight Directory Access-Protokoll) befindet: cn=NTDS Settings, cn=ServerName, cn=Servers, cn= *SiteName* , cn=Sites, cn=Configuration, dc= *ForestRootDomain* . Die Serverobjektidentität wird im **objectGUID** -Attribut des NTDS-Einstellungsobjekts gespeichert. Die Identität des Serverobjekts bleibt unverändert. Die Identität der Verzeichnisdatenbank hingegen ändert sich, wenn auf dem Server eine Systemstatuswiederherstellung ausgeführt wird oder wenn eine Anwendungsverzeichnispartition auf dem Server hinzugefügt, entfernt und dann erneut hinzugefügt wird. (anderes Szenario: Wenn eine HyperV-Instanz die VSS-Writer auf einer Partition auslöst, die die virtuelle Festplatte eines virtuellen Domänen Controllers enthält, löst der Gast wiederum seine eigenen VSS-Writer aus (derselbe Mechanismus, der von der Sicherung/Wiederherstellung verwendet wird), was zu einer anderen Methode führt, mit der invocationID zurückgesetzt wird.
 
-Das **invocationID**-Attribut dient also letztlich dazu, einen Satz von Quellupdates auf einem Domänencontroller einer bestimmten Version der Verzeichnisdatenbank zuzuordnen. Anhand der beiden genannten Tabellen, Aktualitätsvektor und obere Kontingentgrenze, können die Domänencontroller - unter Verwendung der **invocationID** und der GUID des Domänencontrollers - feststellen, aus welcher Kopie der Active Directory-Datenbank bestimmte Replikationsinformationen stammen.
+Das **invocationID** -Attribut dient also letztlich dazu, einen Satz von Quellupdates auf einem Domänencontroller einer bestimmten Version der Verzeichnisdatenbank zuzuordnen. Anhand der beiden genannten Tabellen, Aktualitätsvektor und obere Kontingentgrenze, können die Domänencontroller - unter Verwendung der **invocationID** und der GUID des Domänencontrollers - feststellen, aus welcher Kopie der Active Directory-Datenbank bestimmte Replikationsinformationen stammen.
 
-Die **invocationID** ist eine GUID (Globally Unique Identifier), die in einer der ersten Zeilen des Ausgabetexts angezeigt wird, nachdem Sie den Befehl **repadmin /showrepl** ausgeführt haben. Im Folgenden ein Beispiel für den Ausgabetext dieses Befehls:
+**invocationID** ist ein global eindeutiger Bezeichner (Globally Unique Identifier, GUID), der am Anfang der Ausgabe angezeigt wird, nachdem Sie den Befehl **repadmin /showrepl** ausgeführt haben. Im Folgenden ein Beispiel für den Ausgabetext dieses Befehls:
 
    ```
    Repadmin: running command /showrepl against full DC local host
@@ -442,7 +442,7 @@ Die folgende Abbildung veranschaulicht die Abfolge von Ereignissen, wenn ein USN
 
 Wenn im Verzeichnisdienst-Ereignisprotokoll die Ereignis-ID 2095 gemeldet wird, führen Sie sofort das folgende Verfahren aus:
 
-## <a name="to-resolve-event-id2095"></a>So beheben Sie die Ereignis-ID 2095
+## <a name="to-resolve-event-id-2095"></a>So beheben Sie die Ereignis-ID 2095
 
 1. Trennen Sie die Netzwerkverbindung des virtuellen Computers, von dem der Fehler aufgezeichnet wurde.
 2. Versuchen Sie festzustellen, ob Änderungen dieses Domänencontrollers an andere Domänencontroller weitergegeben wurden. Falls das Ereignis auf den Start eines Snapshots oder einer Kopie eines virtuellen Computers zurückzuführen ist, versuchen Sie den Zeitpunkt des USN-Rollbacks festzustellen. Anschließend können Sie die Replikationspartner des Domänencontrollers auf Replikationen nach diesem Zeitpunkt überprüfen.

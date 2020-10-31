@@ -2,16 +2,16 @@
 ms.assetid: 8f994e2e-6c07-43f0-aef4-75f8b2c9a144
 title: Beibehalten einer sicheren Umgebung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 7cde4344a28888c997cfb751b2943429fbc4e686
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 14cbe8a6610a370e20e338f3a09ab24f21334169
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069582"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Beibehalten einer sicheren Umgebung
 
@@ -23,7 +23,7 @@ Wenn Sie eine verwaltbare, sichere Umgebung für Ihre wichtigen Geschäftsressou
 
 In einigen Fällen verfügt Ihre IT-Organisation möglicherweise bereits über eine enge Arbeitsbeziehung mit Geschäftseinheiten, was die Implementierung dieser Empfehlungen erleichtert. In Organisationen, in denen IT-und Geschäftseinheiten nicht eng verbunden sind, müssen Sie zunächst eine Executive-sponsoringanforderung erwerben, um eine engere Beziehung zwischen IT und Geschäftseinheiten herzustellen. Die [Zusammenfassung des Executive](../../../ad-ds/manage/component-updates/Executive-Summary.md) ist als eigenständiges Dokument für die Executive Review gedacht und kann an Entscheidungsträger in Ihrer Organisation verteilt werden.
 
-## <a name="creating-business-centric-security-practices-for-active-directory"></a>Erstellen von geschäftsorientierten Sicherheitsmethoden für Active Directory
+## <a name="creating-business-centric-security-practices-for-active-directory"></a>Erstellen Business-Centric Sicherheitsmethoden für Active Directory
 In der Vergangenheit wurde die Informationstechnologie in vielen Organisationen als Supportstruktur und Kostenstelle angesehen. IT-Abteilungen waren häufig größtenteils von geschäftlichen Benutzern getrennt, und Interaktionen waren auf ein Anforderungs Antwort Modell beschränkt, bei dem das Unternehmen Ressourcen angefordert hat und reagierte.
 
 Da die Technologie weiterentwickelt und sich weiterentwickelt hat, ist die Vision "ein Computer auf jedem Desktop" für einen Großteil der Welt erfolgreich und sogar durch die große Bandbreite an leicht zugänglichen Technologien verfügbar, die heute verfügbar sind. Die Informationstechnologie ist keine Support Funktion mehr, sondern eine zentrale Geschäftsfunktion. Wenn Ihre Organisation nicht mehr funktionieren konnte, wenn alle IT-Dienste nicht verfügbar waren, ist das Unternehmen der Organisation zumindest teilweise eine Informationstechnologie.
@@ -39,7 +39,7 @@ Daten in Active Directory sollten einen identifizierten Geschäfts Besitzer habe
 
 Unabhängig davon, ob Sie Active Directory verwenden, um den Besitz von Daten im Verzeichnis aufzuzeichnen, oder ob Sie eine separate Datenbank zum Nachverfolgen von IT-Ressourcen implementieren, kein Benutzerkonto erstellt werden muss, kein Server oder keine Arbeitsstation installiert werden muss und keine Anwendung ohne einen festgelegten Besitzer des Datensatzes bereitgestellt werden soll. Der Versuch, den Besitz von Systemen nach der Bereitstellung in der Produktion einzurichten, kann in manchen Fällen eine Herausforderung darstellen. Daher sollte der Besitz zu dem Zeitpunkt eingerichtet werden, zu dem die Daten in Active Directory eingeführt werden.
 
-### <a name="implement-business-driven-lifecycle-management"></a>Implementieren der geschäftsorientierten Lebenszyklus Verwaltung
+### <a name="implement-business-driven-lifecycle-management"></a>Implementieren der Business-Driven Lebenszyklus Verwaltung
 Die Lebenszyklus Verwaltung sollte für alle Daten in Active Directory implementiert werden. Wenn z. b. eine neue Anwendung in eine Active Directory Domäne eingeführt wird, sollte der Geschäfts Besitzer der Anwendung in regelmäßigen Abständen die fortgesetzte Verwendung der Anwendung bestätigen. Wenn eine neue Version einer Anwendung veröffentlicht wird, sollte der Geschäftsinhaber der Anwendung informiert werden und entscheiden, ob und wann die neue Version implementiert wird.
 
 Wenn ein Geschäftsinhaber entscheidet, die Bereitstellung einer neuen Version einer Anwendung nicht zu genehmigen, sollte dieser Geschäftsinhaber auch über das Datum benachrichtigt werden, an dem die aktuelle Version nicht mehr unterstützt wird, und für die Festlegung verantwortlich sein soll, ob die Anwendung außer Betrieb genommen oder ersetzt wird. Das Ausführen von Legacy Anwendungen und die nicht unterstützte Option sollte keine Option sein.

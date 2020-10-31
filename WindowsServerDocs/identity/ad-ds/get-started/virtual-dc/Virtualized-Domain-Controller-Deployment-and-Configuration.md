@@ -2,16 +2,16 @@
 ms.assetid: b146f47e-3081-4c8e-bf68-d0f993564db2
 title: Bereitstellung und Konfiguration virtualisierter Domänencontroller
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 7c2ae279a39566a30670111198d0e4840f57f6fc
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 9c4ab9ff6819ec14bb0a3ca9c784c7c97f15da5b
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939070"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068382"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
@@ -58,10 +58,10 @@ Sehen Sie sich die Tabelle unten an, in der Sie Virtualisierungsprodukte finden 
 
 |**Virtualisierungsprodukt**|**Unterstützung für virtualisierte Domänencontroller und VMGID**|
 |--|--|
-|**Microsoft Windows Server 2012-Server mit Hyper-V-Feature**|Ja|
-|**Microsoft Windows Server 2012 Hyper-V-Server**|Ja|
-|**Microsoft Windows 8 mit Hyper-V-Clientfeature**|Ja|
-|**Windows Server 2008 R2 und Windows Server 2008**|Nein|
+|**Microsoft Windows Server 2012-Server mit Hyper-V-Feature**|Yes|
+|**Microsoft Windows Server 2012 Hyper-V-Server**|Yes|
+|**Microsoft Windows 8 mit Hyper-V-Clientfeature**|Yes|
+|**Windows Server 2008 R2 und Windows Server 2008**|No|
 |**Nicht von Microsoft stammende Virtualisierungslösungen**|Hersteller kontaktieren|
 
 Zwar unterstützt Microsoft Windows 7 Virtual PC, Virtual PC 2007, Virtual PC 2004 und Virtual Server 2005, aber diese bieten keine Unterstützung für die Ausführung von 64-Bit-Gästen und die VM-Generations-ID.
@@ -129,7 +129,7 @@ Stellen Sie sicher, dass der Quelldomänencontroller auf einem unterstützten Hy
 
 Wenn der Hypervisor Microsoft Hyper-V ist, stellen Sie sicher, dass er unter Windows Server 2012 ausgeführt wird. Sie können dies über die Geräteverwaltung überprüfen.
 
-Öffnen Sie **Devmgmt.msc**, und sehen Sie sich die **Systemgeräte** für installierte Microsoft Hyper-V-Geräte und -Treiber. Für einen virtualisierten Domänencontroller ist spezifisch der **Microsoft Hyper-V Generation Counter** (Treiber: vmgencounter.sys) erforderlich.
+Öffnen Sie **Devmgmt.msc** , und sehen Sie sich die **Systemgeräte** für installierte Microsoft Hyper-V-Geräte und -Treiber. Für einen virtualisierten Domänencontroller ist spezifisch der **Microsoft Hyper-V Generation Counter** (Treiber: vmgencounter.sys) erforderlich.
 
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVVMGenIDCounter.png)
 
@@ -141,7 +141,7 @@ Bevor Sie versuchen, einen Domänencontroller zu klonen, müssen Sie überprüfe
 2. Der klonende Domänencontroller kontaktiert den PDCE direkt über das DRSUAPI RPC-Protokoll, um Computerobjekte für den geklonten Domänencontroller zu erstellen.
 
     > [!NOTE]
-    > Windows Server 2012 erweitert das vorhandene Remoteprotokoll für den Verzeichnisreplikationsdienst (Directory Replication Service, DRS) (UUID **E3514235-4B06-11D1-AB04-00C04FC2DCD2**), um die neue RPC-Methode **IDL_DRSAddCloneDC** (Opnum **28**) einzuschließen. Die **IDL_DRSAddCloneDC**-Methode erstellt ein neues Domänencontrollerobjekt durch das Kopieren von Attributen von einem vorhandenen Domänencontrollerobjekt.
+    > Windows Server 2012 erweitert das vorhandene Remoteprotokoll für den Verzeichnisreplikationsdienst (Directory Replication Service, DRS) (UUID **E3514235-4B06-11D1-AB04-00C04FC2DCD2** ), um die neue RPC-Methode **IDL_DRSAddCloneDC** (Opnum **28** ) einzuschließen. Die **IDL_DRSAddCloneDC** -Methode erstellt ein neues Domänencontrollerobjekt durch das Kopieren von Attributen von einem vorhandenen Domänencontrollerobjekt.
     >
     > Die Status eines Domänencontrollers setzen sich aus Computer, Server, NTDS-Einstellungen, FRS, DFSR und Verbindungsobjekten zusammen, die für jeden Domänencontroller beibehalten werden. Bei der Duplizierung eines Objekts ersetzt diese RPC-Methode alle Referenzen zum ursprünglichen Domänencontroller durch entsprechende Objekte des neuen Domänencontrollers. Der Anrufer muss über das Zugriffsrecht „DS-Clone-Domain-Controller“ im Domänennamenskontext verfügen.
     >
@@ -151,16 +151,16 @@ Bevor Sie versuchen, einen Domänencontroller zu klonen, müssen Sie überprüfe
     >
     > Weitere Informationen finden Sie unter [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](/openspecs/windows_protocols/ms-drsr/ef0bfb1d-037b-4626-a6d9-cc7589bc5786).
 
-***Das bedeutet auch, dass für das Klonen eines virtualisierten Domänencontrollers bei Verwendung nicht vollständig gerouteter Netzwerke Netzwerksegmente mit Zugriff auf den PDCE erforderlich sind***. Es ist akzeptabel, einen geklonten Domänencontroller nach dem Klonen – wie einen physischen Domänencontroller – in ein anderes Netzwerk zu verschieben, solange Sie darauf achten, die Informationen zum logischen AD DS-Standort zu aktualisieren.
+**_Dies bedeutet auch, dass bei Verwendung nicht vollständig gerouteter Netzwerke das Klonen virtualisierter Domänen Controller Netzwerksegmente mit Zugriff auf die PDCE _ erfordert_* . Es ist akzeptabel, einen geklonten Domänencontroller nach dem Klonen – wie einen physischen Domänencontroller – in ein anderes Netzwerk zu verschieben, solange Sie darauf achten, die Informationen zum logischen AD DS-Standort zu aktualisieren.
 
 > [!IMPORTANT]
 > Beim Klonen einer Domäne, die nur einen einzigen Domänencontroller enthält, müssen Sie sicherstellen, dass der Quelldomänencontroller wieder online ist, bevor Sie die Klonkopien starten. Eine Produktionsdomäne sollte immer mindestens zwei Domänencontroller enthalten.
 
 #### <a name="active-directory-users-and-computers-method"></a>Methode mit Active Directory-Benutzern und -Computern
 
-1. Klicken Sie im Dsa.msc-Snap-In mit der rechten Maustaste auf die Domäne, und klicken Sie auf **Betriebsmaster**. Notieren Sie den auf der Registerkarte PDC benannten Domänencontroller, und schließen Sie das Dialogfeld.
+1. Klicken Sie mit dem DSA. msc-Snap-in mit der rechten Maustaste auf die Domäne, und klicken Sie auf _ * Betriebs Master * *. Notieren Sie den auf der Registerkarte PDC benannten Domänencontroller, und schließen Sie das Dialogfeld.
 
-2. Klicken Sie mit der rechten Maustaste auf das Computerobjekt dieses Domänencontrollers, und klicken auf **Eigenschaften**. Überprüfen Sie dann die Betriebssysteminformationen.
+2. Klicken Sie mit der rechten Maustaste auf das Computerobjekt dieses Domänencontrollers, und klicken auf **Eigenschaften** . Überprüfen Sie dann die Betriebssysteminformationen.
 
 #### <a name="windows-powershell-method"></a>Windows PowerShell-Methode
 Sie können die folgenden Cmdlets des Active Directory Windows PowerShell-Moduls verwenden, um die Version des PDC-Emulators zurückzugeben:
@@ -207,11 +207,11 @@ Wenn Sie diese Berechtigung vom Domänenkopf entfernen, schlägt das Klonen fehl
 
 ##### <a name="active-directory-administrative-center-method"></a>Methode mit dem Active Directory-Verwaltungscenter
 
-1. Öffnen Sie das **Active Directory-Verwaltungscenter**, klicken Sie mit der rechten Maustaste auf den Domänenkopf, klicken Sie auf **Eigenschaften**, klicken Sie auf die Registerkarte **Erweiterungen**, klicken Sie auf **Sicherheit**, und klicken Sie dann auf **Erweitert**. Klicken Sie auf **Nur dieses Objekt**.
+1. Öffnen Sie das **Active Directory-Verwaltungscenter** , klicken Sie mit der rechten Maustaste auf den Domänenkopf, klicken Sie auf **Eigenschaften** , klicken Sie auf die Registerkarte **Erweiterungen** , klicken Sie auf **Sicherheit** , und klicken Sie dann auf **Erweitert** . Klicken Sie auf **Nur dieses Objekt** .
 
-2. Klicken Sie auf **Hinzufügen**, und geben Sie unter **Geben Sie die zu verwendenden Objektnamen ein** den Gruppennamen **Klonbare Domänencontrollers** ein.
+2. Klicken Sie auf **Hinzufügen** , und geben Sie unter **Geben Sie die zu verwendenden Objektnamen ein** den Gruppennamen **Klonbare Domänencontrollers** ein.
 
-3. Klicken Sie unter Berechtigungen auf **Domänencontroller die Erstellung eines Klons von sich selbst erlauben**, und klicken Sie dann auf **OK**.
+3. Klicken Sie unter Berechtigungen auf **Domänencontroller die Erstellung eines Klons von sich selbst erlauben** , und klicken Sie dann auf **OK** .
 
 > [!NOTE]
 > Sie können auch die Standardberechtigung entfernen und individuelle Domänencontroller hinzufügen. Da wird wahrscheinlich jedoch fortlaufende Wartungsprobleme nach sich ziehen, bei denen neuen Administratoren diese Anpassung nicht bewusst ist. Das Ändern der Standardeinstellung sorgt nicht für mehr Sicherheit und wird nicht empfohlen.
@@ -236,7 +236,7 @@ cd c:
 Alternativ können Sie das Beispiel [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms) in einer Windows PowerShell-Konsole, woraufhin die Konsole einen erweiterten Administrator auf einem Domänencontroller in der betroffenen Domäne startet. Die Berechtigungen werden automatisch festgelegt. Das Beispiel befindet sich im Anhang dieses Moduls.
 
 ### <a name="step-4---remove-incompatible-applications-or-services-if-not-using-customdccloneallowlistxml"></a>Schritt 4: Entfernen inkompatibler Anwendungen oder Dienste (wenn CustomDCCloneAllowList.xml nicht verwendet wird)
-Alle Programme oder Dienste, die zuvor von Get-ADDCCloningExcludedApplicationList zurückgegeben und *nicht zu CustomDCCloneAllowList.xml hinzugefügt wurden*, müssen vor dem Klonen entfernt werden. Die empfohlene Methode ist das Deinstallieren der Anwendung oder des Diensts.
+Alle Programme oder Dienste, die zuvor von Get-ADDCCloningExcludedApplicationList zurückgegeben und *nicht zu CustomDCCloneAllowList.xml hinzugefügt wurden* , müssen vor dem Klonen entfernt werden. Die empfohlene Methode ist das Deinstallieren der Anwendung oder des Diensts.
 
 > [!WARNING]
 > Alle inkompatiblen Programme oder Dienste, die nicht deinstalliert oder zu CustomDCCloneAllowList.xml hinzugefügt werden, verhindern das Klonen.
@@ -401,7 +401,7 @@ Alternativ zum Kopieren der Datenträger können Sie den gesamten virtuellen Hyp
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager
 So exportieren Sie einen virtuellen Computer mit Hyper-V-Manager:
 
-1. Klicken Sie mit der rechten Maustaste auf den Domänencontroller, und klicken Sie auf **Exportieren**.
+1. Klicken Sie mit der rechten Maustaste auf den Domänencontroller, und klicken Sie auf **Exportieren** .
 
 2. Wählen Sie einen vorhandenen Ordner als Exportcontainer aus.
 
@@ -427,7 +427,7 @@ Die letzte Option besteht darin, die Datenträgerzusammenführungs- und Konverti
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager
 So erstellen Sie einen zusammengeführten Datenträger mit Hyper-V-Manager:
 
-1. Klicken Sie auf Datenträger **Bearbeiten**.
+1. Klicken Sie auf Datenträger **Bearbeiten** .
 
 2. Suchen Sie nach dem niedrigsten untergeordneten Datenträger. Wenn Sie beispielsweise einen differenzierenden Datenträger verwenden, die der untergeordnete Datenträger der niedrigste untergeordnete Datenträger. Wenn der virtuelle Computer über eine Momentaufnahme (oder mehrere) verfügt, ist die aktuell ausgewählte Momentaufnahme der niedrigste untergeordnete Datenträger.
 
@@ -463,7 +463,7 @@ Die Datei CustomDCCloneAllowList.xml kann sich an den folgenden Speicherorten be
 
 1. HKey_Local_Machine\System\CurrentControlSet\Services\NTDS\Parameters
 
-    AllowListFolder (*REG_SZ*)
+    AllowListFolder ( *REG_SZ* )
 
 2. DSA-Arbeitsverzeichnis
 
@@ -507,11 +507,11 @@ New-ADDCCloneConfigFile -Offline -IPv4DNSResolver "10.0.0.1" -IPv6DNSResolver "2
 ##### <a name="windows-explorer-method"></a>Windows Explorer-Methode
 Windows Server 2012 bietet jetzt eine grafische Option für das Bereitstellen von VHD- und VHDX-Dateien. Dafür ist die Installation des Desktopdarstellungsfeatures in Windows Server 2012 erforderlich.
 
-1. Klicken Sie auf die neu kopierte VHD-/VHDX-Datei, die das Systemlaufwerk des Quelldomänencontrollers oder den Speicherortordner des DSA-Arbeitsverzeichnisses enthält, und klicken Sie dann im Menü **Datenträgerimagetools** auf**Bereitstellen**.
+1. Klicken Sie auf die neu kopierte VHD-/VHDX-Datei, die das Systemlaufwerk des Quelldomänencontrollers oder den Speicherortordner des DSA-Arbeitsverzeichnisses enthält, und klicken Sie dann im Menü **Datenträgerimagetools** auf **Bereitstellen** .
 
 2. Kopieren Sie im jetzt bereitgestellten Laufwerk die XML-Dateien an einen gültigen Speicherort. Möglicherweise werden Sie aufgefordert, Berechtigungen für den Ordner zu bestätigen.
 
-3. Klicken Sie auf das bereitgestellte Laufwerk, und klicken Sie im Menü **Datenträgertools** auf **Auswerfen**.
+3. Klicken Sie auf das bereitgestellte Laufwerk, und klicken Sie im Menü **Datenträgertools** auf **Auswerfen** .
 
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_HyperVClickMountedDrive.png)
 
@@ -593,13 +593,13 @@ Wenn Sie beabsichtigen, zusätzliche Kopien von demselben exportierten virtuelle
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager
 So importieren Sie mit dem Hyper-V-Manager-Snap-In:
 
-1. Klicken Sie auf **Virtuellen Computer importieren**.
+1. Klicken Sie auf **Virtuellen Computer importieren** .
 
 2. Wählen Sie auf der Seite **Ordner suchen** die Definitionsdatei des exportierten virtuellen Computers über die Schaltfläche zum Durchsuchen aus.
 
 3. Klicken Sie auf der Seite **Virtuellen Computer auswählen** auf den Quellcomputer.
 
-4. Klicken Sie auf der Seite **Importtyp auswählen** auf **Virtuellen Computer kopieren (neue eindeutige ID erstellen)**, und klicken Sie dann auf **Fertig stellen**.
+4. Klicken Sie auf der Seite **Importtyp auswählen** auf **Virtuellen Computer kopieren (neue eindeutige ID erstellen)** , und klicken Sie dann auf **Fertig stellen** .
 
 5. Benennen Sie den importierten virtuellen Computer um, wenn Sie auf demselben Hyper-V-Host importieren, da er denselben Namen hat wie der exportierte Quelldomänencontroller.
 
@@ -642,7 +642,7 @@ Beispiel:
 > [!WARNING]
 > Stellen Sie sicher, dass dem Quelldomänencontroller beim Importieren des Computers keine statischen MAC-Adressen zugewiesen wurden. Wenn ein Quellcomputer mit einer statischen MAC-Adresse geklont wird, können diese kopierten Computer Netzwerkdatenverkehr nicht ordnungsgemäß senden oder empfangen. Legen Sie in diesem Fall eine neue eindeutige statische oder dynamische MAC-Adresse fest. Sie können mit dem folgenden Befehl anzeigen, ob ein virtueller Computer eine statische MAC-Adresse verwendet:
 >
-> **Get-VM-VMName** ** *Test-VM* | Get-vmnetworkadapter | ktion\\***
+> **Get-VM-VMName** **_Test-VM_ | Get-VMNetworkAdapter | FL\\***
 
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Schritt 9: Klonen des neuen virtuellen Computers
 Starten Sie optional vor Beginn des Klonprozesses den geklonten Offline-Quelldomänencontroller neu. Stellen Sie sicher, dass der PDC-Emulator unabhängig davon online ist.
@@ -736,7 +736,7 @@ Alternativ können Sie nur die Anzahl der nicht replizierten Änderungen anzeige
 Repadmin.exe /showchanges <Name of partner DC><DSA Object GUID of the domain controller being restored><naming context to compare> /statistics
 ```
 
-Im folgenden Beispiel (mit einer aus Gründen der Lesbarkeit vereinfachten Ausgabe, in der wichtige Einträge ***kursiv***dargestellt sind) sehen Sie die Replikationspartnerschaften von DC4:
+Wenn Sie z. b. die Ausgabe für Lesbarkeit und wichtige Einträge * *_kursiv Schrift_* _ geändert haben, betrachten Sie die Replikations Partnerschaften von DC4:
 
 ```
 C:\>repadmin.exe /showrepl dc4.corp.contoso.com /repsto
@@ -775,7 +775,7 @@ Objects returned: 1
 
 Sie würden auch den anderen Partner testen, um sicherzustellen, dass dieser noch nicht bereits repliziert hat.
 
-Falls Sie nicht wissen möchten, welche Objekte nicht repliziert wurden, und nur wissen wollen, ob Objekte ausstehen, können Sie alternativ die Option **/statistics** verwenden:
+Wenn Sie nicht wissen möchten, welche Objekte nicht repliziert wurden, und nur die ausstehender Verwendung von Objekten behandelt haben, können Sie alternativ die Option _ */Statistics* * verwenden:
 
 ```
 C:\>repadmin /showchanges dc2.corp.contoso.com 5d083398-4bd3-48a4-a80d-fb2ebafb984f dc=corp,dc=contoso,dc=com /statistics

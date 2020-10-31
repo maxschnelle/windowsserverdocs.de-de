@@ -2,16 +2,16 @@
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
 title: 'Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 9752425c0732c2290642d62239151f20acb99ad0
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 94e63d439217c21c1634e7f1b685267ad98178b4
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067672"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -284,9 +284,9 @@ F# SRC    DEST    Operation
 11 x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
 ```
 
-Bei Frame **10**fragt der Ziel-DC die Quell-DCS-Endpunkt Zuordnung über Port 135 für die Active Directory Replikations Dienstklasse UUID E351...
+Bei Frame **10** fragt der Ziel-DC die Quell-DCS-Endpunkt Zuordnung über Port 135 für die Active Directory Replikations Dienstklasse UUID E351...
 
-In Frame **11**ist der Quell Domänen Controller, in diesem Fall ein Mitglieds Computer, der die DC-Rolle noch nicht hostet und daher die E351 nicht registriert hat... Die UUID für den Replikations Dienst mit dem lokalen EPM antwortet mit einem symbolischen Fehler EP_S_NOT_REGISTERED der dem dezimalen Fehler 1753, Hex-Fehler 0x6d9 und dem anzeigen Amen "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar" zugeordnet ist.
+In Frame **11** ist der Quell Domänen Controller, in diesem Fall ein Mitglieds Computer, der die DC-Rolle noch nicht hostet und daher die E351 nicht registriert hat... Die UUID für den Replikations Dienst mit dem lokalen EPM antwortet mit einem symbolischen Fehler EP_S_NOT_REGISTERED der dem dezimalen Fehler 1753, Hex-Fehler 0x6d9 und dem anzeigen Amen "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar" zugeordnet ist.
 
 Später wird der Mitglieds Computer mit der IP-Adresse x. x. 1.2 als Replikat "mayberrydc" in der contoso.com-Domäne herauf gestuft. Der Befehl " **Jetzt replizieren** " wird verwendet, um die Replikation zu initiieren. dieses Mal schlägt jedoch mit dem Bildschirm Fehler "der Ziel Prinzipal Name ist falsch" fehl. Der Computer, dessen Netzwerkadapter der IP-Adresse x. x. 1.2 zugewiesen ist, ist ein Domänen Controller, wird zurzeit im normalen Modus gestartet und hat den E351 registriert... die UUID des Replikations Diensts mit dem lokalen EPM ist aber nicht der Besitzer des Namens oder der Sicherheitsidentität von DC2 und kann die Kerberos-Anforderung nicht von DC1 entschlüsseln, sodass die Anforderung jetzt mit dem Fehler "der Ziel Prinzipal Name ist falsch" fehlschlägt. Der Fehler wird dem dezimalen Fehler-2146893022/Hex-Fehler 0x80090322 zugeordnet.
 

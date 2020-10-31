@@ -2,16 +2,16 @@
 ms.assetid: aac117a7-aa7a-4322-96ae-e3cc22ada036
 title: Verwalten der RID-Ausstellung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: fdf4d5c89dfb8d7c4237551a8a67a9e4f63991a7
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 548a060945338d39aa6ef9e604371874e91bb9b1
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93067752"
 ---
 # <a name="managing-rid-issuance"></a>Verwalten der RID-Ausstellung
 
@@ -92,7 +92,7 @@ Wenn Sie den globalen RID-Pool vergrößern, wächst dieser vom Standardwert 1.0
 > Diese Freischaltung kann nur durch eine komplette Wiederherstellung der Gesamtstruktur auf einen früheren Zeitpunkt rückgängig gemacht oder entfernt werden.
 
 #### <a name="important-caveats"></a>Wichtige Einschränkungen
-Domänencontroller unter Windows Server 2003 und Windows Server 2008 können keine RIDs ausstellen, wenn das 31. Bit im globalen RID-Pool freigeschaltet ist.<sup></sup> Windows Server 2008 R2-Domänen Controller *können* 31<sup>.</sup> Bit-RIDs verwenden, *aber nur, wenn* auf Ihnen Hotfix [KB 2642658](https://support.microsoft.com/kb/2642658) installiert ist. Nicht unterstützte und nicht gepatchte Domänencontroller behandeln den globalen RID-Pool als erschöpft, wenn dieser freigeschaltet wurde.
+Domänencontroller unter Windows Server 2003 und Windows Server 2008 können keine RIDs ausstellen, wenn das 31. Bit im globalen RID-Pool freigeschaltet ist.<sup></sup> Windows Server 2008 R2-Domänen Controller *können* 31 <sup>.</sup> Bit-RIDs verwenden, *aber nur, wenn* auf Ihnen Hotfix [KB 2642658](https://support.microsoft.com/kb/2642658) installiert ist. Nicht unterstützte und nicht gepatchte Domänencontroller behandeln den globalen RID-Pool als erschöpft, wenn dieser freigeschaltet wurde.
 
 Dieses Feature wird von keiner Domänenfunktionsebene erzwungen. Achten Sie unbedingt darauf, dass die Domäne nur Domänencontroller unter Windows Server 2012 oder Windows Server 2008 R2 mit Hotfix enthält.
 
@@ -103,11 +103,11 @@ Führen Sie die folgenden Schritte durch, um das 31. Bit im globalen RID-Pool fr
 
 2. Führen Sie LDP.exe aus
 
-3. Klicken Sie im Menü **Verbindung** auf **Verbinden** für den Windows Server 2012 RID-Master auf Port 389 und anschließend als Domänenadministrator auf **Binden**.
+3. Klicken Sie im Menü **Verbindung** auf **Verbinden** für den Windows Server 2012 RID-Master auf Port 389 und anschließend als Domänenadministrator auf **Binden** .
 
-4. Klicken Sie im Menü **Durchsuchen** auf **Ändern**.
+4. Klicken Sie im Menü **Durchsuchen** auf **Ändern** .
 
-5. Stellen Sie sicher, dass **DN** leer ist.
+5. Stellen Sie sicher, dass  **DN**  leer ist.
 
 6. Geben Sie unter **Attributeingabe bearbeiten** Folgendes ein:
 
@@ -121,16 +121,16 @@ Führen Sie die folgenden Schritte durch, um das 31. Bit im globalen RID-Pool fr
     1
     ```
 
-2. Stellen Sie sicher, dass **Hinzufügen** unter **Operation** ausgewählt ist und klicken Sie auf **Eingabe**. Daraufhin wird die **Eintragsliste** aktualisiert.
+2. Stellen Sie sicher, dass **Hinzufügen** unter **Operation** ausgewählt ist und klicken Sie auf **Eingabe** . Daraufhin wird die **Eintragsliste** aktualisiert.
 
-3. Wählen Sie die Optionen **Synchron** und **Erweitert** aus und klicken Sie auf **Ausführen**.
+3. Wählen Sie die Optionen **Synchron** und **Erweitert** aus und klicken Sie auf **Ausführen** .
 
     ![Rid-Ausstellung](media/Managing-RID-Issuance/ADDS_RID_TR_LDPModify.png)
 
 4. Im Erfolgsfall wird im LDP-Ausgabefenster Folgendes angezeigt:
 
     ```
-    ***Call Modify...
+    **_Call Modify...
      ldap_modify_ext_s(Id, '(null)',[1] attrs, SvrCtrls, ClntCtrls);
     modified "".
 
@@ -145,13 +145,13 @@ Windows Server 2012 verwendet eine künstliche Obergrenze für den globalen RID-
 
 Dieser Grenzwert ist hartcodiert bei verbleibenden zehn Prozent des verfügbaren RID-Raums. Die Obergrenze tritt also in Kraft, wenn der RID-Master einen Pool zuweist, der die RID enthält, die neunzig (90) Prozent des globalen RID-Raums entspricht.
 
-- Für Standarddomänen liegt der erste Auslöser bei 2<sup>30</sup>-1 * 0,90 = 966.367.640 (bzw. 107.374.183 verbleibenden RIDs).
+- Bei Standard Domänen ist der erste Auslöse Punkt 2<sup>30</sup>-1 _ 0,90 = 966.367.640 (oder verbleibende 107.374.183 RIDs).
 
 - Für Domänen mit freigeschaltetem 31-Bit-RID-Raum liegt der Auslöser bei 2<sup>31</sup>-1 * 0,90 = 1.932.735.282 (bzw. 214.748.365 verbleibenden RIDs).
 
-Beim Auslösen setzt der RID-Master das Active Directory-Attribut **msDS-RIDPoolAllocationEnabled** (allgemeiner Name **ms-DS-RID-Pool-Allocation-Enabled**) für das Objekt auf FALSE:
+Beim Auslösen setzt der RID-Master das Active Directory-Attribut **msDS-RIDPoolAllocationEnabled** (allgemeiner Name **ms-DS-RID-Pool-Allocation-Enabled** ) für das Objekt auf FALSE:
 
-CN = RID Manager $, CN = System, DC =*<domain>*
+CN = RID Manager $, CN = System, DC = *<domain>*
 
 Das Ereignis 16657 wird geschrieben und verhindert die weitere Ausstellung von RID-Blocks auf allen Domänencontrollern. Die Domänencontroller verbrauchen weiterhin alle bislang ausgestellten RID-Pools.
 
@@ -164,11 +164,11 @@ Führen Sie die folgenden Schritte durch, um die Sperre nach dem Erreichen der k
 
 2. Führen Sie LDP.exe aus.
 
-3. Klicken Sie im Menü **Verbindung** auf *Verbinden* für den Windows Server 2012 RID-Master auf Port 389 und anschließend als Domänenadministrator auf **Binden**.
+3. Klicken Sie im Menü **Verbindung** auf *Verbinden* für den Windows Server 2012 RID-Master auf Port 389 und anschließend als Domänenadministrator auf **Binden** .
 
-4. Klicken Sie im Menü **Ansicht** auf **Gesamtstruktur**, und wählen Sie den Domänen-Namenskontext des RID-Masters für die **Basis-DN** aus. Klicken Sie auf **OK**.
+4. Klicken Sie im Menü **Ansicht** auf **Gesamtstruktur** , und wählen Sie den Domänen-Namenskontext des RID-Masters für die **Basis-DN** aus. Klicken Sie auf **OK** .
 
-5. Öffnen Sie den Container **CN=System** im Navigationsbereich und klicken Sie auf das Objekt **CN=RID Manager$**. Klicken Sie mit der rechten Maustaste auf das Objekt und klicken Sie auf **Ändern**.
+5. Öffnen Sie den Container **CN=System** im Navigationsbereich und klicken Sie auf das Objekt **CN=RID Manager$** . Klicken Sie mit der rechten Maustaste auf das Objekt und klicken Sie auf **Ändern** .
 
 6. Geben Sie unter Attributeingabe bearbeiten Folgendes ein:
 
@@ -182,16 +182,16 @@ Führen Sie die folgenden Schritte durch, um die Sperre nach dem Erreichen der k
     TRUE
     ```
 
-8. Wählen Sie **Ersetzen** unter **Operation** aus und klicken Sie auf **Eingabe**. Daraufhin wird die **Eintragsliste** aktualisiert.
+8. Wählen Sie **Ersetzen** unter **Operation** aus und klicken Sie auf **Eingabe** . Daraufhin wird die **Eintragsliste** aktualisiert.
 
-9. Aktivieren Sie die Optionen **Synchron** und **Erweitert** und klicken Sie auf **Ausführen**:
+9. Aktivieren Sie die Optionen **Synchron** und **Erweitert** und klicken Sie auf **Ausführen** :
 
     ![Rid-Ausstellung](media/Managing-RID-Issuance/ADDS_RID_TR_LDPRaiseCeiling.png)
 
 10. Im Erfolgsfall wird im LDP-Ausgabefenster Folgendes angezeigt:
 
     ```
-    ***Call Modify...
+    **_Call Modify...
     ldap_modify_ext_s(ld, 'CN=RID Manager$,CN=System,DC=<domain>',[1] attrs, SvrCtrls, ClntCtrls);
     Modified "CN=RID Manager$,CN=System,DC=<domain>".
 
@@ -245,7 +245,7 @@ Die folgenden Tools dienen als Ausgangspunkt bei der Behandlung von Problemen, d
 
     2. Untersuchen Sie die Systemereignisse des Domänencontrollers und des RID-Masters auf die weiter unten in diesem Artikel beschriebenen Ereignisse, die auf neu erstellte Blocks hindeuten (16655, 16656, 16657).
 
-    3. Prüfen Sie die Active Directory-Replikationsintegrität mit Repadmin.exe und die Verfügbarkeit des RID-Masters mit **Dcdiag.exe /test:ridmanager /v**. Führen Sie beidseitige Netzwerkerfassungen zwischen Domänencontroller und RID-Master durch, falls diese Tests nicht eindeutig ausfallen.
+    3. Überprüfen Sie Active Directory Replikations Integrität mit Repadmin.exe und der RID-Master Verfügbarkeit mit _ * Dcdiag.exe/Test: RidManager/v * *. Führen Sie beidseitige Netzwerkerfassungen zwischen Domänencontroller und RID-Master durch, falls diese Tests nicht eindeutig ausfallen.
 
 ### <a name="troubleshooting-specific-problems"></a>Beheben von bestimmten Problemen
 

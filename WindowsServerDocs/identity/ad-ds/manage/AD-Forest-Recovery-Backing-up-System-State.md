@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Sichern der System Statusdaten'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 9238cb27-0020-42f7-90d6-fcebf7e3c0bc
-ms.openlocfilehash: d9e8dfb97fa1439ca73dcf86efa8721bb584e659
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: cd4d31d5cdecb02af4a19702d03b8867cf063ace
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068012"
 ---
 # <a name="ad-forest-recovery---backing-up-the-system-state-data"></a>AD-Gesamtstruktur Wiederherstellung: Sichern der System Statusdaten
 
@@ -21,33 +21,33 @@ Gehen Sie folgendermaßen vor, um eine Systemstatus Sicherung auf einem DC mithi
 
 ## <a name="to-perform-a-system-state-backup-using-windows-server-backup"></a>So führen Sie eine Systemstatus Sicherung mithilfe von Windows Server-Sicherung aus
 
-1. Öffnen Sie **Server-Manager**, **Klicken Sie**auf Extras, und klicken Sie dann auf **Windows Server-Sicherung**.
-   - Klicken Sie unter Windows Server 2008 R2 und Windows Server 2008 auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Windows Server-Sicherung**.
+1. Öffnen Sie **Server-Manager** , **Klicken Sie** auf Extras, und klicken Sie dann auf **Windows Server-Sicherung** .
+   - Klicken Sie unter Windows Server 2008 R2 und Windows Server 2008 auf **Start** , zeigen Sie auf **Verwaltung** , und klicken Sie dann auf **Windows Server-Sicherung** .
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup1.png)
 
-2. Wenn Sie dazu aufgefordert werden, geben Sie im Dialogfeld **Benutzerkontensteuerung** die Anmelde Informationen für den Sicherungs Operator an, und klicken Sie dann auf **OK**.
-3. Klicken Sie auf **lokale Sicherung**.
-4. Klicken Sie im Menü **Aktion** auf **Einmal sichern**.
-5. Klicken Sie im Assistenten für die einmalige Sicherung auf der Seite **Sicherungs Optionen** auf **verschiedene Optionen**, und klicken Sie dann auf **weiter**.
+2. Wenn Sie dazu aufgefordert werden, geben Sie im Dialogfeld **Benutzerkontensteuerung** die Anmelde Informationen für den Sicherungs Operator an, und klicken Sie dann auf **OK** .
+3. Klicken Sie auf **lokale Sicherung** .
+4. Klicken Sie im Menü **Aktion** auf **Einmal sichern** .
+5. Klicken Sie im Assistenten für die einmalige Sicherung auf der Seite **Sicherungs Optionen** auf **verschiedene Optionen** , und klicken Sie dann auf **weiter** .
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup3.png)
 
-6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **Benutzer**definiert, und klicken Sie dann auf **weiter**.
-7. Klicken Sie auf dem Bildschirm **Elemente für Sicherung auswählen** auf **Elemente hinzufügen** , wählen Sie **System Status** aus, und klicken Sie auf **OK**.
+6. Klicken Sie auf der Seite **Sicherungs Konfiguration auswählen** auf **Benutzer** definiert, und klicken Sie dann auf **weiter** .
+7. Klicken Sie auf dem Bildschirm **Elemente für Sicherung auswählen** auf **Elemente hinzufügen** , wählen Sie **System Status** aus, und klicken Sie auf **OK** .
    - Wählen Sie unter Windows Server 2008 R2 und Windows Server 2008 die Volumes aus, die in die Sicherung aufgenommen werden sollen. Wenn Sie das Kontrollkästchen **Systemwiederherstellung aktivieren aktivieren** , werden alle wichtigen Volumes ausgewählt.
 
    ![Installieren der Sicherung](media/AD-Forest-Recovery-Backing-up-System-State/systemstatebackup.png)
 
-8. Klicken Sie auf der Seite **Zieltyp angeben** auf **lokale Laufwerke** oder frei gegebener **Remote Ordner**, und klicken Sie dann auf **weiter**.  Wenn Sie die Sicherung in einem freigegebenen Remote Ordner durchführen, gehen Sie folgendermaßen vor:
+8. Klicken Sie auf der Seite **Zieltyp angeben** auf **lokale Laufwerke** oder frei gegebener **Remote Ordner** , und klicken Sie dann auf **weiter** .  Wenn Sie die Sicherung in einem freigegebenen Remote Ordner durchführen, gehen Sie folgendermaßen vor:
    - Geben Sie den Pfad zum freigegebenen Ordner ein.
-   - Wählen Sie unter **Access Control**die Option **nicht erben** oder **erben** aus, um den Zugriff auf die Sicherung zu bestimmen, und klicken Sie dann auf **weiter**.
-   - Geben Sie im Dialogfeld **Benutzer Anmelde Informationen für die Sicherung angeben** den Benutzernamen und das Kennwort für einen Benutzer an, der über Schreibzugriff auf den freigegebenen Ordner verfügt, und klicken Sie dann auf **OK**.
+   - Wählen Sie unter **Access Control** die Option **nicht erben** oder **erben** aus, um den Zugriff auf die Sicherung zu bestimmen, und klicken Sie dann auf **weiter** .
+   - Geben Sie im Dialogfeld **Benutzer Anmelde Informationen für die Sicherung angeben** den Benutzernamen und das Kennwort für einen Benutzer an, der über Schreibzugriff auf den freigegebenen Ordner verfügt, und klicken Sie dann auf **OK** .
 
-9. Wählen Sie für Windows Server 2008 R2 und Windows Server 2008 auf der Seite **Erweiterte Option angeben die Option** **VSS Kopier Sicherung** aus, und klicken Sie dann auf **weiter**.
+9. Wählen Sie für Windows Server 2008 R2 und Windows Server 2008 auf der Seite **Erweiterte Option angeben die Option** **VSS Kopier Sicherung** aus, und klicken Sie dann auf **weiter** .
 10. Wählen Sie auf der Seite **Sicherungs Ziel auswählen** den Speicherort der Sicherung aus.  Wenn Sie lokales Laufwerk ausgewählt haben, wählen Sie ein lokales Laufwerk aus, oder wählen Sie Remote Freigabe eine Netzwerkfreigabe aus.
-11. Klicken Sie auf dem Bestätigungsbildschirm auf **Sicherung**.
-12. Klicken Sie nach Abschluss des Vorgangs auf **Schließen**.
+11. Klicken Sie auf dem Bestätigungsbildschirm auf **Sicherung** .
+12. Klicken Sie nach Abschluss des Vorgangs auf **Schließen** .
 13. Schließen Sie Windows Server-Sicherung.
 
 ## <a name="to-perform-a-system-state-backup-using-wbadminexe"></a>So führen Sie eine Systemstatus Sicherung mithilfe von Wbadmin.exe aus

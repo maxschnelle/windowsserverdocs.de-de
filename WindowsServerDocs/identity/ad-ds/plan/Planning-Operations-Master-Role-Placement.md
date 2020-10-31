@@ -1,17 +1,17 @@
 ---
 ms.assetid: bd64a766-5362-4f29-b963-5465c2bb79e7
 title: Planen der Platzierung der Rolle „Betriebsmaster“
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/08/2018
 ms.topic: article
-ms.openlocfilehash: e1117677b9d1e898a3c93850c69230e6912c20c3
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 158209ca281fdd3839747e936d1f439951cc644f
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938620"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069152"
 ---
 # <a name="planning-operations-master-role-placement"></a>Planen der Platzierung der Rolle „Betriebsmaster“
 
@@ -20,7 +20,7 @@ ms.locfileid: "88938620"
 Active Directory Domain Services (AD DS) unterstützt die Multimasterreplikation von Verzeichnis Daten. Dies bedeutet, dass jeder Domänen Controller Verzeichnisänderungen annehmen und die Änderungen auf allen anderen Domänen Controllern replizieren kann. Bestimmte Änderungen, wie z. b. Schema Änderungen, sind jedoch unpraktisch für die Ausführung im multimasterstil. Aus diesem Grund enthalten bestimmte Domänen Controller, die als Betriebs Master bezeichnet werden, Rollen, die für die Annahme von Anforderungen für bestimmte spezifische Änderungen zuständig sind.
 
 > [!NOTE]
-> Die Inhaber von Betriebs Master Rollen müssen in der Lage sein, Informationen in die Active Directory Datenbank zu schreiben. Aufgrund der schreibgeschützten Daten Bank Active Directory auf einem schreibgeschützten Domänen Controller (Read-Only Domain Controller, RODC) **können RODCs nicht als Inhaber von Betriebs Master Rollen fungieren**.
+> Die Inhaber von Betriebs Master Rollen müssen in der Lage sein, Informationen in die Active Directory Datenbank zu schreiben. Aufgrund der schreibgeschützten Daten Bank Active Directory auf einem schreibgeschützten Domänen Controller (Read-Only Domain Controller, RODC) **können RODCs nicht als Inhaber von Betriebs Master Rollen fungieren** .
 
 Drei Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet) sind in jeder Domäne vorhanden:
 

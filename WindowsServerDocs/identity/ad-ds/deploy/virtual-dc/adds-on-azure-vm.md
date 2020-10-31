@@ -2,16 +2,16 @@
 title: Installieren von Active Directory Domain Services auf einem virtuellen Azure-Computer
 description: Erstellen einer neuen Active Directory-Gesamtstruktur auf einem virtuellen Computer (VM) auf einem virtuellen Azure-Computer
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 04/11/2019
 ms.topic: article
-ms.openlocfilehash: e95aea80bea16322f66a14c12b0a1388897c1b11
-ms.sourcegitcommit: 40466c8af1fc60dfca733ea476f088549cedba65
+ms.openlocfilehash: fef394aaef059ec83303c903ca5e548f002775c0
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069072"
 ---
 # <a name="install-a-new-active-directory-forest-using-azure-cli"></a>Installieren einer neuen Active Directory-Gesamtstruktur mit der Azure CLI
 
@@ -51,7 +51,7 @@ Das folgende Skript kann direkt vom Azure-Portal ausgeführt werden. Wenn Sie di
 | AdminUsername | Der Benutzername, der auf den einzelnen virtuellen Computern als lokaler Administrator konfiguriert werden soll. |
 | AdminPassword | Klar Text Kennwort, das auf jedem virtuellen Computer als lokales Administrator Kennwort konfiguriert werden soll. |
 | ResourceGroupName | Der Name, der für die Ressourcengruppe verwendet werden soll. Es sollte kein vorhandener Name dupliziert werden. |
-| Standort | Der Name des Azure-Standorts, den Sie bereitstellen möchten. Listet die unterstützten Regionen für das aktuelle Abonnement mithilfe von auf `az account list-locations` . |
+| Speicherort | Der Name des Azure-Standorts, den Sie bereitstellen möchten. Listet die unterstützten Regionen für das aktuelle Abonnement mithilfe von auf `az account list-locations` . |
 | VNetName | Der Name zum Zuweisen des virtuellen Azure-Netzwerks sollte keinen vorhandenen Namen duplizieren. |
 | Vnetaddress | Der für Azure-Netzwerke zu verwendende IP-Bereich. Ein vorhandener Bereich darf nicht dupliziert werden. |
 | SubnetName | Name, der dem IP-Subnetz zugewiesen werden soll. Es sollte kein vorhandener Name dupliziert werden. |
