@@ -2,16 +2,16 @@
 ms.assetid: 85ca191c-0cc7-4453-a72c-42060ddf2ea2
 title: Kurzfassung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/08/2018
 ms.topic: article
-ms.openlocfilehash: ffd3cf45d276445bca36f9e01651b74468446f61
-ms.sourcegitcommit: f45640cf4fda621b71593c63517cfdb983d1dc6a
+ms.openlocfilehash: 6259883f5aaba6869c6643b30995a51f1e9df422
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070692"
 ---
 # <a name="executive-summary"></a>Kurzfassung
 
@@ -180,5 +180,5 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 | Vereinfachen Sie die Sicherheit für Endbenutzer. | Strategisch | Vorbeugend |
 | Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation. | Taktisch | Vorbeugend |
 | Patchen von Geräten. | Taktisch | Vorbeugend |
-| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | N/V |
+| Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen. | Strategisch | Nicht zutreffend |
 | Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle. | Strategisch | Nicht zutreffend |

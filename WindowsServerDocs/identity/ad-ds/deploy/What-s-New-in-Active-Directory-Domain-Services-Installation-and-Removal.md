@@ -1,17 +1,17 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
 title: Neues beim Installieren und Entfernen der Active Directory-Domänendienste
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 9658fe8ea7c9c11cda10989bfe9d1568c21d9704
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: a16d4ab1a831eb4f057e3802ad644a13a234805b
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069912"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory-Domänendienste
 
@@ -57,7 +57,7 @@ Die Windows Server 2012-Version von adprep.exe kann auf jedem Server ausgeführt
 >
 > %%amp;quot;Adprep.exe ist keine gültige Win32-Anwendung.%%amp;quot;
 
-![Neuigkeiten](media/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal/AdprepNotValid.gif)
+![Neues](media/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal/AdprepNotValid.gif)
 
 Informationen zum Auflösen weitere Fehler, die von %%amp;quot;Adprep.exe%%amp;quot; zurückgegeben werden, finden Sie unter [Bekannte Probleme](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_KnownIssues).
 

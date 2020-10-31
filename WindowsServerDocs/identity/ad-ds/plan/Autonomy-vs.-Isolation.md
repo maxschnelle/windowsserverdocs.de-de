@@ -2,16 +2,16 @@
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
 title: Autonomie im Vergleich zur Isolation
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: eccbfc7767821a15d32d6aabef156861cb409f40
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 4e422ce523a5433cafaad2b0bbaf45da154b6fa8
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941210"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071152"
 ---
 # <a name="autonomy-vs-isolation"></a>Autonomie im Vergleich zur Isolation
 
@@ -19,17 +19,17 @@ ms.locfileid: "88941210"
 
 Sie können Ihre Active Directory logische Struktur entwerfen, um eine der folgenden Optionen zu erreichen:
 
--   **Autonomie**. Umfasst unabhängige, aber nicht exklusive Kontrolle über eine Ressource. Wenn Sie Autonomie erreichen, haben Administratoren die Berechtigung, Ressourcen unabhängig zu verwalten. Administratoren mit höherer Autorität verfügen jedoch über die Kontrolle über diese Ressourcen und können bei Bedarf die Kontrolle entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Arten von Autonomie zu erreichen:
+-   **Autonomie** . Umfasst unabhängige, aber nicht exklusive Kontrolle über eine Ressource. Wenn Sie Autonomie erreichen, haben Administratoren die Berechtigung, Ressourcen unabhängig zu verwalten. Administratoren mit höherer Autorität verfügen jedoch über die Kontrolle über diese Ressourcen und können bei Bedarf die Kontrolle entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Arten von Autonomie zu erreichen:
 
-    -   **Dienst Autonomie**. Diese Art von Autonomie umfasst die Kontrolle über die gesamte oder einen Teil der Dienst Verwaltung.
+    -   **Dienst Autonomie** . Diese Art von Autonomie umfasst die Kontrolle über die gesamte oder einen Teil der Dienst Verwaltung.
 
-    -   **Daten Autonomie**. Diese Art von Autonomie umfasst die Kontrolle über die gesamten oder einen Teil der im Verzeichnis gespeicherten Daten oder auf Mitglieds Computern, die mit dem Verzeichnis verknüpft sind.
+    -   **Daten Autonomie** . Diese Art von Autonomie umfasst die Kontrolle über die gesamten oder einen Teil der im Verzeichnis gespeicherten Daten oder auf Mitglieds Computern, die mit dem Verzeichnis verknüpft sind.
 
--   **Isolation**: Umfasst unabhängige und exklusive Kontrolle über eine Ressource. Wenn Sie Isolation erreichen, haben Administratoren die Berechtigung, eine Ressource unabhängig zu verwalten, und kein anderer Administrator kann die Kontrolle über die Ressource entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Isolations Typen zu erreichen:
+-   **Isolation** : Umfasst unabhängige und exklusive Kontrolle über eine Ressource. Wenn Sie Isolation erreichen, haben Administratoren die Berechtigung, eine Ressource unabhängig zu verwalten, und kein anderer Administrator kann die Kontrolle über die Ressource entziehen. Sie können Ihre Active Directory logische Struktur entwerfen, um die folgenden Isolations Typen zu erreichen:
 
-    -   **Dienst Isolation**. Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern der Dienst Verwaltung vorgesehen sind) die Dienst Verwaltung Steuern oder beeinträchtigen.
+    -   **Dienst Isolation** . Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern der Dienst Verwaltung vorgesehen sind) die Dienst Verwaltung Steuern oder beeinträchtigen.
 
-    -   **Daten Isolation**. Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern oder Anzeigen von Daten vorgesehen sind) Steuern oder eine Teilmenge der Daten im Verzeichnis oder auf Mitglieds Computern anzeigen können, die mit dem Verzeichnis verknüpft sind.
+    -   **Daten Isolation** . Verhindert, dass Administratoren (außer Administratoren, die speziell zum Steuern oder Anzeigen von Daten vorgesehen sind) Steuern oder eine Teilmenge der Daten im Verzeichnis oder auf Mitglieds Computern anzeigen können, die mit dem Verzeichnis verknüpft sind.
 
 Administratoren, die nur Autonomie benötigen, akzeptieren, dass andere Administratoren, die über die gleiche oder eine höhere Verwaltungs Autorität verfügen, eine gleichmäßige Kontrolle über die Dienst-oder Datenverwaltung haben Administratoren, die Isolation benötigen, haben eine exklusive Kontrolle über die Dienst-oder Datenverwaltung. Das Erstellen eines Entwurfs zum Erreichen von Autonomie ist im Allgemeinen kostengünstiger als das Erstellen eines Entwurfs zum Erreichen von Isolation.
 

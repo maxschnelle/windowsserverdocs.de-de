@@ -1,17 +1,17 @@
 ---
 ms.assetid: 155abe09-6360-4913-8dd9-7392d71ea4e6
 title: Konfigurieren eines Computers für die Problembehandlung
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: 049addf848e231104e844c06627997c71b335d20
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: f340cd9608eec21110efe7d10e936c5320d6e303
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070462"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Konfigurieren eines Computers für die Problembehandlung
 
@@ -39,9 +39,9 @@ Die Zuverlässigkeits-und Leistungsüberwachung umfasst auch die Zuverlässigkei
 
 ### <a name="set-logging-levels"></a>Festlegen der Protokolliergrade
 
-Wenn die Informationen, die Sie im Verzeichnisdienst Protokoll in Ereignisanzeige erhalten, für die Problembehandlung nicht ausreichen, erhöhen Sie die Protokollierungs Stufen mithilfe des entsprechenden Registrierungs Eintrags in **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\diagnostics**.
+Wenn die Informationen, die Sie im Verzeichnisdienst Protokoll in Ereignisanzeige erhalten, für die Problembehandlung nicht ausreichen, erhöhen Sie die Protokollierungs Stufen mithilfe des entsprechenden Registrierungs Eintrags in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Diagnostics** .
 
-Standardmäßig sind die Protokollierungs Ebenen für alle Einträge auf **0**festgelegt, was die minimale Menge an Informationen liefert. Der höchste Protokolliergrad ist **5**. Das Erhöhen der Ebene für einen Eintrag bewirkt, dass zusätzliche Ereignisse im Verzeichnisdienst-Ereignisprotokoll protokolliert werden.
+Standardmäßig sind die Protokollierungs Ebenen für alle Einträge auf **0** festgelegt, was die minimale Menge an Informationen liefert. Der höchste Protokolliergrad ist **5** . Das Erhöhen der Ebene für einen Eintrag bewirkt, dass zusätzliche Ereignisse im Verzeichnisdienst-Ereignisprotokoll protokolliert werden.
 
 Verwenden Sie das folgende Verfahren, um den Protokolliergrad für einen diagnoseeintrag zu ändern. Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
@@ -51,8 +51,8 @@ Verwenden Sie das folgende Verfahren, um den Protokolliergrad für einen diagnos
 
 So ändern Sie den Protokolliergrad für einen diagnoseeintrag
 
-1. Klicken Sie auf **Start**  >  **Ausführen** > geben Sie **Regedit** ein > klicken Sie auf **OK**.
+1. Klicken Sie auf **Start**  >  **Ausführen** > geben Sie **Regedit** ein > klicken Sie auf **OK** .
 2. Navigieren Sie zu dem Eintrag, für den Sie die Protokollierung festlegen möchten.
    * Beispiel: HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
-3. Doppelklicken Sie auf den Eintrag, und klicken Sie in **Basis**auf **Dezimal**.
-4. Geben Sie unter **Wert**eine ganze Zahl zwischen **0** und **5**ein, und klicken Sie dann auf **OK**.
+3. Doppelklicken Sie auf den Eintrag, und klicken Sie in **Basis** auf **Dezimal** .
+4. Geben Sie unter **Wert** eine ganze Zahl zwischen **0** und **5** ein, und klicken Sie dann auf **OK** .

@@ -2,16 +2,16 @@
 ms.assetid: 73a4deba-7da6-4eae-8fdd-2a4d369f9cbb
 title: Technische Referenz für virtualisierte Domänencontroller, Anhang
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 6387abbe150630d2fd8f6f14724618a6ab32b94a
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: f387fd0e87887ea8e69732efa405299fb18fe800
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940280"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070902"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Technische Referenz für virtualisierte Domänencontroller, Anhang
 
@@ -23,7 +23,7 @@ Dieses Thema behandelt Folgendes:
 
 -   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)
 
-## <a name="terminology"></a><a name="BKMK_Terms"></a>Begriff
+## <a name="terminology"></a><a name="BKMK_Terms"></a>Terminologie
 
 -   **Snapshot** : der Zustand einer virtuellen Maschine zu einem bestimmten Zeitpunkt. Es hängt von der Kette früherer, auf der Hardware und der Virtualisierungsplattform ausgeführten Momentaufnahmen ab.
 
@@ -33,11 +33,11 @@ Dieses Thema behandelt Folgendes:
 
 -   **Differenzierender** Datenträger: eine Kopie eines virtuellen Computers, der virtuelle Datenträger mit der übergeordneten virtuellen Maschine in laufender Weise freigibt. Dadurch wird normalerweise der Speicherplatz auf dem Datenträger belegt, und mehrere virtuelle Computer können dieselbe Software Installation verwenden.
 
--   **VM Copy (Kopie**des virtuellen Computers): eine Dateisystem Kopie aller zugehörigen Dateien und Ordner einer virtuellen Maschine.
+-   **VM Copy (Kopie** des virtuellen Computers): eine Dateisystem Kopie aller zugehörigen Dateien und Ordner einer virtuellen Maschine.
 
 -   **VHD-Datei kopieren** -eine Kopie der VHD eines virtuellen Computers
 
--   **VM-Generations-ID** : eine 128-Bit-Ganzzahl, die dem virtuellen Computer durch den Hypervisor angegeben wird. Diese ID wird im Arbeitsspeicher gespeichert und jedes Mal zurückgesetzt, wenn eine Momentaufnahme angewendet wird. Beim Entwurf wird ein Hypervisor-agnostischer Mechanismus verwendet, mit dem die VM-Generations-ID auf dem virtuellen Computer angezeigt wird. Die Hyper-V-Implementierung macht die ID in der ACPI-Tabelle der virtuellen Maschine verfügbar.
+-   **VM-Generations-ID** : eine 128-Bit-Ganzzahl, die dem virtuellen Computer durch den Hypervisor angegeben wird. Diese ID wird im Arbeitsspeicher gespeichert und jedes Mal zurückgesetzt, wenn eine Momentaufnahme angewendet wird. Beim Entwurf wird ein Hypervisor-agnostischer Mechanismus verwendet, mit dem die VM-Generation-ID auf dem virtuellen Computer angezeigt wird. Die Hyper-V-Implementierung macht die ID in der ACPI-Tabelle der virtuellen Maschine verfügbar.
 
 -   **Import/Export** : eine Hyper-V-Funktion, die es dem Benutzer ermöglicht, den gesamten virtuellen Computer (VM-Dateien, VHD und die Computerkonfiguration) zu speichern. Anschließend können Benutzer diesen Satz von Dateien verwenden, um den Computer auf demselben Computer wie dieselbe VM (Wiederherstellung), auf einem anderen Computer wie die gleiche VM (verschieben) oder auf einem neuen virtuellen Computer (Kopie) wiederherzustellen.
 

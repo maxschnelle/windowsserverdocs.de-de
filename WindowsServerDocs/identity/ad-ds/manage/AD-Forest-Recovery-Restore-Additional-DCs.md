@@ -1,17 +1,17 @@
 ---
 title: Wiederherstellung der Active Directory-Gesamtstruktur-erneute Bereitstellung
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.openlocfilehash: d75a379ea9e413bd0555e1bee81b4bbe0c201650
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: d3d826e0ec587289671723a4bd78d0d669189428
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070812"
 ---
 # <a name="ad-forest-recovery---redeploy-remaining-dcs"></a>Wiederherstellung der Active Directory-Gesamtstruktur-erneute Bereitstellung
 
@@ -38,7 +38,7 @@ Beachten Sie die folgenden zusätzlichen Punkte für alle Replikat Domänen Cont
 - Der Hostname des geklonten virtualisierten Domänen Controllers oder der Server, auf dem Sie AD DS installieren möchten, ist nicht eingeschränkt. Sie können einen neuen Hostnamen oder den zuvor verwendeten Hostnamen verwenden. Weitere Informationen zur Syntax des DNS-Host namens finden Sie unter [Erstellen von DNS-Computer Namen](/previous-versions/windows/it-pro/windows-server-2003/cc785282(v=ws.10)) ( [https://go.microsoft.com/fwlink/?LinkId=74564](https://go.microsoft.com/fwlink/?LinkId=74564) ).
 - Konfigurieren Sie jeden Server mit dem ersten DNS-Server in der Gesamtstruktur (dem ersten in der Stamm Domäne wiederhergestellten DC) als bevorzugten DNS-Server in den TCP/IP-Eigenschaften des Netzwerkadapters. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](/previous-versions/windows/it-pro/windows-server-2003/cc779282(v=ws.10)).
 - Stellen Sie alle RODCs in der Domäne erneut bereit, entweder durch das Klonen von virtualisierten Domänen Controllern, wenn mehrere RODCs an einem zentralen Speicherort bereitgestellt werden, oder durch die herkömmliche Methode, Sie neu zu erstellen, indem Sie AD DS entfernen und neu installieren, wenn Sie an isolierten Orten wie Zweigstellen einzeln bereitgestellt werden.
-   - Das Neuerstellen von RODCs stellt sicher, dass Sie keine veralteten Objekte enthalten, und kann dazu beitragen, dass Replikations Konflikte später auftreten. Wenn Sie AD DS von einem RODC entfernen, *Wählen Sie die Option zum Beibehalten von DC-Metadaten*aus. Wenn Sie diese Option verwenden, wird das krbtgt-Konto für den RODC beibehalten und die Berechtigungen für das delegierte RODC-Administrator Konto und das Kennwortreplikationsrichtlinie (PRP) beibehalten, und es wird verhindert, dass Sie Domänen Administrator-Anmelde Informationen verwenden müssen, um AD DS auf einem RODC zu entfernen und neu zu installieren. Außerdem werden die DNS-Server-und globalen Katalog Rollen beibehalten, wenn Sie ursprünglich auf dem RODC installiert sind.
+   - Das Neuerstellen von RODCs stellt sicher, dass Sie keine veralteten Objekte enthalten, und kann dazu beitragen, dass Replikations Konflikte später auftreten. Wenn Sie AD DS von einem RODC entfernen, *Wählen Sie die Option zum Beibehalten von DC-Metadaten* aus. Wenn Sie diese Option verwenden, wird das krbtgt-Konto für den RODC beibehalten und die Berechtigungen für das delegierte RODC-Administrator Konto und das Kennwortreplikationsrichtlinie (PRP) beibehalten, und es wird verhindert, dass Sie Domänen Administrator-Anmelde Informationen verwenden müssen, um AD DS auf einem RODC zu entfernen und neu zu installieren. Außerdem werden die DNS-Server-und globalen Katalog Rollen beibehalten, wenn Sie ursprünglich auf dem RODC installiert sind.
    - Wenn Sie DCS (RODCs oder beschreibbare DCS) neu erstellen, kann während der erneuten Installation ein erhöhter Replikations Datenverkehr vorhanden sein. Um diese Auswirkungen zu reduzieren, können Sie den Zeitplan der RODC-Installationen Staffeln, und Sie können die Option Install From Media (IFM) verwenden. Wenn Sie die IFM-Option verwenden, führen Sie den Befehl " **ntdsutil ifm** " auf einem beschreibbaren Domänen Controller aus, dem Sie Vertrauen, dass Sie nicht über beschädigte Daten verfügen. Dadurch wird verhindert, dass auf dem RODC mögliche Beschädigungen angezeigt werden, nachdem die AD DS Neuinstallation beendet wurde. Weitere Informationen zu IFM finden Sie unter [Installieren von AD DS von einem Medium](./managing-rid-issuance.md).
    - Weitere Informationen zum Neuerstellen von RODCs finden Sie unter [RODC-Entfernung und-Neuinstallation](/previous-versions/windows/it-pro/windows-server-2003/cc779282(v=ws.10)).
 - Wenn ein Domänen Controller den DNS-Server Dienst vor der Gesamtstruktur Fehler ausgeführt hat, installieren und konfigurieren Sie den DNS-Server Dienst während der Installation von AD DS. Andernfalls konfigurieren Sie die früheren DNS-Clients mit anderen DNS-Servern.

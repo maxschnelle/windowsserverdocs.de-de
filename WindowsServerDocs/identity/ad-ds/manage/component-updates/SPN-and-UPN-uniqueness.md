@@ -2,22 +2,22 @@
 ms.assetid: 40bc24b1-2e7d-4e77-bd0f-794743250888
 title: SPN- und UPN-Eindeutigkeit
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: cafbc577bd025fc30f409385f51f6981fb3ab81d
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: c41b532b6be241a937500485aca723e391ff9210
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070722"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
+**Autor** : Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
 
 > [!NOTE]
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.
@@ -34,7 +34,7 @@ Doppelte UPN-Werte unterbrechen die Synchronisierung zwischen lokalem AD und Off
 
 **Tabelle \\ \* : Tabelle Arabisch 1: UPN-und SPN-Eindeutigkeit**
 
-|Funktion|Comment|
+|Feature|Kommentar|
 |-----------|-----------|
 |UPN-Eindeutigkeit|Doppelte UPNs unterbrechen die Synchronisierung von lokalen AD-Konten mit Windows Azure AD-basierten Diensten wie z. b. Office 365.|
 |SPN-Eindeutigkeit|Kerberos erfordert SPNs für die gegenseitige Authentifizierung.  Doppelte SPNs führen zu Authentifizierungs Fehlern.|
@@ -48,7 +48,7 @@ Fehlercodes 8467 oder 8468 oder Ihre hexadezimalen, symbolischen oder Zeichen fo
 
 **Tabelle, Tabelle \\ \* Arabisch 2: Fehlercodes der UPN-und SPN-Eindeutigkeit**
 
-|Dezimal|Hex|Trächtigsten|String|
+|Decimal|Hex|Trächtigsten|String|
 |-----------|-------|------------|----------|
 |8467|21c7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|
 |8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für die Hinzufügung/Änderung angegebene Wert für den Benutzerprinzipalnamen (User Principal Name, UPN) in der Gesamtstruktur nicht eindeutig ist.|
@@ -179,11 +179,11 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
 
 -   Aktivieren Sie das Optionsfeld **in LDAP konvertieren** .
 
--   Type **(UserPrincipalName =*ConflictingUPN*)**
+-   Type **(UserPrincipalName = *ConflictingUPN* )**
 
-    -   Ersetzen Sie ***ConflictingUPN*** durch den tatsächlichen UPN, der in Konflikt steht.
+    -   Ersetzen Sie * *_ConflictingUPN_* _ durch den tatsächlichen UPN, der in Konflikt steht.
 
--   Auswahl **anwenden**
+-   SELECT _ *Apply**
 
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearch.gif)
 
@@ -209,7 +209,7 @@ So legen Sie das userPrincipalName-Attribut mithilfe von Windows PowerShell auf 
 
 **Abbildung * Abbildung \\ \* Arabisch 8 Fehlermeldung wird in ADSIEdit angezeigt, wenn das Hinzufügen eines doppelten SPNs blockiert wird**
 
-Im Verzeichnisdienst-Ereignisprotokoll ist eine **ActiveDirectory_DomainService** Ereignis-ID **2974**. protokolliert.
+Im Verzeichnisdienst-Ereignisprotokoll ist eine **ActiveDirectory_DomainService** Ereignis-ID **2974** . protokolliert.
 
 ```
 Operation failed. Error code: 0x21c7
@@ -229,9 +229,9 @@ servicePrincipalName Value=<SPN>
 
     -   Kein offboxbefehl erforderlich, Abfrage kann lokal ausgeführt werden.
 
-    -   ***UPN-Fall***
+    -   **_UPN-Fall_* _
 
-        -   Abfrage der lokalen Gesamtstruktur weiten UPN-Index für den angegebenen UPN (*userPrincipalName; ein globaler Index*)
+        -   Abfrage der lokalen Gesamtstruktur weiten UPN-Index für den angegebenen UPN (_userPrincipalName; ein globaler Index *)
 
             -   Wenn zurückgegebene Einträge = = 0-> Schreibvorgänge fortgesetzt
 
@@ -245,9 +245,9 @@ servicePrincipalName Value=<SPN>
 
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*
 
-    -   ***SPN-Fall***
+    -   ***SPN-Fall** _
 
-        -   Abfragen des lokalen Gesamtstruktur-SPN-Indexes für den bereitgestellten SPN (*servicePrincipalName; ein globaler Index*)
+        -   Abfragen des lokalen Gesamtstruktur-SPN-Indexes für den bereitgestellten SPN (_servicePrincipalName; globaler Index *)
 
             -   Wenn zurückgegebene Einträge = = 0-> Schreibvorgänge fortgesetzt
 
@@ -269,9 +269,9 @@ servicePrincipalName Value=<SPN>
 
         -   Ereignis protokolliert, um dies anzuzeigen
 
-    -   ***UPN-Fall***
+    -   **_UPN-Fall_* _
 
-        -   Senden Sie eine LDAP-Abfrage an die nächstgelegene GC? der Gesamtstruktur weite UPN-Index der Abfrage GC für den angegebenen UPN (*userPrincipalName; ein globaler Index*)
+        -   Senden Sie eine LDAP-Abfrage an die nächstgelegene GC? Gesamtstruktur-Gesamt-UPN-Index für den angegebenen UPN (_userPrincipalName; globaler Index *) Abfragen
 
             -   Wenn zurückgegebene Einträge = = 0-> Schreibvorgänge fortgesetzt
 
@@ -285,9 +285,9 @@ servicePrincipalName Value=<SPN>
 
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*
 
-    -   ***SPN-Fall***
+    -   ***SPN-Fall** _
 
-        -   Senden Sie eine LDAP-Abfrage an die nächstgelegene GC? der Gesamtstruktur übergreifende SPN-Index der Abfrage für den bereitgestellten SPN (*servicePrincipalName; ein globaler Index*)
+        -   Senden Sie eine LDAP-Abfrage an die nächstgelegene GC? der Gesamtstruktur weite SPN-Index für den bereitgestellten SPN (_servicePrincipalName; ein globaler Index *) Abfragen.
 
             -   Wenn zurückgegebene Einträge = = 0-> Schreibvorgänge fortgesetzt
 
@@ -320,10 +320,10 @@ Wenn gelöschte Objekte erneut animiert werden, werden die SPN-oder UPN-Werte au
 Wenn einer der neuen SPN-Werte ein Duplikat ist, tritt bei der Änderung ein Fehler auf. In der obigen Liste sind die wichtigen Attribute ATT_DNS_HOST_NAME (Computername) und ATT_SAM_ACCOUNT_NAME (SAM-Kontoname).
 
 ### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Versuchen Sie Folgendes: Untersuchen von SPN und UPN-Eindeutigkeit
-Dies ist die erste von mehreren "**try this**"-Aktivitäten im Modul.  Es gibt keine separate Lab-Anleitung für dieses Modul.  Die **try this** -Aktivitäten sind im Wesentlichen frei Form Aktivitäten, mit denen Sie die Lektion in der Lab-Umgebung untersuchen können.  Sie haben die Möglichkeit, die Eingabeaufforderung zu befolgen oder das Skript zu erstellen und ihre eigene Aktivität zu erstellen.
+Dies ist die erste von mehreren " **try this** "-Aktivitäten im Modul.  Es gibt keine separate Lab-Anleitung für dieses Modul.  Die **try this** -Aktivitäten sind im Wesentlichen frei Form Aktivitäten, mit denen Sie die Lektion in der Lab-Umgebung untersuchen können.  Sie haben die Möglichkeit, die Eingabeaufforderung zu befolgen oder das Skript zu erstellen und ihre eigene Aktivität zu erstellen.
 
 > [!NOTE]
-> -   Dies ist die erste von mehreren "**try this**"-Aktivitäten.
+> -   Dies ist die erste von mehreren " **try this** "-Aktivitäten.
 > -   Es gibt keine separate Lab-Anleitung für dieses Modul.
 > -   Die **try this** -Aktivitäten sind im Wesentlichen frei Form Aktivitäten, mit denen Sie die Lektion in der Lab-Umgebung untersuchen können.
 > -   Sie haben die Möglichkeit, die Eingabeaufforderung zu befolgen oder das Skript zu erstellen und ihre eigene Aktivität zu erstellen.

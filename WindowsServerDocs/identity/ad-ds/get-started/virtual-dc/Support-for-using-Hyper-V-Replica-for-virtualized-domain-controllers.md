@@ -2,16 +2,16 @@
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
 title: Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 8c4d96bbf23e9f25a0ed38f6ca9d6e4c33cdb7b7
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 0a8d59da05f7dbf675114c96ceac5e755b06a66a
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938190"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071052"
 ---
 # <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
 
@@ -30,7 +30,7 @@ Weitere Informationen zum Hyper-v-Replikat finden Sie unter [Übersicht über Hy
 
 ## <a name="windows-server-2012-or-newer-domain-controllers-required"></a>Windows Server 2012 oder neuere Domänen Controller erforderlich
 
-Windows Server 2012 Hyper-V führte VM-generationid (vmgenid) ein. VMGenID sorgt dafür, dass der Hypervisor mit dem Gastbetriebssysteme kommunizieren kann, wenn bedeutende Änderungen aufgetreten sind. Der Hypervisor kann beispielsweise einem virtualisierten Domänencontroller mitteilen, dass eine Wiederherstellung von einer Momentaufnahme durchgeführt wurde (Hyper-V-Technologie zur Momentaufnahmenwiederherstellung, keine Sicherungswiederherstellung). AD DS in Windows Server 2012 und höher ist von der vmgenid-VM-Technologie abhängig und verwendet diese, um zu erkennen, wann Hypervisor-Vorgänge durchgeführt werden, wie z. b. die Momentaufnahme Wiederherstellung, sodass Sie sich besser schützen kann.
+Mit Windows Server 2012 Hyper-V wurde VM-GenerationID (vmgenid) eingeführt. VMGenID sorgt dafür, dass der Hypervisor mit dem Gastbetriebssysteme kommunizieren kann, wenn bedeutende Änderungen aufgetreten sind. Der Hypervisor kann beispielsweise einem virtualisierten Domänencontroller mitteilen, dass eine Wiederherstellung von einer Momentaufnahme durchgeführt wurde (Hyper-V-Technologie zur Momentaufnahmenwiederherstellung, keine Sicherungswiederherstellung). AD DS in Windows Server 2012 und höher ist von der vmgenid-VM-Technologie abhängig und verwendet diese, um zu erkennen, wann Hypervisor-Vorgänge durchgeführt werden, wie z. b. die Momentaufnahme Wiederherstellung, sodass Sie sich besser schützen kann.
 
 > [!NOTE]
 > Nur AD DS auf Windows Server 2012 DCS oder neueren stellen diese Sicherheitsmaßnahmen bereit, die sich aus vmgenid; ergeben. DCS, die alle früheren Versionen von Windows Server ausführen, unterliegen Problemen, wie z. b. dem Rollback von Windows Server, die auftreten können, wenn ein virtualisierter Domänen Controller mit einem nicht unterstützten Mechanismus wieder hergestellt wird, z. b. Weitere Informationen zu diesen Sicherheitsvorkehrungen und deren Auslösung finden Sie unter [Architektur virtualisierter Domänen Controller](./virtualized-domain-controller-architecture.md).
@@ -60,7 +60,7 @@ In der folgenden Tabelle werden die Unterstützung für virtualisierte Domänenc
 | Geplantes Failover | Ungeplantes Failover |
 |--|--|
 | Unterstützt | Unterstützt |
-| Testfall:<p>-DC1 und DC2 führen Windows Server 2012 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Failover durchgeführt. Das Failover kann entweder geplant oder ungeplant sein.<p>-Nach dem Start von DC2-REC wird überprüft, ob der Wert von vmgenid in der Datenbank mit dem Wert des vom Hyper-V-Replikat Server gespeicherten virtuellen Computer Treibers identisch ist.<p>Folglich löst DC2-REC virtualisierungssicherheitsmaßnahmen aus. Das heißt, dass die invocationID zurückgesetzt, der RID-Pool verworfen und eine anfängliche Synchronisierungs Anforderung festgelegt wird, bevor eine Betriebs Master Rolle angenommen wird. Weitere Information zur Anforderung für die anfängliche Synchronisierung finden Sie unter .<p>-DC2-REC speichert dann den neuen Wert von vmgenid in der Datenbank und führt einen Commit für alle nachfolgenden Aktualisierungen im Kontext der neuen invocationID aus.<p>Aufgrund des zurück Setzens von invocationID wird DC1 bei allen AD-Änderungen, die von DC2-REC eingeführt wurden, auch dann, wenn ein Rollback erfolgt ist, zusammengeführt, was bedeutet, dass alle AD-Aktualisierungen, die auf DC2-REC nach dem Failover ausgeführt werden, sicher aufeinander | Für ein geplantes Failover ist der Testfall gleich, mit den folgenden Ausnahmen:<p>-Alle AD-Updates, die auf DC2 empfangen, aber noch nicht von AD an einen Replikations Partner repliziert wurden, bevor das failoverereignis verloren geht.<p>-AD-Updates, die nach dem Zeitpunkt des von AD an DC1 replizierten Wiederherstellungs Punkts auf DC2 empfangen werden, werden von DC1 zurück auf DC2-REC repliziert. |
+| Testfall:<p>-DC1 und DC2 führen Windows Server 2012 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Failover durchgeführt. Das Failover kann entweder geplant oder ungeplant sein.<p>-Nachdem DC2-Rec gestartet wurde, wird überprüft, ob der Wert von vmgenid in der Datenbank mit dem Wert des vom Hyper-V-Replikat Server gespeicherten virtuellen Computer Treibers übereinstimmt.<p>-Infolgedessen löst DC2-Rec virtualisierungssicherheitsmaßnahmen aus. Das heißt, dass die invocationID zurückgesetzt, der RID-Pool verworfen und eine anfängliche Synchronisierungs Anforderung festgelegt wird, bevor eine Betriebs Master Rolle angenommen wird. Weitere Information zur Anforderung für die anfängliche Synchronisierung finden Sie unter .<p>-DC2-Rec speichert dann den neuen Wert von vmgenid in der Datenbank und führt einen Commit für alle nachfolgenden Aktualisierungen im Kontext der neuen invocationID aus.<p>-Aufgrund der zurück Setzung invocationID wird DC1 bei allen AD-Änderungen, die durch DC2-Rec eingeführt wurden, auch dann, wenn ein Rollback erfolgt ist, zusammengeführt. Dies bedeutet, dass alle AD-Aktualisierungen, die auf DC2-Rec nach dem Failover durchgeführt wurden, sicher aufeinander | Für ein geplantes Failover ist der Testfall gleich, mit den folgenden Ausnahmen:<p>-Alle AD-Updates, die auf DC2 empfangen, aber noch nicht von AD an einen Replikations Partner repliziert wurden, bevor das failoverereignis verloren geht.<p>-AD-Updates, die nach dem Zeitpunkt des von AD an DC1 replizierten Wiederherstellungs Punkts auf DC2 empfangen werden, werden von DC1 zurück auf DC2-REC repliziert. |
 
 ### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 und frühere Versionen
 
@@ -69,4 +69,4 @@ In der folgenden Tabelle werden die Unterstützung für virtualisierte Domänenc
 | Geplantes Failover | Ungeplantes Failover |
 |--|--|
 | Unterstützt, aber nicht empfohlen, da Domänencontroller mit diesen Versionen von Windows Server keine Unterstützung für VMGenID bieten oder damit verbundene Virtualisierungssicherheitsmaßnahmen verwenden. Damit entsteht das Risiko von einem USN-Rollback. Weitere Informationen finden Sie unter " [US-v" und "Wiederverwendungs-Rollback](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553(v=ws.10))". | Nicht unterstützt<p>**Hinweis:** Ein ungeplantes Failover wird unterstützt, wenn ein Rollback für die Wiederverwendung kein Risiko ist, z. b. ein einzelner Domänen Controller in der Gesamtstruktur (eine Konfiguration, die nicht empfohlen wird). |
-| Testfall:<p>-DC1 und DC2 führen Windows Server 2008 R2 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Geplantes Failover ausgeführt. Alle Daten auf DC2 werden auf DC2-REC repliziert, bevor das Herunterfahren beendet ist.<p>-Nach dem Start von DC2-REC wird die Replikation mit DC1 mit der gleichen invocationID wie DC2 fortgesetzt. | Nicht zutreffend |
+| Testfall:<p>-DC1 und DC2 führen Windows Server 2008 R2 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Geplantes Failover ausgeführt. Alle Daten auf DC2 werden auf DC2-Rec repliziert, bevor das Herunterfahren beendet ist.<p>-Nachdem DC2-Rec gestartet wurde, wird die Replikation mit DC1 unter Verwendung derselben invocationID wie DC2 fortgesetzt. | Nicht zutreffend |

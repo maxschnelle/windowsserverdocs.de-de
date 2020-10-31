@@ -2,16 +2,16 @@
 ms.assetid: 4baefbd3-038f-44c0-85ba-f24e9722b757
 title: 'Anhang G: Sichern von Administratoren Gruppen in Active Directory'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 914603fdbaf5305a3b6abecc304fb0421c9b1bde
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: f3901a3283c37d29d0ba48d36badcde421ba1f45
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938450"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070012"
 ---
 # <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Schützen von Administratorgruppen in Active Directory
 
@@ -19,13 +19,13 @@ ms.locfileid: "88938450"
 
 
 ## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Schützen von Administratorgruppen in Active Directory
-Wie bei den Gruppen Organisations-Admins (Enterprise Admins, EA) und Domänen-Admins muss die Mitgliedschaft in der Gruppe integrierte Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+Wie bei den Gruppen Organisations-Admins (Enterprise Admins, EA) und Domänen-Admins muss die Mitgliedschaft in der Gruppe integrierte Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 
 Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren jeweiligen Domänen. Die Mitgliedschaft in dieser Gruppe ist möglicherweise in Build-oder Notfall Wiederherstellungs Szenarien erforderlich, in denen der Besitz oder die Fähigkeit, Objekte zu übernehmen, erforderlich ist. Außerdem erben das und EAS aufgrund der Standardmitgliedschaft in der Gruppe "Administratoren" eine Reihe ihrer Rechte und Berechtigungen. Die Standard Gruppen Schachtelung für privilegierte Gruppen in Active Directory sollte nicht geändert werden, und die Administratoren Gruppe jeder Domäne sollte wie in den folgenden Schritt-für-Schritt-Anweisungen beschrieben gesichert werden.
 
 Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
-1.  Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
+1.  Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: Sichern von Built-In Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.
 
 2.  In GPOs, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die BA-Gruppe den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Zuweisen von Benutzerrechten**
 
@@ -47,7 +47,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-for-removing-all-members-from-the-administrators-group"></a>Schritt-für-Schritt-Anleitung zum Entfernen aller Mitglieder aus der Gruppe "Administratoren"
 
-1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.
+1.  Klicken **Server Manager** Sie in Server-Manager **auf Extras, und** klicken Sie dann auf **Active Directory Benutzer und Computer** .
 
 2.  Um alle Mitglieder aus der Gruppe "Administratoren" zu entfernen, führen Sie die folgenden Schritte aus:
 
@@ -55,17 +55,17 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_79.gif)
 
-    2.  Wählen Sie ein Mitglied der Gruppe aus, klicken Sie auf **Entfernen**, klicken Sie auf **Ja**, und klicken Sie auf **OK**.
+    2.  Wählen Sie ein Mitglied der Gruppe aus, klicken Sie auf **Entfernen** , klicken Sie auf **Ja** , und klicken Sie auf **OK** .
 
 3.  Wiederholen Sie Schritt 2, bis alle Mitglieder der Gruppe "Administratoren" entfernt wurden.
 
 #### <a name="step-by-step-instructions-to-secure-administrators-groups-in-active-directory"></a>Schritt-für-Schritt-Anleitung zum Sichern von Administratoren Gruppen in Active Directory
 
-1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.
+1.  Klicken **Server Manager** Sie in Server-Manager **auf Extras, und** klicken Sie auf **Gruppenrichtlinie Verwaltung** .
 
 2.  Erweitern Sie in der Konsolen Struktur den Eintrag Gesamtstruktur &lt; &gt; \Domänen \\ &lt; Domäne &gt; , und **Gruppenrichtlinie Objekte** (wobei Gesamtstruktur der Name der Gesamtstruktur &lt; &gt; und &lt; Domäne &gt; der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).
 
-3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.
+3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte** , und klicken Sie dann auf **neu** .
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_80.gif)
 
@@ -73,51 +73,51 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_81.gif)
 
-5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf **<GPO Name>** , und klicken Sie dann auf **Bearbeiten**.
+5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf **<GPO Name>** , und klicken Sie dann auf **Bearbeiten** .
 
-6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien**, **und klicken Sie**auf Zuweisen von
+6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien** , **und klicken Sie** auf Zuweisen von
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_82.gif)
 
 7.  Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass Mitglieder der Administratoren Gruppe über das Netzwerk auf Mitglieds Server und Arbeitsstationen zugreifen können. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie **auf Zugriff vom Netzwerk auf diesen Computer verweigern,** und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie **auf Zugriff vom Netzwerk auf diesen Computer verweigern,** und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administratoren**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**.
+    3.  Geben Sie **Administratoren** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_83.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 8.  Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass sich Mitglieder der Gruppe "Administratoren" als Batch Auftrag anmelden. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie auf **Anmelden als Batch Auftrag verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie auf **Anmelden als Batch Auftrag verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administratoren**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**.
+    3.  Geben Sie **Administratoren** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_84.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 9. Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass sich Mitglieder der Gruppe "Administratoren" als Dienst anmelden. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie auf **Anmelden als Dienst verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie auf **Anmelden als Dienst verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administratoren**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**.
+    3.  Geben Sie **Administratoren** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_85.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
-10. Um **Gruppenrichtlinienverwaltungs-Editor**zu beenden, klicken Sie auf **Datei**und dann auf **Beenden**.
+10. Um **Gruppenrichtlinienverwaltungs-Editor** zu beenden, klicken Sie auf **Datei** und dann auf **Beenden** .
 
-11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:
+11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management** mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:
 
     1.  Navigieren Sie zur &lt; Gesamt &gt; Struktur> \Domänen \\ &lt; Domäne (wobei Gesamtstruktur der Name der Gesamtstruktur &gt; &lt; &gt; und &lt; Domäne &gt; der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).
 
@@ -125,7 +125,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_86.gif)
 
-    3.  Wählen Sie das soeben erstellte Gruppenrichtlinien Objekt aus, und klicken Sie auf **OK**.
+    3.  Wählen Sie das soeben erstellte Gruppenrichtlinien Objekt aus, und klicken Sie auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_87.gif)
 
@@ -145,11 +145,11 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-to-grant-user-rights-to-the-administrators-group"></a>Schritt-für-Schritt-Anleitung zum Erteilen von Benutzerrechten für die Administratoren Gruppe
 
-1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.
+1.  Klicken **Server Manager** Sie in Server-Manager **auf Extras, und** klicken Sie auf **Gruppenrichtlinie Verwaltung** .
 
 2.  Erweitern Sie in der Konsolen Struktur den Eintrag <Forest> \domains \\ <Domain> , und **Gruppenrichtlinie Objekte** (wobei der Name der Gesamtstruktur <Forest> und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).
 
-3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.
+3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte** , und klicken Sie dann auf **neu** .
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_89.gif)
 
@@ -157,51 +157,51 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_90.gif)
 
-5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf **<GPO Name>** , und klicken Sie dann auf **Bearbeiten**.
+5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf **<GPO Name>** , und klicken Sie dann auf **Bearbeiten** .
 
-6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien**, **und klicken Sie**auf Zuweisen von
+6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien** , **und klicken Sie** auf Zuweisen von
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_91.gif)
 
 7.  Konfigurieren Sie die Benutzerrechte, damit Mitglieder der Gruppe "Administratoren" über das Netzwerk auf Domänen Controller zugreifen können. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie **auf Zugriff auf diesen Computer vom Netzwerk aus,** und wählen Sie **die Option Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie **auf Zugriff auf diesen Computer vom Netzwerk aus,** und wählen Sie **die Option Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    3.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_92.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 8.  Konfigurieren Sie die Benutzerrechte, damit Mitglieder der Gruppe "Administratoren" sich lokal anmelden können, indem Sie Folgendes ausführen:
 
-    1.  Doppelklicken Sie auf **Lokal anmelden zulassen** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie auf **Lokal anmelden zulassen** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administratoren**ein, klicken Sie auf **Namen**überprüfen und dann auf **OK**.
+    3.  Geben Sie **Administratoren** ein, klicken Sie auf **Namen** überprüfen und dann auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_93.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 9. Konfigurieren Sie die Benutzerrechte, damit sich Mitglieder der Gruppe "Administratoren" über Remotedesktopdienste anmelden können. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie **auf Anmelden über Remotedesktopdienste zulassen** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie **auf Anmelden über Remotedesktopdienste zulassen** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administratoren**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**.
+    3.  Geben Sie **Administratoren** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_94.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
-10. Um **Gruppenrichtlinienverwaltungs-Editor**zu beenden, klicken Sie auf **Datei**und dann auf **Beenden**.
+10. Um **Gruppenrichtlinienverwaltungs-Editor** zu beenden, klicken Sie auf **Datei** und dann auf **Beenden** .
 
-11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit der Organisationseinheit Domänen Controller, indem Sie die folgenden Schritte ausführen:
+11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management** mit der Organisationseinheit Domänen Controller, indem Sie die folgenden Schritte ausführen:
 
     1.  Navigieren Sie zu " <Forest> \domains" \\ <Domain> (wobei der Name der Gesamtstruktur <Forest> und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).
 
@@ -209,7 +209,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_95.gif)
 
-    3.  Wählen Sie das soeben erstellte Gruppenrichtlinien Objekt aus, und klicken Sie auf **OK**.
+    3.  Wählen Sie das soeben erstellte Gruppenrichtlinien Objekt aus, und klicken Sie auf **OK** .
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_96.gif)
 
@@ -220,11 +220,11 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
 1.  Melden Sie sich lokal mit einem Konto an, das Mitglied der Gruppe "Administratoren" ist.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld** **Eingabeaufforderung**ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen** , um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen.
+3.  Geben Sie im **Suchfeld** **Eingabeaufforderung** ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung** , und klicken Sie dann auf **als Administrator ausführen** , um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen.
 
-4.  Wenn Sie aufgefordert werden, die Höhe zu genehmigen, klicken Sie auf **Ja**.
+4.  Wenn Sie aufgefordert werden, die Höhe zu genehmigen, klicken Sie auf **Ja** .
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_97.gif)
 
@@ -239,50 +239,50 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 ###### <a name="create-a-batch-file"></a>Erstellen einer Batch Datei
 
-1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-2.  Geben Sie im **Suchfeld den Suchbegriff** **Editor**ein, und klicken Sie auf **Editor**.
+2.  Geben Sie im **Suchfeld den Suchbegriff** **Editor** ein, und klicken Sie auf **Editor** .
 
-3.  Geben **Sie im Editor**den Befehl **dir c:** ein.
+3.  Geben **Sie im Editor** den Befehl **dir c:** ein.
 
-4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.
+4.  Klicken Sie auf **Datei** und dann auf **Speichern** unter.
 
-5.  Geben Sie im Feld **Dateiname** den Namen ** <Filename> . bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).
+5.  Geben Sie im Feld **Dateiname** den Namen **<Filename> . bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe
 
-1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-2.  Geben Sie im **Suchfeld** den Text **Task Scheduler**ein, und klicken Sie auf **Taskplaner**.
+2.  Geben Sie im **Suchfeld** den Text **Task Scheduler** ein, und klicken Sie auf **Taskplaner** .
 
     > [!NOTE]
     > Geben Sie auf Computern, auf denen Windows 8 ausgeführt wird, im Suchfeld Schedule Tasks ein, und klicken Sie auf Aufgaben planen.
 
-3.  Klicken Sie auf **Aktion**, und klicken Sie auf **Task erstellen**.
+3.  Klicken Sie auf **Aktion** , und klicken Sie auf **Task erstellen** .
 
 4.  Geben Sie im Dialogfeld **Task erstellen** **<Task Name>** (wobei <Task Name> der Name der neuen Aufgabe ist) ein.
 
-5.  Klicken Sie auf die Registerkarte **Aktionen** , und klicken Sie auf **neu**.
+5.  Klicken Sie auf die Registerkarte **Aktionen** , und klicken Sie auf **neu** .
 
-6.  Wählen Sie im Feld **Aktion** die Option **Programm starten**aus.
+6.  Wählen Sie im Feld **Aktion** die Option **Programm starten** aus.
 
-7.  Klicken Sie im Feld **Programm/Skript** auf **Durchsuchen**, suchen Sie die Batchdatei, die Sie im Abschnitt **Erstellen einer Batchdatei** erstellt haben, und klicken Sie auf **Öffnen**.
+7.  Klicken Sie im Feld **Programm/Skript** auf **Durchsuchen** , suchen Sie die Batchdatei, die Sie im Abschnitt **Erstellen einer Batchdatei** erstellt haben, und klicken Sie auf **Öffnen** .
 
-8.  Klicken Sie auf **OK**.
+8.  Klicken Sie auf **OK** .
 
-9. Klicken Sie auf die Registerkarte **Allgemein**.
+9. Klicken Sie auf die Registerkarte **Allgemein** .
 
-10. Klicken Sie im Feld **Sicherheitsoptionen** auf **Benutzer oder Gruppe ändern**.
+10. Klicken Sie im Feld **Sicherheitsoptionen** auf **Benutzer oder Gruppe ändern** .
 
-11. Geben Sie den Namen eines Kontos ein, das Mitglied der Gruppe "Administratoren" ist, klicken Sie auf **Namen überprüfen**, und klicken Sie auf **OK**.
+11. Geben Sie den Namen eines Kontos ein, das Mitglied der Gruppe "Administratoren" ist, klicken Sie auf **Namen überprüfen** , und klicken Sie auf **OK** .
 
-12. Wählen Sie ausführen aus, **ob der Benutzer nicht angemeldet ist** , und speichern Sie das **Kennwort**nicht. Der Task hat nur Zugriff auf lokale Computerressourcen.
+12. Wählen Sie ausführen aus, **ob der Benutzer nicht angemeldet ist** , und speichern Sie das **Kennwort** nicht. Der Task hat nur Zugriff auf lokale Computerressourcen.
 
-13. Klicken Sie auf **OK**.
+13. Klicken Sie auf **OK** .
 
 14. Es wird ein Dialogfeld angezeigt, in dem die Anmelde Informationen des Benutzerkontos zum Ausführen des Tasks angefordert werden.
 
-15. Klicken Sie nach der Eingabe des Kennworts auf **OK**.
+15. Klicken Sie nach der Eingabe des Kennworts auf **OK** .
 
 16. Ein Dialogfeld ähnlich dem folgenden sollte angezeigt werden.
 
@@ -292,19 +292,19 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 1.  Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die von den GPO-Änderungen betroffen sind.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste**ein, und klicken Sie auf **Dienste**.
+3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste** ein, und klicken Sie auf **Dienste** .
 
-4.  Suchen Sie den **Druck Spooler**, und doppelklicken Sie darauf.
+4.  Suchen Sie den **Druck Spooler** , und doppelklicken Sie darauf.
 
-5.  Klicken Sie auf die Registerkarte **Anmelden**.
+5.  Klicken Sie auf die Registerkarte **Anmelden** .
 
-6.  Wählen Sie im Feld **Anmelden als** **das Konto**aus.
+6.  Wählen Sie im Feld **Anmelden als** **das Konto** aus.
 
-7.  Klicken Sie auf **Durchsuchen**, geben Sie den Namen eines Kontos ein, das Mitglied der Gruppe Administratoren ist, klicken Sie auf **Namen überprüfen**, und klicken Sie dann auf **OK**.
+7.  Klicken Sie auf **Durchsuchen** , geben Sie den Namen eines Kontos ein, das Mitglied der Gruppe Administratoren ist, klicken Sie auf **Namen überprüfen** , und klicken Sie dann auf **OK** .
 
-8.  Geben Sie in die Felder **Kennwort** und **Kennwort bestätigen** das Kennwort für das ausgewählte Konto ein, und klicken Sie auf **OK**.
+8.  Geben Sie in die Felder **Kennwort** und **Kennwort bestätigen** das Kennwort für das ausgewählte Konto ein, und klicken Sie auf **OK** .
 
 9. Klicken Sie drei weitere Male auf **OK** .
 
@@ -318,12 +318,12 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 1.  Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die von den GPO-Änderungen betroffen sind.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste**ein, und klicken Sie auf **Dienste**.
+3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste** ein, und klicken Sie auf **Dienste** .
 
-4.  Suchen Sie den **Druck Spooler**, und doppelklicken Sie darauf.
+4.  Suchen Sie den **Druck Spooler** , und doppelklicken Sie darauf.
 
-5.  Klicken Sie auf die Registerkarte **Anmelden**.
+5.  Klicken Sie auf die Registerkarte **Anmelden** .
 
-6.  Klicken Sie im Feld **Anmelden als** auf **Lokales System** Konto, und klicken Sie dann auf **OK**.
+6.  Klicken Sie im Feld **Anmelden als** auf **Lokales System** Konto, und klicken Sie dann auf **OK** .

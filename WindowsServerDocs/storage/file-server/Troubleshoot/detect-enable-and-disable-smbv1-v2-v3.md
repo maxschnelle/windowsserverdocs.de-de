@@ -6,12 +6,13 @@ manager: dcscontentpm
 ms.topic: how-to
 ms.author: delhan
 ms.date: 10/29/2020
-ms.openlocfilehash: ebf5617c108d959e4c4e107652f48ad4a4b53c08
-ms.sourcegitcommit: 65eef102021ed2b5abd73dca8a0ffd6eb174d705
+ms.custom: contperfq1
+ms.openlocfilehash: d121fb8f4899bcf70468035c9d7595504f3b3b45
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93035766"
+ms.locfileid: "93071022"
 ---
 # <a name="how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows"></a>Erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windows
 
@@ -54,7 +55,9 @@ Das SMBv2-Protokoll wurde in Windows Vista und Windows Server 2008 eingeführt, 
 
 [Neues in SMB](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/ff625695(v=ws.10))  
 
-## <a name="how-to-gracefully-remove-smb-v1-in-windows-81-windows-10-windows-2012-r2-windows-server-2016-and-windows-server-2019"></a>Vorgehensweise zum ordnungsgemäßen Entfernen von SMB V1 in Windows 8.1, Windows 10, Windows 2012 R2, Windows Server 2016 und Windows Server 2019
+## <a name="how-to-remove-smb-v1"></a>Entfernen von SMB v1
+
+Gehen Sie wie folgt vor, um SMBv1 in Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016 und Windows 2012 R2 zu entfernen.
 
 #### <a name="powershell-methods"></a>PowerShell-Methoden
 

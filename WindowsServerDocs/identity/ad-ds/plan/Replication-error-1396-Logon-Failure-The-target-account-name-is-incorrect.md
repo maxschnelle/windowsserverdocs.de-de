@@ -2,16 +2,16 @@
 ms.assetid: 399a8bbe-3375-4bb0-b55b-5f46e7050028
 title: 'Replikationsfehler 1396: Anmeldefehler. Der Zielkontoname ist falsch'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 2a4c135f7f4e74c5c5e96e8e9366635db84030df
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 41b995f8212b25c7a80753a3bd91503db57895ee
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070082"
 ---
 # <a name="replication-error-1396-logon-failure-the-target-account-name-is-incorrect"></a>Replikationsfehler 1396: Anmeldefehler. Der Zielkontoname ist falsch
 
@@ -113,7 +113,7 @@ Dcdiag meldet außerdem eine Fehlermeldung, dass das RODC-krbtgt-Konto nicht akt
         <listItem>
           <para>Suchen Sie nach dem in Schritt 1 ermittelten Dienst Prinzipal Namen im globalen Katalog, der in Schritt 2 erkannt wurde.</para>
           <code>C:&gt;repadmin /showattr Server_Name DC=corp,DC=contoso,dc=com &lt;GC used by KDC&gt; &lt;DN path of forest root domain&gt; /filter:&quot;(serviceprincipalname=&lt;SPN cited in the NTDS Replication event 1645&gt;)&quot; /gc /subtree /atts:cn,serviceprincipalname</code>
-          <para>ODER</para>
+          <para>oder</para>
           <code>C:&gt;dsquery * forestroot -scope subtree -filter &quot;(serviceprincipalname=E3514235-4B06-11D1-AB04-00C04FC2DCD2/65cead9f-4949-46a3-a49a-f1fbfe13d2b3*)&quot; -attr * -s Server_Name.europe.corp.contoso.com</code>
           <para>Vergewissern Sie sich, dass das Host Objekt für den SPN vorhanden ist.</para>
           <para>Überprüfen Sie den DN-Pfad für das Host Objekt, z. b., ob das Objekt cnf/Konflikt hat oder sich im verlorenen und gefundenen Container befindet.</para>

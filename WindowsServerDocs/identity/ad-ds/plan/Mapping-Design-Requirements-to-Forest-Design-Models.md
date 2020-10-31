@@ -1,17 +1,17 @@
 ---
 ms.assetid: c0d64566-5530-482e-a332-af029a5fb575
 title: Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/07/2018
 ms.topic: article
-ms.openlocfilehash: b796b06d8bdf5b4e644eaa3cc9f2e50f127c71a1
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 4ca6eff6d069d1f86aed3952c24996b4dcd2a879
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939050"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071102"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
 
@@ -31,7 +31,7 @@ Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamt
 |[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|
 |[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein|–|Nein|Ja|
 |[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein|–|Ja|–|
-|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|–|Ja|–|–|–|
+|[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|–|Ja|–|Nicht zutreffend|Nicht zutreffend|
 |[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|–|Nein|Nein|
 |[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|–|Nein|Ja|
 |[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|–|Ja|–|

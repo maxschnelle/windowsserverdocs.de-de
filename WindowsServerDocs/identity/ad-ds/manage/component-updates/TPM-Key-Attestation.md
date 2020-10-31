@@ -2,22 +2,22 @@
 ms.assetid: 16a344a9-f9a6-4ae2-9bea-c79a0075fd04
 title: TPM-Schlüsselnachweis
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: aa23d8df4391514d08ff1ef065af14275274dfa9
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 18bf859e6e02d3c01fead9291d31c8dac3f002f1
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070632"
 ---
 # <a name="tpm-key-attestation"></a>TPM-Schlüsselnachweis
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
+**Autor** : Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
 
 > [!NOTE]
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.
@@ -56,7 +56,7 @@ Mit dem TPM-Schlüssel Nachweis ist nun ein neues Verwaltungs Paradigma möglich
 ### <a name="how-does-tpm-key-attestation-work"></a>Wie funktioniert der TPM-Schlüssel Nachweis?
 Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:
 
-1.  Jedes TPM wird mit einem eindeutigen asymmetrischen Schlüssel ausgeliefert, der als *Endorsement Key* (EK) bezeichnet wird, der vom Hersteller gebrannt wurde. Der öffentliche Teil dieses Schlüssels wird als *ekpub* und der zugehörige private Schlüssel als *ekpriv*bezeichnet. Einige TPM-Chips verfügen auch über ein EK-Zertifikat, das vom Hersteller für das ekpub ausgestellt wird. Wir bezeichnen dieses Zertifikat als *ekcert*.
+1.  Jedes TPM wird mit einem eindeutigen asymmetrischen Schlüssel ausgeliefert, der als *Endorsement Key* (EK) bezeichnet wird, der vom Hersteller gebrannt wurde. Der öffentliche Teil dieses Schlüssels wird als *ekpub* und der zugehörige private Schlüssel als *ekpriv* bezeichnet. Einige TPM-Chips verfügen auch über ein EK-Zertifikat, das vom Hersteller für das ekpub ausgestellt wird. Wir bezeichnen dieses Zertifikat als *ekcert* .
 
 2.  Eine Zertifizierungsstelle richtet eine Vertrauensstellung im TPM entweder über ekpub oder ekcert ein.
 
@@ -64,7 +64,7 @@ Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:
 
 4.  Die Zertifizierungsstelle gibt ein Zertifikat mit einer speziellen Ausstellungs Richtlinien-OID aus, um anzugeben, dass der Schlüssel nun von einem TPM geschützt wird.
 
-## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Bereitstellungs Übersicht
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Übersicht über die Bereitstellung
 Bei dieser Bereitstellung wird davon ausgegangen, dass eine Windows Server 2012 R2-Unternehmens Zertifizierungsstelle eingerichtet ist. Außerdem werden-Clients (Windows 8.1) für die Registrierung für die Unternehmens Zertifizierungsstelle mithilfe von Zertifikat Vorlagen konfiguriert.
 
 Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderlich:
@@ -73,7 +73,7 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
 
     -   **Vertrauensstellung basierend auf den Benutzer** Anmelde Informationen: Die Unternehmens Zertifizierungsstelle vertraut dem vom Benutzer bereitgestellten ekpub als Teil der Zertifikat Anforderung, und außer den Domänen Anmelde Informationen des Benutzers wird keine Validierung ausgeführt.
 
-    -   **Vertrauensstellung basierend auf ekcert:** Die Unternehmens Zertifizierungsstelle überprüft die ekcert-Kette, die als Teil der Zertifikat Anforderung bereitgestellt wird, an eine vom Administrator verwaltete Liste zulässiger EK-Zertifikat *Ketten*. Die zulässigen Ketten werden pro Hersteller definiert und über zwei benutzerdefinierte Zertifikat Speicher auf der ausstellenden Zertifizierungsstelle ausgedrückt (ein Speicher für die zwischengeschaltete und eine für Zertifikate der Stamm Zertifizierungsstelle). Dieser Vertrauensstellungs Modus bedeutet, dass **alle** TPMs eines bestimmten Herstellers vertrauenswürdig sind. Beachten Sie, dass in diesem Modus TPMs, die in der Umgebung verwendet werden, ekcerts enthalten müssen.
+    -   **Vertrauensstellung basierend auf ekcert:** Die Unternehmens Zertifizierungsstelle überprüft die ekcert-Kette, die als Teil der Zertifikat Anforderung bereitgestellt wird, an eine vom Administrator verwaltete Liste zulässiger EK-Zertifikat *Ketten* . Die zulässigen Ketten werden pro Hersteller definiert und über zwei benutzerdefinierte Zertifikat Speicher auf der ausstellenden Zertifizierungsstelle ausgedrückt (ein Speicher für die zwischengeschaltete und eine für Zertifikate der Stamm Zertifizierungsstelle). Dieser Vertrauensstellungs Modus bedeutet, dass **alle** TPMs eines bestimmten Herstellers vertrauenswürdig sind. Beachten Sie, dass in diesem Modus TPMs, die in der Umgebung verwendet werden, ekcerts enthalten müssen.
 
     -   **Auf ekpub basierende Vertrauensstellung:** Die Unternehmens Zertifizierungsstelle überprüft, ob die im Rahmen der Zertifikat Anforderung angegebene ekpub in einer vom Administrator verwalteten Liste zulässiger ekpubs angezeigt wird. Diese Liste wird als Verzeichnis von Dateien ausgedrückt, wobei der Name der einzelnen Dateien in diesem Verzeichnis der SHA-2-Hash der zulässigen ekpub-Datei ist. Diese Option bietet die höchste Sicherheitsstufe, erfordert jedoch mehr Verwaltungsaufwand, da jedes Gerät einzeln identifiziert wird. In diesem Vertrauens Modell können nur die Geräte, deren ekpub von TPM der Zulassungsliste von ekpubs hinzugefügt wurde, für ein TPM-attezertifikat registriert werden.
 
@@ -107,15 +107,15 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 
     Im Abschnitt **Kompatibilitäts Einstellungen** :
 
-    -   Stellen Sie sicher, dass für die **Zertifizierungs**Stelle **Windows Server 2012 R2** ausgewählt ist.
+    -   Stellen Sie sicher, dass für die **Zertifizierungs** Stelle **Windows Server 2012 R2** ausgewählt ist.
 
-    -   Stellen Sie sicher, dass **Windows 8.1/Windows Server 2012 R2** für den **Zertifikat Empfänger**ausgewählt ist.
+    -   Stellen Sie sicher, dass **Windows 8.1/Windows Server 2012 R2** für den **Zertifikat Empfänger** ausgewählt ist.
 
     ![TPM-Schlüsselnachweis](media/TPM-Key-Attestation/GTR_ADDS_CompatibilityTab.gif)
 
 2.  Registerkarte **Kryptografie**
 
-    Stellen Sie sicher, dass der **Schlüsselspeicher Anbieter** für die **Anbieter Kategorie** ausgewählt und **RSA** als **Algorithmusname**ausgewählt ist. Stellen Sie sicher, dass **Anforderungen einen der folgenden Anbieter verwenden** ausgewählt ist und die Option **Microsoft Platform Crypto Provider** unter **Providers**ausgewählt ist.
+    Stellen Sie sicher, dass der **Schlüsselspeicher Anbieter** für die **Anbieter Kategorie** ausgewählt und **RSA** als **Algorithmusname** ausgewählt ist. Stellen Sie sicher, dass **Anforderungen einen der folgenden Anbieter verwenden** ausgewählt ist und die Option **Microsoft Platform Crypto Provider** unter **Providers** ausgewählt ist.
 
     ![TPM-Schlüsselnachweis](media/TPM-Key-Attestation/GTR_ADDS_CryptoTab.gif)
 
@@ -149,7 +149,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 
     **Ausgabe Richtlinie OIDs**
 
-    |OID|Typ des Schlüssel Nachweis|BESCHREIBUNG|Zuverlässigkeits Stufe|
+    |OID|Typ des Schlüssel Nachweis|Beschreibung|Zuverlässigkeits Stufe|
     |-------|------------------------|---------------|-------------------|
     |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|High|
     |1.3.6.1.4.1.311.21.31|Endorsement Certificate|"EK-Zertifikat überprüft": Wenn die EK-Zertifikat Kette überprüft wird|Medium|
@@ -172,7 +172,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
 
     2.  Abrufen der zwischen-und Stamm Zertifizierungsstellen Zertifikate von Herstellern, die Sie in ihrer Unternehmensumgebung zulassen möchten. Diese Zertifikate müssen nach Bedarf in die zuvor erstellten Zertifikat Speicher (ekca und ekroot) importiert werden.
 
-    Mit dem folgenden Windows PowerShell-Skript werden beide Schritte ausgeführt. Im folgenden Beispiel hat der TPM-Hersteller Fabrikam ein Stamm Zertifikat *fabrikamroot. CER* und ein ausstell Endes Zertifizierungsstellen Zertifikat *fabrikamca. CER*bereitgestellt.
+    Mit dem folgenden Windows PowerShell-Skript werden beide Schritte ausgeführt. Im folgenden Beispiel hat der TPM-Hersteller Fabrikam ein Stamm Zertifikat *fabrikamroot. CER* und ein ausstell Endes Zertifizierungsstellen Zertifikat *fabrikamca. CER* bereitgestellt.
 
     ```powershell
     PS C:>\cd cert:
@@ -222,17 +222,17 @@ Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen
 
 1.  Die Kompatibilitäts Einstellungen sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:
 
-    1.  **Zertifizierungs**Stelle: **Windows Server 2012 R2**
+    1.  **Zertifizierungs** Stelle: **Windows Server 2012 R2**
 
-    2.  **Zertifikat Empfänger**: **Windows 8.1/Windows Server 2012 R2**
+    2.  **Zertifikat Empfänger** : **Windows 8.1/Windows Server 2012 R2**
 
 2.  Die Kryptografieeinstellungen sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:
 
-    1.  **Anbieter Kategorie**: **Schlüsselspeicher Anbieter**
+    1.  **Anbieter Kategorie** : **Schlüsselspeicher Anbieter**
 
-    2.  **Algorithmusname**: **RSA**
+    2.  **Algorithmusname** : **RSA**
 
-    3.  **Anbieter**: **Kryptografieanbieter für Microsoft-Plattform**
+    3.  **Anbieter** : **Kryptografieanbieter für Microsoft-Plattform**
 
 3.  Die Einstellungen für die Anforderungs Behandlung sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:
 
@@ -241,17 +241,17 @@ Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen
     2.  Die Option zum **Verschlüsseln des privaten Schlüssels des Subjekts** darf nicht ausgewählt werden.
 
 ### <a name="verification-of-tpm-device-for-attestation"></a>Überprüfung des TPM-Geräts für den Nachweis
-Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo**, um zu überprüfen, ob ein bestimmtes TPM-Gerät für den Nachweis durch CAS vertrauenswürdig ist. Es gibt zwei Optionen: eine zum Überprüfen von ekcert und die andere für die Überprüfung eines ekpub. Das Cmdlet wird entweder lokal auf einer Zertifizierungsstelle oder auf Remote Zertifizierungsstellen mithilfe von Windows PowerShell-Remoting ausgeführt.
+Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo** , um zu überprüfen, ob ein bestimmtes TPM-Gerät für den Nachweis durch CAS vertrauenswürdig ist. Es gibt zwei Optionen: eine zum Überprüfen von ekcert und die andere für die Überprüfung eines ekpub. Das Cmdlet wird entweder lokal auf einer Zertifizierungsstelle oder auf Remote Zertifizierungsstellen mithilfe von Windows PowerShell-Remoting ausgeführt.
 
 1.  Führen Sie die folgenden beiden Schritte aus, um die Vertrauenswürdigkeit in einem ekpub zu überprüfen:
 
-    1.  **Extrahieren Sie die ekpub-auf dem Client Computer:** Die ekpub-Datei kann über **Get-tpmendorabmentkeyinfo**von einem Client Computer extrahiert werden. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten Folgendes aus:
+    1.  **Extrahieren Sie die ekpub-auf dem Client Computer:** Die ekpub-Datei kann über **Get-tpmendorabmentkeyinfo** von einem Client Computer extrahiert werden. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten Folgendes aus:
 
         ```
         PS C:>\$a=Get-TpmEndorsementKeyInfo -hashalgorithm sha256
         ```
 
-    2.  Über **prüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie die extrahierte Zeichenfolge (SHA-2-Hash der ekpub-Datei) auf den Server (z. b. per e-Mail), und übergeben Sie Sie an das Cmdlet Confirm-caendorcmentkeyinfo. Beachten Sie, dass dieser Parameter aus 64 Zeichen bestehen muss.
+    2.  Über **prüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie die extrahierte Zeichenfolge (SHA-2-Hash der ekpub-Datei) auf den Server (z. b. per e-Mail), und übergeben Sie Sie an das Cmdlet "Confirm-CAEndorsementKeyInfo". Beachten Sie, dass dieser Parameter aus 64 Zeichen bestehen muss.
 
         ```
         Confirm-CAEndorsementKeyInfo [-PublicKeyHash] <string>
@@ -259,7 +259,7 @@ Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo**, um
 
 2.  Führen Sie die folgenden beiden Schritte aus, um die Vertrauenswürdigkeit auf einem ekcert zu überprüfen:
 
-    1.  **Extrahieren Sie das ekcert-Zertifikat auf dem Client Computer:** Das ekcert kann über **Get-tpmendorabmentkeyinfo**von einem Client Computer extrahiert werden. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten Folgendes aus:
+    1.  **Extrahieren Sie das ekcert-Zertifikat auf dem Client Computer:** Das ekcert kann über **Get-tpmendorabmentkeyinfo** von einem Client Computer extrahiert werden. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten Folgendes aus:
 
         ```
         PS C:>\$a=Get-TpmEndorsementKeyInfo

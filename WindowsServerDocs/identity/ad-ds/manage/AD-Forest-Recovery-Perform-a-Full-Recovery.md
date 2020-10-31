@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
-ms.openlocfilehash: 189cbf826af3f5cf32eb799d86c04c6d0f03d051
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 3aec8863ff97a3b3497603837ec3783b78fa0bf8
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070892"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung
 
@@ -32,39 +32,39 @@ Verwenden Sie je nach Szenario eines der folgenden Verfahren, um eine vollständ
 
 ## <a name="perform-a-full-server-restore-with-a-local-backup-with-the-latest-image"></a>Ausführen einer vollständigen Server Wiederherstellung mit einer lokalen Sicherung mit dem neuesten Image
 
-1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter**.
-2. Klicken Sie auf **Computer reparieren**.
+1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter** .
+2. Klicken Sie auf **Computer reparieren** .
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore1.png)
-3. Klicken **Sie**auf Problembehandlung.</br>
+3. Klicken **Sie** auf Problembehandlung.</br>
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore2.png)
-4. Klicken Sie auf **System Image Recovery**.</br>
+4. Klicken Sie auf **System Image Recovery** .</br>
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore3.png)
-5. Klicken Sie auf **Windows Server 2016**.
+5. Klicken Sie auf **Windows Server 2016** .
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore4.png)
-6. Wenn Sie die letzte lokale Sicherung wiederherstellen, klicken Sie auf **das neueste verfügbare System Abbild verwenden (empfohlen)** , und klicken Sie auf **weiter**.
+6. Wenn Sie die letzte lokale Sicherung wiederherstellen, klicken Sie auf **das neueste verfügbare System Abbild verwenden (empfohlen)** , und klicken Sie auf **weiter** .
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore5.png)
 7. Sie erhalten nun eine Option für Folgendes:
    -  Datenträger formatieren und neu partitionieren
    -  Installieren von Treibern
    -  Deaktivieren Sie die **erweiterten** Features der automatischen Neustarts und der Überprüfung auf Datenträger Fehler. Diese Einstellungen sind standardmäßig aktiviert.
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
-8. Klicken Sie auf **Weiter**.
-9. Klicken Sie auf **Fertig stellen**. Sie werden gefragt, ob Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja**.
+8. Klicken Sie auf **Weiter** .
+9. Klicken Sie auf **Fertig stellen** . Sie werden gefragt, ob Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja** .
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png)
 10. Nachdem dies abgeschlossen ist, führen Sie eine autoritative Wiederherstellung von SYSVOL aus, wie unter [AD Forest Recovery-durchführen einer autorisierenden Synchronisierung von DFSR-replizierten SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)beschrieben.
 
 ## <a name="perform-a-full-server-restore-with-any-image-local-or-remote"></a>Ausführen einer vollständigen Server Wiederherstellung mit einem beliebigen Image (lokal oder Remote)
 
-1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter**.
-2. Klicken Sie auf **Computer reparieren**.</br>
-3. Klicken Sie auf Problem **Behandlung, auf** **System Abbild-Wiederherstellung**und dann auf **Windows Server 2016**.
-4. Wenn Sie die letzte lokale Sicherung wiederherstellen, klicken Sie auf **System Abbild auswählen** , und klicken Sie auf **weiter**.
+1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter** .
+2. Klicken Sie auf **Computer reparieren** .</br>
+3. Klicken Sie auf Problem **Behandlung, auf** **System Abbild-Wiederherstellung** und dann auf **Windows Server 2016** .
+4. Wenn Sie die letzte lokale Sicherung wiederherstellen, klicken Sie auf **System Abbild auswählen** , und klicken Sie auf **weiter** .
 5. Nun können Sie den Speicherort der Sicherung auswählen, die Sie wiederherstellen möchten. Wenn das Bild lokal ist, können Sie es in der Liste auswählen.
-6. Wenn sich das Abbild auf einer Netzwerkfreigabe befindet, wählen Sie **erweitert**aus. Sie können auch **erweitert** auswählen, wenn Sie einen Treiber installieren müssen.
+6. Wenn sich das Abbild auf einer Netzwerkfreigabe befindet, wählen Sie **erweitert** aus. Sie können auch **erweitert** auswählen, wenn Sie einen Treiber installieren müssen.
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore7.png)
-7. Wenn Sie nach dem Klicken auf **erweitert** über das Netzwerk wiederherstellen, wählen Sie **im Netzwerk nach einem System Abbild suchen**aus. Möglicherweise werden Sie aufgefordert, die Netzwerk Konnektivität wiederherzustellen. Wählen Sie OK aus. </br>
+7. Wenn Sie nach dem Klicken auf **erweitert** über das Netzwerk wiederherstellen, wählen Sie **im Netzwerk nach einem System Abbild suchen** aus. Möglicherweise werden Sie aufgefordert, die Netzwerk Konnektivität wiederherzustellen. Wählen Sie OK aus. </br>
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
-8. Geben Sie den UNC-Pfad zum Speicherort der Sicherungs Freigabe (z. b \\ . \server1\backups) ein, und klicken Sie auf **OK**. Sie können auch die IP-Adresse des Zielservers eingeben, z. b. \\ \192.168.1.3\backups.
+8. Geben Sie den UNC-Pfad zum Speicherort der Sicherungs Freigabe (z. b \\ . \server1\backups) ein, und klicken Sie auf **OK** . Sie können auch die IP-Adresse des Zielservers eingeben, z. b. \\ \192.168.1.3\backups.
    ![Server Wiederherstellung](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
 9. Geben Sie die Anmelde Informationen ein, die für den Zugriff auf die Freigabe erforderlich sind
 10. **Wählen Sie jetzt das Datum und die Uhrzeit für die Wiederherstellung des System Images aus,** und klicken Sie auf **weiter**
@@ -72,17 +72,17 @@ Verwenden Sie je nach Szenario eines der folgenden Verfahren, um eine vollständ
     - Datenträger formatieren und neu partitionieren
     - Installieren von Treibern
     - Deaktivieren Sie die **erweiterten** Features der automatischen Neustarts und der Überprüfung auf Datenträger Fehler. Diese Einstellungen sind standardmäßig aktiviert.
-12. Klicken Sie auf **Weiter**.
-13. Klicken Sie auf **Fertig stellen**. Sie werden gefragt, ob Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja**.
+12. Klicken Sie auf **Weiter** .
+13. Klicken Sie auf **Fertig stellen** . Sie werden gefragt, ob Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja** .
 14. Nachdem dies abgeschlossen ist, führen Sie eine autoritative Wiederherstellung von SYSVOL aus, wie unter [AD Forest Recovery-durchführen einer autorisierenden Synchronisierung von DFSR-replizierten SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)beschrieben.
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Aktivieren des Netzwerkadapters für eine Netzwerk Sicherung
 
 Wenn Sie einen Netzwerkadapter von der Eingabeaufforderung aus für die Wiederherstellung über eine Netzwerkfreigabe aktivieren müssen, führen Sie die folgenden Schritte aus.
 
-1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter**.
-2. Klicken Sie auf **Computer reparieren**. I
-3. Klicken Sie auf Problem **Behandlung und dann auf** **Eingabeaufforderung**.
+1. Starten Sie Windows Setup, geben Sie die Sprache, das Zeit-und Währungs Format und die Tastatur Optionen an, und klicken Sie auf **weiter** .
+2. Klicken Sie auf **Computer reparieren** . I
+3. Klicken Sie auf Problem **Behandlung und dann auf** **Eingabeaufforderung** .
 4. Geben Sie den folgenden Befehl ein, und drücken Sie die EINGABETASTE:
 
    ```

@@ -1,17 +1,17 @@
 ---
 title: 'Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
-ms.openlocfilehash: 90ff4003373c422797ed7629ba87435efcdfb686
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: ea92acab3839d735beea61873568556b4c72cbd1
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070862"
 ---
 # <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren
 

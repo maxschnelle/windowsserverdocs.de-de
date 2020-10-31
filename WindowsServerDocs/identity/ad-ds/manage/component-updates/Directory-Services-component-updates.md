@@ -2,22 +2,22 @@
 ms.assetid: 8a3cf2ae-2511-4eea-afd5-a43179a78613
 title: Directory Services-Komponentenupdates
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 39f13d18210a6527c5da2ccb6655150be9608a46
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 85095e1b75ca5c2ae781ffddbeed43e5bb3a3864
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070762"
 ---
 # <a name="directory-services-component-updates"></a>Directory Services-Komponentenupdates
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
+**Autor** : Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
 
 > [!NOTE]
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.
@@ -55,7 +55,7 @@ Mit der-Version gibt es neue Domänen-und Gesamtstruktur Funktionsebenen:
 
 1.  Domänen Controller seitiger Schutz für *geschützte Benutzer*
 
-    *Geschützte Benutzer* , die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können **nicht mehr**:
+    *Geschützte Benutzer* , die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können **nicht mehr** :
 
     -   Authentifizieren mit der NTLM-Authentifizierung
 
@@ -95,7 +95,7 @@ Verwenden Sie das Cmdlet **Set-adforestmode** , um die Gesamtstruktur Funktionse
 Set-ADForestMode -ForestMode Windows2008Forest -Identity contoso.com
 ```
 
-Verwenden Sie das Cmdlet Set-addomainmode, um die Domänen Funktionsebene mithilfe von Windows PowerShell zu erhöhen oder zu verringern.
+Verwenden Sie das Cmdlet "Set-ADDomainMode", um die Domänen Funktionsebene mithilfe von Windows PowerShell zu erhöhen oder zu verringern.
 
 **So legen Sie die contoso.com-DFL auf den Windows Server 2008-Modus fest:**
 
@@ -112,7 +112,7 @@ Erstellung einer neuen Domäne in einer vorhandenen Gesamtstruktur
 ### <a name="adprep"></a>Adprep
 In dieser Version sind keine neuen Gesamtstruktur-oder Domänen Vorgänge vorhanden.
 
-Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungsdienst**.
+Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungsdienst** .
 
 1.  Sch59
 
@@ -147,7 +147,7 @@ Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungs
 ### <a name="overview"></a>Übersicht
 FRS ist in Windows Server 2012 R2 veraltet.  Die Veraltung von FRS erfolgt durch Erzwingen einer minimalen Domänen Funktionsebene (Windows Server 2008).  Diese Erzwingung ist nur vorhanden, wenn die neue Domäne mithilfe von Server-Manager oder Windows PowerShell erstellt wird.
 
-Verwenden Sie den-DomainMode-Parameter mit den Cmdlets install-addsforest oder install-addsdomain, um die Domänen Funktionsebene anzugeben.  Unterstützte Werte für diesen Parameter können entweder eine gültige ganze Zahl oder ein entsprechender enumerationszeichen folgen Wert sein. Wenn Sie z. b. die Domänen Modus-Ebene auf Windows Server 2008 R2 festlegen möchten, können Sie entweder den Wert "4" oder "Win2008R2" angeben.  Wenn Sie diese Cmdlets von Server 2012 R2 ausführen, sind gültige Werte für Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) und Windows Server 2012 R2 (6, Win2012R2). Die Domänenfunktionsebene kann nicht niedriger als die Funktionsebene der Gesamtstruktur sein. Sie kann jedoch höher sein.  Da FRS in dieser Version veraltet ist, ist Windows Server 2003 (2, Win2003) bei der Ausführung von Windows Server 2012 R2 kein erkannter Parameter mit diesen Cmdlets.
+Verwenden Sie den-DomainMode-Parameter mit den Install-ADDSForest-oder Install-ADDSDomain-Cmdlets, um die Domänen Funktionsebene anzugeben.  Unterstützte Werte für diesen Parameter können entweder eine gültige ganze Zahl oder ein entsprechender enumerationszeichen folgen Wert sein. Wenn Sie z. b. die Domänen Modus-Ebene auf Windows Server 2008 R2 festlegen möchten, können Sie entweder den Wert "4" oder "Win2008R2" angeben.  Wenn Sie diese Cmdlets von Server 2012 R2 ausführen, sind gültige Werte für Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) und Windows Server 2012 R2 (6, Win2012R2). Die Domänenfunktionsebene kann nicht niedriger als die Funktionsebene der Gesamtstruktur sein. Sie kann jedoch höher sein.  Da FRS in dieser Version veraltet ist, ist Windows Server 2003 (2, Win2003) bei der Ausführung von Windows Server 2012 R2 kein erkannter Parameter mit diesen Cmdlets.
 
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)
 
@@ -269,9 +269,9 @@ Log Record Bytes Generated: 0
 
 1.  Öffnen Sie LDP.exe, und verbinden und binden Sie einen Domänen Controller.
 
-2.  Klicken Sie im Menü **Optionen** auf Steuer **Elemente**.
+2.  Klicken Sie im Menü **Optionen** auf Steuer **Elemente** .
 
-3.  Erweitern Sie im Dialogfeld Steuerelemente das Dropdown Menü **Load vordefinierten** , klicken Sie auf **Statistiken suchen** , und klicken Sie dann auf **OK**.
+3.  Erweitern Sie im Dialogfeld Steuerelemente das Dropdown Menü **Load vordefinierten** , klicken Sie auf **Statistiken suchen** , und klicken Sie dann auf **OK** .
 
     ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)
 
@@ -279,7 +279,7 @@ Log Record Bytes Generated: 0
 
 5.  Wählen Sie im Dialogfeld Suchen die Schaltfläche **Optionen** aus.
 
-6.  Vergewissern Sie sich, dass im Dialogfeld Suchoptionen das Kontrollkästchen **erweitert** aktiviert ist, und wählen Sie **OK**aus.
+6.  Vergewissern Sie sich, dass im Dialogfeld Suchoptionen das Kontrollkästchen **erweitert** aktiviert ist, und wählen Sie **OK** aus.
 
     ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)
 
@@ -301,7 +301,7 @@ Führen Sie Folgendes auf einem Domänen Controller oder einem in eine Domäne e
 
 [Funktionsweise von Active Directory suchen](/previous-versions/windows/it-pro/windows-server-2003/cc755809(v=ws.10))
 
-[Erstellen effizienterer Microsoft Active Directory-fähiger Anwendungen](/previous-versions/ms808539(v=msdn.10))
+[Erstellen effizienterer Microsoft Active Directory-Enabled-Anwendungen](/previous-versions/ms808539(v=msdn.10))
 
 [951581](https://support.microsoft.com/kb/951581) LDAP-Abfragen werden langsamer als erwartet im AD-oder LDS/ADAM-Verzeichnisdienst ausgeführt, und die Ereignis-ID 1644 kann protokolliert werden.
 
@@ -323,7 +323,7 @@ Das Ereignis enthält Folgendes:
 
 -   Startknoten
 
--   Filtern
+-   Filter
 
 -   Suchbereich
 

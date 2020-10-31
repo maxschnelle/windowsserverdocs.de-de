@@ -2,16 +2,16 @@
 ms.assetid: 4981b32f-741e-4afc-8734-26a8533ac530
 title: Integrieren von AD DS in eine vorhandene DNS-Infrastruktur
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 6c9882af6af5901c34b689a0f3de91e1a158187e
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 6c1a2af42d588cf8a8a2d2a940a6f67ccfad9311
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941050"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071112"
 ---
 # <a name="integrating-ad-ds-into-an-existing-dns-infrastructure"></a>Integrieren von AD DS in eine vorhandene DNS-Infrastruktur
 
@@ -28,7 +28,7 @@ Wenn Sie AD DS in einen vorhandenen DNS-Namespace integrieren, empfiehlt es sich
 
 -   Konfigurieren Sie die Domänen Controller für jede regionale Domäne, um die DNS-Zonen zu hosten, die Ihren Active Directory Domänen entsprechen.
 
--   Konfigurieren Sie die Zone mit den Active Directory Gesamtstruktur weiten Serverlocatorpunkt-Datensätzen (d. h. dem _msdcs.* Name* Zone) für die Replikation auf jeden DNS-Server in der Gesamtstruktur mithilfe der Gesamtstruktur weiten DNS-Anwendungsverzeichnis Partition.
+-   Konfigurieren Sie die Zone mit den Active Directory Gesamtstruktur weiten Serverlocatorpunkt-Datensätzen (d. h. dem _msdcs. *Name* Zone) für die Replikation auf jeden DNS-Server in der Gesamtstruktur mithilfe der Gesamtstruktur weiten DNS-Anwendungsverzeichnis Partition.
 
     > [!NOTE]
     > Wenn der DNS-Server Dienst mit dem Assistent zum Installieren von Active Directory Domain Services installiert wird (Wir empfehlen diese Option), werden alle vorherigen Tasks automatisch ausgeführt. Weitere Informationen finden Sie unter Bereitstellen [einer Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10))-Gesamtstruktur-Stamm Domäne.

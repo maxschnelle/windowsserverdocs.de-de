@@ -2,16 +2,16 @@
 ms.assetid: 79b9c912-ea3e-4679-ab41-893e096c4d09
 title: 'Anhang B: privilegierte Konten und Gruppen in Active Directory'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 22bcea1426502af83fdeeecb0005324de2d54e64
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 2f720c09ee59544376693cdb97ecf7af54e308bd
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070472"
 ---
 # <a name="appendix-b-privileged-accounts-and-groups-in-active-directory"></a>Anhang B: Privilegierte Konten und Gruppen in Active Directory
 
@@ -27,7 +27,7 @@ Zusätzlich zu ihren Rechten werden auch Informationen über integrierte und Sta
 Die Unterschiede zwischen Rechte, Berechtigungen und Berechtigungen können verwirrend und widersprüchlich sein, auch in der Dokumentation von Microsoft. In diesem Abschnitt werden einige der Merkmale der einzelnen Eigenschaften beschrieben, die in diesem Dokument verwendet werden. Diese Beschreibungen sollten nicht als autorisierend für die andere Microsoft-Dokumentation angesehen werden, da Sie diese Begriffe unterschiedlich verwenden können.
 
 #### <a name="rights-and-privileges"></a>Rechte und Berechtigungen
-Rechte und Berechtigungen sind praktisch die gleichen systemweiten Funktionen, die Sicherheits Prinzipale, wie z. b. Benutzern, Diensten, Computern oder Gruppen, gewährt werden. In Schnittstellen, die normalerweise von IT-Spezialisten verwendet werden, werden diese normalerweise als "Rechte" oder "Benutzerrechte" bezeichnet. Sie werden häufig durch Gruppenrichtlinie Objekte zugewiesen. Der folgende Screenshot zeigt einige der gängigsten Benutzerrechte, die Sicherheits Prinzipale zugewiesen werden können (das Gruppenrichtlinien Objekt Standard Domänen Controller in einer Windows Server 2012-Domäne). Einige dieser Rechte gelten für Active Directory, z. b. das **Aktivieren von Computer-und Benutzerkonten für die Delegierung von** Benutzerrechten, während andere Rechte auf das Windows-Betriebssystem zutreffen, wie z. b. **die Systemzeit**.
+Rechte und Berechtigungen sind praktisch die gleichen systemweiten Funktionen, die Sicherheits Prinzipale, wie z. b. Benutzern, Diensten, Computern oder Gruppen, gewährt werden. In Schnittstellen, die normalerweise von IT-Spezialisten verwendet werden, werden diese normalerweise als "Rechte" oder "Benutzerrechte" bezeichnet. Sie werden häufig durch Gruppenrichtlinie Objekte zugewiesen. Der folgende Screenshot zeigt einige der gängigsten Benutzerrechte, die Sicherheits Prinzipale zugewiesen werden können (das Gruppenrichtlinien Objekt Standard Domänen Controller in einer Windows Server 2012-Domäne). Einige dieser Rechte gelten für Active Directory, z. b. das **Aktivieren von Computer-und Benutzerkonten für die Delegierung von** Benutzerrechten, während andere Rechte auf das Windows-Betriebssystem zutreffen, wie z. b. **die Systemzeit** .
 
 ![privilegierte Konten und Gruppen](media/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory/SAD_8.gif)
 
@@ -58,25 +58,25 @@ Weitere Informationen zu den einzelnen in der folgenden Tabelle aufgeführten Be
 |[Erstellen globaler Objekte](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_14)|SeCreateGlobalPrivilege|
 |[Erstellen von dauerhaft freigegebenen Objekten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_15)|SeCreatePermanentPrivilege|
 |[Erstellen symbolischer Verknüpfungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_16)|SeCreateSymbolicLinkPrivilege|
-|[Debuggen von Programmen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_17)|SeDebugPrivilege|
+|[Debugprogramme](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_17)|SeDebugPrivilege|
 |[Zugriff vom Netzwerk auf diesen Computer verweigern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_18)|SeDenyNetworkLogonRight|
 |[Anmelden als Batch Auftrag verweigern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_18a)|SeDenyBatchLogonRight|
 |[Anmelden als Dienst verweigern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_19)|SeDenyServiceLogonRight|
 |[Lokal anmelden verweigern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_20)|SeDenyInteractiveLogonRight|
 |[Anmelden über Terminal Dienste verweigern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_21)|SeDenyRemoteInteractiveLogonRight|
-|[Ermöglichen, dass Computer- und Benutzerkonten für Delegierungszwecke vertraut wird](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_22)|SeEnableDelegationPrivilege|
+|[Aktivieren von Computer-und Benutzerkonten als vertrauenswürdig für die Delegierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_22)|SeEnableDelegationPrivilege|
 |[Erzwingen des Herunterfahrens von einem Remotesystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_23)|SeRemoteShutdownPrivilege|
 |[Generieren von Sicherheits Überwachungen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_24)|SeAuditPrivilege|
 |[Annehmen der Identität eines Clients nach der Authentifizierung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_25)|SeImpersonatePrivilege|
 |[Arbeitssatz eines Prozesses vergrößern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_26)|SeIncreaseWorkingSetPrivilege|
 |[Anheben der Zeitplanungspriorität](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_27)|SeIncreaseBasePriorityPrivilege|
-|[Laden und Entfernen von Gerätetreibern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_28)|SeLoadDriverPrivilege|
+|[Laden und Entladen von Gerätetreibern](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_28)|SeLoadDriverPrivilege|
 |[Sperren von Seiten im Speicher](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_29)|SeLockMemoryPrivilege|
 |[Anmelden als Batch Auftrag](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_30)|SeBatchLogonRight|
 |[Anmelden als Dienst](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_31)|SeServiceLogonRight|
-|[Verwalten von Überwachungs- und Sicherheitsprotokollen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_32)|SeSecurityPrivilege|
+|[Verwalten von Überwachungs-und Sicherheitsprotokollen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_32)|SeSecurityPrivilege|
 |[Verändern einer Objektbezeichnung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_33)|SeRelabelPrivilege|
-|[Verändern der Firmwareumgebungsvariablen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_34)|SeSystemEnvironmentPrivilege|
+|[Ändern von Firmware-Umgebungs Werten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_34)|SeSystemEnvironmentPrivilege|
 |[Ausführen von Volumewartungsaufgaben](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_35)|SeManageVolumePrivilege|
 |[Erstellen eines Profils für einen Einzelprozess](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_36)|SeProfileSingleProcessPrivilege|
 |[Erstellen eines Profils der Systemleistung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_37)|SeSystemProfilePrivilege|
@@ -85,7 +85,7 @@ Weitere Informationen zu den einzelnen in der folgenden Tabelle aufgeführten Be
 |[Wiederherstellen von Dateien und Verzeichnissen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_40)|SeRestorePrivilege|
 |[Herunterfahren des Systems](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_41)|SeShutdownPrivilege|
 |[Synchronisieren von Verzeichnisdienstdaten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_42)|SeSyncAgentPrivilege|
-|[Übernehmen des Besitzes an Dateien und Objekten](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_43)|SeTakeOwnershipPrivilege|
+|[Besitz von Dateien oder anderen Objekten übernehmen](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349804(v=ws.10)#BKMK_43)|SeTakeOwnershipPrivilege|
 
 #### <a name="permissions"></a>Berechtigungen
 Berechtigungen sind Zugriffs Steuerungen, die auf Sicherungs fähige Objekte wie Dateisystem, Registrierung, Dienst und Active Directory Objekte angewendet werden. Jedes Sicherungs fähige Objekt verfügt über eine zugeordnete Zugriffs Steuerungs Liste (ACL), die Zugriffs Steuerungs Einträge (Access Control Entries, ACEs) enthält, mit denen Sicherheits Prinzipale (Benutzer, Dienste, Computer oder Gruppen) verschiedene Vorgänge für das Objekt ausführen können. Die ACLs für viele Objekte in Active Directory beispielsweise ACEs enthalten, die es authentifizierten Benutzern ermöglichen, allgemeine Informationen über die Objekte zu lesen, Ihnen jedoch nicht die Möglichkeit zu geben, vertrauliche Informationen zu lesen oder die Objekte zu ändern.

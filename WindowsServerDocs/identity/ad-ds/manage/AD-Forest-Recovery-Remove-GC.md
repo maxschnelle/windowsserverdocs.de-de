@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 60087a62-11e6-4750-a70e-510f35315688
-ms.openlocfilehash: e24449f2debdeeaf1e0ccdaf51a44d041c7dcc61
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 0ec7af53bc43806f97edbd9174f2c2179641238b
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941580"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070852"
 ---
 # <a name="ad-forest-recovery---removing-the-global-catalog"></a>AD-Gesamtstruktur Wiederherstellung: Entfernen des globalen Katalogs
 
@@ -23,13 +23,13 @@ ms.locfileid: "88941580"
 
 ## <a name="to-remove-the-global-catalog-using-active-directory-sites-and-services"></a>So entfernen Sie den globalen Katalog mithilfe Active Directory Standorte und Dienste
 
-1. Öffnen Sie Server-Manager, klicken Sie auf Extras **, und klicken Sie auf** **Active Directory Websites und Dienste**.
+1. Öffnen Sie Server-Manager, klicken Sie auf Extras **, und klicken Sie auf** **Active Directory Websites und Dienste** .
 2. Erweitern Sie in der Konsolen Struktur den Container **Standorte** , und wählen Sie dann den entsprechenden Standort aus, der den Zielserver enthält.
 3. Erweitern Sie den Container **Server** , und erweitern Sie dann das *Server* Objekt für den Domänen Controller, von dem aus Sie den globalen Katalog entfernen möchten.
-4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**.
+4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen** , und klicken Sie auf **Eigenschaften** .
 5. Deaktivieren Sie das Kontrollkästchen **globaler Katalog** .
    ![GC entfernen](media/AD-Forest-Recovery-Remove-GC/removegc1.png)
-6. Klicken Sie auf **Anwenden**.
+6. Klicken Sie auf **Übernehmen** .
 
 ## <a name="to-remove-the-global-catalog-using-repadmin"></a>So entfernen Sie den globalen Katalog mithilfe von "repadmin"
 

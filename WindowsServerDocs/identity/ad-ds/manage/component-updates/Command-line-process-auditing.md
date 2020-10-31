@@ -2,22 +2,22 @@
 ms.assetid: c8597cc8-bdcb-4e59-a09e-128ef5ebeaf8
 title: Überwachen von Befehlszeilenprozessen
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 12bf07aa5fb60f18cdd5b04b7d7f91c00388ed42
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: d08032a01a1c3bf2fd03ba302d6eaba5162c317d
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070742"
 ---
 # <a name="command-line-process-auditing"></a>Überwachen von Befehlszeilenprozessen
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2
 
-**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
+**Autor** : Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe
 
 > [!NOTE]
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.
@@ -67,7 +67,7 @@ Ereignisvolumen: Niedrig bis mittel, je nach Systemnutzung
 
 |Richtlinienkonfiguration|Details|
 |------------------------|-----------|
-|**Path**|Administrative vorlagen\system\überwachungs Prozesserstellung|
+|**Pfad**|Administrative vorlagen\system\überwachungs Prozesserstellung|
 |**Einstellung**|**Befehlszeile in Prozess Erstellungs Ereignisse einschließen**|
 |**Standardeinstellung**|Nicht konfiguriert (nicht aktiviert)|
 |**Unterstützt auf:**|?|

@@ -1,17 +1,17 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
-ms.openlocfilehash: 7d7b1abfaf7e3ed4f3780ff2d819340ba8fe98c0
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 76e32be8db1647a209f94b49484898cf88333040
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941530"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070802"
 ---
 # <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle
 
@@ -42,10 +42,10 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
 4. Geben Sie an der Eingabeaufforderung " **Serververbindungen:** " den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:
 
    ```
-   Connect to server ServerFQDN
+   Connect to server ServerFQDN
    ```
 
-   Dabei ist *ServerFQDN* der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) dieses Domänen Controllers, z. b.: **Verbinden mit Server nycdc01.example.com**.
+   Dabei ist *ServerFQDN* der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) dieses Domänen Controllers, z. b.: **Verbinden mit Server nycdc01.example.com** .
 
    Wenn *ServerFQDN* nicht erfolgreich ist, verwenden Sie den NetBIOS-Namen des Domänen Controllers.
 
@@ -57,7 +57,7 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
 
 6. Geben Sie in Abhängigkeit von der Rolle, die Sie übernehmen möchten, den entsprechenden Befehl **in der folgenden** Tabelle ein, und drücken Sie dann die EINGABETASTE.
 
-|Role|Anmeldeinformationen|Get-Help|
+|Rolle|Anmeldeinformationen|Get-Help|
 |----------|-----------------|-------------|
 |Domänen Namen Master|Organisationsadministratoren|**Benennungs Master**|
 |Schema Master|Schema-Admins|**Schema Master übernehmen**|
@@ -68,7 +68,7 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
 Nachdem Sie die Anforderung bestätigt haben, werden Active Directory oder AD DS versucht, die Rolle zu übertragen. Wenn die Übertragung fehlschlägt, werden einige Fehlerinformationen angezeigt, und Active Directory oder AD DS wird mit der Beschlagnahme fortgesetzt. Nachdem der Vorgang durchgeführt wurde, wird eine Liste der Rollen und der LDAP-Name (Lightweight Directory Access Protocol) des Servers angezeigt, der derzeit die jeweilige Rolle innehat. Sie können **netdom query fsmo** auch an einer Eingabeaufforderung mit erhöhten Rechten ausführen, um die aktuellen Rollen Inhaber zu überprüfen.
 
 > [!NOTE]
-> Wenn dieser Computer vor dem Auftreten des Fehlers kein RID-Master war und Sie versuchen, die RID-Master Rolle zu übernehmen, versucht der Computer, eine Synchronisierung mit einem Replikations Partner durchführen, bevor diese Rolle akzeptiert Da dieser Schritt jedoch bei der Isolierung des Computers durchgeführt wird, ist die Synchronisierung mit einem Partner nicht erfolgreich. Daher wird ein Dialogfeld angezeigt, in dem Sie gefragt werden, ob der Vorgang fortgesetzt werden soll, obwohl der Computer nicht mit einem Partner synchronisiert werden kann. Klicken Sie auf **Ja**.
+> Wenn dieser Computer vor dem Auftreten des Fehlers kein RID-Master war und Sie versuchen, die RID-Master Rolle zu übernehmen, versucht der Computer, eine Synchronisierung mit einem Replikations Partner durchführen, bevor diese Rolle akzeptiert Da dieser Schritt jedoch bei der Isolierung des Computers durchgeführt wird, ist die Synchronisierung mit einem Partner nicht erfolgreich. Daher wird ein Dialogfeld angezeigt, in dem Sie gefragt werden, ob der Vorgang fortgesetzt werden soll, obwohl der Computer nicht mit einem Partner synchronisiert werden kann. Klicken Sie auf **Ja** .
 
 ## <a name="next-steps"></a>Nächste Schritte
 

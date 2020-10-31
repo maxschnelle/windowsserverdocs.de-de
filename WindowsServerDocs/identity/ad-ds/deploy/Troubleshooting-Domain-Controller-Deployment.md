@@ -2,16 +2,16 @@
 ms.assetid: 5ab76733-804d-4f30-bee6-cb672ad5075a
 title: Problembehandlung der Domänencontrollerbereitstellung
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 03/20/2019
 ms.topic: article
-ms.openlocfilehash: 8c850a9a09af97d9aa377b79aaa87d06aa0d916c
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: cf52ad53a4160235185a2b9c70c73b86bf2eedf3
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069933"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Problembehandlung der Domänencontrollerbereitstellung
 
@@ -27,7 +27,7 @@ Dieser Artikel behandelt detaillierte Methoden für die Problembehandlung bei Ko
 
 Die integrierten Protokolle sind das wichtigste Hilfsmittel für die Fehlerbehebung bei Herauf- und Herabstufung von Domänencontrollern. All diese Protokolle sind standardmäßig aktiviert und für maximale Ausführlichkeit konfiguriert.
 
-| Phase | Protokoll |
+| Phase | Log |
 |--|--|
 | Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen | -%systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\dcpromoui *. log |
 | Installation/Heraufstufung des Domänencontrollers | -%systemroot%\debug\dcpromo.log<p>-%systemroot%\debug\dcpromo *. log<p>-Ereignisviewer\windows-Protokolle\System<p>-Ereignisviewer\windows-Protokolle\Anwendung<p>-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation |
@@ -93,7 +93,7 @@ Bei der Herauf- und Herabstufung von Domänencontrollern wird am Ende der Operat
 
 1. Wenn Sie Server-Manager verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt.
 
-2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Beispiel:
+2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List** -Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Beispiel:
 
    ```
    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list
@@ -133,7 +133,7 @@ Bei Herauf- und Herabstufung werden die folgenden Ergebnis-Fehlercodes zurückge
 | 18 | Nicht genügend Speicher in "windir" | Geben Sie mithilfe von cleanmgr.exe Speicherplatz auf dem %systemdrive%-Laufwerk frei |
 | 19 | Namensänderung steht aus. Neustart erforderlich | Starten Sie den Server neu |
 | 20 | Ungültige Syntax in Computername | Benennen Sie den Computer mit einem gültigen Namen |
-| 21 | Dieser Domänencontroller enthält FSMO-Rollen, ist ein globaler Katalog und/oder ein DNS-Server | Add **-demoteoperationmasterrole** bei Verwendung von **-forceremoval**. |
+| 21 | Dieser Domänencontroller enthält FSMO-Rollen, ist ein globaler Katalog und/oder ein DNS-Server | Add **-demoteoperationmasterrole** bei Verwendung von **-forceremoval** . |
 | 22 | TCP/IP muss installiert werden oder funktioniert nicht | Prüfen Sie, ob TCP/IP auf dem Computer konfiguriert und gebunden ist und korrekt funktioniert |
 | 23 | DNS-Client muss zunächst konfiguriert werden | Konfigurieren Sie beim Hinzufügen eines neuen Domänencontrollers zu einer Domäne einen primären DNS-Server |
 | 24 | Eingegebene Anmeldeinformationen sind ungültig oder unvollständig | Überprüfen Sie Benutzername und Kennwort |
@@ -161,8 +161,8 @@ Bei Herauf- und Herabstufung werden die folgenden Ergebnis-Fehlercodes zurückge
 | 47 | Eine Struktur mit diesem Namen ist bereits vorhanden | Wählen Sie einen anderen DNS-Domänennamen für die Struktur |
 | 48 | Der Strukturname passt nicht in die Gesamtstruktur | Wählen Sie einen anderen DNS-Domänennamen für die Struktur |
 | 49 | Die angegebene Domäne existiert nicht | Prüfen Sie den eingegebenen Domänennamen |
-| 50 | Bei der Herabstufung wurde ein nicht angegebener letzter Domänencontroller entdeckt bzw. der letzte Domänencontroller wurde fälschlicherweise angegeben | Geben Sie **Letzter Domänencontroller in der Domäne** (**-lastdomaincontrollerindomain**) nur an, wenn dieser Wert wahr ist. Verwenden Sie **-ignorelastdcindomainmismatch** zum überschreiben, wenn dies wirklich der letzte Domänen Controller ist und Phantom-Domänen Controller-Metadaten vorhanden sind. |
-| 51 | Anwendungspartitionen existieren auf diesem Domänencontroller | Markieren Sie **Anwendungspartitionen entfernen** (**-removeapplicationpartitions**) |
+| 50 | Bei der Herabstufung wurde ein nicht angegebener letzter Domänencontroller entdeckt bzw. der letzte Domänencontroller wurde fälschlicherweise angegeben | Geben Sie **Letzter Domänencontroller in der Domäne** ( **-lastdomaincontrollerindomain** ) nur an, wenn dieser Wert wahr ist. Verwenden Sie **-ignorelastdcindomainmismatch** zum überschreiben, wenn dies wirklich der letzte Domänen Controller ist und Phantom-Domänen Controller-Metadaten vorhanden sind. |
+| 51 | Anwendungspartitionen existieren auf diesem Domänencontroller | Markieren Sie **Anwendungspartitionen entfernen** ( **-removeapplicationpartitions** ) |
 | 52 | Benötigtes Befehlszeilenargument fehlt (d. h. eine Antwortdatei muss in der Befehlszeile angegeben werden) | *Wird nur mit dcpromo/unattend erkannt, das veraltet ist. Siehe ältere Dokumentation* |
 | 53 | Herauf-/Herabstufung fehlgeschlagen, Computer muss zur Bereinigung neu gestartet werden | Untersuchen Sie erweiterte Fehlerbeschreibung und Protokolle |
 | 54 | Herauf-/Herabstufung fehlgeschlagen | Untersuchen Sie erweiterte Fehlerbeschreibung und Protokolle |
@@ -177,10 +177,10 @@ Bei Herauf- und Herabstufung werden die folgenden Ergebnis-Fehlercodes zurückge
 | 64 | Heraufstufung wegen Fehler bei der Erkennung der Komponenten-Binärdatei fehlgeschlagen | Installieren Sie die AD DS-Rolle |
 | 65 | Heraufstufung wegen Fehler bei der Installation der Komponenten-Binärdatei fehlgeschlagen | Installieren Sie die AD DS-Rolle |
 | 66 | Heraufstufung wegen Fehler bei der Erkennung des Betriebssystems fehlgeschlagen | Untersuchen Sie erweiterte Fehlerbeschreibung und Protokolle. Der Server gibt seine Betriebssystem-Version nicht zurück. Der Computer muss vermutlich neu installiert werden, da seine Gesamtintegrität wahrscheinlich beschädigt ist |
-| 68 | Ungültiger Replikationspartner | Verwenden Sie repadmin.exe oder die Windows PowerShell **Get-adreplication \\ ** zum Überprüfen der Integrität des \* Partner Domänen Controllers. |
-| 69 | Der benötigte Port wird bereits von einer anderen Anwendung verwendet | Verwenden Sie **netstat.exe -anob**, um Prozesse zu ermitteln, die fälschlicherweise reservierte AD DS-Ports verwenden |
+| 68 | Ungültiger Replikationspartner | Verwenden Sie repadmin.exe oder die Windows PowerShell **Get-adreplication \\** zum Überprüfen der Integrität des \* Partner Domänen Controllers. |
+| 69 | Der benötigte Port wird bereits von einer anderen Anwendung verwendet | Verwenden Sie **netstat.exe -anob** , um Prozesse zu ermitteln, die fälschlicherweise reservierte AD DS-Ports verwenden |
 | 70 | Der Controller der Gesamtstruktur-Stammdomäne muss ein globaler Katalogserver sein | *Wird nur mit dcpromo/unattend erkannt, das veraltet ist. Siehe ältere Dokumentation* |
-| 71 | DNS-Server ist bereits installiert | Geben Sie die Option "DNS installieren" (**-installDNS**) nicht an, falls der DNS-Dienst bereits installiert ist |
+| 71 | DNS-Server ist bereits installiert | Geben Sie die Option "DNS installieren" ( **-installDNS** ) nicht an, falls der DNS-Dienst bereits installiert ist |
 | 72 | Computer führt Remotedesktopdienste nicht im Admin-Modus aus | Dieser Domänencontroller kann nicht heraufgestuft werden, da er auch als RDS-Server für mehr als zwei Admin-Benutzer konfiguriert ist. Entfernen Sie RDS erst, nachdem Sie dessen Nutzung sorgfältig erfasst haben. Falls dieser Dienst von Anwendungen oder Endbenutzern verwendet wird, führt seine Entfernung zu einem Ausfall |
 | 73 | Die angegebene Gesamtstrukturfunktionsebene ist ungültig. | Geben Sie eine gültige Gesamtstrukturfunktionsebene an |
 | 74 | Die angegebene Domänenfunktionsebene ist ungültig. | Geben Sie eine gültige Domänenfunktionsebene an |
@@ -228,7 +228,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 | Problem | Herabstufung des letzten Domänencontrollers in einer Domäne schlägt fehl, wenn vorab erstellte und nicht belegte RODC-Konten existieren |
 |--|--|
 | Symptome | Herabstufung schlägt mit der folgenden Nachricht fehl:<p>**Dcpromo.General.54**<p>Active Directory-Domänendienste konnten keinen weiteren Active Directory-Domänencontroller finden, um die verbleibenden Daten in der Verzeichnispartition CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com zu übertragen.<p>"Das Format des angegebenen Domänennamens ist ungültig." |
-| Lösung und Hinweise | Entfernen Sie alle verbleibenden vorab erstellten RODC-Konten, bevor Sie eine Domäne herabstufen. Verwenden Sie dazu **Dsa.msc** oder **Ntdsutil.exe metadata cleanup**. |
+| Lösung und Hinweise | Entfernen Sie alle verbleibenden vorab erstellten RODC-Konten, bevor Sie eine Domäne herabstufen. Verwenden Sie dazu **Dsa.msc** oder **Ntdsutil.exe metadata cleanup** . |
 
 | Problem | Automatische Gesamtstruktur- und Domänenvorbereitung führt GPPREP nicht aus |
 |--|--|
@@ -253,7 +253,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 | Problem | Der Server startet nicht, nachdem die DirectoryServices-DomainController-Rolle mithilfe von Dism.exe entfernt wurde |
 |--|--|
 | Symptome | Falls Sie Dism.exe zum Entfernen der AD DS-Rolle verwenden, bevor Sie einen Domänencontroller ordnungsgemäß herabgestuft haben, startet der Server nicht mehr normal und zeigt den folgenden Fehler an:<p>Code-Status: 0x000000000<br />Info: ein unerwarteter Fehler ist aufgetreten. |
-| Lösung und Hinweise | Drücken Sie *Umschalt+F8*, um den Verzeichnisdienst-Wiederherstellungsmodus zu starten. Fügen Sie die AD DS-Rolle wieder hinzu und erzwingen Sie die Herabstufung des Domänencontrollers. Alternativ können Sie das Systems mithilfe der Sicherung wiederherstellen. Verwenden Sie niemale Dism.exe zum Entfernen von AD DS-Rollen, da dieses Tool keine Kenntnis von Domänencontrollern hat. |
+| Lösung und Hinweise | Drücken Sie *Umschalt+F8* , um den Verzeichnisdienst-Wiederherstellungsmodus zu starten. Fügen Sie die AD DS-Rolle wieder hinzu und erzwingen Sie die Herabstufung des Domänencontrollers. Alternativ können Sie das Systems mithilfe der Sicherung wiederherstellen. Verwenden Sie niemale Dism.exe zum Entfernen von AD DS-Rollen, da dieses Tool keine Kenntnis von Domänencontrollern hat. |
 
 | Problem | Die Installation einer neuen Gesamtstruktur mit dem Gesamtstrukturmodus Win2012 schlägt fehl |
 |--|--|
@@ -272,7 +272,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 
 | Problem | Die Install from Media-Prüfung erkennt nicht, dass ein RODC-Medium für einen beschreibbaren Domänencontroller angegeben wurde, oder umgekehrt. |
 |--|--|
-| Symptome | Wenn Sie einen neuen Domänencontroller mit IFM heraufstufen und dabei ein RODC-Medium für einen beschreibbaren Domänencontroller oder ein RWDC-Medium für einen RODC angeben, gibt die "Prüfen"-Schaltfläche keinen Fehler zurück. Später schlägt die Heraufstufung dann mit dem folgenden Fehler fehl:<p>Code: Fehler beim Konfigurieren dieses Computers als Domänen Controller. <br />Die herauf Stufung des schreibgeschützten Domänen Controllers kann nicht gestartet werden, da die angegebene Quelldatenbank nicht zulässig ist. Nur Datenbanken aus anderen RODCs können für die IFM-herauf Stufung eines RODC verwendet werden. |
+| Symptome | Wenn Sie einen neuen Domänencontroller mit IFM heraufstufen und dabei ein RODC-Medium für einen beschreibbaren Domänencontroller oder ein RWDC-Medium für einen RODC angeben, gibt die "Prüfen"-Schaltfläche keinen Fehler zurück. Später schlägt die Heraufstufung dann mit dem folgenden Fehler fehl:<p>Code: Fehler beim Konfigurieren dieses Computers als Domänen Controller. <br />Die Installation von einer medienerweiterung eines Read-Only DC kann nicht gestartet werden, da die angegebene Quelldatenbank nicht zulässig ist. Nur Datenbanken aus anderen RODCs können für die IFM-herauf Stufung eines RODC verwendet werden. |
 | Lösung und Hinweise | Die Prüfung prüft nur die Gesamtintegrität von IFM. Verwenden Sie immer den korrekten IFM-Typ für den jeweiligen Server. Starten Sie den Server neu, bevor Sie die Heraufstufung erneut mit dem korrekten Medium vornehmen. |
 
 | Problem | Die Heraufstufung eines RODC mit einem vorab erstellten Computerkonto schlägt fehl |

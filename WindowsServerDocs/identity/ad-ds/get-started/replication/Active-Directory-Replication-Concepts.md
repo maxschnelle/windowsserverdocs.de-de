@@ -2,16 +2,16 @@
 ms.assetid: 4cc9c16c-1928-4dce-a3a8-6229be28eb65
 title: Active Directory-Replikationskonzepte
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 403a8be3d6b7fc6330395bf6e4d20141e01b76ba
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 6acd9d1974395cdd4c07df3b09d47ffb104a16ef
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940320"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070992"
 ---
 # <a name="active-directory-replication-concepts"></a>Active Directory-Replikationskonzepte
 
@@ -65,7 +65,7 @@ Für Windows Server 2003-Domänen Controller können Sie die Arbeitsauslastung m
 
 Bei Windows Server 2008 RODCs bietet die normale Funktionsweise der KCC einen gewissen Ausgleich, wodurch die Notwendigkeit entfällt, ein zusätzliches Tool wie z. b. Adlb.exe zu verwenden. Die neue Funktionalität ist standardmäßig aktiviert. Sie können diese Einstellung deaktivieren, indem Sie den folgenden Registrierungsschlüssel auf dem RODC hinzufügen:
 
-**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\parameters**
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters**
 
 **"Zufälliger BH-Loadbalancing zulässig"** 
  **1 = aktiviert (Standard), 0 = deaktiviert**

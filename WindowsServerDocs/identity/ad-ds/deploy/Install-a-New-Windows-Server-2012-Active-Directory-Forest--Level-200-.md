@@ -2,16 +2,16 @@
 ms.assetid: b3d6fb87-c4d4-451c-b3de-a53d2402d295
 title: Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 50fd78a480a369030e8874054f583dc163a3a0b3
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 7ce07ae26c87e2f50cbbe76a8e59e54aa01937ce
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071032"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
@@ -116,7 +116,7 @@ Wählen Sie zum Hinzufügen von Servern eine der folgenden Optionen aus:
 
 -   Klicken Sie im Menü **Verwalten** auf **Server hinzufügen**
 
--   Klicken Sie mit der rechten Maustaste auf **Alle Server**, und klicken Sie anschließend auf **Server hinzufügen**
+-   Klicken Sie mit der rechten Maustaste auf **Alle Server** , und klicken Sie anschließend auf **Server hinzufügen**
 
 Dadurch wird das Dialogfeld Server hinzufügen geöffnet:
 
@@ -130,7 +130,7 @@ Dort haben Sie drei Möglichkeiten, um Server für die Verwendung oder Gruppieru
 
 -   Importieren (verwendet eine Textdateiliste von Servern, die durch Wagenrücklauf/Zeilenvorschub getrennt ist)
 
-Klicken Sie auf **Suche starten**, um eine Serverliste aus demselben Active Directory zurückzugeben, zu dem der Computer gehört. Klicken Sie dann in der Serverliste auf einen oder mehrere Servernamen. Klicken Sie auf den Pfeil nach rechts, um die Server der Liste **Ausgewählt** hinzuzufügen. Verwenden Sie das Dialogfeld **Server hinzufügen**, um die ausgewählten Server zu den Dashboardrollengruppen hinzuzufügen. Klicken Sie alternativ auf **Verwalten** und auf **Servergruppe erstellen**, oder klicken Sie auf **Servergruppe erstellen** in der Dashboard-Kachel **Willkommen bei Server-Manager**, um benutzerdefinierte Servergruppen zu erstellen.
+Klicken Sie auf **Suche starten** , um eine Serverliste aus demselben Active Directory zurückzugeben, zu dem der Computer gehört. Klicken Sie dann in der Serverliste auf einen oder mehrere Servernamen. Klicken Sie auf den Pfeil nach rechts, um die Server der Liste **Ausgewählt** hinzuzufügen. Verwenden Sie das Dialogfeld **Server hinzufügen** , um die ausgewählten Server zu den Dashboardrollengruppen hinzuzufügen. Klicken Sie alternativ auf **Verwalten** und auf **Servergruppe erstellen** , oder klicken Sie auf **Servergruppe erstellen** in der Dashboard-Kachel **Willkommen bei Server-Manager** , um benutzerdefinierte Servergruppen zu erstellen.
 
 > [!NOTE]
 > Bei dem Verfahren %%amp;quot;Server hinzufügen%%amp;quot; wird nicht überprüft, ob ein Server online oder der Zugriff darauf möglich ist. Beim nächsten Aktualisieren werden jedoch nicht erreichbare Server in der Sicht Verwaltbarkeit von Server-Manager gekennzeichnet
@@ -145,16 +145,16 @@ Server unter Betriebssystemen älter als Windows Server 2012 können nicht volls
 
 Sie können auch das Server-Manager-Dashboard auf einem existierenden Domänencontroller für die Remote-Installation von AD DS verwenden, wobei die Rolle bereits per Rechtsklick auf die AD DS-Dashboardkachel und Auswahl von **AD DS zu anderem Server hinzufügen** vorab ausgewählt ist. Dabei wird **Install-WindowsFeature AD-Domain-Services** aufgerufen.
 
-Der Computer, auf dem Sie Server-Manager ausführen, fügt sich selbst automatisch zum Pool hinzu. Um dort die AD DS-Rolle zu installieren, klicken Sie auf im Menü **Verwalten** auf **Rollen und Features hinzufügen**.
+Der Computer, auf dem Sie Server-Manager ausführen, fügt sich selbst automatisch zum Pool hinzu. Um dort die AD DS-Rolle zu installieren, klicken Sie auf im Menü **Verwalten** auf **Rollen und Features hinzufügen** .
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ManageAddRoles.png)
 
 #### <a name="installation-type"></a>Installationstyp
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectInstallationType.png)
 
-Das Dialogfeld **Installationstyp** bietet eine Option, die Active Directory-Domänendienste nicht unterstützt: **Szenariobasierte Installation von Remotedesktopdiensten**. Diese Option erlaubt nur Remotedesktopdienste in einer serverübergreifenden verteilten Arbeitsauslastung. Wenn Sie diese Option auswählen, kann AD DS nicht installiert werden.
+Das Dialogfeld **Installationstyp** bietet eine Option, die Active Directory-Domänendienste nicht unterstützt: **Szenariobasierte Installation von Remotedesktopdiensten** . Diese Option erlaubt nur Remotedesktopdienste in einer serverübergreifenden verteilten Arbeitsauslastung. Wenn Sie diese Option auswählen, kann AD DS nicht installiert werden.
 
-Lassen Sie die Standardeinstellungen unverändert, wenn Sie AD DS installieren: **Rollenbasierte oder featurebasierte Installation**.
+Lassen Sie die Standardeinstellungen unverändert, wenn Sie AD DS installieren: **Rollenbasierte oder featurebasierte Installation** .
 
 #### <a name="server-selection"></a>Serverauswahl
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectDestinationServer.png)
@@ -168,7 +168,7 @@ Außerdem können Sie offline Hyper-V VHD-Dateien mit dem Windows Server 2012-Be
 
 Wählen Sie die Rolle **Active Directory-Domänendienste** aus, wenn Sie einen Domänencontroller heraufstufen möchten. Alle Active Directory-Administrationsfeatures und benötigte Dienste werden automatisch installiert, selbst wenn sie eigentlich Teil einer anderen Rolle sind oder in der Server-Manager-Oberfläche nicht als ausgewählt angezeigt werden.
 
-Server-Manager zeigt außerdem in einem Informationsdialog an, welche Administrationsfeatures mit dieser Rolle implizit installiert werden. Dies entspricht dem Argument **-IncludeManagementTools**.
+Server-Manager zeigt außerdem in einem Informationsdialog an, welche Administrationsfeatures mit dieser Rolle implizit installiert werden. Dies entspricht dem Argument **-IncludeManagementTools** .
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_AddFeaturesDialog.gif)
 
@@ -186,7 +186,7 @@ Das Dialogfeld **Active Directory-Domänendienste** enthält eingeschränkte Inf
 
 Das Dialogfeld **Bestätigung** ist der letzte Prüfpunkt vor Beginn der Installation. Dort haben Sie die Option, den Computer bei Bedarf nach der Rolleninstallation neu zu starten. Für die AD DS-Installation ist jedoch kein Neustart erforderlich.
 
-Klicken Sie auf **Installieren**, um zu bestätigen, dass die Rolleninstallation beginnen kann. Die Rolleninstallation kann nach deren Beginn nicht unterbrochen werden.
+Klicken Sie auf **Installieren** , um zu bestätigen, dass die Rolleninstallation beginnen kann. Die Rolleninstallation kann nach deren Beginn nicht unterbrochen werden.
 
 #### <a name="results"></a>Ergebnisse
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_Results.png)
@@ -212,7 +212,7 @@ Sie sollten die Installationsergebnisse dennoch stets überprüfen. Wenn Sie das
 
 Nach Abschluss der AD DS-Rolleninstallation können Sie die Konfiguration fortsetzen, indem Sie auf den Link **Server zu einem Domänencontroller heraufstufen** klicken. Dieser Schritt ist erforderlich, um den Server zu einem Domänencontroller zu machen. Allerdings muss der Konfigurations-Assistent nicht unbedingt sofort ausgeführt werden. Sie können z. B. Server lediglich mit den AD DS-Binärdateien bereitstellen und anschließend zur späteren Konfiguration an andere Filialen verschicken. Indem Sie die AD DS-Rolle vor dem Versand hinzufügen, sparen Sie Zeit nach dem Erreichen des endgültigen Standorts. Außerdem beachten Sie auf diese Weise die bewährte Methode, Domänencontroller nicht über Tage oder Wochen hinweg offline zu belassen. Zuletzt können Sie auf diese Weise Komponenten vor der Domänencontroller-Heraufstufung aktualisieren und in der Folge zumindest einen Neustart einsparen.
 
-Wenn Sie zu einem späteren Zeitpunkt auf diesen Link klicken, werden die folgenden ADDSDeployment-Cmdlets aufgerufen: **install-addsforest**, **install-addsdomain** oder **install-addsdomaincontroller**.
+Wenn Sie zu einem späteren Zeitpunkt auf diesen Link klicken, werden die folgenden ADDSDeployment-Cmdlets aufgerufen: **install-addsforest** , **install-addsdomain** oder **install-addsdomaincontroller** .
 
 ### <a name="uninstallingdisabling"></a>Deinstallieren/Deaktivieren
 Sie können die AD DS-Rolle wie jede andere Rolle deaktivieren, unabhängig davon, ob Sie den Server zu einem Domänencontroller heraufgestuft haben. Nach dem Entfernen der AD DS-Rolle ist jedoch ein Neustart erforderlich.
@@ -232,9 +232,9 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
 #### <a name="deployment-configuration"></a>Bereitstellungskonfiguration
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_AddNewForest.png)
 
-In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.
 
-Klicken Sie auf **Neue Gesamtstruktur hinzufügen**, um eine neue Active Directory-Gesamtstruktur zu erstellen. Sie müssen einen gültigen Namen für die Stammdomäne angeben. der Name darf nicht aus einer einzelnen Bezeichnung bestehen (z. B. *contoso.com* oder ein ähnlicher Name, und nicht nur *contoso*) und muss die DNS-Anforderungen für Domänennamen erfüllen.
+Klicken Sie auf **Neue Gesamtstruktur hinzufügen** , um eine neue Active Directory-Gesamtstruktur zu erstellen. Sie müssen einen gültigen Namen für die Stammdomäne angeben. der Name darf nicht aus einer einzelnen Bezeichnung bestehen (z. B. *contoso.com* oder ein ähnlicher Name, und nicht nur *contoso* ) und muss die DNS-Anforderungen für Domänennamen erfüllen.
 
 Weitere Informationen zu gültigen Domänennamen finden Sie im KB-Artikel [Naming conventions in Active Directory for computers, domains, sites, and OUs](https://support.microsoft.com/kb/909264).
 
@@ -274,7 +274,7 @@ Wenn der Name maximal 15 Zeichen lang ist und nicht mit anderen NetBIOS-Namen in
 
 Weitere Informationen zu gültigen Domänennamen finden Sie im KB-Artikel [Naming conventions in Active Directory for computers, domains, sites, and OUs](https://support.microsoft.com/kb/909264).
 
-#### <a name="paths"></a>Pfade
+#### <a name="paths"></a>Paths
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestPaths.png)
 
 Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot% (z. B. C:\Windows).
@@ -308,7 +308,7 @@ Install-ADDSForest `
 ```
 
 > [!NOTE]
-> Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das **-safemodeadministratorpassword**-Argument (das im Skript bewusst ausgelassen wird). Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen.
+> Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das **-safemodeadministratorpassword** -Argument (das im Skript bewusst ausgelassen wird). Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen.
 
 #### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestPrereqCheck.png)
@@ -350,14 +350,14 @@ Die folgende Abbildung zeigt den Prozess der AD DS-Rolleninstallation, von der A
 
 | ServerManager-Cmdlet | Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.) |
 |--|--|
-| Install-WindowsFeature/Add-WindowsFeature | ***-Name***<p>*-Neu starten*<p>*-Includeallsubfeature*<p>*-IncludeManagementTools*<p>-Source<p>*-Computername*<p>-Credential<p>-LogPath<p>*-VHD*<p>*-ConfigurationFilePath* |
+| Install-WindowsFeature/Add-WindowsFeature | ***-Name** _<p>_ -Restart *<p>* -includeallsubfeature *<p>* -includemanagementtools *<p> -Source <p>* -Computername *<p> -Credential <p> -logPath <p>* -VHD *<p>* -configurationfilepath * |
 
 > [!NOTE]
 > Das Argument **-IncludeManagementTools** ist zwar nicht zwingend erforderlich, sollte jedoch beim Installieren der AD DS-Rollenbinärdateien unbedingt angegeben werden
 
 Das ServerManager-Modul macht Rolleninstallation, Status und die Entfernungskomponenten des neuen DISM-Moduls für Windows PowerShell verfügbar. Diese Ebenenstruktur vereinfacht viele Aufgaben und senkt die Nutzung des umfangreichen (bei Fehlbedienung jedoch gefährlichen) DISM-Moduls.
 
-Verwenden Sie **Get-Command**, um Aliase und Cmdlets in ServerManager zu exportieren.
+Verwenden Sie **Get-Command** , um Aliase und Cmdlets in ServerManager zu exportieren.
 
 ```powershell
 Get-Command -module ServerManager
@@ -373,7 +373,7 @@ Führen Sie einfach **Install-WindowsFeature** mit dem AD DS-Rollennamen als Arg
 Install-WindowsFeature -name AD-Domain-Services
 ```
 
-Falls Sie die AD DS-Management-Tools installieren möchten - was sehr zu empfehlen ist - geben Sie zusätzlich das **-IncludeManagementTools**-Argument an:
+Falls Sie die AD DS-Management-Tools installieren möchten - was sehr zu empfehlen ist - geben Sie zusätzlich das **-IncludeManagementTools** -Argument an:
 
 ```powershell
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
@@ -383,19 +383,19 @@ Beispiel:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)
 
-Um alle Features und Rollen mit deren Installationsstatus anzuzeigen, rufen Sie **Get-WindowsFeature** ohne Argumente auf. Geben Sie das **-ComputerName**-Argument an, um den Installationsstatus eines Remote-Servers abzufragen.
+Um alle Features und Rollen mit deren Installationsstatus anzuzeigen, rufen Sie **Get-WindowsFeature** ohne Argumente auf. Geben Sie das **-ComputerName** -Argument an, um den Installationsstatus eines Remote-Servers abzufragen.
 
 ```powershell
 Get-WindowsFeature
 ```
 
-Da **Get-WindowsFeature** keinen Filtermechanismus hat, müssen Sie **Where-Object** mit einer Pipeline verwenden, um bestimmte Features zu finden. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets, und das Where-Object-Cmdlet dient als Filter. Die integrierte **$_**-Variable stellt das aktuelle Objekt mit allen eventuell enthaltenen Eigenschaften dar, das durch die Pipeline geleitet wird.
+Da **Get-WindowsFeature** keinen Filtermechanismus hat, müssen Sie **Where-Object** mit einer Pipeline verwenden, um bestimmte Features zu finden. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets, und das Where-Object-Cmdlet dient als Filter. Die integrierte **$_** -Variable stellt das aktuelle Objekt mit allen eventuell enthaltenen Eigenschaften dar, das durch die Pipeline geleitet wird.
 
 ```powershell
 Get-WindowsFeature | where-object <options>
 ```
 
-Verwenden Sie den folgenden Befehl, um alls Features zu finden, deren **Display Name**-Eigenschaft die Zeichenfolge "Active Dir" enthält:
+Verwenden Sie den folgenden Befehl, um alls Features zu finden, deren **Display Name** -Eigenschaft die Zeichenfolge "Active Dir" enthält:
 
 ```powershell
 Get-WindowsFeature | where displayname -like "*active dir*"
@@ -423,7 +423,7 @@ Install-WindowsFeature | select-object | Format-List
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDS.png)
 
-Beachten Sie, dass das **Select-Object**-Cmdlet mit dem **-expandproperty**-Argument interessante Daten zurückgibt:
+Beachten Sie, dass das **Select-Object** -Cmdlet mit dem **-expandproperty** -Argument interessante Daten zurückgibt:
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDSWithTools.png)
 
@@ -437,11 +437,11 @@ Verwenden Sie das folgende Cmdlet, um eine neue Active Directory-Gesamtstruktur 
 Install-addsforest
 ```
 
-Das **Install-AddsForest**-Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit dem benötigten Mindestargument **-domainname**.
+Das **Install-AddsForest** -Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit dem benötigten Mindestargument **-domainname** .
 
 | ADDSDeployment-Cmdlet | Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.) |
 |--|--|
-| install-addsforest | -Confirm<p>*-"-Kreatednsdelegation"*<p>*-DatabasePath*<p>*-DomainMode*<p>***-Domain Name***<p>***-DomainNetbiosName***<p>*-DNSDelegationCredential*<p>*-ForestMode*<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>-NoDnsOnNetwork<p>-NoRebootOnCompletion<p>*-SafeModeAdministratorPassword*<p>-SkipAutoConfigureDNS<p>-SkipPreChecks<p>*-Sysvolpath*<p>*-WhatIf* |
+| install-addsforest | -Confirm<p>*-"-Kreatednsdelegation"*<p>*-DatabasePath*<p>*-DomainMode*<p>***-Domain Name** _<p>_ *_-DomainNetbiosName_* _<p>_ -Dnsdelegationcredential *<p>* -ForestMode *<p> -Force <p>* -InstallDNS *<p>* -logPath *<p> -nodnsonnetwork <p> -norebootoncompletion <p>* -SafeModeAdministratorPassword *<p> -skipaudekonfiguriredns <p> -skipprechecks <p>* -sysvolpath *<p>* -WhatIf * |
 
 > [!NOTE]
 > Das Argument **-DomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen umfasst.
@@ -462,11 +462,11 @@ Die entsprechenden ADDSDeployment-Argumente für Domänencontrolleroptionen im S
 -SafeModeAdministratorPassword <secure string>
 ```
 
-Die **Install-ADDSForest**-Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.
+Die **Install-ADDSForest** -Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.
 
 Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:
 
--   wenn als Argument *nicht angegeben*, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
+-   wenn als Argument *nicht angegeben* , fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
 
     Um z. B. eine neue Gesamtstruktur namens corp.contoso.com zu erstellen und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert zu werden:
 
@@ -511,15 +511,15 @@ Das ADDSDeployment-Cmdlet bietet eine zusätzliche Option zum Überspringen der 
 -SkipAutoConfigureDNS
 ```
 
-Für die **DomainNetBIOSName**-Operation gelten ebenfalls Sonderregeln:
+Für die **DomainNetBIOSName** -Operation gelten ebenfalls Sonderregeln:
 
--   Wenn das **DomainNetBIOSName**-Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName**-Argument maximal 15 Zeichen lang ist, wird die Heraufstufung mit einem automatisch generierten Namen fortgesetzt.
+-   Wenn das **DomainNetBIOSName** -Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName** -Argument maximal 15 Zeichen lang ist, wird die Heraufstufung mit einem automatisch generierten Namen fortgesetzt.
 
--   Wenn das **DomainNetBIOSName**-Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName**-Argument mehr als 15 Zeichen lang ist, schlägt die Heraufstufung fehl.
+-   Wenn das **DomainNetBIOSName** -Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName** -Argument mehr als 15 Zeichen lang ist, schlägt die Heraufstufung fehl.
 
--   Wenn das **DomainNetBIOSName**-Argument mit einem NetBIOS-Domänennamen mit maximal 15 Zeichen angegeben ist, wird die Heraufstufung mit diesem angegebenen Namen fortgesetzt.
+-   Wenn das **DomainNetBIOSName** -Argument mit einem NetBIOS-Domänennamen mit maximal 15 Zeichen angegeben ist, wird die Heraufstufung mit diesem angegebenen Namen fortgesetzt.
 
--   Wenn das **DomainNetBIOSName**-Argument mit einem NetBIOS-Domänennamen mit mehr als 15 Zeichen angegeben ist, schlägt die Heraufstufung fehl.
+-   Wenn das **DomainNetBIOSName** -Argument mit einem NetBIOS-Domänennamen mit mehr als 15 Zeichen angegeben ist, schlägt die Heraufstufung fehl.
 
 Die entsprechenden ADDSDeployment-Argumente für zusätzliche Optionen im Server-Manager sind:
 
@@ -527,7 +527,7 @@ Die entsprechenden ADDSDeployment-Argumente für zusätzliche Optionen im Server
 -domainnetbiosname <string>
 ```
 
-Die entsprechenden Server-Manager-**Pfade** für die ADDSDeployment-Cmdlet-Argumente sind:
+Die entsprechenden Server-Manager- **Pfade** für die ADDSDeployment-Cmdlet-Argumente sind:
 
 ```powershell
 -databasepath <string>
@@ -536,7 +536,7 @@ Die entsprechenden Server-Manager-**Pfade** für die ADDSDeployment-Cmdlet-Argum
 
 ```
 
-Verwenden Sie das optionale **Whatif**-Argument für das Cmdlet **Install-ADDSForest**, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
+Verwenden Sie das optionale **Whatif** -Argument für das Cmdlet **Install-ADDSForest** , um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
 
 Beispiel:
 
@@ -557,7 +557,7 @@ Ebenso wie beim Server-Manager werden Sie von **Install-ADDSForest** darauf hing
 
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallProgress.png)
 
-Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.
+Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion** -Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.
 
 > [!WARNING]
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren.

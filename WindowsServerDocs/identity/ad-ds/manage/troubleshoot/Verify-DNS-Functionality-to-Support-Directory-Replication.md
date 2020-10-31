@@ -1,15 +1,15 @@
 ---
 ms.assetid: 709353b0-b913-4367-8580-44745183e2bc
 title: Überprüfen der DNS-Funktionalität zur Unterstützung der Verzeichnisreplikation
-ms.author: iainfou
+ms.author: daveba
 ms.date: 05/31/2017
 author: Femila
-ms.openlocfilehash: c59160cb3242a91ef8a86d9e8247e0f2d376395b
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 0a79a4b73a9e3d610408076c8e7526f504055d53
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938060"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071252"
 ---
 # <a name="verify-dns-functionality-to-support-directory-replication"></a>Überprüfen der DNS-Funktionalität zur Unterstützung der Verzeichnisreplikation
 
@@ -40,7 +40,7 @@ Mithilfe des folgenden Verfahrens können Sie grundlegende DNS-Funktionen überp
 ### <a name="to-verify-basic-dns-functionality"></a>So überprüfen Sie die grundlegende DNS-Funktionalität
 
 
-1. Öffnen Sie auf dem Domänen Controller, den Sie testen möchten, oder auf einem Domänen Mitglieds Computer, auf dem Active Directory Domain Services (AD DS)-Tools installiert sind, eine Eingabeaufforderung als Administrator. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf **Start**.
+1. Öffnen Sie auf dem Domänen Controller, den Sie testen möchten, oder auf einem Domänen Mitglieds Computer, auf dem Active Directory Domain Services (AD DS)-Tools installiert sind, eine Eingabeaufforderung als Administrator. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf **Start** .
 2. Geben Sie in Suche starten Command Prompt ein.
 3. Klicken Sie am oberen Rand des Menüs Start mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf Als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 4. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName> /DnsBasic /f:dcdiagreport.txt`
@@ -64,7 +64,7 @@ Mithilfe des folgenden Verfahrens können Sie die Registrierung von Ressourcen E
 ### <a name="to-verify-resource-record-registrationtitle"></a>So überprüfen Sie die Registrierung des Ressourcen</title>
 
 
-1. Öffnen Sie als Administrator eine Eingabeaufforderung. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten Command Prompt ein.
+1. Öffnen Sie eine Eingabeaufforderung als Administrator. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten Command Prompt ein.
 2. Klicken Sie am oberen Rand des Menüs Start mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf Als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.  </br></br>Sie können das DCDiag-Tool verwenden, um die Registrierung aller Ressourcen Datensätze zu überprüfen, die für den Domänen Controller Standort unverzichtbar sind, indem Sie den `dcdiag /test:dns /DnsRecordRegistration` Befehl ausführen.
 
 Mit diesem Befehl wird die Registrierung der folgenden Ressourcen Einträge in DNS überprüft:
@@ -73,8 +73,8 @@ Mit diesem Befehl wird die Registrierung der folgenden Ressourcen Einträge in D
 - **Alias (CNAME):** der auf der Globally Unique Identifier (GUID) basierende Ressourcen Daten Satz, der einen Replikations Partner anmeldert.
 - **Host (A):**  der Host Ressourcen Daten Satz, der die IP-Adresse des Domänen Controllers enthält.
 - **LDAP SRV:** der Dienst (SRV)-Ressourcen Einträge, die LDAP-Server suchen
-- **GC SRV**: Ressourcen Einträge für den Dienst (SRV), die nach globalen Katalog Servern suchen
-- **PDC SRV**: die Ressourcen Einträge des Diensts (SRV), die Emulator-Betriebs Master des primären Domänen Controllers (PDC) finden
+- **GC SRV** : Ressourcen Einträge für den Dienst (SRV), die nach globalen Katalog Servern suchen
+- **PDC SRV** : die Ressourcen Einträge des Diensts (SRV), die Emulator-Betriebs Master des primären Domänen Controllers (PDC) finden
 
 Mithilfe des folgenden Verfahrens können Sie die Registrierung des Alias Ressourceneinsatzes (CNAME) allein überprüfen.
 
@@ -94,7 +94,7 @@ Wenn der grundlegende DNS-Test anzeigt, dass Ressourcen Einträge in DNS nicht v
 ### <a name="to-verify-dynamic-updatetitle"></a>So überprüfen Sie das dynamische Update</title>
 
 
-1. Öffnen Sie als Administrator eine Eingabeaufforderung. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten Command Prompt ein. Klicken Sie am oberen Rand des Menüs Start mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf Als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
+1. Öffnen Sie eine Eingabeaufforderung als Administrator. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten Command Prompt ein. Klicken Sie am oberen Rand des Menüs Start mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf Als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName> /DnsDynamicUpdate`
    </br></br>Ersetzen Sie für DCNAME den Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt; &gt; . Als Alternative können Sie alle Domänen Controller in der Gesamtstruktur testen, indem Sie/e: anstelle von/s: eingeben. Wenn Sie IPv6 auf dem Domänen Controller nicht aktiviert haben, sollten Sie davon ausgehen, dass der Teil des Tests des Host (AAAA)-Ressourcen Satzes fehlschlägt. Dies ist ein normaler Zustand, wenn IPv6 nicht aktiviert ist.
 
@@ -116,7 +116,7 @@ Wenn DNS-Ressourcen Einträge nicht in DNS für den Quell Domänen Controller an
 ### <a name="to-register-dns-resource-records-manuallytitle"></a>So registrieren Sie DNS-Ressourcen Einträge manuell</title>
 
 
-1. Öffnen Sie als Administrator eine Eingabeaufforderung. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start.
+1. Öffnen Sie eine Eingabeaufforderung als Administrator. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start.
 2. Geben Sie in Suche starten Command Prompt ein.
 3. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 4. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE, um die Registrierung der Ressourcen Einträge für Domänen Controller-Serverlocatorpunkt manuell auf dem Quell Domänen Controller zu initiieren: `net stop netlogon && net start netlogon`

@@ -5,12 +5,12 @@ manager: dongill
 author: rpsqrd
 ms.author: ryanpu
 ms.date: 08/29/2018
-ms.openlocfilehash: f81e77b0de231a03bcaa0cfe6877b1e67dd081db
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 62098234f75a35d5c7ab4d386e5d2ce41aaa3641
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87989573"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071142"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
@@ -34,7 +34,7 @@ Wenn ein Mandant abgeschirmte VMs erstellt, die auf einem geschützten Fabric au
 
 ## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte virtuelle Maschinen
 
-> [!VIDEO https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016]
+> [!VIDEO https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016/player]
 
 ## <a name="attestation-modes-in-the-guarded-fabric-solution"></a>Nachweismodi in der „Geschütztes Fabric“-Lösung
 
@@ -121,16 +121,16 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
 2. **Der Host fordert einen Nachweis an.** Der geschützte Host fordert einen Nachweis an. Der Nachweismodus wird durch den Host-Überwachungsdienst vorgegeben:
 
-    - **TPM-vertrauenswürdiger**Nachweis: der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
+    - **TPM-vertrauenswürdiger** Nachweis: der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
       - TPM-identifizierende Informationen (seinen Endorsement Key)
       - Informationen zu Prozessen, die während der letzten Startsequenz (TCG-Protokoll) gestartet wurden
       - Informationen zur Richtlinie für die Code Integrität (CI), die auf dem Host angewendet wurde.
 
         Nachweis geschieht beim Starten des Hosts und danach alle 8 Stunden. Wenn ein Host aus irgendeinem Grund kein Nachweis Zertifikat besitzt, wenn ein virtueller Computer versucht, zu starten, wird auch der Nachweis ausgelöst.
 
-    - **Host Schlüssel**Nachweis: der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist.
+    - **Host Schlüssel** Nachweis: der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist.
 
-    - **Admin-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, zu denen der Host gehört. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
+    - **Admin-vertrauenswürdiger Nachweis** : Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, zu denen der Host gehört. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
 
 3. **Nachweis erfolgreich (oder mit Fehler).** Der Nachweis Modus bestimmt, welche Überprüfungen erforderlich sind, um erfolgreich zu bestätigen, dass der Host fehlerfrei ist. Mit dem TPM-vertrauenswürdigen Nachweis werden die TPM-Identität des Hosts, Start Messungen und die Code Integritätsrichtlinie überprüft. Beim Nachweis des Host Schlüssels wird nur die Registrierung des Host Schlüssels überprüft.
 

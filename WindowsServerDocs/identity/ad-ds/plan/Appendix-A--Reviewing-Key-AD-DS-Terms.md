@@ -2,16 +2,16 @@
 ms.assetid: 87196b65-a356-409f-9af0-b5950797d668
 title: 'Anhang A: Überprüfen der Schlüssel AD DS Bedingungen'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 2e899b3f61a23e29a3ecd6a312e50b596ce4e172
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 4f8f9d0b89868ccdc795740ecadb00b979dbc066
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941240"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071182"
 ---
 # <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Anhang A: Die wichtigsten AD DS-Begriffe
 
@@ -22,13 +22,13 @@ Die folgenden Begriffe sind für den Bereitstellungs Prozess für Windows Server
 ## <a name="active-directory-domain"></a>Azure Active Directory-Domäne
 Eine administrative Einheit in einem Computernetzwerk, die zur einfacheren Verwaltung verschiedene Funktionen gruppiert, einschließlich der folgenden:
 
--   **Netzwerkweite Benutzeridentität**. In Domänen können Benutzer Identitäten einmalig erstellt und dann auf jedem Computer verwiesen werden, der der Gesamtstruktur hinzugefügt wird, in der sich die Domäne befindet. Domänen Controller, die eine Domäne bilden, speichern Benutzerkonten und Benutzer Anmelde Informationen, z. b. Kenn Wörter oder Zertifikate, sicher.
+-   **Netzwerkweite Benutzeridentität** . In Domänen können Benutzer Identitäten einmalig erstellt und dann auf jedem Computer verwiesen werden, der der Gesamtstruktur hinzugefügt wird, in der sich die Domäne befindet. Domänen Controller, die eine Domäne bilden, speichern Benutzerkonten und Benutzer Anmelde Informationen, z. b. Kenn Wörter oder Zertifikate, sicher.
 
--   **Authentifizierung**. Domänen Controller stellen Authentifizierungsdienste für Benutzer bereit. Außerdem stellen Sie zusätzliche Autorisierungs Daten bereit, wie z. b. Benutzergruppen Mitgliedschaften. Administratoren können diese Dienste verwenden, um den Zugriff auf Ressourcen im Netzwerk zu steuern.
+-   **Authentifizierung** . Domänen Controller stellen Authentifizierungsdienste für Benutzer bereit. Außerdem stellen Sie zusätzliche Autorisierungs Daten bereit, wie z. b. Benutzergruppen Mitgliedschaften. Administratoren können diese Dienste verwenden, um den Zugriff auf Ressourcen im Netzwerk zu steuern.
 
--   **Vertrauens**Stellungen. Domänen erweitern Authentifizierungsdienste auf Benutzer in anderen Domänen in ihrer eigenen Gesamtstruktur mithilfe automatischer bidirektionaler Vertrauens Stellungen. Domänen erweitern außerdem Authentifizierungsdienste für Benutzer in Domänen in anderen Gesamtstrukturen mithilfe von Gesamtstruktur-Vertrauens Stellungen oder manuell erstellten externen Vertrauens Stellungen.
+-   **Vertrauens** Stellungen. Domänen erweitern Authentifizierungsdienste auf Benutzer in anderen Domänen in ihrer eigenen Gesamtstruktur mithilfe automatischer bidirektionaler Vertrauens Stellungen. Domänen erweitern außerdem Authentifizierungsdienste für Benutzer in Domänen in anderen Gesamtstrukturen mithilfe von Gesamtstruktur-Vertrauens Stellungen oder manuell erstellten externen Vertrauens Stellungen.
 
--   **Richtlinien Verwaltung**. Eine Domäne ist ein Bereich von Verwaltungsrichtlinien, wie z. b. die Kenn Wort Komplexität und die Wiederverwendung von Kenn Wörtern
+-   **Richtlinien Verwaltung** . Eine Domäne ist ein Bereich von Verwaltungsrichtlinien, wie z. b. die Kenn Wort Komplexität und die Wiederverwendung von Kenn Wörtern
 
 -   **Replikation** Eine Domäne definiert eine Partition der Verzeichnisstruktur, die Daten bereitstellt, die für die Bereitstellung erforderlicher Dienste geeignet sind und zwischen Domänen Controllern repliziert werden. Auf diese Weise handelt es sich bei allen Domänen Controllern um Peers in einer Domäne, die als Einheit verwaltet werden.
 

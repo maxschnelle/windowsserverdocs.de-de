@@ -2,16 +2,16 @@
 ms.assetid: 5b2876ac-fe7d-4054-bfba-b692e57bc0d2
 title: 'Anhang C: geschützte Konten und Gruppen in Active Directory'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 7a62ad9ecd14d4f4a3126d0294c56082e8a5f701
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 9421038f90bc91d5d4f52c6e1811aec70c1a9727
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070532"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
@@ -74,28 +74,28 @@ Prozeduren zum manuellen Ausführen von SDPROP unter älteren Betriebssystemen f
 
 Sie können die Ausführung von SDPROP erzwingen, indem Sie Ldp.exe oder ein LDAP-Änderungs Skript ausführen. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von Ldp.exe auszuführen:
 
-1. Starten Sie **Ldp.exe**.
-2. Klicken Sie im Dialogfeld Ldp auf **Verbindung** , und klicken Sie auf **verbinden**.
+1. Starten Sie **Ldp.exe** .
+2. Klicken Sie im Dialogfeld Ldp auf **Verbindung** , und klicken Sie auf **verbinden** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_9.gif)
 
-3. Geben Sie im Dialogfeld **verbinden** den Namen des Domänen Controllers für die Domäne ein, in der die PDC-Emulatorrolle (PDCE) enthalten ist, und klicken Sie auf **OK**.
+3. Geben Sie im Dialogfeld **verbinden** den Namen des Domänen Controllers für die Domäne ein, in der die PDC-Emulatorrolle (PDCE) enthalten ist, und klicken Sie auf **OK** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_10.png)
 
-4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.
+4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_11.png)
 
-5. Geben Sie im Dialogfeld **binden** die Anmelde Informationen eines Benutzerkontos ein, das über die Berechtigung zum Ändern des RootDSE-Objekts verfügt. (Wenn Sie als dieser Benutzer angemeldet sind, können Sie **Bind als** aktuell angemeldeter Benutzer auswählen.) Klicken Sie auf **OK**.
+5. Geben Sie im Dialogfeld **binden** die Anmelde Informationen eines Benutzerkontos ein, das über die Berechtigung zum Ändern des RootDSE-Objekts verfügt. (Wenn Sie als dieser Benutzer angemeldet sind, können Sie **Bind als** aktuell angemeldeter Benutzer auswählen.) Klicken Sie auf **OK** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_12.png)
 
-6. Nachdem Sie den Bindungs Vorgang abgeschlossen haben, klicken Sie auf **Durchsuchen**, und klicken Sie dann auf **ändern**.
+6. Nachdem Sie den Bindungs Vorgang abgeschlossen haben, klicken Sie auf **Durchsuchen** , und klicken Sie dann auf **ändern** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_13.png)
 
-7. Lassen Sie im Dialogfeld **ändern** das Feld **DN** leer. Geben Sie im Feld **Eingabe Attribut bearbeiten** den Wert **fixupvererbung**ein, und geben Sie im Feld **Werte den Wert** **Ja**ein. **Drücken** Sie die EINGABETASTE, um die **Eingabeliste aufzufüllen** , wie im folgenden Screenshot gezeigt.
+7. Lassen Sie im Dialogfeld **ändern** das Feld **DN** leer. Geben Sie im Feld **Eingabe Attribut bearbeiten** den Wert **fixupvererbung** ein, und geben Sie im Feld **Werte den Wert** **Ja** ein. **Drücken** Sie die EINGABETASTE, um die **Eingabeliste aufzufüllen** , wie im folgenden Screenshot gezeigt.
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_14.gif)
 
@@ -112,33 +112,33 @@ Wenn Sie SDPROP lieber manuell über LDIFDE oder ein Skript ausführen möchten,
 
 Sie können auch die Ausführung von SDPROP erzwingen, indem Sie Ldp.exe oder ein LDAP-Änderungs Skript ausführen. Führen Sie die folgenden Schritte aus, nachdem Sie das AdminSDHolder-Objekt in einer Domäne geändert haben, um SDPROP mithilfe von Ldp.exe auszuführen:
 
-1. Starten Sie **Ldp.exe**.
+1. Starten Sie **Ldp.exe** .
 
-2. Klicken Sie im Dialogfeld **LDP** auf **Verbindung**, und klicken Sie dann auf **verbinden**.
+2. Klicken Sie im Dialogfeld **LDP** auf **Verbindung** , und klicken Sie dann auf **verbinden** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_16.gif)
 
-3. Geben Sie im Dialogfeld **verbinden** den Namen des Domänen Controllers für die Domäne ein, in der die PDC-Emulatorrolle (PDCE) enthalten ist, und klicken Sie auf **OK**.
+3. Geben Sie im Dialogfeld **verbinden** den Namen des Domänen Controllers für die Domäne ein, in der die PDC-Emulatorrolle (PDCE) enthalten ist, und klicken Sie auf **OK** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_17.gif)
 
-4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.
+4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_18.gif)
 
-5. Geben Sie im Dialogfeld **binden** die Anmelde Informationen eines Benutzerkontos ein, das über die Berechtigung zum Ändern des RootDSE-Objekts verfügt. (Wenn Sie als dieser Benutzer angemeldet sind, können Sie **Bind als aktuell angemeldeter Benutzer**auswählen.) Klicken Sie auf **OK**.
+5. Geben Sie im Dialogfeld **binden** die Anmelde Informationen eines Benutzerkontos ein, das über die Berechtigung zum Ändern des RootDSE-Objekts verfügt. (Wenn Sie als dieser Benutzer angemeldet sind, können Sie **Bind als aktuell angemeldeter Benutzer** auswählen.) Klicken Sie auf **OK** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_19.gif)
 
-6. Nachdem Sie den Bindungs Vorgang abgeschlossen haben, klicken Sie auf **Durchsuchen**, und klicken Sie dann auf **ändern**.
+6. Nachdem Sie den Bindungs Vorgang abgeschlossen haben, klicken Sie auf **Durchsuchen** , und klicken Sie dann auf **ändern** .
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_20.gif)
 
-7. Lassen Sie im Dialogfeld **ändern** das Feld **DN** leer. Geben Sie im Feld **Eingabe Attribut bearbeiten** den Wert **runprotectadmingroupstask**ein, und geben Sie im Feld **Werte den Wert** **1 ein**. **Drücken** Sie die EINGABETASTE, um die Eingabeliste aufzufüllen, wie hier gezeigt.
+7. Lassen Sie im Dialogfeld **ändern** das Feld **DN** leer. Geben Sie im Feld **Eingabe Attribut bearbeiten** den Wert **runprotectadmingroupstask** ein, und geben Sie im Feld **Werte den Wert** **1 ein** . **Drücken** Sie die EINGABETASTE, um die Eingabeliste aufzufüllen, wie hier gezeigt.
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_21.gif)
 
-8. Klicken Sie im Dialogfeld aufgefüllt **ändern** auf **Ausführen**, und überprüfen Sie, ob die Änderungen, die Sie am Objekt AdminSDHolder vorgenommen haben, in diesem Objekt angezeigt wurden.
+8. Klicken Sie im Dialogfeld aufgefüllt **ändern** auf **Ausführen** , und überprüfen Sie, ob die Änderungen, die Sie am Objekt AdminSDHolder vorgenommen haben, in diesem Objekt angezeigt wurden.
 
 Wenn Sie SDPROP lieber manuell über LDIFDE oder ein Skript ausführen möchten, können Sie einen Änderungs Eintrag erstellen, wie hier gezeigt:
 

@@ -1,17 +1,17 @@
 ---
 ms.assetid: e4c31187-f15f-410b-bb79-8d63e2f2b421
 title: Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 4034ea96fbe1f758d6948b2bc52ba9786158b0ba
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: edffa7869aa1895a09e7007c375b8973f68e4eed
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940560"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93069902"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
 
@@ -69,7 +69,7 @@ Da Windows Update ein Teil der automatischen Wartung in Windows 8 und Windows Se
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 R2 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features und ihrer Anforderungen finden Sie unter [What's New in Active Directory in Windows Server 2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn268294(v=ws.11)).
 
-|Funktion|BESCHREIBUNG|
+|Feature|Beschreibung|
 |-----------|---------------|
 |[In den Arbeitsplatz eingebunden](../../ad-fs/operations/join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications.md)|Mit diesem Feature können Information-Worker ihre persönlichen Geräte mit der Firma verknüpfen, um Zugang zu Ressourcen und Diensten zu erhalten.|
 |[Webanwendungsproxy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280942(v=ws.11))|Bietet Zugang zu Webanwendungen mit einem neuen Remotezugriffsrollendienst.|
@@ -88,7 +88,7 @@ In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 20
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features, einschließlich Ihrer Anforderungen, finden Sie unter [What es New in Active Directory Domain Services (AD DS)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 
-|Funktion|BESCHREIBUNG|
+|Feature|Beschreibung|
 |-----------|---------------|
 |Aktivierung über Active Directory (AD BA); siehe [Volume Activation Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831612(v=ws.11))|Vereinfacht das Konfigurieren der Verteilung und Verwaltung von Volumenlizenzen für Software.|
 |[Active Directory-Verbunddienste (AD FS)](../../active-directory-federation-services.md)|Fügt die Installation von Rollen über den Server-Manager, die einfachere Einrichtung von Vertrauensstellungen, die automatische Verwaltung von Vertrauensstellungen, Unterstützung des SAML-Protokolls und mehr hinzu.|
@@ -122,9 +122,9 @@ Die folgende Tabelle enthält einige Beispiele für die Konfiguration dieser Ein
 |||
 |-|-|
 |**Szenario**|**Empfohlene Konfiguration (en)**|
-|**WSUS verwaltet**<p>-Updates einmal pro Woche installieren<br />-Neustart Freitag um 11Uhr|Automatische Installation für Computer konfigurieren, autom. Neustart bis zum gewünschten Zeitpunkt verhindern<p>**Richtlinie**: Automatische Updates konfigurieren (aktiviert)<p>Automatische Aktualisierung konfigurieren: 4: Automatisches herunterladen und Planen der Installation<p>**Richtlinie**: kein automatischer Neustart mit angemeldeten Benutzern (deaktiviert)<p>**WSUS-Stichtage**: auf Freitag 23 Uhr einstellen|
+|**WSUS verwaltet**<p>-Updates einmal pro Woche installieren<br />-Neustart Freitag um 11Uhr|Automatische Installation für Computer konfigurieren, autom. Neustart bis zum gewünschten Zeitpunkt verhindern<p>**Richtlinie** : Automatische Updates konfigurieren (aktiviert)<p>Automatische Aktualisierung konfigurieren: 4: Automatisches herunterladen und Planen der Installation<p>**Richtlinie** : kein automatischer Neustart mit angemeldeten Benutzern (deaktiviert)<p>**WSUS-Stichtage** : auf Freitag 23 Uhr einstellen|
 |**WSUS verwaltet**<p>-Gestaffger Installationen über verschiedene Stunden/Tage hinweg|Richten Sie Zielgruppen für verschiedene Computergruppen ein, die gemeinsam aktualisiert werden sollen<p>Siehe obige Schritte für das vorherige Szenario<p>Unterschiedliche Stichtage für unterschiedliche Zielgruppen|
-|**Nicht von WSUS verwaltet-keine Unterstützung für Stichtage**<p>-Gestaffger Installationen zu unterschiedlichen Zeiten|**Richtlinie**: Automatische Updates konfigurieren (aktiviert)<p>Automatische Aktualisierung konfigurieren: 4: Automatisches herunterladen und Planen der Installation<p>**Registrierungsschlüssel:** Aktivieren Sie den im Microsoft KB-Artikel [2835627](https://support.microsoft.com/kb/2835627)<p>**Richtlinie:** Zufällige Verzögerung für automatische Wartung (aktiviert)<p>Stellen Sie **Zufällige Verzögerung für automatische Wartung** auf PT6H für eine 6-stündige zufällige Verzögerung, um das folgende Verhalten zu erreichen:<p>-Updates werden zum konfigurierten Wartungs Zeitpunkt und einer zufälligen Verzögerung installiert.<p>-Der Neustart für jeden Computer findet genau 3 Tage später statt.<p>Alternativ können Sie unterschiedliche Wartungszeiten für einzelne Computergruppen einstellen|
+|**Nicht von WSUS verwaltet-keine Unterstützung für Stichtage**<p>-Gestaffger Installationen zu unterschiedlichen Zeiten|**Richtlinie** : Automatische Updates konfigurieren (aktiviert)<p>Automatische Aktualisierung konfigurieren: 4: Automatisches herunterladen und Planen der Installation<p>**Registrierungsschlüssel:** Aktivieren Sie den im Microsoft KB-Artikel [2835627](https://support.microsoft.com/kb/2835627)<p>**Richtlinie:** Zufällige Verzögerung für automatische Wartung (aktiviert)<p>Stellen Sie **Zufällige Verzögerung für automatische Wartung** auf PT6H für eine 6-stündige zufällige Verzögerung, um das folgende Verhalten zu erreichen:<p>-Updates werden zum konfigurierten Wartungs Zeitpunkt und einer zufälligen Verzögerung installiert.<p>-Der Neustart für jeden Computer findet genau 3 Tage später statt.<p>Alternativ können Sie unterschiedliche Wartungszeiten für einzelne Computergruppen einstellen|
 
 Weitere Informationen zum Hintergrund dieser Änderungen finden Sie unter [Minimizing restarts after automatic updating in Windows Update](https://blogs.msdn.com/b/b8/archive/2011/11/14/minimizing-restarts-after-automatic-updating-in-windows-update.aspx).
 
@@ -152,18 +152,18 @@ Für AD DS wurden einige Änderungen vorgenommen:
 
 Ab Windows Server 2008 verfügen Domänen Controller im Vergleich zu Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 ausgeführt wird, auch über die folgenden sicheren Standardeinstellungen.
 
-| Verschlüsselungstyp oder -richtlinie | Windows Server 2008-Standardeinstellung | Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung | Comment |
+| Verschlüsselungstyp oder -richtlinie | Windows Server 2008-Standardeinstellung | Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung | Kommentar |
 |--|--|--|--|
 | AllowNT4Crypto | Disabled | Disabled | SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie im [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base ( https://go.microsoft.com/fwlink/?LinkId=164558) . |
 | DES | Aktiviert | Disabled | [Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717) |
-| CBT/Erweiterter Schutz für integrierte Authentifizierung | – | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
+| CBT/Erweiterter Schutz für integrierte Authentifizierung | Nicht zutreffend | Aktiviert | Weitere Informationen finden Sie in der [Microsoft-Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) ( https://go.microsoft.com/fwlink/?LinkId=164559) und im [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) der Microsoft Knowledge Base) ( https://go.microsoft.com/fwlink/?LinkId=178251) .<p>Überprüfen und installieren Sie den Hotfix im [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) ( https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf). |
 | LMv2 | Aktiviert | Disabled | [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251) |
 
 ## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Betriebssystemanforderungen
 
 Die Mindestsystemanforderungen für Windows Server 2012 sind in der folgenden Tabelle aufgeführt. Weitere Informationen zu Systemanforderungen und Informationen zur Installationsvorbereitung finden Sie unter [Installing Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134246(v=ws.11)). Für die Installation einer neuen Active Directory-Gesamtstruktur gelten keine weiteren Systemanforderungen. Sie sollten jedoch ausreichend Arbeitsspeicher zum Zwischenspeichern des Inhalts der Active Directory-Datenbank hinzufügen, um die Leistung für Domänencontroller, LDAP-Clientanforderungen und Active Directory-fähige Anwendungen zu verbessern. Wenn Sie einen vorhandenen Domänencontroller aktualisieren oder einen neuen Domänencontroller zu einer vorhandenen Gesamtstruktur hinzufügen, können Sie mithilfe der Informationen im nächsten Abschnitt sicherstellen, dass der Server die Speicherplatzanforderungen erfüllt.
 
-| Anforderung | value |
+| Anforderung | Wert |
 |--|--|
 | Prozessor | 1,4-GHz-Prozessor mit 64 Bit |
 | RAM | 512 MB |
@@ -200,10 +200,10 @@ Domänen Controller, auf denen 64-Bit-Versionen von Windows Server 2008 oder Win
 
 | Ausgeführte Editionen | Mögliches Upgrade auf Editionen |
 |--|--|
-| Windows Server 2008 Standard mit SP2<p>ODER<p>Windows Server 2008 Enterprise mit SP2 | Windows Server 2012 Standard<p>ODER<p>Windows Server 2012 Datacenter |
+| Windows Server 2008 Standard mit SP2<p>oder<p>Windows Server 2008 Enterprise mit SP2 | Windows Server 2012 Standard<p>oder<p>Windows Server 2012 Datacenter |
 | Windows Server 2008 Datacenter mit SP2 | Windows Server 2012 Datacenter |
 | Windows Web Server 2008 | Windows Server 2012 Standard |
-| Windows Server 2008 R2 Standard mit SP1<p>ODER<p>Windows Server 2008 R2 Enterprise mit SP1 | Windows Server 2012 Standard<p>ODER<p>Windows Server 2012 Datacenter |
+| Windows Server 2008 R2 Standard mit SP1<p>oder<p>Windows Server 2008 R2 Enterprise mit SP1 | Windows Server 2012 Standard<p>oder<p>Windows Server 2012 Datacenter |
 | Windows Server 2008 R2 Datacenter mit SP1 | Windows Server 2012 Datacenter |
 | Windows Web Server 2008 R2 | Windows Server 2012 Standard |
 
@@ -223,7 +223,7 @@ Windows 2000-Domänencontroller müssen entfernt werden, bevor der Gesamtstruktu
 4. Installieren Sie Domänencontroller, auf denen Windows Server 2012 ausgeführt wird.
 5. Entfernen Sie Domänencontroller, auf denen ältere Versionen von Windows Server ausgeführt werden.
 
-Die neue Windows Server 2012-Domänen Funktionsebene ermöglicht ein neues Feature: die **KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring** KDC administrative Template-Richtlinie verfügt über zwei Einstellungen (**immer Ansprüche bereitstellen** und nicht hoch **gerüstete Authentifizierungsanforderungen fehlschlagen**), die die Windows Server 2012-Domänen Funktionsebene erfordern.
+Die neue Windows Server 2012-Domänen Funktionsebene ermöglicht ein neues Feature: die **KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring** KDC administrative Template-Richtlinie verfügt über zwei Einstellungen ( **immer Ansprüche bereitstellen** und nicht hoch **gerüstete Authentifizierungsanforderungen fehlschlagen** ), die die Windows Server 2012-Domänen Funktionsebene erfordern.
 
 Die Windows Server 2012-Gesamtstruktur Funktionsebene bietet keine neuen Features, stellt jedoch sicher, dass alle in der Gesamtstruktur erstellten neuen Domänen automatisch auf der Domänen Funktionsebene von Windows Server 2012 ausgeführt werden. Die Domänen Funktionsebene Windows Server 2012 bietet keine weiteren neuen Features, die über die KDC-Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring hinausgehen. Allerdings wird sichergestellt, dass alle Domänen Controller in der Domäne Windows Server 2012 ausführen. Weitere Informationen zu weiteren Features, die auf verschiedenen Funktionsebenen verfügbar sind, finden Sie unter [Understanding Active Directory Domain Services (AD DS) Functional Levels](../active-directory-functional-levels.md).
 
@@ -273,7 +273,7 @@ Verwenden Sie den [Remoteserver-Verwaltungstools für Windows 8](https://www.mic
 
 In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active Directory-Integration zusammengefasst. Es ist angegeben, unter welchen Versionen von Windows Server die Anwendungen installiert werden können und ob sich die Einführung von Windows Server 2012-Domänencontrollern auf die Anwendungskompatibilität auswirkt.
 
-|Produkt|Notizen|
+|Produkt|Hinweise|
 |-----------|---------|
 |[Microsoft SharePoint 2010](https://support.microsoft.com/kb/2724471)|SharePoint 2010 Service Pack 2 ist für die Installation und den Betrieb erforderlich. <br />SharePoint 2010 auf Windows Server 2012-Servern<p>SharePoint 2010 Foundation Service Pack 2 ist für die Installation und den Betrieb vonSharePoint 2010 Foundation auf Windows Server 2012-Servern erforderlich.<p>Beim Installationsvorgang von SharePoint Server 2010 (ohne Service Packs) tritt unter Windows Server 2012 ein Fehler auf.<p>Das Installationsprogramm für die erforderlichen Komponenten für SharePoint Server 2010 (PrerequisiteInstaller.exe) schlägt mit der Fehlermeldung "dieses Programm weist Kompatibilitätsprobleme auf. Wenn Sie auf "Programm ohne Hilfe erhalten" klicken, wird die Fehlermeldung "Es wird überprüft, ob SharePoint installiert werden kann &#124; SharePoint Server 2010 (ohne Service Packs)" nicht unter Windows Server 2012 installiert werden kann angezeigt.|
 |[Microsoft SharePoint 2013](/SharePoint/install/hardware-and-software-requirements-0)|Mindestanforderungen für einen Datenbankserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für einen Einzelserver mit integrierter Datenbank:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter<p>Mindestanforderungen für Front-End-Webserver und Anwendungsserver in einer Farm:<p>64-Bit-Edition von Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise oder Datacenter oder 64-Bit-Edition von Windows Server 2012 Standard oder Datacenter|
@@ -289,7 +289,7 @@ In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active D
 |[Exchange 2013](/Exchange/plan-and-deploy/prerequisites?view=exchserver-2019)|Windows Server 2012 Standard und Datacenter werden für die folgenden Rollen unterstützt: Schemamaster, globaler Katalogserver, Domänencontroller, Postfach- und Clientzugriffs-Serverrolle.<p>Gesamtstrukturfunktionsebene: Windows Server 2003 oder höher<p>Quelle: Exchange 2013-Systemanforderungen|
 |Exchange 2010|[Quelle: Exchange 2010 Service Pack 3](https://techcommunity.microsoft.com/t5/exchange-team-blog/bg-p/Exchange)<p>Exchange 2010 mit Service Pack 3 kann auf Windows Server 2012-Mitgliedsservern installiert werden.<p>Unter[Exchange 2010 System Requirements](/previous-versions/office/exchange-server-2010/aa996719(v=exchg.141)) ist der aktuelle unterstützte Schemamaster, globale Katalog und Domänencontroller als Windows Server 2008 R2 angegeben.<p>Gesamtstrukturfunktionsebene: Windows Server 2003 oder höher|
 |SQL Server 2012|Quelle: KB [2681562](https://support.microsoft.com/kb/2681562)<p>SQL Server 2012 RTM wird unter Windows Server 2012 unterstützt.|
-|SQL Server 2008 R2|Quelle: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Erfordert SQL Server 2008 R2 mit Service Pack 1 oder höher für die Installation unter Windows Server 2012.|
+|SQL Server 2008 R2|Quelle: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Erfordert SQL Server 2008 R2 mit Service Pack 1 oder höher für die Installation unter Windows Server 2012.|
 |SQL Server 2008|Quelle: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Erfordert SQL Server 2008 mit Service Pack 3 oder höher für die Installation unter Windows Server 2012.|
 |SQL Server 2005|Quelle: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Wird für die Installation unter Windows Server 2012 nicht unterstützt.|
 

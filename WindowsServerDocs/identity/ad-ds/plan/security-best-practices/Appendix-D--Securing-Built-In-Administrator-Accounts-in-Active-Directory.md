@@ -1,17 +1,17 @@
 ---
 ms.assetid: 11f36f2b-9981-4da0-9e7c-4eca78035f37
-title: 'Anhang D: sichern integrierter Administrator Konten in Active Directory'
+title: 'Anhang D: Sichern von Built-In Administrator Konten in Active Directory'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: efd0ac56d3e9f0480ed59e50d42f7e99d416f22d
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 10251bb37e68165c1e2573d41fc7d24a91b66aa6
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941630"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070582"
 ---
 # <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Schützen integrierter Administratorkonten in Active Directory
 
@@ -36,7 +36,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 -   Konfigurieren Sie Gruppenrichtlinien Objekte, um die Verwendung des Administrator Kontos für mit der Domäne verbundene Systeme einzuschränken:
 
-    -   Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit der Arbeitsstation und dem Mitglieds Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzer
+    -   Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit der Arbeitsstation und dem Mitglieds Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien\Zuweisen von Benutzer
 
         -   Zugriff vom Netzwerk auf diesen Computer verweigern
 
@@ -55,7 +55,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_23.gif)
 
 -   Konfigurieren von Gruppenrichtlinien Objekten zum Einschränken von Administrator Konten auf Domänen Controllern
-    -   In jeder Domäne in der Gesamtstruktur sollte das Standard Domänen Controller-Gruppenrichtlinien Objekt oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen
+    -   In jeder Domäne in der Gesamtstruktur sollte das Standard Domänen Controller-Gruppenrichtlinien Objekt oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale** Richtlinien\Zuweisen
         -   Zugriff vom Netzwerk auf diesen Computer verweigern
 
         -   Anmelden als Batchauftrag verweigern
@@ -73,15 +73,15 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 #### <a name="step-by-step-instructions-to-secure-built-in-administrator-accounts-in-active-directory"></a>Schritt-für-Schritt-Anleitung zum Sichern integrierter Administrator Konten in Active Directory
 
-1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.
+1.  Klicken **Server Manager** Sie in Server-Manager **auf Extras, und** klicken Sie dann auf **Active Directory Benutzer und Computer** .
 
 2.  Führen Sie die folgenden Schritte aus, um zu verhindern, dass Angriffe, die die Delegierung nutzen, die Anmelde Informationen des Kontos auf anderen Systemen verwenden
 
-    1.  Klicken Sie mit der rechten Maustaste auf das **Administrator** Konto und dann auf **Eigenschaften**.
+    1.  Klicken Sie mit der rechten Maustaste auf das **Administrator** Konto und dann auf **Eigenschaften** .
 
-    2.  Klicken Sie auf die Registerkarte **Konto**.
+    2.  Klicken Sie auf die Registerkarte **Konto** .
 
-    3.  Wählen Sie unter " **Konto Optionen**" die Option **Konto ist vertraulich und kann nicht delegiert werden** aus, wie im folgenden Screenshot gezeigt, und klicken Sie auf **OK**.
+    3.  Wählen Sie unter " **Konto Optionen** " die Option **Konto ist vertraulich und kann nicht delegiert werden** aus, wie im folgenden Screenshot gezeigt, und klicken Sie auf **OK** .
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_24.gif)
 
@@ -89,22 +89,22 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     1.  Klicken Sie mit der rechten Maustaste auf das **Administrator** Konto, und wählen Sie **Eigenschaften**
 
-    2.  Klicken Sie auf die Registerkarte **Konto**.
+    2.  Klicken Sie auf die Registerkarte **Konto** .
 
-    3.  Wählen Sie unter " **Konto** Optionen" das Flag " **Smartcard ist für die interaktive Anmeldung erforderlich" aus** , wie im folgenden Screenshot zu sehen, und klicken Sie auf **OK**.
+    3.  Wählen Sie unter " **Konto** Optionen" das Flag " **Smartcard ist für die interaktive Anmeldung erforderlich" aus** , wie im folgenden Screenshot zu sehen, und klicken Sie auf **OK** .
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_25.gif)
 
-##### <a name="configuring-gpos-to-restrict-administrator-accounts-at-the-domain-level"></a>Konfigurieren von GPOs zum Einschränken von Administrator Konten auf Domänen Ebene
+##### <a name="configuring-gpos-to-restrict-administrator-accounts-at-the-domain-level"></a>Konfigurieren von Gruppenrichtlinien Objekten zum Einschränken von Administrator Konten auf Domain-Level
 
 > [!WARNING]
 > Dieses GPO sollte nie auf Domänen Ebene verknüpft werden, da es das integrierte Administrator Konto auch in Notfall Wiederherstellungs Szenarien unbrauchbar machen kann.
 
-1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.
+1.  Klicken **Server Manager** Sie in Server-Manager **auf Extras, und** klicken Sie auf **Gruppenrichtlinie Verwaltung** .
 
 2.  Erweitern Sie in der Konsolen Struktur den Eintrag <Forest> \domains \\ <Domain> , und **Gruppenrichtlinie Objekte** (wobei der Name der Gesamtstruktur <Forest> und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie erstellen möchten).
 
-3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.
+3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte** , und klicken Sie dann auf **neu** .
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_27.gif)
 
@@ -112,63 +112,63 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_28.gif)
 
-5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf <GPO Name> , und klicken Sie dann auf **Bearbeiten**.
+5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf <GPO Name> , und klicken Sie dann auf **Bearbeiten** .
 
-6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien**, **und klicken Sie**auf Zuweisen von
+6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien** , **und klicken Sie** auf Zuweisen von
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_29.gif)
 
 7.  Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass das Administrator Konto auf Mitglieder Server und Arbeitsstationen über das Netzwerk zugreift
 
-    1.  Doppelklicken Sie **auf Zugriff vom Netzwerk auf diesen Computer verweigern,** und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie **auf Zugriff vom Netzwerk auf diesen Computer verweigern,** und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
+    3.  Geben Sie **Administrator** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** . Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_30.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 8.  Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass sich das Administrator Konto als Batch Auftrag anmeldet. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie auf **Anmelden als Batch Auftrag verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie auf **Anmelden als Batch Auftrag verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
+    3.  Geben Sie **Administrator** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** . Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_31.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 9. Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass sich das Administrator Konto als Dienst anmeldet. gehen Sie hierzu wie folgt vor:
 
-    1.  Doppelklicken Sie auf **Anmelden als Dienst verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren**aus.
+    1.  Doppelklicken Sie auf **Anmelden als Dienst verweigern** , und wählen Sie **Diese Richtlinien Einstellungen definieren** aus.
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
+    3.  Geben Sie **Administrator** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** . Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_32.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
 10. Konfigurieren Sie die Benutzerrechte, um zu verhindern, dass das BA-Konto über Remotedesktopdienste auf Mitglieds Server und Arbeitsstationen zugreift:
 
-    1.  Doppelklicken Sie auf **Anmelden über Remotedesktopdienste verweigern** , und wählen Sie **die Option Diese Richtlinien Einstellungen definieren**.
+    1.  Doppelklicken Sie auf **Anmelden über Remotedesktopdienste verweigern** , und wählen Sie **die Option Diese Richtlinien Einstellungen definieren** .
 
-    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.
+    2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen** .
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
+    3.  Geben Sie **Administrator** ein, klicken Sie auf **Namen überprüfen** und dann auf **OK** . Stellen Sie sicher, dass das Konto im Format "\UserName" angezeigt wird, <DomainName> wie im folgenden Screenshot gezeigt.
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_33.gif)
 
-    4.  Klicken Sie erneut auf **OK**und dann auf **OK** .
+    4.  Klicken Sie erneut auf **OK** und dann auf **OK** .
 
-11. Um **Gruppenrichtlinienverwaltungs-Editor**zu beenden, klicken Sie auf **Datei**und dann auf **Beenden**.
+11. Um **Gruppenrichtlinienverwaltungs-Editor** zu beenden, klicken Sie auf **Datei** und dann auf **Beenden** .
 
-12. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:
+12. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management** mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:
 
     1.  Navigieren Sie zu " <Forest> \domains" \\ <Domain> (wobei der Name der Gesamtstruktur <Forest> und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).
 
@@ -176,7 +176,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_34.gif)
 
-    3.  Wählen Sie das von Ihnen erstellte GPO aus, und klicken Sie auf **OK**.
+    3.  Wählen Sie das von Ihnen erstellte GPO aus, und klicken Sie auf **OK** .
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_35.gif)
 
@@ -207,11 +207,11 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
 1.  Melden Sie sich mit dem integrierten Administrator Konto der Domäne bei der Domäne an.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld** **Eingabeaufforderung**ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen** , um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen.
+3.  Geben Sie im **Suchfeld** **Eingabeaufforderung** ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung** , und klicken Sie dann auf **als Administrator ausführen** , um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen.
 
-4.  Wenn Sie aufgefordert werden, die Höhe zu genehmigen, klicken Sie auf **Ja**.
+4.  Wenn Sie aufgefordert werden, die Höhe zu genehmigen, klicken Sie auf **Ja** .
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_38.gif)
 
@@ -227,50 +227,50 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 ###### <a name="create-a-batch-file"></a>Erstellen einer Batch Datei
 
-1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-2.  Geben Sie im **Suchfeld den Suchbegriff** **Editor**ein, und klicken Sie auf **Editor**.
+2.  Geben Sie im **Suchfeld den Suchbegriff** **Editor** ein, und klicken Sie auf **Editor** .
 
-3.  Geben **Sie im Editor**den Befehl **dir c:** ein.
+3.  Geben **Sie im Editor** den Befehl **dir c:** ein.
 
-4.  Klicken Sie auf **Datei** und dann auf **Speichern**unter.
+4.  Klicken Sie auf **Datei** und dann auf **Speichern** unter.
 
-5.  Geben Sie im Feld **Dateiname** den Namen ** <Filename> . bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).
+5.  Geben Sie im Feld **Dateiname** den Namen **<Filename> . bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe
 
-1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-2.  Geben Sie im **Suchfeld** den Text **Task Scheduler**ein, und klicken Sie auf **Taskplaner**.
+2.  Geben Sie im **Suchfeld** den Text **Task Scheduler** ein, und klicken Sie auf **Taskplaner** .
 
     > [!NOTE]
-    > Geben Sie auf Computern, auf denen Windows 8 ausgeführt wird, im Suchfeld **Schedule Tasks**ein, und klicken Sie auf **Aufgaben planen**.
+    > Geben Sie auf Computern, auf denen Windows 8 ausgeführt wird, im Suchfeld **Schedule Tasks** ein, und klicken Sie auf **Aufgaben planen** .
 
-3.  Klicken Sie auf **Taskplaner**auf **Aktion**, und klicken Sie auf **Task erstellen**.
+3.  Klicken Sie auf **Taskplaner** auf **Aktion** , und klicken Sie auf **Task erstellen** .
 
 4.  Geben Sie im Dialogfeld **Task erstellen** **<Task Name>** (wobei **<Task Name>** der Name der neuen Aufgabe ist) ein.
 
-5.  Klicken Sie auf die Registerkarte **Aktionen** , und klicken Sie auf **neu**.
+5.  Klicken Sie auf die Registerkarte **Aktionen** , und klicken Sie auf **neu** .
 
-6.  Wählen Sie unter **Aktion**die Option **Programm starten**aus.
+6.  Wählen Sie unter **Aktion** die Option **Programm starten** aus.
 
-7.  Klicken Sie unter **Programm/Skript:** auf **Durchsuchen**, suchen Sie die Batchdatei, die Sie im Abschnitt "Erstellen einer Batchdatei" erstellt haben, und klicken Sie auf **Öffnen**.
+7.  Klicken Sie unter **Programm/Skript:** auf **Durchsuchen** , suchen Sie die Batchdatei, die Sie im Abschnitt "Erstellen einer Batchdatei" erstellt haben, und klicken Sie auf **Öffnen** .
 
-8.  Klicken Sie auf **OK**.
+8.  Klicken Sie auf **OK** .
 
-9. Klicken Sie auf die Registerkarte **Allgemein**.
+9. Klicken Sie auf die Registerkarte **Allgemein** .
 
-10. Klicken Sie unter **Sicherheits** Optionen auf **Benutzer oder Gruppe ändern**.
+10. Klicken Sie unter **Sicherheits** Optionen auf **Benutzer oder Gruppe ändern** .
 
-11. Geben Sie den Namen des BA-Kontos auf Domänen Ebene ein, klicken Sie auf **Namen überprüfen**, und klicken Sie dann auf **OK**.
+11. Geben Sie den Namen des BA-Kontos auf Domänen Ebene ein, klicken Sie auf **Namen überprüfen** , und klicken Sie dann auf **OK** .
 
-12. Wählen Sie **Ausführen aus, ob der Benutzer angemeldet ist oder nicht** , und speichern Sie das **Kennwort**nicht. Der Task hat nur Zugriff auf lokale Computerressourcen.
+12. Wählen Sie **Ausführen aus, ob der Benutzer angemeldet ist oder nicht** , und speichern Sie das **Kennwort** nicht. Der Task hat nur Zugriff auf lokale Computerressourcen.
 
-13. Klicken Sie auf **OK**.
+13. Klicken Sie auf **OK** .
 
 14. Es wird ein Dialogfeld angezeigt, in dem die Anmelde Informationen des Benutzerkontos zum Ausführen des Tasks angefordert werden.
 
-15. Klicken Sie nach Eingabe der Anmelde Informationen auf **OK**.
+15. Klicken Sie nach Eingabe der Anmelde Informationen auf **OK** .
 
 16. Ein Dialogfeld ähnlich dem folgenden sollte angezeigt werden.
 
@@ -280,19 +280,19 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 1.  Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die von den GPO-Änderungen betroffen sind.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste**ein, und klicken Sie auf **Dienste**.
+3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste** ein, und klicken Sie auf **Dienste** .
 
-4.  Suchen Sie den **Druck Spooler**, und doppelklicken Sie darauf.
+4.  Suchen Sie den **Druck Spooler** , und doppelklicken Sie darauf.
 
-5.  Klicken Sie auf die Registerkarte **Anmelden**.
+5.  Klicken Sie auf die Registerkarte **Anmelden** .
 
-6.  Wählen Sie unter **Anmelden als:** **dieses Konto**aus.
+6.  Wählen Sie unter **Anmelden als:** **dieses Konto** aus.
 
-7.  Klicken Sie auf **Durchsuchen**, geben Sie den Namen des Bas-Kontos auf Domänen Ebene ein, klicken Sie auf **Namen überprüfen**, und klicken Sie auf **OK**.
+7.  Klicken Sie auf **Durchsuchen** , geben Sie den Namen des Bas-Kontos auf Domänen Ebene ein, klicken Sie auf **Namen überprüfen** , und klicken Sie auf **OK** .
 
-8.  Geben Sie unter **Kennwort:** und **Kennwort bestätigen:** das Kennwort des Administrator Kontos ein, und klicken Sie auf **OK**.
+8.  Geben Sie unter **Kennwort:** und **Kennwort bestätigen:** das Kennwort des Administrator Kontos ein, und klicken Sie auf **OK** .
 
 9. Klicken Sie drei weitere Male auf **OK** .
 
@@ -306,23 +306,23 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 1.  Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die von den GPO-Änderungen betroffen sind.
 
-2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+2.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste**ein, und klicken Sie auf **Dienste**.
+3.  Geben Sie im **Suchfeld den Suchbegriff** **Dienste** ein, und klicken Sie auf **Dienste** .
 
-4.  Suchen Sie den **Druck Spooler**, und doppelklicken Sie darauf.
+4.  Suchen Sie den **Druck Spooler** , und doppelklicken Sie darauf.
 
-5.  Klicken Sie auf die Registerkarte **Anmelden**.
+5.  Klicken Sie auf die Registerkarte **Anmelden** .
 
-6.  Wählen Sie unter **Anmelden als:** das Konto **Lokales System** aus, und klicken Sie auf **OK**.
+6.  Wählen Sie unter **Anmelden als:** das Konto **Lokales System** aus, und klicken Sie auf **OK** .
 
 ##### <a name="verify-deny-log-on-through-remote-desktop-services-gpo-settings"></a>Überprüfen der GPO-Einstellungen "Anmelden über Remotedesktopdienste verweigern"
 
-1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen**.
+1.  Bewegen Sie den Mauszeiger mit der Maus in die obere rechte Ecke des Bildschirms. Wenn die Leiste **Charms** angezeigt wird, klicken Sie auf **Suchen** .
 
-2.  Geben Sie im **Suchfeld als Suchbegriff** **Remote Desktop Verbindung**ein, und klicken Sie auf **Remotedesktopverbindung**.
+2.  Geben Sie im **Suchfeld als Suchbegriff** **Remote Desktop Verbindung** ein, und klicken Sie auf **Remotedesktopverbindung** .
 
-3.  Geben Sie im Feld **Computer** den Namen des Computers ein, mit dem Sie eine Verbindung herstellen möchten, und klicken Sie auf **verbinden**. (Sie können auch die IP-Adresse anstelle des Computer namens eingeben.)
+3.  Geben Sie im Feld **Computer** den Namen des Computers ein, mit dem Sie eine Verbindung herstellen möchten, und klicken Sie auf **verbinden** . (Sie können auch die IP-Adresse anstelle des Computer namens eingeben.)
 
 4.  Wenn Sie dazu aufgefordert werden, geben Sie die Anmelde Informationen für den Namen des BA-Kontos auf Domänen Ebene an.
 

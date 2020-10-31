@@ -1,17 +1,17 @@
 ---
 ms.assetid: e727a33d-133b-43c9-b6a4-7c00f9cb6000
 title: Überprüfen der Domänen Modelle
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/08/2018
 ms.topic: article
-ms.openlocfilehash: 00a69dfb4b17c431b1d83d8de0787aaf2481b395
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 9f5cc2b73a06ed8e08820c4eb342484db84d55d0
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938540"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070242"
 ---
 # <a name="reviewing-the-domain-models"></a>Überprüfen der Domänen Modelle
 
@@ -35,7 +35,7 @@ Es empfiehlt sich, die Anzahl der Domänen zu minimieren, die Sie in Ihrer Gesam
 | Erhöhung der Wahrscheinlichkeit, dass Objekte zwischen Domänen verschoben werden | Umso größer die Anzahl der Domänen ist, desto größer ist die Wahrscheinlichkeit, dass Benutzer von einer Domäne in eine andere verschieben müssen. Diese Verschiebung kann sich möglicherweise auf Endbenutzer auswirken. |
 
 > [!NOTE]
-> Die differenzierten Windows Server-Kennwort-und Konto Sperrungs Richtlinien können sich auch auf das von Ihnen ausgewählte Domänen Entwurfs Modell auswirken. Vor dieser Version von Windows Server 2008 konnten Sie für alle Benutzer in der Domäne nur ein Kennwort und eine Konto Sperrungs Richtlinie, die in der Domänen-Standard Domänen Richtlinie angegeben ist, anwenden. Wenn Sie unterschiedliche Kennwort-und Konto Sperrungs Einstellungen für verschiedene Gruppen von Benutzern wünschen, müssen Sie daher entweder einen Kenn Wortfilter erstellen oder mehrere Domänen bereitstellen. Sie können jetzt differenzierte Kenn Wort Richtlinien verwenden, um mehrere Kenn Wort Richtlinien anzugeben und verschiedene Kenn Wort Einschränkungen und Konto Sperr Richtlinien auf verschiedene Gruppen von Benutzern in einer einzelnen Domäne anzuwenden. Weitere Informationen zu differenzierten Kennwort-und Konto Sperrungs Richtlinien finden Sie im Artikel AD DS differenziertere [Kennwort-und Konto Sperrungs Richtlinie schrittweise Anleitung](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770842(v=ws.10)).
+> Die differenzierten Windows Server-Kennwort-und Konto Sperrungs Richtlinien können sich auch auf das von Ihnen ausgewählte Domänen Entwurfs Modell auswirken. Vor dieser Version von Windows Server 2008 konnten Sie für alle Benutzer in der Domäne nur ein Kennwort und eine Konto Sperrungs Richtlinie, die in der Domänen-Standard Domänen Richtlinie angegeben ist, anwenden. Wenn Sie unterschiedliche Kennwort-und Konto Sperrungs Einstellungen für verschiedene Gruppen von Benutzern wünschen, müssen Sie daher entweder einen Kenn Wortfilter erstellen oder mehrere Domänen bereitstellen. Sie können jetzt differenzierte Kenn Wort Richtlinien verwenden, um mehrere Kenn Wort Richtlinien anzugeben und verschiedene Kenn Wort Einschränkungen und Konto Sperr Richtlinien auf verschiedene Gruppen von Benutzern in einer einzelnen Domäne anzuwenden. Weitere Informationen zu differenzierten Kennwort-und Konto Sperrungs Richtlinien finden Sie in der [schrittweisen Anleitung AD DS Fine-Grained Password and Account Sperrungs Policy](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770842(v=ws.10)).
 
 ## <a name="single-domain-model"></a>Einzelnes Domänen Modell
 

@@ -2,16 +2,16 @@
 ms.assetid: fe05e52c-cbf8-428b-8176-63407991042f
 title: Erweiterte Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Level 200)
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: dd63784bd61a374ca92419c6bfa38a3f81b7f8c2
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 74ceedfb48d4c885d41ca9b8688718c6f8c817ed
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070962"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Erweiterte Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Level 200)
 
@@ -19,7 +19,7 @@ ms.locfileid: "88941550"
 
 Dieser Artikel enthält Details zu den neuen AD DS-Replikations- und Topologieverwaltungs-Cmdlets und liefert zusätzliche Beispiele. Eine Einführung finden Sie unter [Einführung in Active Directory Replikation und Topologieverwaltung mithilfe von Windows PowerShell &#40;Level 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md).
 
-1. [Introduction (Einführung)](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Intro)
+1. [Einführung](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Intro)
 
 2. [Replikation und Metadaten](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Repl)
 
@@ -36,7 +36,7 @@ Dieser Artikel enthält Details zu den neuen AD DS-Replikations- und Topologieve
 8. [Topologie](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Topo)
 
 ## <a name="introduction"></a><a name="BKMK_Intro"></a>Einführung
-Mit Windows Server 2012 wurde das Active Directory-Modul für Windows PowerShell um 25 neue Cmdlets zur Verwaltung von Replikation und Gesamtstrukturtopologie erweitert. Zuvor mussten Sie die generischen ** \* ADObject-** Nomen verwenden oder .NET-Funktionen aufzurufen.
+Mit Windows Server 2012 wurde das Active Directory-Modul für Windows PowerShell um 25 neue Cmdlets zur Verwaltung von Replikation und Gesamtstrukturtopologie erweitert. Zuvor mussten Sie die generischen **\* ADObject-** Nomen verwenden oder .NET-Funktionen aufzurufen.
 
 Wie auch für alle anderen Active Directory Windows PowerShell-Cmdlets müssen Sie für diese neuen Funktionen den [Active Directory-Verwaltungsgatewaydienst](https://www.microsoft.com/download/details.aspx?displaylang=en&id=2852) auf mindestens einem Domänencontroller (bevorzugt auf allen Domänencontrollern) installieren.
 
@@ -90,7 +90,7 @@ Mit dem Cmdlet `Update-Help` können Sie die Hilfedateien herunterladen und inst
 ### <a name="replication-and-metadata"></a><a name="BKMK_Repl"></a>Replikation und Metadaten
 Repadmin.exe prüft Integrität und Konsistenz der Active Directory-Replikation. Repadmin.exe bietet einfache Optionen zur Datenbearbeitung, wie z. B. einige Argumente für CSV-Ausgabe, für die Automatisierung müssen jedoch normalerweise Ausgaben in Form von Textdateien analysiert werden. Das Active Directory-Modul für Windows PowerShell ist der erste Versuch, echte Kontrolle über die zurückgegebenen Daten zu bieten. Bislang mussten Sie dafür Skripts ausführen oder externe Tools verwenden.
 
-Außerdem haben die folgenden Cmdlets die neuen Parameter **Ziel**, **Bereich** und **EnumerationServer**:
+Außerdem haben die folgenden Cmdlets die neuen Parameter **Ziel** , **Bereich** und **EnumerationServer** :
 
 - **Get-ADReplicationFailure**
 
@@ -98,12 +98,12 @@ Außerdem haben die folgenden Cmdlets die neuen Parameter **Ziel**, **Bereich** 
 
 - **Get-ADReplicationUpToDatenessVectorTable**
 
-Das **Ziel**-Argument akzeptiert eine durch Trennzeichen getrennte Liste von Zeichenfolge, mit denen die im Argument **Bereich** angegebenen Zielserver, Standorte, Domänen oder Gesamtstrukturen identifiziert werden. Ein Sternchen ( \* ) ist ebenfalls zulässig und bezeichnet alle Server innerhalb des angegebenen Bereichs. Wenn kein Bereich angegeben ist, sind alle Server in der Gesamtstruktur des aktuellen Benutzers gemeint. Das Argument **Bereich** gibt die Breite der Suche an. Akzeptiert werden die Werte **Server**, **Site**, **Domain** und **Forest**. **EnumerationServer** gibt den Server an, der die Aufzählung der in **Ziel** und **Bereich** angegebenen Liste von Domänencontrollern enthält. Dieses Argument funktioniert analog zu **Server**, und der angegebene Server muss den Active Directory-Webdienst ausführen.
+Das **Ziel** -Argument akzeptiert eine durch Trennzeichen getrennte Liste von Zeichenfolge, mit denen die im Argument **Bereich** angegebenen Zielserver, Standorte, Domänen oder Gesamtstrukturen identifiziert werden. Ein Sternchen ( \* ) ist ebenfalls zulässig und bezeichnet alle Server innerhalb des angegebenen Bereichs. Wenn kein Bereich angegeben ist, sind alle Server in der Gesamtstruktur des aktuellen Benutzers gemeint. Das Argument **Bereich** gibt die Breite der Suche an. Akzeptiert werden die Werte **Server** , **Site** , **Domain** und **Forest** . **EnumerationServer** gibt den Server an, der die Aufzählung der in **Ziel** und **Bereich** angegebenen Liste von Domänencontrollern enthält. Dieses Argument funktioniert analog zu **Server** , und der angegebene Server muss den Active Directory-Webdienst ausführen.
 
 Es folgen nun einige Beispielszenarien, die mit repadmin.exe nicht möglich waren, um die Verwaltungsmöglichkeiten der neuen Cmdlets aufzuzeigen. Genauere Informationen zur Syntax finden Sie in den Hilfedateien der einzelnen Cmdlets.
 
 ### <a name="get-adreplicationattributemetadata"></a><a name="BKMK_ReplAttrMD"></a>Get-ADReplicationAttributeMetadata
-Dieses Cmdlet funktioniert gleich wie **repadmin.exe /showobjmeta**. Es gibt Replikationsmetadaten zurück, z. B. den Änderungszeitpunkt eines Attributs, den Ursprungs-Domänencontroller, Versions- und USN-Informationen und Attributdaten. Dieses Cmdlet ist hilfreich, wenn Sie feststellen müssen, wo und wann eine Änderung durchgeführt wurde.
+Dieses Cmdlet funktioniert gleich wie **repadmin.exe /showobjmeta** . Es gibt Replikationsmetadaten zurück, z. B. den Änderungszeitpunkt eines Attributs, den Ursprungs-Domänencontroller, Versions- und USN-Informationen und Attributdaten. Dieses Cmdlet ist hilfreich, wenn Sie feststellen müssen, wo und wann eine Änderung durchgeführt wurde.
 
 Im Gegensatz zu Repadmin bietet Windows PowerShell flexible Kontrolle über Suche und Ausgabe. Sie können z. B. die Metadaten des Domänen-Admin-Objekts sortiert als lesbare Liste ausgeben:
 
@@ -123,7 +123,7 @@ Get-ADReplicationAttributeMetadata -object "cn=domain admins,cn=users,dc=corp,dc
 
 ![Erweiterte Verwaltung mit PowerShell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMdTable.png)
 
-Alternativ können Sie die Metadaten für eine gesamte Objektklasse abrufen, indem Sie das **Get-Adobject**-Cmdlet mit einem Filter verknüpfen, wie z. B. alle Gruppen, und die Ausgabe mit einem bestimmten Datum kombinieren. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets. Anzeigen aller Gruppen, die am 13. Januar 2012 auf irgendeine Art verändert wurden:
+Alternativ können Sie die Metadaten für eine gesamte Objektklasse abrufen, indem Sie das **Get-Adobject** -Cmdlet mit einem Filter verknüpfen, wie z. B. alle Gruppen, und die Ausgabe mit einem bestimmten Datum kombinieren. Pipelines sind Kanäle zur Datenübergabe zwischen mehreren Cmdlets. Anzeigen aller Gruppen, die am 13. Januar 2012 auf irgendeine Art verändert wurden:
 
 ```
 get-adobject -filter 'objectclass -eq "group"' | Get-ADReplicationAttributeMetadata -server dc1.corp.contoso.com | where-object {$_.lastoriginatingchangetime -like "*1/13/2012*" -and $_.attributename -eq "name"} | format-table object
@@ -185,7 +185,7 @@ Get-ADReplicationPartnerMetadata -target * -scope server | where {$_.lastreplica
 ![Erweiterte Verwaltung mit PowerShell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplPartnerMdFail.png)
 
 ### <a name="get-adreplicationfailure"></a><a name="BKMK_ReplFail"></a>Get-ADReplicationFailure
-Dieses Cmdlet gibt Informationen über aktuelle Fehler bei der Replikation zurück. Es funktioniert gleich wie **Repadmin.exe /showreplsum**, jedoch ebenfalls mit wesentlich mehr Kontrolle dank Windows PowerShell.
+Dieses Cmdlet gibt Informationen über aktuelle Fehler bei der Replikation zurück. Es funktioniert gleich wie **Repadmin.exe /showreplsum** , jedoch ebenfalls mit wesentlich mehr Kontrolle dank Windows PowerShell.
 
 Sie können z. B. die aktuellsten Fehler eines Domänencontrollers und die Partner anzeigen, deren Kontaktierung fehlgeschlagen ist:
 
@@ -208,7 +208,7 @@ Get-ADReplicationFailure -scope site -target default-first-site-name | format-ta
 Diese beiden Cmdlets geben weitere Aspekte der "Aktualität" von Domänencontrollern zurück, inklusive ausstehender Replikationen und Versionsvektoren.
 
 ### <a name="sync-adobject"></a><a name="BKMK_Sync"></a>Sync-ADObject
-Dieses Cmdlet funktioniert gleich wie **Repadmin.exe /replsingleobject**. Diese Funktion ist hilfreich, wenn Sie irgendwelche Änderungen außerplanmäßig replizieren möchten, insbesondere bei der Korrektur von Problemen.
+Dieses Cmdlet funktioniert gleich wie **Repadmin.exe /replsingleobject** . Diese Funktion ist hilfreich, wenn Sie irgendwelche Änderungen außerplanmäßig replizieren möchten, insbesondere bei der Korrektur von Problemen.
 
 Wenn z. B. jemand das Benutzerkonto des Geschäftsführers gelöscht und anschließend mit dem Active Directory-Papierkorb wiederhergestellt hat, möchten Sie dieses Objekt vermutlich sofort auf alle Domänencontroller replizieren. Außerdem möchten Sie es vermeiden, gleichzeitig sämtliche anderen Änderungen zu replizieren. Sie haben schließlich einen Replikationszeitplan, um überlastete WAN-Links zu vermeiden.
 
@@ -224,7 +224,7 @@ Repadmin.exe ist zwar praktisch zum Abrufen von Daten über Replikationstopologi
 
 Nach einer schnellen Erweiterung neuer Filialen und der Konsolidierung anderer Filialen kann es passieren, dass Sie Hunderte von Standortänderungen aufgrund von physischen Standorten, Netzwerkänderungen und neuen Kapazitätsanforderungen vornehmen müssen. Anstatt Dssites.msc und Adsiedit.msc für diese Änderungen zu verwenden, können Sie den Vorgang automatisieren. Dies ist besonders überzeugend, wenn Sie mit einer Datentabelle arbeiten, die Sie von Ihren Netzwerk- und Einrichtungsteams erhalten haben.
 
-Die **Get-adreplication \\ *-** Cmdlets geben Informationen über die Replikations Topologie zurück und sind nützlich für das Massen Ausführen von Pipelines in die **Set- \\ adreplication *-** Cmdlets. **Get** -Cmdlets ändern keine Daten, Sie zeigen nur Daten an oder erstellen Windows PowerShell-Sitzungs Objekte, die an **Set- \\ adreplication *-** Cmdlets Weiterleitungen gesendet werden können. Die **New**- und **Remove**-Cmdlets sind hilfreich zum Erstellen und Entfernen von Active Directory-Topologieobjekten.
+Die Cmdlets " **Get-adreplication \\** _" geben Informationen über die Replikations Topologie zurück und sind hilfreich für das Massen Ausführen von Pipelines in die Cmdlets " _*Set-adreplication \\* *_ ". _*Get* *-Cmdlets ändern keine Daten, Sie zeigen nur Daten an oder erstellen Windows PowerShell-Sitzungs Objekte, die an **Set- \\ adreplication-** Cmdlets über Pipelines gesendet werden können_ . Die Cmdlets "_ *New* *" und " **Remove** " sind nützlich zum Erstellen oder Entfernen von Active Directory Topologieobjekten.
 
 Sie können z. B. neue Standorte mit einer CSV-Datei erstellen:
 
@@ -244,7 +244,7 @@ new-adreplicationsitelink -name "chicago<-->waukegan" -sitesincluded chicago,wau
 
 ![Erweiterte Verwaltung mit PowerShell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSNewADReplSite.png)
 
-Oder Sie können alle Standorte in der Gesamtstruktur suchen und deren **Options**-Attribut durch eine Kennzeichnung zum Aktivieren der standortübergreifenden Benachrichtigung ersetzen, um mit maximaler Geschwindigkeit und mit Komprimierung zu replizieren:
+Oder Sie können alle Standorte in der Gesamtstruktur suchen und deren **Options** -Attribut durch eine Kennzeichnung zum Aktivieren der standortübergreifenden Benachrichtigung ersetzen, um mit maximaler Geschwindigkeit und mit Komprimierung zu replizieren:
 
 ```
 get-adreplicationsitelink -filter * | set-adobject -replace @{options=$($_.options -bor 1)}

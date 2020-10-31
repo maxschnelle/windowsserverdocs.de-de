@@ -2,16 +2,16 @@
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
 title: 'Ereignis-ID 2088: DNS-Suche-Fehler bei erfolgreicher Replikation'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a6e78c458f92e477ddeaf156370f5e254caf4679
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 41ab450c98dd607c3c849fb94a1adbb9f1708375
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070712"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: DNS-Lookup-Problem bei erfolgreicher Replikation aufgetreten
 
@@ -39,7 +39,7 @@ Eine ungültige DNS-Konfiguration wirkt sich möglicherweise auf andere wichtige
 
 Sie sollten diesen DNS-Konfigurationsfehler sofort beheben, damit dieser Domänen Controller die IP-Adresse des Quell Domänen Controllers mithilfe von DNS auflösen kann.
 
-Alternativer Servername: DC1 fehlerhafter DNS-Hostname: 4a8717eb-8e58-456c-995a-c92e4add7e8e. _msdcs....
+Alternativer Servername: DC1 Fehler bei DNS-Hostname: 4a8717eb-8e58-456c-995a-c92e4add7e8e._msdcs.
 
 Hinweis: Standardmäßig werden nur bis zu 10 DNS-Fehler für einen Zeitraum von 12 Stunden angezeigt, auch wenn mehr als 10 Fehler auftreten.  Legen Sie den folgenden Wert für die Diagnose Registrierung auf 1 fest, um alle einzelnen Fehlerereignisse zu protokollieren:
 

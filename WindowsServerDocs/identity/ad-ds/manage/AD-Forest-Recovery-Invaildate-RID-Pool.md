@@ -1,23 +1,23 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: der RID-Pool wird ungültig.'
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 2f5f84df-bd85-4ca4-bdd3-835bd1d45c11
-ms.openlocfilehash: 36919eb4f4e67129446975f9c8c4d60fd64cc499
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 0cadf854cbcdf730fbb7e84febea6ddaec24ff69
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071282"
 ---
 # <a name="ad-forest-recovery---invalidating-the-current-rid-pool"></a>AD-Gesamtstruktur Wiederherstellung: der aktuelle RID-Pool wird ungültig.
 
 >Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
-Verwenden Sie das folgende Verfahren für Windows PowerShell, um den aktuellen RID-Pool auf einem Domänen Controller ungültig zu machen. Windows PowerShell ist standardmäßig unter Windows Server 2012 und Windows Server 2008 R2 aktiviert, jedoch nicht unter Windows Server 2008, wo Sie mithilfe von **Features hinzufügen**installiert werden muss. Sie kann [heruntergeladen](https://www.microsoft.com/download/details.aspx?id=20020) werden, um unter Windows Server 2003 ausgeführt zu werden.
+Verwenden Sie das folgende Verfahren für Windows PowerShell, um den aktuellen RID-Pool auf einem Domänen Controller ungültig zu machen. Windows PowerShell ist standardmäßig unter Windows Server 2012 und Windows Server 2008 R2 aktiviert, jedoch nicht unter Windows Server 2008, wo Sie mithilfe von **Features hinzufügen** installiert werden muss. Sie kann [heruntergeladen](https://www.microsoft.com/download/details.aspx?id=20020) werden, um unter Windows Server 2003 ausgeführt zu werden.
 
 Um zu überprüfen, ob der Befehl erfolgreich abgeschlossen wurde, überprüfen Sie die Ereignis-ID 16654 (Quelle ist Verzeichnisdienst-Sam) im System Protokoll in Ereignisanzeige in Windows Server 2012. In früheren Versionen von Windows wird dieses Ereignis nicht protokolliert.
 

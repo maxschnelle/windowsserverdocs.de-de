@@ -2,16 +2,16 @@
 ms.assetid: fde99b44-cb9f-49bf-b888-edaeabe6b88d
 title: 'Testleitfaden: Klonen von virtualisierten Domänencontrollern für Anwendungsanbieter'
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: f8a108226f0aff37cd730a477bd6ee5d865399df
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 03272c7dc3afaccac9fb48d591f4f17d84bcccd4
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070912"
 ---
 # <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Testleitfaden: Klonen von virtualisierten Domänencontrollern für Anwendungsanbieter
 
@@ -43,13 +43,13 @@ Der Prozess für das Klonen virtualisierter Domänen Controller wird ausführlic
 ### <a name="customdccloneallowlistxml"></a>CustomDCCloneAllowList.xml
 Ein Domänen Controller, auf dem die Anwendung oder der Dienst ausgeführt wird, kann erst geklont werden, wenn die Anwendung bzw. der Dienst
 
--   Wird der CustomDCCloneAllowList.xml Datei mithilfe des Windows PowerShell-Cmdlets Get-addccloningexcludedapplicationlist hinzugefügt.
+-   Mit dem Windows PowerShell-Cmdlet Get-ADDCCloningExcludedApplicationList der CustomDCCloneAllowList.xml Datei hinzugefügt
 
 -Oder-
 
 -   Vom Domänen Controller entfernt
 
-Beim ersten Ausführen des Cmdlets "Get-addccloningexcludedapplicationlist" wird eine Liste der Dienste und Anwendungen zurückgegeben, die auf dem Domänen Controller ausgeführt werden, sich aber nicht in der Standardliste der Dienste und Anwendungen befinden, die für das Klonen unterstützt werden. Standardmäßig wird der Dienst oder die Anwendung nicht aufgelistet. Um den Dienst oder die Anwendung der Liste der Anwendungen und Dienste hinzuzufügen, die sicher geklont werden können, führt der Benutzer das Get-addccloningexcludedapplicationlist-Cmdlet erneut mit der Option-generatexml aus, um es der CustomDCCloneAllowList.xml-Datei hinzuzufügen. Weitere Informationen finden Sie unter [Schritt 2: Ausführen des Cmdlets "Get-addccloningexcludedapplicationlist](/powershell/module/addsadministration/get-addccloningexcludedapplicationlist)".
+Beim ersten Ausführen des Get-ADDCCloningExcludedApplicationList Cmdlets wird eine Liste der Dienste und Anwendungen zurückgegeben, die auf dem Domänen Controller ausgeführt werden, aber nicht in der Standardliste der Dienste und Anwendungen enthalten sind, die für das Klonen unterstützt werden. Standardmäßig wird der Dienst oder die Anwendung nicht aufgelistet. Um den Dienst oder die Anwendung der Liste der Anwendungen und Dienste hinzuzufügen, die sicher geklont werden können, führt der Benutzer Get-ADDCCloningExcludedApplicationList Cmdlet erneut mit der Option-generatexml aus, um es der CustomDCCloneAllowList.xml Datei hinzuzufügen. Weitere Informationen finden Sie unter [Schritt 2: Ausführen Get-ADDCCloningExcludedApplicationList Cmdlets](/powershell/module/addsadministration/get-addccloningexcludedapplicationlist).
 
 ### <a name="distributed-system-interactions"></a>Verteilte System Interaktionen
 In der Regel werden Dienste, die auf dem lokalen Computer isoliert sind, bei der Teilnahme am Klonen bestanden oder schlagen fehl Verteilte Dienste müssen sich für einen kurzen Zeitraum gleichzeitig mit zwei Instanzen des Host Computers im Netzwerk beschäftigen. Dies kann sich als eine Dienst Instanz erweisen, die versucht, Informationen von einem Partner System abzurufen, in dem sich der Klon als neuer Anbieter der Identität registriert hat. Oder beide Instanzen des dienstanzen können Informationen mit unterschiedlichen Ergebnissen zur gleichen Zeit in die AD DS Datenbank überführen. Beispielsweise ist es nicht deterministisch, mit welchem Computer kommuniziert wird, wenn sich zwei Computer mit dem Windows-Testtechnologie Dienst (WTT) im Netzwerk mit dem Domänen Controller befinden.

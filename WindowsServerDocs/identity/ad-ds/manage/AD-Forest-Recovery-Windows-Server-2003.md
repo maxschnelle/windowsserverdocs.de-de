@@ -1,17 +1,17 @@
 ---
 title: Wiederherstellung der AD-Gesamtstruktur-Windows Server 2003
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 07/07/2017
 ms.topic: article
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
-ms.openlocfilehash: 01557790072d4606cc98c32c7a437078940c258d
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: b5c633ad1e8fd354ae75baf88ef1393e91f8dc12
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88939610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070752"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Wiederherstellung der AD-Gesamtstruktur-Windows Server 2003
 
@@ -26,7 +26,7 @@ Dieses Thema enthält Wiederherstellungs Prozeduren für Domänen Controller (DC
 ## <a name="backing-up-the-system-state-data"></a>Sichern der System Statusdaten
 Verwenden Sie das folgende Verfahren, um die System Statusdaten zusammen mit allen anderen Daten, die Sie für den aktuellen Sicherungs Vorgang ausgewählt haben, eines Domänen Controllers zu sichern, auf dem Windows Server 2003 ausgeführt wird. Windows Server 2003 umfasst das Tool Ntbackup, das Sie zum Sichern der System Statusdaten verwenden können.
 
-Sie müssen mindestens Mitglied der Gruppe " **Administratoren** " oder " **Sicherungs Operatoren**" oder einer entsprechenden Gruppe sein, um Dateien und Ordner zu sichern.
+Sie müssen mindestens Mitglied der Gruppe " **Administratoren** " oder " **Sicherungs Operatoren** " oder einer entsprechenden Gruppe sein, um Dateien und Ordner zu sichern.
 
 Wenn Sie die System Statusdaten auf einem Band sichern und das Sicherungsprogramm anzeigt, dass kein nicht verwendetes Medium verfügbar ist, müssen Sie möglicherweise Wechsel Speicher verwenden. Dadurch wird das Band dem freien Medienpool hinzugefügt, sodass es von der Sicherung verwendet werden kann.
 
@@ -34,11 +34,11 @@ Sie können nur die System Statusdaten auf einem lokalen Computer sichern. Sie k
 
 ### <a name="to-back-up-the-system-state-data-on-a-domain-controller-that-runs-windows-server-2003"></a>So sichern Sie die System Statusdaten auf einem Domänen Controller, auf dem Windows Server 2003 ausgeführt wird
 
-1. Klicken Sie auf **Start**, zeigen Sie auf **Alle Programme**, auf **Zubehör**und auf **System**Programme, und klicken Sie dann auf **Sicherung**.
-2. Klicken Sie auf der **Willkommens** Seite auf erweiterter **Modus**.
+1. Klicken Sie auf **Start** , zeigen Sie auf **Alle Programme** , auf **Zubehör** und auf **System** Programme, und klicken Sie dann auf **Sicherung** .
+2. Klicken Sie auf der **Willkommens** Seite auf erweiterter **Modus** .
 3. Aktivieren Sie auf der Registerkarte **Sicherung** das Kontrollkästchen für ein beliebiges Laufwerk, einen Ordner oder eine Datei, die Sie sichern möchten.
 4. Aktivieren Sie das Kontrollkästchen **System Status** .
-5. Klicken Sie auf **Sicherung starten**.
+5. Klicken Sie auf **Sicherung starten** .
 
 ## <a name="performing-a-nonauthoritative-restore"></a>Ausführen einer nicht autorisierenden Wiederherstellung
 
@@ -57,10 +57,10 @@ Um Zeit zu sparen, die zur erneuten Installation der Software erforderlich ist, 
 2. Wählen Sie **Verzeichnisdienst-Wiederherstellungs Modus (nur Windows-Domänen Controller)** aus.
 3. Wählen Sie das Betriebssystem aus, das Sie im Wiederherstellungs Modus starten möchten.
 4. Melden Sie sich als Administrator an (Sie können nur ein lokales Computer Konto verwenden, es ist keine Domänen Anmeldeoption verfügbar).
-5. Geben Sie an einer Eingabeaufforderung **Ntbackup**ein, und drücken Sie dann die EINGABETASTE.
-6. Klicken Sie auf der **Willkommens** Seite auf erweiterter **Modus**, und wählen Sie dann die Registerkarte **Medien wiederherstellen und verwalten** aus. (Wählen Sie nicht **Restore Wizard**aus.)
+5. Geben Sie an einer Eingabeaufforderung **Ntbackup** ein, und drücken Sie dann die EINGABETASTE.
+6. Klicken Sie auf der **Willkommens** Seite auf erweiterter **Modus** , und wählen Sie dann die Registerkarte **Medien wiederherstellen und verwalten** aus. (Wählen Sie nicht **Restore Wizard** aus.)
 7. Wählen Sie die entsprechende Sicherungsdatei aus, die Sie wiederherstellen möchten, und stellen Sie sicher, dass die Kontrollkästchen **System** Datenträger und **System**
-8. Klicken Sie auf **Wiederherstellung starten**.
+8. Klicken Sie auf **Wiederherstellung starten** .
 9. Wenn der Wiederherstellungs Vorgang beendet ist, starten Sie den Computer neu.
 
 Mithilfe des folgenden Verfahrens können Sie eine autoritative (auch als primär bezeichnet) Wiederherstellung von SYSVOL auf einem Domänen Controller ausführen, auf dem Windows Server 2003 ausgeführt wird. Führen Sie dieses Verfahren nur auf dem ersten Windows Server 2003-DC aus, der in der Domäne wieder hergestellt wird.
@@ -68,13 +68,13 @@ Mithilfe des folgenden Verfahrens können Sie eine autoritative (auch als primä
 ### <a name="to-perform-an-authoritative-restore-of-sysvol"></a>So führen Sie eine autoritative Wiederherstellung von SYSVOL aus
 
 1. Führen Sie die Schritte 1 bis 8 im vorherigen Verfahren aus.
-2. Klicken Sie im Dialogfeld **Wiederherstellung bestätigen** auf **erweitert**.
+2. Klicken Sie im Dialogfeld **Wiederherstellung bestätigen** auf **erweitert** .
 3. Wenn Sie eine autoritative Wiederherstellung von SYSVOL durchführen möchten, aktivieren Sie das Kontrollkästchen **beim Wiederherstellen replizierter Datasets, markieren Sie die wiederhergestellten Daten als primäre Daten für alle Replikate**
 
    > [!NOTE]
    > Das Markieren der wiederhergestellten Daten als primäre Daten in der Sicherung entspricht dem Festlegen des **BurFlags** -Eintrags auf D4 unter dem folgenden Registrierungs Unterschlüssel:
    >
-   > **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntfrs\parameters\kumulative Replikat Sätze \\ ** *GUID*
+   > **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NtFrs\Parameters\Cumulative Replica Sets\\** *GUID*
 
 4. Wenn der Wiederherstellungs Vorgang beendet ist, starten Sie den Computer neu.
 
@@ -86,16 +86,16 @@ Wenn der von der Sicherung wiederhergestellte Domänen Controller unter Windows 
 
 1. Assistent zum Öffnen von Windows-Komponenten. So öffnen Sie den Assistenten:
 
-   - Klicken Sie auf **Start**, klicken Sie auf **Systemsteuerung**, und klicken Sie dann auf **Programme hinzufügen oder entfernen**.
-   - Klicken Sie auf **Windows-Komponenten hinzufügen/entfernen**.
+   - Klicken Sie auf **Start** , klicken Sie auf **Systemsteuerung** , und klicken Sie dann auf **Programme hinzufügen oder entfernen** .
+   - Klicken Sie auf **Windows-Komponenten hinzufügen/entfernen** .
 
-2. Aktivieren Sie unter **Komponenten**das Kontrollkästchen **Netzwerkdienste** , und klicken Sie dann auf **Details**.
-3. Aktivieren Sie in **unter Komponenten von Netzwerkdiensten**das Kontrollkästchen **Domain Name System (DNS)** , klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.
-4. Wenn Sie dazu aufgefordert werden, geben Sie unter **Dateien kopieren von**den vollständigen Pfad der Verteilungs Dateien ein, und klicken Sie dann auf **OK**.
+2. Aktivieren Sie unter **Komponenten** das Kontrollkästchen **Netzwerkdienste** , und klicken Sie dann auf **Details** .
+3. Aktivieren Sie in **unter Komponenten von Netzwerkdiensten** das Kontrollkästchen **Domain Name System (DNS)** , klicken Sie auf **OK** , und klicken Sie dann auf **weiter** .
+4. Wenn Sie dazu aufgefordert werden, geben Sie unter **Dateien kopieren von** den vollständigen Pfad der Verteilungs Dateien ein, und klicken Sie dann auf **OK** .
 
    Führen Sie nach der Installation die folgenden Schritte aus, um den DNS-Server zu konfigurieren.
 
-5. Klicken Sie auf **Start**, zeigen Sie auf **Alle Programme**und auf **Verwaltung**, und klicken Sie dann auf **DNS**.
+5. Klicken Sie auf **Start** , zeigen Sie auf **Alle Programme** und auf **Verwaltung** , und klicken Sie dann auf **DNS** .
 6. Erstellen Sie DNS-Zonen für die gleichen DNS-Domänen Namen, die vor dem kritischen Funktionsfehler auf den DNS-Servern gehostet wurden. Weitere Informationen finden Sie unter Hinzufügen einer Forward-Lookupzone ( [https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574) ).
 7. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Beispiel:
 

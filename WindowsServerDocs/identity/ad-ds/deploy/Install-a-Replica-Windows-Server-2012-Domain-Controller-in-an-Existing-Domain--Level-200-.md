@@ -2,16 +2,16 @@
 ms.assetid: e6da5984-d99d-4c34-9c11-4a18cd413f06
 title: Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: a7a9b59d9676484ea39262fb023b56374533e6ec
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 15ecf8d7434636f6acbf10fe1e30db214167fe1c
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88940880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070682"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)
 
@@ -34,19 +34,19 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Dom�
 
 | Cmdlet "ADDSDeployment" | Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.) |
 |--|--|
-| Install-AddsDomainController | -SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>*-Sitename*<p>*-ADPrepCredential*<p>-ApplicationPartitionsToReplicate<p>*-Allowdomaincontrollerreinstall*<p>-Confirm<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>-Force<p>*-Installationmediapath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>-NoDnsOnNetwork<p>*-Noglobalcatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>-SiteName<p>*-System Key*<p>*-Sysvolpath*<p>*-UseExistingAccount*<p>*-WhatIf* |
+| Install-AddsDomainController | -SkipPreChecks<p>***-Domain Name * *_<p>_ -SafeModeAdministratorPassword* <p> *-Sitename* <p> *-adprepcredential* <p> -ApplicationPartitionsToReplicate <p> *-allowdomaincontrollerreinstall* <p> -Confirm <p> *-| atednsdelegation* <p>*** -Credential * *_<p> -criticalreplicationonly <p>_ -DatabasePath*<p>*-DNSDelegationCredential*<p>-Force<p>*-Installationmediapath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>-NoDnsOnNetwork<p>*-Noglobalcatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>-SiteName<p>*-System Key*<p>*-Sysvolpath*<p>*-UseExistingAccount*<p>*-WhatIf* |
 
 > [!NOTE]
 > Das Argument **-credential** wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppen Organisations-Admins und Schema-Admins (für Upgrades der Gesamtstruktur) oder der Gruppe Domänen-Admins (beim Hinzufügen eines neuen Domänencontrollers zu einer existierenden Domäne) angemeldet sind.
 
-## <a name="deployment"></a><a name="BKMK_Dep"></a>Nutzung
+## <a name="deployment"></a><a name="BKMK_Dep"></a>Bereitstellung
 
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)
 
-In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.
 
-Um eine existierende Gesamtstruktur zu aktualisieren oder einen beschreibbaren Domänencontroller zu einer existierenden Domäne hinzuzufügen, klicken Sie auf **Domänencontroller vorhandener Domäne hinzufügen** und auf **Auswählen**, um **die Domäneninformationen für diese Domäne anzugeben**. Server-Manager fordert Sie ggf. zur Eingabe gültiger Anmeldeinformationen auf.
+Um eine existierende Gesamtstruktur zu aktualisieren oder einen beschreibbaren Domänencontroller zu einer existierenden Domäne hinzuzufügen, klicken Sie auf **Domänencontroller vorhandener Domäne hinzufügen** und auf **Auswählen** , um **die Domäneninformationen für diese Domäne anzugeben** . Server-Manager fordert Sie ggf. zur Eingabe gültiger Anmeldeinformationen auf.
 
 Für das Upgrade einer Gesamtstruktur sind Anmeldeinformationen erforderlich, die Gruppenmitgliedschaften in den beiden Gruppen "Organisations-Admins" und "Schema-Admins" in Windows Server 2012 umfassen. Wenn Ihre aktuellen Anmeldeinformationen keine angemessenen Berechtigungen oder Gruppenmitgliedschaften aufweisen, wird später vom Konfigurations-Assistenten für die Active Directory-Domänendienste eine Eingabeaufforderung ausgegeben.
 
@@ -71,7 +71,7 @@ Bestimmte Tests werden auf jeder Seite ausgeführt, von denen einige später als
 ### <a name="domain-controller-options"></a>Domänencontrolleroptionen
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDCOptions.png)
 
-Die Seite **Domänencontrolleroptionen** enthält die Domänencontrollerfunktionen für den neuen Domänencontroller. Die konfigurierbaren Domänencontrollerfunktionen lauten **DNS-Server**, **Globaler Katalog** und **Schreibgeschützter Domänencontroller**. Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS und globale Katalogdienste bereitstellen. GC ist standardmäßig immer ausgewählt, und DNS-Server ist standardmäßig ausgewählt, wenn die aktuelle Domäne bereits DNS auf deren DCs auf Basis der Autoritätsursprungs-Abfrage hostet. Auf der Seite **Domänencontrolleroptionen** können Sie unter **Standortname** den entsprechenden logischen Standortnamen für Active Directory in der Gesamtstrukturkonfiguration auswählen. Standardmäßig ist der Standortname mit dem korrektesten Subnetz ausgewählt. Wenn nur ein Standort vorhanden ist, wird dieser automatisch ausgewählt.
+Die Seite **Domänencontrolleroptionen** enthält die Domänencontrollerfunktionen für den neuen Domänencontroller. Die konfigurierbaren Domänencontrollerfunktionen lauten **DNS-Server** , **Globaler Katalog** und **Schreibgeschützter Domänencontroller** . Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS und globale Katalogdienste bereitstellen. GC ist standardmäßig immer ausgewählt, und DNS-Server ist standardmäßig ausgewählt, wenn die aktuelle Domäne bereits DNS auf deren DCs auf Basis der Autoritätsursprungs-Abfrage hostet. Auf der Seite **Domänencontrolleroptionen** können Sie unter **Standortname** den entsprechenden logischen Standortnamen für Active Directory in der Gesamtstrukturkonfiguration auswählen. Standardmäßig ist der Standortname mit dem korrektesten Subnetz ausgewählt. Wenn nur ein Standort vorhanden ist, wird dieser automatisch ausgewählt.
 
 > [!NOTE]
 > Wenn der Server zu keinem Active Directory-Subnetz gehört und mehrere Active Directory-Standorte vorhanden sind, wird keine Auswahl getroffen, und die Schaltfläche **Weiter** ist erst wieder verfügbar, nachdem Sie in der Liste einen Standort ausgewählt haben.
@@ -88,11 +88,11 @@ Die ADDSDeployment-Argumente für **Domänencontrolleroptionen** sind:
 ```
 
 > [!IMPORTANT]
-> Der Standortname muss bei der Angabe als Argument für **-sitename** bereits vorhanden sein. Das **install-AddsDomainController**-Cmdlet erstellt keine Standorte. Mit dem Cmdlet **new-adreplicationsite** können Sie neue Standorte erstellen.
+> Der Standortname muss bei der Angabe als Argument für **-sitename** bereits vorhanden sein. Das **install-AddsDomainController** -Cmdlet erstellt keine Standorte. Mit dem Cmdlet **new-adreplicationsite** können Sie neue Standorte erstellen.
 
 Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:
 
--   wenn als Argument *nicht angegeben*, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
+-   wenn als Argument *nicht angegeben* , fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
 
     Um z. B. einen zusätzlichen Domänencontroller in der Domäne treyresearch.net zu erstellen und zur Eingabe eines maskierten Kennworts aufgefordert zu werden:
 
@@ -175,7 +175,7 @@ Die ADDSDeployment Windows PowerShell-Argumente für **Zusätzliche Optionen** s
 -syskey <secure string>
 ```
 
-### <a name="paths"></a>Pfade
+### <a name="paths"></a>Paths
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)
 
 Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%.
@@ -195,7 +195,7 @@ Die Seite **Vorbereitungsoptionen** weist Sie darauf hin, dass die AD DS-Konfigu
 
 Erweiterung des Schemas und Aktualisierung der Domäne erfolgen noch nicht, wenn Sie auf **Weiter** klicken. Diese Schritte werden erst während der Installationsphase ausgeführt. Diese Seite weist Sie lediglich auf die Schritte hin, die später bei der Installation ausgeführt werden.
 
-Die Seite prüft außerdem, ob die aktuellen Anmeldeinformationen Mitglieder der Gruppen Schema-Admins und Organisations-Admins sind. Sie müssen Mitglied dieser beiden Gruppen sein, um ein Schema zu erweitern oder eine Domäne vorzubereiten. Klicken Sie auf **Ändern**, um die entsprechenden Benutzeranmeldeinformationen einzugeben, falls Sie einen Hinweis erhalten, dass die aktuellen Daten keine ausreichenden Berechtigungen haben.
+Die Seite prüft außerdem, ob die aktuellen Anmeldeinformationen Mitglieder der Gruppen Schema-Admins und Organisations-Admins sind. Sie müssen Mitglied dieser beiden Gruppen sein, um ein Schema zu erweitern oder eine Domäne vorzubereiten. Klicken Sie auf **Ändern** , um die entsprechenden Benutzeranmeldeinformationen einzugeben, falls Sie einen Hinweis erhalten, dass die aktuellen Daten keine ausreichenden Berechtigungen haben.
 
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrepOptionsCreds.png)
 
@@ -239,9 +239,9 @@ Install-ADDSDomainController `
 ```
 
 > [!NOTE]
-> Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das Argument **-safemodeadministratorpassword**. Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen
+> Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das Argument **-safemodeadministratorpassword** . Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen
 >
-> Verwenden Sie das optionale **Whatif**-Argument für das **Install-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.
+> Verwenden Sie das optionale **Whatif** -Argument für das **Install-ADDSDomainController** -Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.
 
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSWhatIf.png)
 
@@ -266,7 +266,7 @@ Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung
 > [!WARNING]
 > Microsoft rät davon ab, die Voraussetzungsüberprüfung zu überspringen, da dies zu einer teilweisen Heraufstufung des Domänencontrollers oder zu einer beschädigten AD DS-Gesamtstruktur führen kann.
 
-Klicken Sie auf **Installieren**, um mit der Domänencontroller-Heraufstufung zu beginnen. Dies ist die letzte Gelegenheit, um die Installation abzubrechen. Der Heraufstufungsprozess kann während der Ausführung nicht unterbrochen werden. Der Computer wird nach dem Ende der Heraufstufung unabhängig von deren Ergebnis neu gestartet. Die Seite **Voraussetzungsüberprüfung** zeigt alle beim Prozess aufgetretenen Probleme an und enthält Hinweise zu deren Lösung.
+Klicken Sie auf **Installieren** , um mit der Domänencontroller-Heraufstufung zu beginnen. Dies ist die letzte Gelegenheit, um die Installation abzubrechen. Der Heraufstufungsprozess kann während der Ausführung nicht unterbrochen werden. Der Computer wird nach dem Ende der Heraufstufung unabhängig von deren Ergebnis neu gestartet. Die Seite **Voraussetzungsüberprüfung** zeigt alle beim Prozess aufgetretenen Probleme an und enthält Hinweise zu deren Lösung.
 
 ### <a name="installation"></a>Installation
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeInstallProgress.png)
@@ -289,11 +289,11 @@ Install-addsdomaincontroller
 
 Unter [Upgrade und Replikat mit Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS) finden Sie eine Liste optionaler und benötigter Argumente.
 
-Das **Install-AddsDomainController**-Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit den benötigten Mindestargumenten **-domainname** und **-credential**. Beachten Sie, dass der Adprep-Vorgang automatisch beim Hinzufügen des ersten Windows Server 2012-Domänencontrollers zu einer existierenden Windows Server 2003-Gesamtstruktur erfolgt:
+Das **Install-AddsDomainController** -Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit den benötigten Mindestargumenten **-domainname** und **-credential** . Beachten Sie, dass der Adprep-Vorgang automatisch beim Hinzufügen des ersten Windows Server 2012-Domänencontrollers zu einer existierenden Windows Server 2003-Gesamtstruktur erfolgt:
 
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSGetCred.png)
 
-Ebenso wie beim Server-Manager werden Sie von **Install-ADDSDomainController** darauf hingewiesen, dass der Server beim Heraufstufen automatisch neu gestartet wird. Mit dem **-force**-Argument oder dem **-confirm:$false**-Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.
+Ebenso wie beim Server-Manager werden Sie von **Install-ADDSDomainController** darauf hingewiesen, dass der Server beim Heraufstufen automatisch neu gestartet wird. Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ "ADDSDeployment" automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion** -Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.
 
 > [!WARNING]
 > Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren.

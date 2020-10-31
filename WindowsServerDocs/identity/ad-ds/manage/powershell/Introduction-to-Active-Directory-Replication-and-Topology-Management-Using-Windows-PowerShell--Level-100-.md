@@ -2,16 +2,16 @@
 ms.assetid: c54b544f-cc32-4837-bb2d-a8656b22f3de
 title: Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: fd08814cd60f71f4ace9cfc0e374e80f54c6d89d
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: ac50dad556ceb536a23486e20a02587a05d2e578
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941500"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070872"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
 
@@ -49,7 +49,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
 #### <a name="to-view-all-active-directory-sites"></a>So zeigen Sie alle Active Directory-Standorte an
 
-1.  Klicken Sie auf **DC1** auf der Taskleiste auf **Windows PowerShell**.
+1.  Klicken Sie auf **DC1** auf der Taskleiste auf **Windows PowerShell** .
 
 2.  Geben Sie folgenden Befehl ein:
 
@@ -77,7 +77,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
     Dieser Befehl gibt die Hostnamen der Domänencontroller sowie ihre Standortzuordnungen zurück.
 
 ## <a name="manage-replication-topology"></a>Verwalten der Replikationstopologie
-Im vorherigen Schritt wurde **DC2** nach dem Ausführen des Befehls `Get-ADDomainController -Filter * | ft Hostname,Site` als Teil des Standorts **CORPORATE** aufgeführt. In den folgenden Prozeduren erstellen Sie den neuen Filialstandort **BRANCH1** sowie eine neue Standortverknüpfung, legen die Kosten und die Replikationsfrequenz für die Standortverknüpfung fest und verschieben **DC2** anschließend nach **BRANCH1**.
+Im vorherigen Schritt wurde **DC2** nach dem Ausführen des Befehls `Get-ADDomainController -Filter * | ft Hostname,Site` als Teil des Standorts **CORPORATE** aufgeführt. In den folgenden Prozeduren erstellen Sie den neuen Filialstandort **BRANCH1** sowie eine neue Standortverknüpfung, legen die Kosten und die Replikationsfrequenz für die Standortverknüpfung fest und verschieben **DC2** anschließend nach **BRANCH1** .
 
 Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Sie ein Mitglied der Gruppe der Domänenadministratoren sein oder über vergleichbare Berechtigungen verfügen.
 
@@ -120,7 +120,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
 ##### <a name="to-verify-site-creation-new-site-link-and-cost-and-replication-frequency"></a>So überprüfen Sie die Standorterstellung, die neue Standortverknüpfung sowie die Kosten und die Replikationsfrequenz
 
--   Klicken Sie auf **Server-Manager**, klicken Sie auf **Extras**, klicken Sie auf **Active Directory-Standorte und -Dienste**, und überprüfen Sie Folgendes:
+-   Klicken Sie auf **Server-Manager** , klicken Sie auf **Extras** , klicken Sie auf **Active Directory-Standorte und -Dienste** , und überprüfen Sie Folgendes:
 
     Vergewissern Sie sich, dass der Standort **BRANCH1** über alle korrekten Werte aus den Windows PowerShell-Befehlen verfügt.
 
@@ -139,7 +139,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     `Get-ADReplicationUpToDatenessVectorTable DC1`
 
-    Dadurch wird eine Liste mit den höchsten von **DC1** ermittelten USNs für jeden Domänencontroller in der Gesamtstruktur angezeigt. Der Wert **Server** bezieht sich auf den Server, von dem die Tabelle verwaltet wird (in diesem Fall **DC1**). Der Wert **Partner** bezieht sich auf den Replikationspartner (direkt oder indirekt), auf dem Änderungen vorgenommen wurden. Der Wert %%amp;quot;UsnFilter%%amp;quot; ist der höchste von **DC1** ermittelte USN des Partners. Wenn der Gesamtstruktur ein neuer Domänen Controller hinzugefügt wird, wird er erst in der **DC1**-Tabelle angezeigt, wenn **DC1** eine Änderung empfängt, die von der neuen Domäne stammt.
+    Dadurch wird eine Liste mit den höchsten von **DC1** ermittelten USNs für jeden Domänencontroller in der Gesamtstruktur angezeigt. Der Wert **Server** bezieht sich auf den Server, von dem die Tabelle verwaltet wird (in diesem Fall **DC1** ). Der Wert **Partner** bezieht sich auf den Replikationspartner (direkt oder indirekt), auf dem Änderungen vorgenommen wurden. Der Wert %%amp;quot;UsnFilter%%amp;quot; ist der höchste von **DC1** ermittelte USN des Partners. Wenn der Gesamtstruktur ein neuer Domänen Controller hinzugefügt wird, wird er erst in der **DC1** -Tabelle angezeigt, wenn **DC1** eine Änderung empfängt, die von der neuen Domäne stammt.
 
 #### <a name="to-view-the-up-to-dateness-vector-table-for-all-domain-controllers-in-a-domain"></a>So zeigen sie die Aktualitätsvektortabelle für alle Domänencontroller in einer Domäne an
 

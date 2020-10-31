@@ -1,17 +1,17 @@
 ---
 title: Virtualisierung der Active Directory-Gesamtstruktur
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: c49b40b2-598d-49aa-85b4-766bce960e0d
-ms.openlocfilehash: aa6598c2a033147928d05c8175886c1c2425b4cd
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 61c28bf5edce2855320669f446e0ade559d10716
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88938050"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93070772"
 ---
 # <a name="active-directory-forest-recovery-virtualization"></a>Virtualisierung der Gesamtstruktur Wiederherstellung Active Directory
 
@@ -25,7 +25,7 @@ Das Klonen von virtualisierten Domänen Controllern (DC) vereinfacht und beschle
 
 Folgende Anforderungen gelten für das Klonen virtualisierter Domänen Controller:
 
-- Der Hypervisor muss VM-generationid unterstützen. Hyper-V in Windows Server 2016, 2012 und Windows 8 ist ein Beispiel für einen Hypervisor, der "VM-generationid" unterstützt. Wenden Sie sich an den Hypervisor-Anbieter, wenn "VM-generationid" unterstützt wird.
+- Der Hypervisor muss VM-generationid unterstützen. Hyper-V in Windows Server 2016, 2012 und Windows 8 ist ein Beispiel für einen Hypervisor, der "VM-generationid" unterstützt. Wenden Sie sich an den Hypervisor-Anbieter, wenn VM-GenerationID unterstützt wird.
 - Der virtualisierte Domänen Controller, der als Quelle für das Klonen verwendet wird, muss Windows Server 2016 oder 2012 ausführen und Mitglied der Gruppe klonbare Domänen Controller sein.
 - Der PDC-Emulator muss Windows Server 2016 oder 2012 ausführen. Sie können den PDC-Emulator Klonen, wenn er virtualisiert ist.
 

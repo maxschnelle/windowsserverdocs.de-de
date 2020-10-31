@@ -2,16 +2,16 @@
 ms.assetid: 249ba1be-b0d3-4a77-99af-3699074a2b6e
 title: Problembehandlung bei virtualisierten Domänencontrollern
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 75f4ce8516e48dc76200b8fb1d19e56ba969e70b
-ms.sourcegitcommit: 1dc35d221eff7f079d9209d92f14fb630f955bca
+ms.openlocfilehash: 28e1f82322389e7b46b7d597b6657f9512ab011f
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071262"
 ---
 # <a name="virtualized-domain-controller-troubleshooting"></a>Problembehandlung bei virtualisierten Domänencontrollern
 
@@ -75,7 +75,7 @@ Verwenden Sie zum Beheben von Problemen, die nicht von den Protokollen erklärt 
 
 ### <a name="general-methodology-for-troubleshooting-domain-controller-cloning"></a><a name="BKMK_GeneralMethodology"></a>Allgemeine Methode für die Problembehandlung beim Klonen von Domänencontrollern
 
-1. Wird der virtuelle Computer im Verzeichnisdienst-Wiederherstellungsmodus (DS Repair Mode, DSRM) gestartet? Das ist ein Hinweis, dass eine Problembehandlung erforderlich ist. Zum Anmelden beim DSRM verwenden Sie das Konto **.\Administrator**, und geben Sie das DSRM-Kennwort an.
+1. Wird der virtuelle Computer im Verzeichnisdienst-Wiederherstellungsmodus (DS Repair Mode, DSRM) gestartet? Das ist ein Hinweis, dass eine Problembehandlung erforderlich ist. Zum Anmelden beim DSRM verwenden Sie das Konto **.\Administrator** , und geben Sie das DSRM-Kennwort an.
 
     1. Untersuchen Sie die Datei Dcpromo.log.
 
@@ -560,7 +560,7 @@ Im Folgenden sind die klonspezifischen Windows Server 2012-Ereignisse im Verzeic
 |`Source`|Microsoft-Windows-ActiveDirectory_DomainService|
 |severity|Fehler|
 |`Message`|Fehler beim Klonen des virtuellen Domänencontrollers. Die folgenden %1 verwalteten Dienstkonten sind auf dem geklonten Computer vorhanden:<p>%2<p>Damit der Klonvorgang erfolgreich ist, müssen alle verwalteten Dienstkonten entfernt werden. Dazu können Sie das PowerShell-Cmdlet "Remove-ADComputerServiceAccount" verwenden.|
-|Hinweise und Lösung|Erwartet bei der Verwendung von eigenständigen MSAs (nicht bei Gruppen-MSA). Befolgen Sie *nicht* den Ereignisratschlag, das Konto zu entfernen – dieser ist falsch. Verwenden Sie Uninstall-ADServiceAccount- [https://technet.microsoft.com/library/hh852310](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176927(v=technet.10)) .<p>Eigenständige MSAs, die zuerst in Windows Server 2008 R2 eingeführt wurden, wurden in Windows Server 2012 durch Gruppen-MSAs (gMSA) ersetzt. GMSAs bieten Unterstützung für das Klonen.|
+|Hinweise und Lösung|Erwartet bei der Verwendung von eigenständigen MSAs (nicht bei Gruppen-MSA). Befolgen Sie *nicht* den Ereignisratschlag, das Konto zu entfernen – dieser ist falsch. Verwenden Sie Uninstall-AdServiceAccount- [https://technet.microsoft.com/library/hh852310](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176927(v=technet.10)) .<p>Eigenständige MSAs, die zuerst in Windows Server 2008 R2 eingeführt wurden, wurden in Windows Server 2012 durch Gruppen-MSAs (gMSA) ersetzt. GMSAs bieten Unterstützung für das Klonen.|
 
 | Events | BESCHREIBUNG |
 | -- |--|
@@ -745,7 +745,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 |**Problem**|**Fehler beim Klonen, Start im DSRM, allgemeine Netzwerkfehler**|
 | -- |--|
 |**Symptome**|Das Klonen wird im Verzeichnisdienst-Wiederherstellungsmodus gestartet Es sind allgemeine Netzwerkfehler vorhanden.|
-|Lösung und Hinweise|Stellen Stellen Sie sicher, dass dem neuen Klon keine doppelte statische MAC-Adresse vom Quelldomänencontroller zugewiesen wurde. Sie können sehen, ob ein virtueller Computer statische MAC-Adressen verwendet, indem Sie den folgenden Befehl auf dem Hypervisorhost für den Quell- und den geklonten virtuellen Computer ausführen:<p>Get-VM-VMName *Test-VM* &#124; Get-vmnetworkadapter &#124; FL *<p>Ändern Sie die MAC-Adresse in eine eindeutige statische Adresse, oder stellen Sie auf die Verwendung von dynamischen MAC-Adressen um.<p>Beschrieben in KB 2742844.|
+|Lösung und Hinweise|Stellen Stellen Sie sicher, dass dem neuen Klon keine doppelte statische MAC-Adresse vom Quelldomänencontroller zugewiesen wurde. Sie können sehen, ob ein virtueller Computer statische MAC-Adressen verwendet, indem Sie den folgenden Befehl auf dem Hypervisorhost für den Quell- und den geklonten virtuellen Computer ausführen:<p>Get-VM-VMName *Test-VM* &#124; Get-VMNetworkAdapter &#124; FL *<p>Ändern Sie die MAC-Adresse in eine eindeutige statische Adresse, oder stellen Sie auf die Verwendung von dynamischen MAC-Adressen um.<p>Beschrieben in KB 2742844.|
 
 | **Problem** | **Fehler beim Klonen, Start im DSRM als Duplikat des Quelldomänencontrollers** |
 | -- |--|
@@ -760,7 +760,7 @@ Im Folgenden sind bekannte Probleme aufgeführt, die während des Windows Server
 |**Problem**|**Fehler beim Klonen, Start im DSRM, allgemeine Netzwerkfehler**|
 | -- |--|
 |**Symptome**|Der Klon wird im Verzeichnisdienst-Wiederherstellungsmodus gestartet. Es sind allgemeine Netzwerkfehler vorhanden.|
-|**Lösung und Hinweise**|Stellen Stellen Sie sicher, dass dem neuen Klon keine doppelte statische MAC-Adresse vom Quelldomänencontroller zugewiesen wurde. Sie können sehen, ob ein virtueller Computer statische MAC-Adressen verwendet, indem Sie den folgenden Befehl auf dem Hyper-V-Host für den Quell- und den geklonten virtuellen Computer ausführen:<p>Get-VM-VMName *Test-VM* &#124; Get-vmnetworkadapter &#124; FL *<p>Ändern Sie die MAC-Adresse in eine eindeutige statische Adresse, oder stellen Sie auf die Verwendung von dynamischen MAC-Adressen um.<p>Beschrieben in KB 2742844.|
+|**Lösung und Hinweise**|Stellen Stellen Sie sicher, dass dem neuen Klon keine doppelte statische MAC-Adresse vom Quelldomänencontroller zugewiesen wurde. Sie können sehen, ob ein virtueller Computer statische MAC-Adressen verwendet, indem Sie den folgenden Befehl auf dem Hyper-V-Host für den Quell- und den geklonten virtuellen Computer ausführen:<p>Get-VM-VMName *Test-VM* &#124; Get-VMNetworkAdapter &#124; FL *<p>Ändern Sie die MAC-Adresse in eine eindeutige statische Adresse, oder stellen Sie auf die Verwendung von dynamischen MAC-Adressen um.<p>Beschrieben in KB 2742844.|
 
 |**Problem**|**Fehler beim Klonen, Start im DSRM**|
 | -- |--|
@@ -830,7 +830,7 @@ Das Verzeichnisdienst-Ereignisprotokoll enthält den größten Teil der ereignis
 | **2173** | ActiveDirectory_DomainService | Fehler beim Lesen des msDS-GenerationId-Attributs des Computerobjekts des Domänencontrollers. Mögliche Ursachen sind, dass eine Datenbanktransaktion nicht korrekt ausgeführt wurde oder dass die Generations-ID in der lokalen Datenbank nicht vorhanden ist. Zu bedenken ist auch, dass beim ersten Neustart nach einem DCPromo-Vorgang noch kein msDS-GenerationId-Attribut vorhanden ist.<p>Zusätzliche Daten<p>Fehlercode:<p>6 |
 | **1000** | ActiveDirectory_DomainService | Das Starten der Microsoft-Active Directory-Domänendienste wurde abgeschlossen. Version 6.2.8225.0 |
 | **1394** | ActiveDirectory_DomainService | Alle Probleme, die Aktualisierungen der Active Directory-Domänendienste-Datenbank verhinderten, wurden behoben. Neue Aktualisierungen der Active Directory-Domänendienste-Datenbank sind erfolgreich. Der Netzwerkanmeldedienst wird neu gestartet. |
-| **1128** | ActiveDirectory_DomainService | 1128 Konsistenzprüfung "Eine Replikationsverbindung wurde vom folgenden Quellverzeichnisdienst zum lokalen Verzeichnisdienst erstellt.<p>Quellverzeichnisdienst:<p>CN = NTDS-Einstellungen,*<Domain Controller DN>*<p>Lokaler Verzeichnisdienst:<p>CN = NTDS-Einstellungen, *<Domain Controller DN>*<p>Zusätzliche Daten<p>Begründungscode:<p>0x2<p>Interne Kennung für Erstellungspunkt:<p>f0a025d |
+| **1128** | ActiveDirectory_DomainService | 1128 Konsistenzprüfung "Eine Replikationsverbindung wurde vom folgenden Quellverzeichnisdienst zum lokalen Verzeichnisdienst erstellt.<p>Quellverzeichnisdienst:<p>CN = NTDS-Einstellungen, *<Domain Controller DN>*<p>Lokaler Verzeichnisdienst:<p>CN = NTDS-Einstellungen, *<Domain Controller DN>*<p>Zusätzliche Daten<p>Begründungscode:<p>0x2<p>Interne Kennung für Erstellungspunkt:<p>f0a025d |
 | **1999** | ActiveDirectory_DomainService | Der Quellverzeichnisdienst hat die Aktualisierungssequenznummer optimiert, die vom Zielverzeichnisdienst dargestellt wird. Der Quell- und der Zielverzeichnisdienst haben einen gemeinsamen Replikationspartner. Der Zielverzeichnisdienst ist auf dem gleichen Stand wie der gemeinsame Replikationspartner, und der Quellverzeichnisdienst wurde mit Hilfe einer Sicherung dieses Partners installiert.<p>Kennung des Zielverzeichnisdiensts:<p>*<GUID> (<FQDN>)*<p>Kennung des gemeinsamen Verzeichnisdiensts:<p>*<GUID>*<p>Gemeinsame Eigenschafts-Aktualisierungssequenznummer:<p>*<Number>*<p>Als Folge dessen wurde der Aktualitätsvektor des Zielverzeichnisdienstes mit den folgenden Einstellungen konfiguriert.<p>Vorherige Objekt-Aktualisierungssequenznummer:<p>0<p>Vorherige Eigenschafts-Aktualisierungssequenznummer:<p>0<p>Datenbank-GUID:<p>*<GUID>*<p>Objekt-Aktualisierungssequenznummer:<p>*<Number>*<p>Eigenschafts-Aktualisierungssequenznummer:<p>*<Number>* |
 
 ##### <a name="system-event-log"></a>Systemereignisprotokoll
@@ -1479,7 +1479,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 |**Meldung**|Die Transaktion wurde aufgrund der Wiederherstellung des virtuellen Computers in einen früheren Zustand abgebrochen. Dies erfolgt nach der Anwendung einer Momentaufnahme des virtuellen Computers, nach einem Importvorgang für den virtuellen Computer oder nach einer Livemigration.|
 |**Hinweise und Lösung**|Beim Wiederherstellen einer Momentaufnahme erwartet. Transaktionen verfolgen die Änderung der VM-Generations-ID.|
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2185** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1487,7 +1487,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde beendet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. Beim Neustart des Diensts wird das Ereignis 2187 protokolliert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | 2186 |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1495,14 +1495,14 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht beendet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und dann mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der aktuell ausgelaufende Dienst konnte nicht beendet werden, und die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
 | **Hinweise und Lösung** | Untersuchen Sie die System-, FRS- und DFSR-Ereignisprotokolle auf weitere Informationen. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2187** |
 | **Severity** | Informational |
 | **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" wurde gestartet.<p>Dienstname:%1<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* erforderlich, um eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat zu initialisieren. Zu diesem Zweck wurde der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2188** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1510,7 +1510,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des Ordners "SYSVOL" konnte nicht gestartet werden.<p>Dienstname:%1<p>Fehlercode: %2<p>Fehlermeldung: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren von SYSVOL beendet und mit geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* der FRS-oder DFSR-Dienst zum Replizieren des SYSVOL-Ordners konnte nicht gestartet werden. die nicht autoritative Wiederherstellung kann nicht durchgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus, und starten Sie den Dienst neu. |
 | **Hinweise und Lösung** | Untersuchen Sie die System-, FRS- und DFSR-Ereignisprotokolle auf weitere Informationen. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2189** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1518,7 +1518,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* Legen Sie die folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung fest:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Alle SYSVOL-Daten auf diesem Domänencontroller werden mit der Kopie eines Partnerdomänencontrollers ersetzt. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2190** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1526,7 +1526,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* Fehler beim Festlegen der folgenden Registrierungs Werte zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung:<p>Registrierungswert:%1<p>Registrierungswert: %2<p>Registrierungswertdaten: %3<p>Fehlercode: %4<p>Fehlermeldungen: %5<p>Von Active Directory wurde erkannt, dass der virtuelle Computer, der die Domänencontrollerrolle hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Es muss eine nicht autoritative Wiederherstellung für das lokale SYSVOL-Replikat initialisiert werden. Zu diesem Zweck wird der FRS oder der DFS-Replikationsdienst zum Replizieren des Ordners "SYSVOL" beendet und mit den geeigneten Registrierungsschlüsseln und -werten zum Auslösen der Wiederherstellung neu gestartet. *<COMPUTERNAME>* die oben aufgeführten Registrierungs Werte konnten nicht festgelegt werden, und die nicht autoritative Wiederherstellung kann nicht ausgeführt werden. Führen Sie manuell eine nicht autoritative Wiederherstellung aus. |
 | **Hinweise und Lösung** | Untersuchen Sie die Anwendungs- und Systemereignisprotokolle. Überprüfen Sie Drittanbieteranwendungen, die möglicherweise Registrierungsaktualisierungen blockieren. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2200** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1534,7 +1534,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Initialisiert die Replikation, um den Domänen Controller aktuell zu machen. Nach Abschluss der Replikation wird das Ereignis 2201 protokolliert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Kennzeichnet den Beginn einer eingehenden Replikation. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2201** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1542,7 +1542,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* hat die Replikation beendet, um den Domänen Controller aktuell zu machen. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Kennzeichnet das Ende einer eingehenden Replikation. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2202** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1550,7 +1550,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | Von Active Directory wurde erkannt, dass der virtuelle Computer, der den Domänencontroller hostet, in einen früheren Zustand zurückversetzt wurde. *<COMPUTERNAME>* Fehler bei der Replikation, um den Domänen Controller auf den neuesten Stand zu bringen. Er wird nach der nächsten periodischen Replikation aktualisiert. |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. Verwenden Sie repadmin.exe, um eine Replikation zu erzwingen, und notieren Sie alle Fehler. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2204** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1558,7 +1558,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* hat eine Änderung der Generations-ID der virtuellen Maschine erkannt. Die Änderung bedeutet, dass der virtuelle Domänencontroller in einem früheren Zustand wiederhergestellt wurde. *<COMPUTERNAME>* führt die folgenden Vorgänge aus, um den wiederhergestellten Domänen Controller vor möglichen Daten Abweichungen zu schützen und die Erstellung von Sicherheits Prinzipalen mit doppelten SIDs zu schützen:<p>Es wird eine neue Aufruf-ID erstellt.<p>Der aktuelle RID-Pool wird ungültig gemacht.<p>Bei der nächsten eingehenden Replikation erfolgt eine Überprüfung hinsichtlich des Besitzers der FSMO-Rollen. Wenn der Domänencontroller Besitzer einer FSMO-Rolle ist, ist diese Rolle bis zum Abschluss der Replikation nicht verfügbar.<p>Der SYSVOL-Replikationsdienst wird wiederhergestellt.<p>Die Replikation wird gestartet, um den wiederhergestellten Domänencontroller auf den aktuellen Stand zu bringen.<p>Es wird ein neuer RID-Pool angefordert. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Das erklärt die verschiedenen Vorgänge zum Zurücksetzen, die als Teil des sicheren Wiederherstellungsvorgangs vorkommen. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2205** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1566,7 +1566,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* der aktuelle RID-Pool wurde ungültig, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Der lokale RID-Pool muss zerstört werden, da der Domänencontroller eine Zeitreise gemacht hat und der Pool möglicherweise bereits ausgestellt wurde. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2206** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1574,7 +1574,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* der aktuelle RID-Pool konnte nicht ungültig gemacht werden, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde.<p>Zusätzliche Daten:<p>Fehlercode: %1<p>Fehlerwert: %2 |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. Vergewissern Sie sich über Dcdiag.exe /test:ridmanager, dass der RID-Master online ist und von diesem Server erreicht werden kann. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2207** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1582,7 +1582,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* Fehler beim Wiederherstellen, nachdem der virtuelle Domänen Controller in den vorherigen Zustand zurückversetzt wurde. Es war ein Neustart im Verzeichnisdienst-Wiederherstellungsmodus (DSRM) erforderlich. Weitere Informationen finden Sie in den vorhergehenden Ereignissen. |
 | **Hinweise und Lösung** | Untersuchen Sie das Verzeichnisdienst- und das Systemereignisprotokoll. |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2208** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1590,7 +1590,7 @@ Im Folgenden sind die für die sichere Wiederherstellung in Windows Server 2012 
 | **Meldung** | *<COMPUTERNAME>* DFSR-Datenbanken zum Initialisieren des SYSVOL-Replikats während einer nicht autorisierenden Wiederherstellung gelöscht. |
 | **Hinweise und Lösung** | Beim Wiederherstellen einer Momentaufnahme erwartet. Damit wird garantiert, dass DFSR SYSVOL nicht autoritativ von einem Partnerdomänencontroller synchronisiert. Beachten Sie, dass alle anderen von DFSR replizierten Ordner auf demselben Volume wie SYSVOL ebenfalls nicht autoritativ synchronisiert werden (es wird nicht empfohlen, dass Domänencontroller benutzerdefinierte DFSR-Sätze auf demselben Volume wie SYSVOL hosten). |
 
-| Ereignis | BESCHREIBUNG |
+| Ereignis | Beschreibung |
 |--|--|
 | **Ereignis-ID** | **2209** |
 | **Quelle** | Microsoft-Windows-ActiveDirectory_DomainService |
@@ -1642,7 +1642,7 @@ Im Systemereignisprotokoll ist die Computerzeit vermerkt, zu der ein offline ges
 
 | **Ereignis-ID** | **Quelle** | **Meldung** |
 |--|--|--|
-| **1** | Kernel-General | Hat sich die Systemzeit in *geändert <now> ?* aus *<Momentaufnahme Zeit/Datum>*.<p>Änderungs Grund: eine Anwendung oder Systemkomponente hat die Zeit geändert. |
+| **1** | Kernel-General | Hat sich die Systemzeit in *geändert <now> ?* aus *<Momentaufnahme Zeit/Datum>* .<p>Änderungs Grund: eine Anwendung oder Systemkomponente hat die Zeit geändert. |
 | **16654** | Verzeichnisdienst-SAM | Ein Pool aus Kontobezeichnern (RIDs) wurde ungültig gemacht. Dies kann in folgenden erwarteten Fällen vorkommen:<p>1. ein Domänen Controller wird aus der Sicherung wieder hergestellt.<p>2. ein Domänen Controller, der auf einer virtuellen Maschine ausgeführt wird, wird aus einer Momentaufnahme wieder hergestellt<p>3. ein Administrator hat den Pool manuell ungültig gemacht.<p>Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=226247>. |
 | **7036** | Dienststeuerungs-Manager | Der DFS-Replikationsdienst wurde beendet. |
 | **7036** | Dienststeuerungs-Manager | Der DFS-Replikationsdienst wird jetzt ausgeführt. |
@@ -1655,7 +1655,7 @@ Im Anwendungsereignisprotokoll wird das Starten und Beenden der DFSR-Datenbank n
 | **103** | ESENT | Dfsrs (1360) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: das Datenbankmodul hat die Instanz (0) beendet.<p>Dirty Shutdown: 0<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.000, [4] 0.000, [5] 0.141, [6] 0.000, [7] 0.000, [8] 0.000, [9] 0.000, [10] 0.000, [11] 0.016, [12] 0.000, [13] 0.000, [14] 0.000, [15] 0.000. |
 | **102** | ESENT | Dfsrs (532) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: die Datenbank-Engine (6.02.8189.0000) startet eine neue Instanz (0). |
 | **105** | ESENT | Dfsrs (532) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: das Datenbankmodul hat eine neue Instanz (0) gestartet. (Zeit=0 Sekunden)<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.000, [4] 0.000, [5] 0.000, [6] 0.000, [7] 0.000, [8] 0.000, [9] 0.031, [10] 0.000, [11] 0.000. |
-|  |  | Dfsrs (532) \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB: das Datenbankmodul hat eine neue Datenbank erstellt (1, \\ \\ .\c: \System Volume information\dfsr\database <em> _ <GUID> </em> \dfsr.DB). (Zeit=0 Sekunden)<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.016, [4] 0.062, [5] 0.000, [6] 0.016, [7] 0.000, [8] 0.000, [9] 0.015, [10] 0.000, [11] 0.000. |
+|  |  | Dfsrs (532) \\ \\ .\c: \System Volume information\dfsr\database <em> _<GUID> </em> \dfsr.DB: das Datenbankmodul hat eine neue Datenbank erstellt (1, \\ \\ .\c: \System Volume information\dfsr\database <em>_ <GUID> </em> \dfsr.DB). (Zeit=0 Sekunden)<p>Interne Zeitsteuerungsabfolge: [1] 0.000, [2] 0.000, [3] 0.016, [4] 0.062, [5] 0.000, [6] 0.016, [7] 0.000, [8] 0.000, [9] 0.015, [10] 0.000, [11] 0.000. |
 
 ##### <a name="dfs-replication-event-log"></a>Ereignisprotokoll der DFS-Replikation
 Der DFSR-Dienst wird beendet, und die Datenbank, die SYSVOL enthält, wird gelöscht, wodurch eine eingehende nicht autoritative Synchronisierung erzwungen wird.
