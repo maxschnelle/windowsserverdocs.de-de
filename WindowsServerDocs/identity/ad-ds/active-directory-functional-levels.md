@@ -1,19 +1,19 @@
 ---
 ms.assetid: f964d056-11bf-4d9b-b5ab-dceaad8bfbc3
 title: Windows Server 2016-Funktionsebenen
-ms.author: iainfou
+ms.author: daveba
 author: iainfoulds
 manager: daveba
 ms.date: 08/25/2020
 ms.topic: article
 ms.custom: it-pro
 ms.reviewer: maheshu
-ms.openlocfilehash: 8a990e5ab19a5f5cd30d23d0d31e28249801040b
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: b74bb786b3d1a6ec8a1f96054b2d74ca93bd9bcf
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90765941"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93068372"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -105,7 +105,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
+* Windows Server 2008 R2
 
 ### <a name="windows-server-2008r2-forest-functional-level-features"></a>Features für die Windows Server 2008 R2-Gesamtstrukturfunktionsebene
 
@@ -126,8 +126,8 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
+* Windows Server 2008 R2
+* WindowsServer 2008
 
 ### <a name="windows-server-2008-forest-functional-level-features"></a>Features für die Windows Server 2008-Gesamtstrukturfunktionsebene
 
@@ -165,9 +165,9 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-* Windows Server 2003
+* Windows Server 2008 R2
+* WindowsServer 2008
+* Windows Server 2003
 
 ### <a name="windows-server-2003-forest-functional-level-features"></a>Features für die Windows Server 2003-Gesamtstrukturfunktionsebene
 
@@ -180,7 +180,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
    * Verbesserte Algorithmen und Skalierbarkeit der Konsistenzprüfung (Knowledge Consistency Checker, KCC)
       - Der Generator für standortübergreifende Topologie (Intersite Topology Generator, ISTG) verwendet verbesserte Algorithmen für die Unterstützung von Gesamtstrukturen mit einer größeren Anzahl von Standorten als AD DS auf Windows 2000-Gesamtstrukturfunktionsebene unterstützen kann. Der verbesserte ISTG-Wahlalgorithmus ist ein weniger intrusiver Mechanismus zur Auswahl des ISTG auf der Windows 2000-Gesamtstrukturfunktionsebene.
    * Möglichkeit zum Erstellen von Instanzen der dynamischen Erweiterungsklasse namens **dynamicObject** in einer Domänenverzeichnispartition
-   * Möglichkeit zum Konvertieren einer **inetOrgPerson**-Objektinstanz zu einer **User**-Objektinstanz bzw. in umgekehrter Richtung
+   * Möglichkeit zum Konvertieren einer **inetOrgPerson** -Objektinstanz zu einer **User** -Objektinstanz bzw. in umgekehrter Richtung
    * Möglichkeit zum Erstellen von Instanzen von neuen Gruppentypen für die Unterstützung der rollenbasierten Autorisierung
       - Diese Typen werden als „Anwendungsbasisgruppen“ und „LDAP-Abfragegruppen“ bezeichnet.
    * Deaktivierung und Neudefinition von Attributen und Klassen im Schema Die folgenden Attribute können wieder verwendet werden: ldapDisplayName, schemaIdGuid, OID und mapiID.
@@ -191,8 +191,8 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 * Alle AD DS-Standardfeatures, alle auf der nativen Windows 2000-Domänenfunktionsebene verfügbaren Features und die folgenden Features sind verfügbar:
    * Das Domänenverwaltungstool „Netdom.exe“ ermöglicht das Umbenennen von Domänencontrollern.
    * Updates für Anmeldungszeitstempel
-      * Das **lastLogonTimestamp**-Attribut wird mit dem Zeitpunkt der letzten Anmeldung des Benutzers oder des Computers aktualisiert. Dieses Attribut wird innerhalb der Domäne repliziert.
-   * Möglichkeit zum Festlegen des **userPassword**-Attributs als effektives Kennwort für das **inetOrgPerson**-Objekt und für Benutzerobjekte
+      * Das **lastLogonTimestamp** -Attribut wird mit dem Zeitpunkt der letzten Anmeldung des Benutzers oder des Computers aktualisiert. Dieses Attribut wird innerhalb der Domäne repliziert.
+   * Möglichkeit zum Festlegen des **userPassword** -Attributs als effektives Kennwort für das **inetOrgPerson** -Objekt und für Benutzerobjekte
    * Möglichkeit zum Umleiten von Benutzer- und Computercontainern
       * Standardmäßig werden für Computer und Benutzerkonten zwei bekannte Container bereitgestellt: „cn=Computers,<domain root>“ und „cn=Users,<domain root>“. Mit diesem Feature kann für diese Konten ein neuer, bekannter Speicherort definiert werden.
    * Möglichkeit für den Autorisierungs-Manager zum Speichern von Autorisierungsrichtlinien in AD DS
@@ -206,9 +206,9 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 Unterstützte Betriebssysteme des Domänencontrollers:
 
-* Windows Server 2008 R2
-* Windows Server 2008
-* Windows Server 2003
+* Windows Server 2008 R2
+* WindowsServer 2008
+* Windows Server 2003
 * Windows 2000
 
 ### <a name="windows-2000-native-forest-functional-level-features"></a>Features für die native Windows 2000-Gesamtstrukturfunktionsebene

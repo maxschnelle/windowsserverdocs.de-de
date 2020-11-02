@@ -4,15 +4,15 @@ description: 'Grundlagen für Server 2016: Systemanforderungen, Versionshinweise
 manager: dongill
 ms.date: 03/16/2018
 ms.topic: article
-author: jaimeo
-ms.author: jaimeo
+author: JasonGerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: a0c16a148867e34a1b83de491aefb81fa79fa365
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 7101cda649f883578a1f8acf924c80b7b739d92c
+ms.sourcegitcommit: 7499749ce7baaf58a523cae2dd46737d635475ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043899"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Erste Schritte mit Windows Server 2016
 

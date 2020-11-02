@@ -3,16 +3,16 @@ title: Erweiterte Sicherheitsupdates für Windows Server 2008 und 2008 R2
 description: Erfahre, wie du erweiterte Sicherheitsupdates (Extended Security Updates, ESU) für Windows Server 2008 und 2008 R2 nach dem Ende des Supportlebenszyklus verwenden kannst.
 ms.mktglfcycl: manage
 author: iainfoulds
-ms.author: iainfou
+ms.author: daveba
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 02/21/2020
-ms.openlocfilehash: aa528b6d3e5858cec6b55f2bcdf866dcda32eaf0
-ms.sourcegitcommit: ad8fe5bb915e616a437be60e1836d3ce891dabaa
+ms.openlocfilehash: c66a008c94927de4b8e3fb4e0042785571272081
+ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90813432"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071352"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -65,7 +65,7 @@ Um erweiterte Sicherheitsupdates zu verwenden, müssen Sie einen Mehrfachaktivie
 Um Ihre VM für erweiterte Sicherheitsupdates zu registrieren und einen Schlüssel zu erstellen, öffnen Sie das Azure-Portal, und befolgen Sie diese Anweisungen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
-2. Suchen Sie im Suchfeld oben im Azure-Portal nach **Erweiterte Sicherheitsupdates**, und wählen Sie diese aus.
+2. Suchen Sie im Suchfeld oben im Azure-Portal nach **Erweiterte Sicherheitsupdates** , und wählen Sie diese aus.
 
     ![Suchen nach erweiterten Sicherheitsupdates im Azure-Portal](media/extended-security-updates/esu-portal-search.png)
 
@@ -118,7 +118,7 @@ Um Ihre VM für erweiterte Sicherheitsupdates zu registrieren und einen Schlüss
     Wenn du fertig bist, wähle **Review + register** (Überprüfen und Registrieren) aus.
 
     >[!NOTE]
-    >Achten Sie darauf, in Ihrem globalen Filter das Azure-Abonnement auszuwählen, an dessen privater Vorschau Sie teilgenommen haben. Wählen Sie die **Filter**-Schaltfläche auf dem Azure-Portal-Menüband aus, um Ihren globalen Abonnementfilter zu überprüfen.
+    >Achten Sie darauf, in Ihrem globalen Filter das Azure-Abonnement auszuwählen, an dessen privater Vorschau Sie teilgenommen haben. Wählen Sie die **Filter** -Schaltfläche auf dem Azure-Portal-Menüband aus, um Ihren globalen Abonnementfilter zu überprüfen.
     >
     > ![Abbildung des Azure-Portal-Menübands mit ausgewählter Schaltfläche „Filter“](media/azure-ribbon-filter.png)
 
@@ -146,7 +146,7 @@ Weitere Informationen zum Erhalten von erweiterten Sicherheitsupdates für berec
 
 ## <a name="download-and-apply-extended-security-updates"></a>Herunterladen und Anwenden erweiterter Sicherheitsupdates
 
-Das Bereitstellen, Herunterladen und Anwenden erweiterter Sicherheitsupdates für Windows Server unterscheidet sich nicht von den vorhandenen Bereitstellungsprozessen. Die Updates, die über erweiterte Sicherheitsupdates bereitgestellt werden, dienen ausschließlich der *Sicherheit*und werden an jedem Patch-Dienstag veröffentlicht.
+Das Bereitstellen, Herunterladen und Anwenden erweiterter Sicherheitsupdates für Windows Server unterscheidet sich nicht von den vorhandenen Bereitstellungsprozessen. Die Updates, die über erweiterte Sicherheitsupdates bereitgestellt werden, dienen ausschließlich der *Sicherheit* und werden an jedem Patch-Dienstag veröffentlicht.
 
 Du kannst die Updates mithilfe der Tools und Prozesse installieren, über die du bereits verfügst. Der einzige Unterschied besteht darin, dass das System mit dem im vorherigen Abschnitt generierten Schlüssel registriert werden muss, damit die Updates heruntergeladen und installiert werden können.
 
