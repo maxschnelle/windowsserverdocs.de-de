@@ -7,16 +7,16 @@ ms.author: jgerend
 manager: lizross
 ms.date: 09/21/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 28cc760972123c67fea2d6db56dbfaf971b0cd16
-ms.sourcegitcommit: 92e46b11154bab929e2c622d759ef62ec264c4e6
+ms.openlocfilehash: c8d7b45b14cd7124af9862666d232ba1beb44b6b
+ms.sourcegitcommit: 3416acf0c04f9db61759f99071fa81f554728180
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734731"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93243869"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden freigegebener Clustervolumes in einem Failovercluster
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSVs) können mehrere Knoten in einem Failovercluster gleichzeitig über den Lese-/Schreibzugriff auf dieselbe LUN (Datenträger) verfügen, die als NTFS-Volume bereitgestellt wird. (In Windows Server 2012 R2 kann der Datenträger als NTFS oder robustes Datei System (Refs) bereitgestellt werden.) Bei CSV können Cluster Rollen schnell ein Failover von einem Knoten zu einem anderen Knoten ausführen, ohne dass eine Änderung des Laufwerks Besitzes erforderlich ist oder ein Volume getrennt und bereitgestellt wird. Freigegebene Clustervolumes vereinfachen auch die Verwaltung einer möglicherweise großen Anzahl von LUNs in einem Failovercluster.
 
@@ -33,7 +33,7 @@ In Windows Server 2012 wurde die CSV-Funktionalität erheblich verbessert. Abhä
 Windows Server 2012 R2 bietet zusätzliche Funktionen, wie z. b. den verteilten CSV-Besitz, eine erhöhte Resilienz durch die Verfügbarkeit des Server dienstanbietes, eine größere Flexibilität bei der Menge an physischem Speicher, die Sie dem CSV-Cache zuweisen können, eine bessere Diagnose und eine verbesserte Interoperabilität, die Unterstützung für Refs und Deduplizierung umfasst. Weitere Informationen finden Sie unter [Neues beim Failoverclustering](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 > [!NOTE]
-> Informationen zur Verwendung der Datendeduplizierung auf freigegebenen Clustervolumes für VDI-Szenarien (Virtual Desktop Infrastructure) finden Sie in den Blogbeiträgen [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) und [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)(beide in englischer Sprache).
+> Informationen zur Verwendung der Datendeduplizierung auf freigegebenen Clustervolumes für VDI-Szenarien (Virtual Desktop Infrastructure) finden Sie in den Blogbeiträgen [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deploying-data-deduplication-for-vdi-storage-in-windows-server/ba-p/424777) und [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://techcommunity.microsoft.com/t5/storage-at-microsoft/extending-data-deduplication-to-new-workloads-in-windows-server/ba-p/424787)(beide in englischer Sprache).
 
 ## <a name="review-requirements-and-considerations-for-using-csv-in-a-failover-cluster"></a>Überprüfen der Anforderungen und Überlegungen zur Verwendung von CSV in einem Failovercluster
 
@@ -50,13 +50,13 @@ Berücksichtigen Sie Folgendes, wenn Sie die Netzwerke konfigurieren, die freige
 
   - **Client für Microsoft-Netzwerke** und **Datei- und Druckerfreigabe für Microsoft-Netzwerke** : Diese Einstellungen unterstützen SMB 3.0 (Server Message Block), mit dem standardmäßig der CSV-Datenverkehr zwischen den Knoten übertragen wird. Stellen Sie zum Aktivieren von SMB außerdem sicher, dass der Server- und der Arbeitsstationsdienst aktiv sind und diese auf den einzelnen Clusterknoten für den automatischen Start konfiguriert sind.
 
-    >[!NOTE]
-    >In Windows Server 2012 R2 gibt es mehrere Server Dienst Instanzen pro Failoverclusterknoten. Es gibt eine Standardinstanz, die den eingehenden Datenverkehr von SMB-Clients bearbeitet, die auf normale Dateifreigaben zugreifen. Dann gibt es noch eine zweite CSV-Instanz, die ausschließlich den CSV-Datenverkehr zwischen den Knoten bearbeitet. Wenn der Serverdienst auf einem Knoten Fehler aufweist, wechselt das CSV-Besitzrecht automatisch zu einem anderen Knoten.
+    > [!NOTE]
+    > In Windows Server 2012 R2 gibt es mehrere Server Dienst Instanzen pro Failoverclusterknoten. Es gibt eine Standardinstanz, die den eingehenden Datenverkehr von SMB-Clients bearbeitet, die auf normale Dateifreigaben zugreifen. Dann gibt es noch eine zweite CSV-Instanz, die ausschließlich den CSV-Datenverkehr zwischen den Knoten bearbeitet. Wenn der Serverdienst auf einem Knoten Fehler aufweist, wechselt das CSV-Besitzrecht automatisch zu einem anderen Knoten.
 
     SMB 3.0 umfasst die Features SMB Multichannel und SMB Direct, sodass CSV-Datenverkehr über mehrere Netzwerke im Cluster gestreamt und Netzwerkadapter genutzt werden können, die Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA) unterstützen. SMB Multichannel wird standardmäßig für den CSV-Datenverkehr verwendet. Weitere Informationen finden Sie unter [Server Message Block – Übersicht](../storage/file-server/file-server-smb-overview.md)
   - **Microsoft Failover Cluster Virtual Adapter Performance Filter** : Diese Einstellung verbessert die Möglichkeit von Knoten, eine E/A-Umleitung auszuführen, wenn diese erforderlich ist, um freigegebene Clustervolumes zu erreichen, z. B. wenn Verbindungsfehler einen Knoten daran hindern, eine direkte Verbindung zum CSV-Datenträger herzustellen. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Informationen zur e/a-Synchronisierung und e/a-Umleitung bei der CSV-Kommunikation](#about-io-synchronization-and-io-redirection-in-csv-communication) .
 - **Clusternetzwerkpriorisierung** : Im Allgemeinen wird empfohlen, dass Sie die für den Cluster konfigurierten Voreinstellungen für die Netzwerke nicht ändern.
-- **IP-Subnetzkonfiguration** : Für Knoten in einem Netzwerk, in dem freigegebene Clustervolumes verwendet werden, ist keine bestimmte Subnetzkonfiguration erforderlich. Freigegebene Clustervolumes (CSV) können Cluster mit mehreren Subnetzen unterstützen.
+- **IP-Subnetzkonfiguration** : Für Knoten in einem Netzwerk, in dem freigegebene Clustervolumes verwendet werden, ist keine bestimmte Subnetzkonfiguration erforderlich. CSV kann multisubnetzcluster unterstützen.
 - **Richtlinienbasierter QoS (Quality of Service)** : Es wird empfohlen, dass Sie für jeden Knoten eine QoS-Prioritätenrichtlinie und eine Richtlinie für die Mindestbandbreite für den Netzwerkverkehr konfigurieren, wenn Sie CSV verwenden. Weitere Informationen finden Sie unter [Quality of Service (QoS)](</previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
 - **Speichernetzwerk** : Empfehlungen zum Speichernetzwerk finden Sie in den Anleitungen Ihres Speicheranbieters. Weitere Überlegungen zum Speicher für CSV finden Sie unter Anforderungen an die [Speicher-und](#storage-and-disk-configuration-requirements) Datenträger Konfiguration weiter unten in diesem Thema.
 
@@ -66,8 +66,8 @@ Eine Übersicht über die Hardware-, Netzwerk- und Speicheranforderungen für Fa
 
 - E **/a-Synchronisierung** : CSV ermöglicht mehreren Knoten den gleichzeitigen Lese-/Schreibzugriff auf denselben freigegebenen Speicher. Wenn ein Knoten Datenträgereingaben/-ausgaben (E/A) für ein CSV-Volume ausführt, kommuniziert der Knoten direkt mit dem Speicher, z. B. über ein SAN (Storage Area Network). Zu jedem Zeitpunkt ist jedoch ein einzelner Knoten (als koordinatorknoten bezeichnet) "Besitzer" der physischen Datenträger Ressource, die der LUN zugeordnet ist. Der Koordinatorknoten für ein CSV-Volume wird im Failovercluster-Manager unter **Datenträger** als **Besitzerknoten** angezeigt. Sie wird auch in der Ausgabe des Windows PowerShell-Cmdlets [Get-clustersharedvolume](/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) angezeigt.
 
-  >[!NOTE]
-  >In Windows Server 2012 R2 ist der CSV-Besitz gleichmäßig auf die Failoverclusterknoten verteilt, basierend auf der Anzahl der CSV-Volumes, die für die einzelnen Knoten gehören. Zudem wird das Besitzrecht automatisch ausgeglichen, wenn z. B. folgende Bedingungen auftreten: CSV-Failover, ein Knoten wird dem Cluster erneut hinzugefügt, ein Knoten wird zum Cluster hinzugefügt, ein Clusterknoten wird neu gestartet, der Failovercluster wird nach dem Herunterfahren wieder gestartet.
+  > [!NOTE]
+  > In Windows Server 2012 R2 ist der CSV-Besitz gleichmäßig auf die Failoverclusterknoten verteilt, basierend auf der Anzahl der CSV-Volumes, die für die einzelnen Knoten gehören. Zudem wird das Besitzrecht automatisch ausgeglichen, wenn z. B. folgende Bedingungen auftreten: CSV-Failover, ein Knoten wird dem Cluster erneut hinzugefügt, ein Knoten wird zum Cluster hinzugefügt, ein Clusterknoten wird neu gestartet, der Failovercluster wird nach dem Herunterfahren wieder gestartet.
 
   Wenn im Dateisystem auf einem CSV-Volume bestimmte kleinere Änderungen auftreten, müssen diese Metadaten nicht nur auf dem Koordinatorknoten, sondern auf den einzelnen physischen Knoten synchronisiert werden, die auf die LUN zugreifen. Wenn z. B. ein virtueller Computer auf einem CSV-Volume gestartet, erstellt, gelöscht oder migriert wird, müssen diese Informationen auf den einzelnen physischen Knoten synchronisiert werden, die auf den virtuellen Computer zugreifen. Diese Metadatenaktualisierungen werden in den Clusternetzwerken mithilfe von SMB 3.0 gleichzeitig ausgeführt. Für diese Vorgänge ist es nicht erforderlich, dass alle physischen Knoten mit dem freigegebenen Speicher kommunizieren.
 
@@ -83,7 +83,7 @@ In Windows Server 2012 R2 können Sie den Status eines CSV-Volumes auf Knoten Ba
 > [!IMPORTANT]
 > * Beachten Sie, dass csvs, die mit den **auf Sans verwendeten Refs** vorformatiert sind, keine direkten e/a-Vorgänge verwenden, unabhängig von allen anderen Anforderungen für die eingehende direkte e/a.
 > * Wenn Sie CSV in Verbindung mit San (-Frontend)-Datenträgern verwenden möchten, formatieren Sie Laufwerke mit NTFS, bevor Sie Sie in ein CSV-Format umrechnen, um die Leistungsvorteile der direkten e/a zu nutzen.
-> * Dieses Verhalten ist beabsichtigt: Weitere Informationen finden Sie auf den Seiten, die im Abschnitt " **Weitere Informationen** " verknüpft sind.
+> * Dieses Verhalten ist beabsichtigt. Weitere Informationen finden Sie auf den Seiten, die im Abschnitt " **Weitere Informationen** " verknüpft sind.
 
 > * Aufgrund der Integration von CSV mit SMB 3.0-Features wie SMB Multichannel und SMB Direct kann der umgeleitete E/A-Datenverkehr über mehrere Clusternetzwerke geleitet werden.
 > * Sie sollten für Ihre Clusternetzwerke während der E/A-Umleitung eine mögliche Zunahme des Netzwerkdatenverkehrs zum Koordinatorknoten berücksichtigen.
@@ -183,10 +183,10 @@ Get-ClusterAvailableDisk | Add-ClusterDisk
 1. Erweitern **Sie in** Failovercluster-Manager in der Konsolen Struktur den Namen des Clusters, erweitern Sie **Speicher** , und wählen Sie dann Datenträger aus.
 2. Wählen Sie mindestens einen Datenträger aus, der dem **verfügbaren Speicher** zugewiesen ist, klicken Sie mit der rechten Maustaste auf die Auswahl, und wählen Sie dann **zu freigegebenen Clustervolumes**
 
-    Die Datenträger werden jetzt im Cluster zur Gruppe **Freigegebene Clustervolumes** zugewiesen. Die Datenträger werden für die einzelnen Clusterknoten als nummerierte Volumes (Bereitstellungspunkte) unter dem Ordner „%SystemDisk%ClusterStorage“ zur Verfügung gestellt. Die Volumes werden im CSVFS-Dateisystem angezeigt.
+    Die Datenträger werden jetzt im Cluster zur Gruppe **Freigegebene Clustervolumes** zugewiesen. Die Datenträger werden für die einzelnen Cluster Knoten als nummerierte Volumes (Einstellungspunkte) unter dem Ordner "% System Drive% ClusterStorage" verfügbar gemacht. Die Volumes werden im CSVFS-Dateisystem angezeigt.
 
->[!NOTE]
->Sie können CSV-Volumes im Ordner „%SystemDisk%ClusterStorage“ umbenennen.
+> [!NOTE]
+> Sie können CSV-Volumes im Ordner "% System Drive% ClusterStorage" umbenennen.
 
 #### <a name="windows-powershell-equivalent-commands-add-a-disk-to-csv"></a>Äquivalente Windows PowerShell-Befehle (Hinzufügen eines Datenträgers zu einem CSV)
 
@@ -202,8 +202,8 @@ Add-ClusterSharedVolume –Name "Cluster Disk 1"
 
 Der CSV-Cache ermöglicht das Zwischenspeichern von ungepufferten E/A-Vorgängen auf Blockebene, indem Systemspeicher (RAM) als Durchschreibcache zugewiesen wird. (Nicht gepufferte e/a-Vorgänge werden nicht vom Cache-Manager zwischengespeichert.) Dies kann die Leistung für Anwendungen wie Hyper-V verbessern, die nicht gepufferte e/a-Vorgänge für den Zugriff auf eine VHD durchführt. Der CSV-Cache kann die Leistung von Leseanforderungen verstärken, ohne Schreibanforderungen zwischenzuspeichern. Das Aktivieren des CSV-Cache ist auch für Dateiserverszenarien mit horizontaler Skalierung hilfreich.
 
->[!NOTE]
->Es wird empfohlen, dass Sie den CSV-Cache für alle geclusterten Hyper-V- und Dateiserverbereitstellungen mit horizontaler Skalierung aktivieren.
+> [!NOTE]
+> Es wird empfohlen, dass Sie den CSV-Cache für alle geclusterten Hyper-V- und Dateiserverbereitstellungen mit horizontaler Skalierung aktivieren.
 
 In Windows Server 2019 ist der CSV-Cache standardmäßig aktiviert, wobei 1 gibibyte (Gib) zugeordnet wird. In Windows Server 2016 und Windows Server 2012 ist es standardmäßig deaktiviert. In Windows Server 2012 R2 ist der CSV-Cache standardmäßig aktiviert. Sie müssen jedoch weiterhin die Größe des blockcache reservieren, der reserviert werden soll.
 
@@ -238,11 +238,11 @@ Sie können den CSV-Cache über den Systemmonitor überwachen, indem Sie die Ind
     Get-ClusterSharedVolume "Cluster Disk 1" | Set-ClusterParameter CsvEnableBlockCache 1
     ```
 
->[!NOTE]
+> [!NOTE]
 > * In Windows Server 2012 können Sie dem CSV-Cache nur 20% des gesamten physischen Arbeitsspeichers zuordnen. In Windows Server 2012 R2 und höher können Sie bis zu 80% zuordnen. Da Dateiserver mit horizontaler Skalierung in der Regel keine Speichereinschränkungen aufweisen, können Sie die Leistung erheblich steigern, indem Sie den zusätzlichen Arbeitsspeicher für den CSV-Cache verwenden.
 > * Um Ressourcenkonflikte zu vermeiden, sollten Sie jeden Knoten im Cluster neu starten, nachdem Sie den dem CSV-Cache zugeordneten Arbeitsspeicher geändert haben. In Windows Server 2012 R2 und höher ist ein Neustart nicht mehr erforderlich.
 > * Nachdem Sie den CSV-Cache auf einem einzelnen Datenträger aktiviert oder deaktiviert haben, müssen Sie die physische Datenträgerressource offline und anschließend wieder online schalten, damit die Einstellung wirksam wird. (In Windows Server 2012 R2 und höher ist der CSV-Cache standardmäßig aktiviert.)
-> * Weitere Informationen zum CSV-Cache, einschließlich Informationen zu Leistungsindikatoren, finden Sie im Blogbeitrag [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/)(in englischer Sprache).
+> * Weitere Informationen zum CSV-Cache, einschließlich Informationen zu Leistungsindikatoren, finden Sie im Blogbeitrag [How to Enable CSV Cache](https://techcommunity.microsoft.com/t5/failover-clustering/how-to-enable-csv-cache/ba-p/371854)(in englischer Sprache).
 
 ## <a name="backing-up-csvs"></a>Sichern von CSVs
 
@@ -257,7 +257,7 @@ Bei der Auswahl einer Sicherungsanwendung und eines Sicherungszeitplans für CSV
 - Zum Sichern eines Failoverclusters sind möglicherweise Administratoranmeldeinformationen erforderlich.
 
 > [!IMPORTANT]
->Überprüfen Sie sorgfältig, welche Daten von der Sicherungsanwendung gesichert und wiederhergestellt werden, welche CSV-Features unterstützt werden und welche Ressourcenanforderungen für die Anwendung auf den einzelnen Clusterknoten erforderlich sind.
+> Überprüfen Sie sorgfältig, welche Daten von der Sicherungsanwendung gesichert und wiederhergestellt werden, welche CSV-Features unterstützt werden und welche Ressourcenanforderungen für die Anwendung auf den einzelnen Clusterknoten erforderlich sind.
 
 > [!WARNING]
 > Wenn Sie die Sicherungsdaten auf einem CSV-Volume wiederherstellen müssen, beachten Sie die Möglichkeiten und Einschränkungen der Sicherungsanwendung hinsichtlich der Verwaltung und Wiederherstellung anwendungskonsistenter Daten auf den verschiedenen Clusterknoten. Wenn das freigegebene Clustervolume z. B. bei einigen Anwendungen auf einem anderen Knoten als bei der Sicherung wiederherstellt wird, können Sie auf dem Knoten, auf dem die Wiederherstellung erfolgt, versehentlich wichtige Daten zum Anwendungsstatus überschreiben.

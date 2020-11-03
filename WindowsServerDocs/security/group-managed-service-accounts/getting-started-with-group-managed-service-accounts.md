@@ -7,12 +7,12 @@ ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/12/2016
-ms.openlocfilehash: 19da2b6ec2a7a3ca31c479388c087850c77d9c23
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: 8a6e0ff7e0ba412ff3f8241465a71ab8b81f7d80
+ms.sourcegitcommit: 8c0a419ae5483159548eb0bc159f4b774d4c3d85
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89638055"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235847"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
@@ -50,14 +50,14 @@ Wenn sich ein Clientcomputer mit einem auf einer Serverfarm gehosteten Dienst mi
 
 Dienste verfügen über die folgenden Prinzipale, aus denen ausgewählt werden kann, und jeder hat bestimmte Begrenzungen.
 
-|Principals|Bereich|Unterstützte Dienste|Kennwortverwaltung|
+|Principals|`Scope`|Unterstützte Dienste|Kennwortverwaltung|
 |-------|-----|-----------|------------|
-|Computerkonto von Windows-System|Domain|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
-|Computerkonto ohne Windows-System|Domain|Jeder mit einer Domäne verbundene Server|Keine|
+|Computerkonto von Windows-System|Domäne|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
+|Computerkonto ohne Windows-System|Domäne|Jeder mit einer Domäne verbundene Server|Keine|
 |Virtuelles Konto|Lokal|Auf einen Server begrenzt|Vom Computer verwaltet|
-|Eigenständig verwaltetes Windows 7-Dienstkonto|Domain|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
-|Benutzerkonto|Domain|Jeder mit einer Domäne verbundene Server|Keine|
-|Gruppenverwaltetes Dienstkonto|Domain|Alle in die Domäne eingebundenen Windows Server 2012-Server|Der Domänencontroller verwaltet, und der Host ruft ab|
+|Eigenständig verwaltetes Windows 7-Dienstkonto|Domäne|Auf einen mit einer Domäne verbundenen Server|Vom Computer verwaltet|
+|Benutzerkonto|Domäne|Jeder mit einer Domäne verbundene Server|Keine|
+|Gruppenverwaltetes Dienstkonto|Domäne|Alle in die Domäne eingebundenen Windows Server 2012-Server|Der Domänencontroller verwaltet, und der Host ruft ab|
 
 Ein Windows-Computerkonto oder ein eigenständiges verwaltetes Windows 7-Dienstkonto (standalone Managed Service Account, sMSA) oder virtuelle Konten können nicht über mehrere Systeme hinweg freigegeben werden. Wenn Sie ein Konto für Dienste auf freizugebenden Serverfarmen konfigurieren, müssten Sie getrennt vom Windows-System ein Benutzer- oder Computerkonto auswählen. So oder so verfügen diese Konten nicht über die Fähigkeit der Kennwortverwaltung über einen einzigen Steuerungspunkt. Dies führt zu einem Problem, wobei jede Organisation eine teure Lösung erstellen muss, um die Schlüssel für den Dienst in Active Directory zu aktualisieren und anschließend die Schlüssel in allen Instanzen dieser Dienste bereitzustellen.
 
@@ -139,7 +139,7 @@ Beim Bereitstellen einer neuen Serverfarm muss der Dienstadministrator Folgendes
 ### <a name="step-1-provisioning-group-managed-service-accounts"></a><a name="BKMK_Step1"></a>Schritt 1: Bereitstellen gruppenverwalteter Dienstkonten
 Sie können ein GMSA nur erstellen, wenn das Gesamtstruktur Schema auf Windows Server 2012 aktualisiert wurde, der Hauptstamm Schlüssel für Active Directory bereitgestellt wurde und mindestens ein Windows Server 2012 DC in der Domäne vorhanden ist, in der das GMSA erstellt wird.
 
-Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Erstellen von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um die folgenden Verfahren abzuschließen.
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder MSDS-groupmanagedserviceaccount-Objekte erstellen, um die folgenden Prozeduren ausführen zu können.
 
 > [!NOTE]
 > Ein Wert für den Parameter "-Name" ist immer erforderlich (unabhängig davon, ob Sie "-Name" angeben), mit "-dNSHostName", "-restricttosinglecomputer" und "-restricttooutboundauthentication" sind sekundäre Anforderungen für die drei Bereitstellungs Szenarien.
@@ -174,7 +174,7 @@ Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit
     New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$ -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
     ```
 
-Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Erstellen von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [Lokale und Domänenstandardgruppen](/previous-versions/orphan-topics/ws.10/dd728026(v=ws.10)).
+Die Mitgliedschaft in **Domänen-Admins** , **Konten-Operatoren** oder Fähigkeit zum Erstellen von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [Lokale und Domänenstandardgruppen](/previous-versions/orphan-topics/ws.10/dd728026(v=ws.10)).
 
 ##### <a name="to-create-a-gmsa-for-outbound-authentication-only-using-the-new-adserviceaccount-cmdlet"></a>So erstellen Sie ein gMSA ausschließlich für die ausgehende Authentifizierung mithilfe des Cmdlets „New-ADServiceAccount“
 
@@ -235,7 +235,7 @@ Die Mitgliedschaft in **Domänen-Admins** oder die Fähigkeit, Mitglieder zum Si
 
 Suchen Sie bei der Verwendung von Benutzerkonten nach vorhandenen Konten, und fügen Sie dann das neue Benutzerkonto hinzu.
 
-Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Verwalten von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter „Lokale und Domänenstandardgruppen“.
+Die Mitgliedschaft in **Domänen-Admins** , **Konten-Operatoren** oder Fähigkeit zum Verwalten von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter „Lokale und Domänenstandardgruppen“.
 
 #### <a name="to-add-member-hosts-using-the-set-adserviceaccount-cmdlet"></a>So fügen Sie Hosts mithilfe des Cmdlets „Set-ADServiceAccount“ hinzu
 
@@ -267,7 +267,7 @@ Set-ADServiceAccount [-Identity] ITFarm1 -PrincipalsAllowedToRetrieveManagedPass
 ```
 
 ## <a name="updating-the-group-managed-service-account-properties"></a><a name="BKMK_Update_gMSA"></a>Aktualisieren der Eigenschaften für gruppenverwaltete Dienstkonten
-Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Schreiben in „msDS-GroupManagedServiceAccount“-Objekte ist die Mindestvoraussetzung, um diese Verfahren abzuschließen.
+Die Mitgliedschaft in **Domänen-Admins** , **Konten-Operatoren** oder Fähigkeit zum Schreiben in „msDS-GroupManagedServiceAccount“-Objekte ist die Mindestvoraussetzung, um diese Verfahren abzuschließen.
 
 Öffnen Sie das Active Directory-Modul für die Windows PowerShell, und legen Sie eine beliebige Eigenschaft mithilfe des Cmdlets „Set-ADServiceAccount“ fest.
 
@@ -293,7 +293,7 @@ Wenn Sie Sicherheitsgruppen für die Verwaltung von Mitglieds Hosts verwenden, e
 
 Wenn Sie Computerkonten auflisten, rufen Sie die vorhandenen Konten ab, und fügen Sie dann alle mit Ausnahme des entfernten Computerkontos hinzu.
 
-Die Mitgliedschaft in **Domänen-Admins**, **Konten-Operatoren** oder Fähigkeit zum Verwalten von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter „Lokale und Domänenstandardgruppen“.
+Die Mitgliedschaft in **Domänen-Admins** , **Konten-Operatoren** oder Fähigkeit zum Verwalten von „msDS-GroupManagedServiceAccount“-Objekten ist die Mindestvoraussetzung, um dieses Verfahren abzuschließen. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter „Lokale und Domänenstandardgruppen“.
 
 ##### <a name="to-remove-member-hosts-using-the-set-adserviceaccount-cmdlet"></a>So entfernen Sie Hosts mithilfe des Cmdlets „Set-ADServiceAccount“
 
@@ -345,10 +345,10 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
     Uninstall-ADServiceAccount ITFarm1
     ```
 
-Geben Sie für weitere Informationen über das Cmdlet Uninstall-ADServiceAccount an der Eingabeaufforderung für das Active Directory-Modul für Windows PowerShell **Get-Help Uninstall-ADServiceAccount**ein, und drücken Sie dann die EINGABETASTE, oder konsultieren Sie die Informationen auf der TechNet-Website unter [Uninstall-ADServiceAccount](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617202(v=technet.10)).
+Geben Sie für weitere Informationen über das Cmdlet Uninstall-ADServiceAccount an der Eingabeaufforderung für das Active Directory-Modul für Windows PowerShell **Get-Help Uninstall-ADServiceAccount** ein, und drücken Sie dann die EINGABETASTE, oder konsultieren Sie die Informationen auf der TechNet-Website unter [Uninstall-ADServiceAccount](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617202(v=technet.10)).
 
 
 
-## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch
+## <a name="see-also"></a><a name="BKMK_Links"></a>Weitere Informationen
 
 -   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)

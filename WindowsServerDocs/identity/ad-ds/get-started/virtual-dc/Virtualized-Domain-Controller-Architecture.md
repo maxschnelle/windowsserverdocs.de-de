@@ -6,12 +6,12 @@ ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: b644103342e94a171699efeab238453bdb583eec
-ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
+ms.openlocfilehash: 8d8a200881b8b1acf21afb8eb0b41cff6e390d88
+ms.sourcegitcommit: 8c0a419ae5483159548eb0bc159f4b774d4c3d85
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93067802"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235857"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architektur virtualisierter Domänencontroller
 
@@ -30,7 +30,7 @@ Das Klonen virtualisierter Domänencontroller benötigt einen von der Hypervisor
 
 In gemischten Umgebungen, in denen nicht alle Hypervisoren die VM-Generations-ID unterstützen, kann es passieren, dass ein Klon-Medium versehentlich auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID nicht unterstützt. Das Vorhandensein der Datei DCCloneConfig.xml gibt die Absicht an, einen DC klonen zu wollen. Wenn also die Datei DCCloneConfig.xml beim Hochfahren gefunden wird, aber keine VM-Generations-ID vom Host angegeben wurde, wird der Klon-DC in den Verzeichnisdienstwiederherstellungs (DSRM)-Modus gestartet, um Auswirkungen auf die restliche Umgebung zu verhindern. Das Klon-Medium kann anschließend auf einen Hypervisor verschoben werden, der die VM-Generations-ID unterstützt, und das Klonen dort wiederholt werden.
 
-Wenn das Klon-Medium auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID unterstützt, und keine DCCloneConfig.xml-Datei vorhanden ist, löst der DC Schutzmaßnahmen gegen USN-Wiederverwendung und doppelte SIDs aus, wenn er eine Änderung der VM-Generations-ID zwischen seiner eigenen DIT und der neuen DIT aus der VM erkennt. Der Klonvorgang wird jedoch nicht gestartet, sodass der sekundäre Domänencontroller weiterhin unter derselben Identität wie der Quell-DC laufen kann. Der sekundäre DC sollte schnellstmöglich aus dem Netzwerk entfernt werden, um Inkonsistenzen in der Umgebung zu vermeiden. Weitere Informationen dazu, wie Sie diesen sekundären DC freigeben und gleichzeitig sicherstellen, dass Updates ausgehend repliziert werden, finden Sie im Microsoft KB-Artikel [2742970](https://support.microsoft.com/kb/2742970).
+Wenn das Klon-Medium auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID unterstützt, und keine DCCloneConfig.xml-Datei vorhanden ist, löst der DC Schutzmaßnahmen gegen USN-Wiederverwendung und doppelte SIDs aus, wenn er eine Änderung der VM-Generations-ID zwischen seiner eigenen DIT und der neuen DIT aus der VM erkennt. Der Klonvorgang wird jedoch nicht gestartet, sodass der sekundäre Domänencontroller weiterhin unter derselben Identität wie der Quell-DC laufen kann. Der sekundäre DC sollte schnellstmöglich aus dem Netzwerk entfernt werden, um Inkonsistenzen in der Umgebung zu vermeiden.
 
 ### <a name="cloning-detailed-processing"></a><a name="BKMK_CloneProcessDetails"></a>Details zum Klonprozess
 Das folgende Diagramm zeigt die Architektur für den ursprünglichen Klonprozess und für Wiederholungen des Klonprozesses. Diese Prozesse werden im Verlauf dieses Artikels genauer beschrieben.
@@ -59,7 +59,7 @@ In den folgenden Schritten wird der Prozess genauer beschrieben:
 
     2.  Wenn die beiden IDs nicht übereinstimmen, handelt es sich um einen neuen virtuellen Computer, der eine NTDS.DIT-Datei aus einem vorherigen Domänencontroller enthält (oder es handelt sich um eine wiederhergestellte Momentaufnahme). Wenn eine DCCloneConfig.xml-Datei existiert, fährt der Domänencontroller mit dem Klonprozess fort. Andernfalls wird der Wiederherstellungsprozess der Momentaufnahme fortgesetzt. Weitere Informationen finden Sie unter [Sichere Wiederherstellungsarchitektur für virtualisierte Domänencontroller](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
 
-    3.  Wenn der Hypervisor keine VM-Generations-ID zum Vergleich bereitstellt, aber eine DCCloneConfig.xml-Datei existiert, benennt der Gast die Datei um und startet im DSRM, um das Netzwerk vor doppelt vorhandenen Domänencontrollern zu schützen. Wenn keine dccloneconfig.xml-Datei existiert, fährt der Gast normal hoch (mit einem möglichen doppelt vorhandenen Domänencontroller im Netzwerk). Weitere Informationen zum Freigeben dieses doppelt vorhandenen Domänencontrollers finden Sie im Microsoft KB-Artikel [2742970](https://support.microsoft.com/kb/2742970).
+    3.  Wenn der Hypervisor keine VM-Generations-ID zum Vergleich bereitstellt, aber eine DCCloneConfig.xml-Datei existiert, benennt der Gast die Datei um und startet im DSRM, um das Netzwerk vor doppelt vorhandenen Domänencontrollern zu schützen. Wenn keine dccloneconfig.xml-Datei existiert, fährt der Gast normal hoch (mit einem möglichen doppelt vorhandenen Domänencontroller im Netzwerk).
 
 3.  Der NTDS-Dienst prüft den Wert des VDCisCloning-DWORDs in der Registrierung (unter HKEY_Local_Machine\System\CurrentControlSet\Services\Ntds\Parameters).
 

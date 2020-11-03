@@ -7,12 +7,12 @@ ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 1aa270adc30f72f8efcdbbea2162e3c6b925dade
-ms.sourcegitcommit: dd1fbb5d7e71ba8cd1b5bfaf38e3123bca115572
+ms.openlocfilehash: 8dc2fec785771db4ccefb08e2359506932e11620
+ms.sourcegitcommit: 8c0a419ae5483159548eb0bc159f4b774d4c3d85
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90746425"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235867"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -34,7 +34,7 @@ Prozessoren, die SMT unterstützen, sind sowohl bei Intel als auch bei AMD verf�
 
 Für den Zweck dieses Artikels gelten die Beschreibungen von SMT und deren Verwendung durch Hyper-V gleichermaßen für Intel-und AMD-Systeme.
 
-* Weitere Informationen zur Intel HT-Technologie finden Sie in der [Intel Hyper-Threading-Technologie](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) .
+* Weitere Informationen zur Intel HT-Technologie finden Sie unter [Intel Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)
 
 * Weitere Informationen zu AMD SMT finden Sie in [der Kernarchitektur "Zen"](https://www.amd.com/en/technologies/zen-core) .
 
@@ -135,7 +135,7 @@ Windows Server 2016 Hyper-V verwendet standardmäßig das klassische Hypervisor-
 
 ## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Windows Server 2019 Hyper-V verwendet standardmäßig den Kern Planer
 
-Um sicherzustellen, dass Hyper-v-Hosts in der optimalen Sicherheitskonfiguration bereitgestellt werden, verwendet Windows Server 2019 Hyper-v jetzt standardmäßig das Core-Hypervisor-Scheduler-Modell. Der Host Administrator kann optional den Host so konfigurieren, dass er den klassischen Legacy Planer verwendet. Administratoren sollten vor dem Überschreiben der Standardeinstellungen für den Scheduler die Auswirkungen der einzelnen schedulertypen auf die Sicherheit und Leistung von Virtualisierungshosts sorgfältig lesen, verstehen und berücksichtigen.  Weitere Informationen finden Sie Untergrund Legendes zur [Hyper-V-Scheduler-Typauswahl](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) .
+Um sicherzustellen, dass Hyper-v-Hosts in der optimalen Sicherheitskonfiguration bereitgestellt werden, verwendet Windows Server 2019 Hyper-v jetzt standardmäßig das Core-Hypervisor-Scheduler-Modell. Der Host Administrator kann optional den Host so konfigurieren, dass er den klassischen Legacy Planer verwendet. Administratoren sollten vor dem Überschreiben der Standardeinstellungen für den Scheduler die Auswirkungen der einzelnen schedulertypen auf die Sicherheit und Leistung von Virtualisierungshosts sorgfältig lesen, verstehen und berücksichtigen. Weitere Informationen finden Sie unter Informationen [zu Hyper-V-Hypervisor-Scheduler-Typauswahl](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/about-hyper-v-scheduler-type-selection) .
 
 ### <a name="required-updates"></a>Erforderliche Updates
 
@@ -162,7 +162,7 @@ bcdedit /set hypervisorschedulertype type
 Dabei `type` ist einer der folgenden:
 
 * Klassisch
-* Kernspeicher
+* Core
 * Root
 
 Das System muss neu gestartet werden, damit Änderungen am Typ des Hypervisor-Planers wirksam werden.
