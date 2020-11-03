@@ -4,12 +4,12 @@ ms.date: 01/30/2019
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7bdcb67c5bcb36d2ebe5ee02d765f3cab63c7bed
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: 0a8015096d22cfb384815f1e5b8c5b9c9c248922
+ms.sourcegitcommit: 7499749ce7baaf58a523cae2dd46737d635475ce
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766823"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043909"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -31,7 +31,7 @@ VSS koordiniert die Aktionen, die erforderlich sind, um eine konsistente Schatte
 
   - Sie führen Sicherungen von Datenträger zu Datenträger (Disk-to-Disk, D2D) aus.
 
-  - Sie müssen eine schnelle Wiederherstellung nach Datenverlust durchführen, indem Sie Daten auf der ursprünglichen LUN oder einer vollkommen neuen LUN wiederherstellen, die eine ursprüngliche, ausgefallene LUN ersetzt.
+  - Sie müssen eine schnelle Wiederherstellung nach Datenverlust durchführen, indem Sie Daten auf der ursprünglichen LUN oder einer vollkommen neuen logischen Gerätenummer (LUN) wiederherstellen, die eine ursprüngliche, ausgefallene LUN ersetzt.
 
 
 Zu den Windows-Features und -Anwendungen, die VSS verwenden, gehören die folgenden:
@@ -49,19 +49,19 @@ Zu den Windows-Features und -Anwendungen, die VSS verwenden, gehören die folgen
 
 Für eine vollständige VSS-Lösung sind alle der folgenden grundlegenden Komponenten erforderlich:
 
-**VSS-Dienst**   Teil des Windows-Betriebssystems, mit dem sichergestellt wird, dass die anderen Komponenten ordnungsgemäß miteinander kommunizieren und zusammenarbeiten können.
+**VSS-Dienst** : Teil des Windows-Betriebssystems, mit dem sichergestellt wird, dass die anderen Komponenten ordnungsgemäß miteinander kommunizieren und zusammenarbeiten können.
 
-**VSS-Anforderer**   Die Software, die die tatsächliche Erstellung von Schattenkopien anfordert (oder anderen übergeordneten Vorgängen wie deren Import oder Löschung). In der Regel handelt es sich hierbei um die Sicherungsanwendung. Das Hilfsprogramm Windows Server Backup und die Anwendung System Center Data Protection Manager sind VSS-Anforderer. Zu VSS-Anforderer, die nicht von Microsoft® stammen, gehören fast alle Sicherungssoftware-Anwendungen, die unter Windows ausgeführt werden.
+**VSS-Anforderer** : Die Software, die die tatsächliche Erstellung von Schattenkopien anfordert (oder anderen übergeordneten Vorgängen wie deren Import oder Löschung). In der Regel handelt es sich hierbei um die Sicherungsanwendung. Das Hilfsprogramm Windows Server Backup und die Anwendung System Center Data Protection Manager sind VSS-Anforderer. Zu VSS-Anforderer, die nicht von Microsoft® stammen, gehören fast alle Sicherungssoftware-Anwendungen, die unter Windows ausgeführt werden.
 
-**VSS Writer**   Die Komponente, die garantiert, dass ein konsistentes Dataset für die Sicherung vorhanden ist. Dies wird in der Regel als Teil einer Branchenanwendung bereitgestellt (z. B. SQL Server® oder Exchange Server). VSS Writer für verschiedene Windows-Komponenten, z. B. die Registrierung, sind im Windows-Betriebssystem enthalten. Nicht von Microsoft stammende VSS Writer sind in vielen Anwendungen für Windows enthalten, die die Datenkonsistenz während der Sicherung gewährleisten müssen.
+**VSS Writer** : Die Komponente, die garantiert, dass ein konsistentes Dataset für die Sicherung vorhanden ist. Dies wird in der Regel als Teil einer Branchenanwendung bereitgestellt (z. B. SQL Server® oder Exchange Server). VSS Writer für verschiedene Windows-Komponenten, z. B. die Registrierung, sind im Windows-Betriebssystem enthalten. Nicht von Microsoft stammende VSS Writer sind in vielen Anwendungen für Windows enthalten, die die Datenkonsistenz während der Sicherung gewährleisten müssen.
 
-**VSS-Anbieter**   Die Komponente, die die Schattenkopien erstellt und verwaltet. Dies kann in der Software oder in der Hardware geschehen. Das Windows-Betriebssystem enthält einen VSS-Provider, der Copy-on-Write (Kopie bei Schreibvorgang) verwendet. Wenn Sie ein Storage Area Network (SAN) verwenden, ist es wichtig, dass Sie den VSS-Hardwareanbieter für das SAN installieren, falls ein solcher vorhanden ist. Ein Hardwareanbieter entlastet das Hostbetriebssystem von der Aufgabe, eine Schattenkopie zu erstellen und zu verwalten.
+**VSS-Anbieter** : Die Komponente, die die Schattenkopien erstellt und verwaltet. Dies kann in der Software oder in der Hardware geschehen. Das Windows-Betriebssystem enthält einen VSS-Provider, der Copy-on-Write (Kopie bei Schreibvorgang) verwendet. Wenn Sie ein Storage Area Network (SAN) verwenden, ist es wichtig, dass Sie den VSS-Hardwareanbieter für das SAN installieren, falls ein solcher vorhanden ist. Ein Hardwareanbieter entlastet das Hostbetriebssystem von der Aufgabe, eine Schattenkopie zu erstellen und zu verwalten.
 
 Im folgenden Diagramm wird veranschaulicht, wie der VSS-Dienst Anforderer, Writer und Anbieter koordiniert, um eine Schattenkopie eines Volumes zu erstellen.
 
 ![Architekturdiagramm des Volumeschattenkopie-Diensts](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
 
-**Abbildung 1**   Architekturdiagramm des Volumeschattenkopie-Diensts
+**Abbildung 1** : Architekturdiagramm des Volumeschattenkopie-Diensts
 
 ### <a name="how-a-shadow-copy-is-created"></a>Erstellen einer Schattenkopie
 
@@ -69,7 +69,7 @@ Dieser Abschnitt setzt die verschiedenen Rollen von Anforderer, Writer und Anbie
 
 ![Diagramm der Funktionsweise des Volumeschattenkopie-Diensts](media/volume-shadow-copy-service/Ee923636.1c481a14-d6bc-4796-a3ff-8c6e2174749b(WS.10).jpg)
 
-**Abbildung 2**Erstellungsvorgang für Schattenkopie
+**Abbildung 2** Erstellungsvorgang für Schattenkopie
 
 Zum Erstellen einer Schattenkopie führen Anforderer, Writer und Anbieter die folgenden Aktionen aus:
 
@@ -103,11 +103,11 @@ Zum Erstellen einer Schattenkopie führen Anforderer, Writer und Anbieter die fo
 
 Ein Hardware- oder Softwareanbieter von Schattenkopien verwendet zum Erstellen einer Schattenkopie eine der folgenden Methoden:
 
-**Vollständige Kopie**   Bei dieser Methode wird eine vollständige Kopie (als „Vollversion“ oder „Klon“ bezeichnet) des ursprünglichen Volumes zu einem bestimmten Zeitpunkt erstellt. Die Kopie ist schreibgeschützt.
+**Vollständige Kopie** : Bei dieser Methode wird eine vollständige Kopie (als „Vollversion“ oder „Klon“ bezeichnet) des ursprünglichen Volumes zu einem bestimmten Zeitpunkt erstellt. Die Kopie ist schreibgeschützt.
 
-**Kopie bei Schreibvorgang**   Bei dieser Methode wird das ursprüngliche Volume nicht kopiert. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen (abgeschlossene Schreib-E/A-Anforderungen) kopiert werden, die nach einem bestimmten Zeitpunkt auf dem Volume vorgenommen werden.
+**Kopie bei Schreibvorgang** : Bei dieser Methode wird das ursprüngliche Volume nicht kopiert. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen (abgeschlossene Schreib-E/A-Anforderungen) kopiert werden, die nach einem bestimmten Zeitpunkt auf dem Volume vorgenommen werden.
 
-**Umleitung bei Schreibvorgang**   Bei dieser Methode wird das ursprüngliche Volume nicht kopiert, und es werden keine Änderungen am ursprünglichen Volume nach einem bestimmten Zeitpunkt durchgeführt. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen an ein anderes Volume umgeleitet werden.
+**Umleitung bei Schreibvorgang** : Bei dieser Methode wird das ursprüngliche Volume nicht kopiert, und es werden keine Änderungen am ursprünglichen Volume nach einem bestimmten Zeitpunkt durchgeführt. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen an ein anderes Volume umgeleitet werden.
 
 ## <a name="complete-copy"></a>Vollständige Kopie
 
@@ -157,7 +157,7 @@ Wenn bei der Methode „Kopie bei Schreibvorgang“ eine Änderung am ursprüngl
 </tbody>
 </table>
 
-**Tabelle 1**   Die Methode „Kopie bei Schreibvorgang“ zum Erstellen von Schattenkopien
+**Tabelle 1** : Die Methode „Kopie bei Schreibvorgang“ zum Erstellen von Schattenkopien
 
 Die Methode „Kopie bei Schreibvorgang“ ist eine schnelle Methode zum Erstellen einer Schattenkopie, da nur geänderte Daten kopiert werden. Die kopierten Blöcke im Vergleichsbereich können mit den geänderten Daten auf dem ursprünglichen Volume kombiniert werden, um das Volume in dem Zustand wiederherzustellen, bevor Änderungen vorgenommen wurden. Wenn viele Änderungen vorhanden sind, kann die Methode „Kopie bei Schreibvorgang“ kostspielig werden.
 
@@ -198,7 +198,7 @@ Bei der Methode „Umleitung bei Schreibvorgang“ werden Änderungen, die das u
 </tbody>
 </table>
 
-**Tabelle 2**   Die Methode „Umleitung bei Schreibvorgang“ zum Erstellen von Schattenkopien
+**Tabelle 2** : Die Methode „Umleitung bei Schreibvorgang“ zum Erstellen von Schattenkopien
 
 Wie die Methode „Kopie bei Schreibvorgang“ stellt auch die Methode „Umleitung bei Schreibvorgang“ eine schnelle Methode zum Erstellen einer Schattenkopie dar, da nur Änderungen an den Daten kopiert werden. Die kopierten Blöcke im Vergleichsbereich können mit den unveränderten Daten auf dem ursprünglichen Volume zu einer kompletten, aktuellem Kopie der Daten kombiniert werden. Wenn viele Lese-E/A-Anforderungen vorliegen, kann die Methode „Umleitung bei Schreibvorgang“ kostspielig werden.
 
@@ -308,7 +308,7 @@ Wenn der Volumeschattenkopie-Dienst und ein Speicherarray mit einem Hardwareanbi
 
 ![Diagramm des Transports einer Schattenkopie zwischen zwei Servern](media/volume-shadow-copy-service/Ee923636.633752e0-92f6-49a7-9348-f451b1dc0ed7(WS.10).jpg)
 
-**Abbildung 3**   Erstellen von Schattenkopien und Übertragung zwischen zwei Servern
+**Abbildung 3** : Erstellen von Schattenkopien und Übertragung zwischen zwei Servern
 
 
 > [!NOTE]
@@ -338,13 +338,13 @@ Wenn Daten aus der Schattenkopie auf Band oder ein anderes Wechselmedium kopiert
 
 Der Volumeschattenkopie-Dienst unterstützt eine Volumegröße von bis zu 64 TB.
 
-### <a name="i-made-a-backup-on-windows-server2008-can-i-restore-it-on-windows-server2008r2"></a>Ich habe eine Sicherung unter Windows Server 2008 erstellt. Kann ich sie unter Windows Server 2008 R2 wiederherstellen?
+### <a name="i-made-a-backup-on-windows-server-2008-can-i-restore-it-on-windows-server-2008-r2"></a>Ich habe eine Sicherung unter Windows Server 2008 erstellt. Kann ich sie unter Windows Server 2008 R2 wiederherstellen?
 
 Dies hängt von der verwendeten Sicherungssoftware ab. Die meisten Sicherungsprogramme unterstützen dieses Szenario für Daten, aber nicht für Sicherungen des Systemstatus.
 
 Schattenkopien, die für eine dieser Versionen von Windows erstellt werden, können für die andere verwendet werden.
 
-### <a name="i-made-a-backup-on-windows-server2003-can-i-restore-it-on-windows-server2008"></a>Ich habe eine Sicherung unter Windows Server 2003 erstellt. Kann ich sie unter Windows Server 2008 wiederherstellen?
+### <a name="i-made-a-backup-on-windows-server-2003-can-i-restore-it-on-windows-server-2008"></a>Ich habe eine Sicherung unter Windows Server 2003 erstellt. Kann ich sie unter Windows Server 2008 wiederherstellen?
 
 Dies hängt von der verwendeten Sicherungssoftware ab. Wenn Sie eine Schattenkopie unter Windows Server 2003 erstellt haben, können Sie sie nicht unter Windows Server 2008 verwenden. Gleiches gilt umgekehrt: Wenn Sie eine Schattenkopie unter Windows Server 2008 erstellt haben, können Sie sie nicht unter Windows Server 2003 wiederherstellen.
 
@@ -442,15 +442,15 @@ Das Windows-Betriebssystem stellt die folgenden Tools zum Arbeiten mit VSS berei
 
 DiskShadow ist ein VSS-Anforderer, mit dem Sie alle auf einem System vorhandenen Hardware- und Softwaremomentaufnahmen verwalten können. DiskShadow umfasst Befehle wie die folgenden:
 
-  - **list**: Listet VSS-Writer, VSS-Anbieter und Schattenkopien auf.
+  - **list** : Listet VSS-Writer, VSS-Anbieter und Schattenkopien auf.
 
-  - **create**: Erstellt eine neue Schattenkopie.
+  - **create** : Erstellt eine neue Schattenkopie.
 
-  - **import**: Importiert eine übertragbare Schattenkopie.
+  - **import** : Importiert eine übertragbare Schattenkopie.
 
-  - **expose**: Macht eine persistente Schattenkopie verfügbar (z. B. als in Form eines Laufwerkbuchstaben).
+  - **expose** : Macht eine persistente Schattenkopie verfügbar (z. B. als in Form eines Laufwerkbuchstaben).
 
-  - **revert**: Setzt ein Volume auf eine angegebene Schattenkopie zurück.
+  - **revert** : Setzt ein Volume auf eine angegebene Schattenkopie zurück.
 
 
 Dieses Tool ist für die Verwendung durch IT-Experten bestimmt, aber auch für Entwickler kann es beim Testen eines VSS-Writers oder VSS-Anbieters nützlich sein.
@@ -463,15 +463,15 @@ VssAdmin dient zum Erstellen, Löschen und Auflisten von Informationen zu Schatt
 
 VssAdmin umfasst Befehle wie die folgenden:
 
-  - **create shadow**: Erstellt eine neue Schattenkopie.
+  - **create shadow** : Erstellt eine neue Schattenkopie.
 
-  - **delete shadows**: Löscht Schattenkopien.
+  - **delete shadows** : Löscht Schattenkopien.
 
-  - **list providers**: Listet alle registrierten VSS-Anbieter auf.
+  - **list providers** : Listet alle registrierten VSS-Anbieter auf.
 
-  - **list writers**: Listet alle abonnierten VSS-Writer auf.
+  - **list writers** : Listet alle abonnierten VSS-Writer auf.
 
-  - **resize shadowstorage**: Ändert die maximale Größe des Schattenkopie-Speicherbereichs.
+  - **resize shadowstorage** : Ändert die maximale Größe des Schattenkopie-Speicherbereichs.
 
 
 VssAdmin kann nur zum Verwalten von Schattenkopien verwendet werden, die vom Systemsoftwareanbieter erstellt wurden.
@@ -538,32 +538,32 @@ In der folgenden Tabelle sind die Mindestanforderungen für die unterstützten C
 <tr class="odd">
 <td><p>LUN-Synchronisierung</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2008 R2</p></td>
+<td><p>Windows Server 2008 R2</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>FilesNotToSnapshot</strong>-Registrierungsschlüssel</p></td>
 <td><p>Windows Vista</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="odd">
 <td><p>Übertragbare Schattenkopien</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2003 mit SP1</p></td>
+<td><p>Windows Server 2003 mit SP1</p></td>
 </tr>
 <tr class="even">
 <td><p>Hardwareschattenkopien</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2003</p></td>
+<td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
 <td><p>Vorherige Versionen von Windows Server</p></td>
 <td><p>Windows Vista</p></td>
-<td><p>Windows Server 2003</p></td>
+<td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="even">
 <td><p>Schnelle Wiederherstellung mit LUN-Austausch</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2003 mit SP1</p></td>
+<td><p>Windows Server 2003 mit SP1</p></td>
 </tr>
 <tr class="odd">
 <td><p>Mehrere Importe von Hardwareschattenkopien</p>
@@ -587,32 +587,32 @@ In der folgenden Tabelle sind die Mindestanforderungen für die unterstützten C
 <p></p>
 </div></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="even">
 <td><p>Schattenkopien für freigegebene Ordner</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2003</p></td>
+<td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
 <td><p>Übertragbare automatisch wiederhergestellte Schattenkopien</p></td>
 <td><p>Nicht unterstützt</p></td>
-<td><p>Windows Server 2008</p></td>
+<td><p>Windows Server 2008</p></td>
 </tr>
 <tr class="even">
 <td><p>Gleichzeitige Sicherungssitzungen (bis zu 64)</p></td>
-<td><p>Windows XP</p></td>
-<td><p>Windows Server 2003</p></td>
+<td><p>Windows XP</p></td>
+<td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
 <td><p>Einzelne Wiederherstellungssitzung parallel zu Sicherungen</p></td>
 <td><p>Windows Vista</p></td>
-<td><p>Windows Server 2003 mit SP2</p></td>
+<td><p>Windows Server 2003 mit SP2</p></td>
 </tr>
 <tr class="even">
 <td><p>Bis zu 8 Wiederherstellungssitzungen parallel zu Sicherungen</p></td>
-<td><p>Windows 7</p></td>
-<td><p>Windows Server 2003 R2</p></td>
+<td><p>Windows 7</p></td>
+<td><p>Windows Server 2003 R2</p></td>
 </tr>
 </tbody>
 </table>

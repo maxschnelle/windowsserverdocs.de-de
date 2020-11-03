@@ -7,12 +7,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 6524c186e42b2c1c39dae5b95f4c6657bdd9dcbf
-ms.sourcegitcommit: 0b3d6661c44aa1a697087e644437279142726d84
+ms.openlocfilehash: 00bda15c409f5323a96dcbf48bc2dd130ec6368b
+ms.sourcegitcommit: 40466c8af1fc60dfca733ea476f088549cedba65
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90083741"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793597"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
@@ -43,8 +43,8 @@ In der Tabelle werden auch die Einstellungen gezeigt, die als benutzerdefinierte
 | RDP-Einstellung                        | Beschreibung            | Werte                 | Standardwert          | Unterstützung für Windows Virtual Desktop |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|
 | autoreconnection enabled:i:value | Legt fest, ob der Client automatisch versucht, erneut eine Verbindung mit dem Remotecomputer herzustellen, wenn die Verbindung getrennt wird (beispielsweise durch eine Unterbrechung der Netzwerkkonnektivität). | - 0: Der Client versucht nicht automatisch, eine Verbindung wiederherzustellen.</br>- 1: Der Client versucht automatisch, eine Verbindung wiederherzustellen. | 1 | Ja |
-| bandwidthautodetect:i:value | Bestimmt, ob die automatische Erkennung des Netzwerktyps aktiviert ist. | - 0: Automatische Erkennung des Netzwerktyps deaktivieren</br>- 1: Automatische Erkennung des Netzwerktyps aktivieren | 1 | Ja |
-| networkautodetect:i:value | Bestimmt, ob die automatische Erkennung der Netzwerkbandbreite verwendet werden soll. Erfordert, dass bandwidthautodetect auf „1“ festgelegt ist. | - 0: Automatische Erkennung der Netzwerkbandbreite nicht verwenden</br> - 1: Automatische Erkennung der Netzwerkbandbreite verwenden | 1 | Ja |
+| bandwidthautodetect:i:value | Bestimmt, ob die automatische Erkennung der Netzwerkbandbreite verwendet werden soll. Erfordert, dass bandwidthautodetect auf „1“ festgelegt ist. | - 0: Automatische Erkennung des Netzwerktyps deaktivieren</br>- 1: Automatische Erkennung des Netzwerktyps aktivieren | 1 | Ja |
+| networkautodetect:i:value | Bestimmt, ob die automatische Erkennung des Netzwerktyps aktiviert ist. | - 0: Automatische Erkennung der Netzwerkbandbreite nicht verwenden</br> - 1: Automatische Erkennung der Netzwerkbandbreite verwenden | 1 | Ja |
 | compression:i:value | Bestimmt, ob die Massenkomprimierung bei der Übertragung an den lokalen Computer durch RDP aktiviert ist.|- 0: RDP-Massenkomprimierung deaktivieren</br>- 1: RDP-Massenkomprimierung aktivieren | 1 | Ja |
 | videoplaybackmode:i:value| Legt fest, ob die Verbindung ein effizientes RDP-Multimediastreaming für die Videowiedergabe verwendet.|- 0: Kein effizientes RDP-Multimediastreaming für die Videowiedergabe verwenden</br>- 1: Effizientes RDP-Multimediastreaming für die Videowiedergabe verwenden | 1 | Ja |
 
