@@ -6,12 +6,12 @@ manager: dcscontentpm
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 7ce3551b60450a3720c9350b5c55f396368490c1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 930a503f756bf2005e26ac227565b42b627ee11a
+ms.sourcegitcommit: 39d55b5a0006aceac6281e8cdb61fc79a209ce1b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80815233"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93328130"
 ---
 # <a name="troubleshoot-the-event-id-50-error-message"></a>Beheben der Fehlermeldung mit der Ereignis-ID 50
 
@@ -86,7 +86,7 @@ Im Beispiel im Abschnitt "Zusammenfassung" wird der Fehlercode in der zweiten Ze
 
 **Ziel Datenträger**
 
-Sie können den Datenträger, auf den der Schreibvorgang durchgeführt wurde, mithilfe der symbolischen Verknüpfung ermitteln, die auf dem Laufwerk im Abschnitt "Beschreibung" der Ereignis-ID-Nachricht aufgeführt ist, z. b.: \Device\HarddiskVolume4. Weitere Informationen zum Identifizieren des Laufwerks erhalten Sie, indem Sie auf die folgende Artikelnummer klicken, um den Artikel in der Microsoft Knowledge Base anzuzeigen: [159865](/EN-US/help/159865) unterscheiden eines physischen Datenträgers von einer Ereignismeldung
+Sie können den Datenträger, auf den der Schreibvorgang durchgeführt wurde, mithilfe der symbolischen Verknüpfung ermitteln, die auf dem Laufwerk im Abschnitt "Beschreibung" der Ereignis-ID-Nachricht aufgeführt ist, z. b.: \Device\HarddiskVolume4.
 
 **Der endgültige Status Code**
 
@@ -98,7 +98,7 @@ Der endgültige Statuscode ist die wichtigste Information in der Ereignis-ID 50-
 
 In diesem Fall ist der endgültige Status "0x80000011". Dieser Statuscode wird STATUS_DEVICE_BUSY zugeordnet und impliziert, dass das Gerät momentan ausgelastet ist.
 
->[!NOTE] 
+> [!NOTE] 
 > Beachten Sie beim Umrechnen der hexadezimalen Daten in der Ereignis-ID 50-Nachricht in den Statuscode, dass die Werte im Little-Endian-Format dargestellt werden. Da der Statuscode die einzige Information ist, an der Sie interessiert sind, ist es möglicherweise einfacher, die Daten im Wörter Format anstelle von Bytes anzuzeigen. Wenn Sie dies tun, weisen die Bytes das richtige Format auf, und die Daten können schneller interpretiert werden.
 
 Klicken Sie hierzu im Fenster **Ereignis Eigenschaften** auf **Wörter** . In der Ansicht Daten Wörter würde das Beispiel im Abschnitt "Symptome" wie folgt lauten: Data: 
