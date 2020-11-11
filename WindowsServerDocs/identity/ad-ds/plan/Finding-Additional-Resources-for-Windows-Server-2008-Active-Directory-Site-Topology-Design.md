@@ -6,12 +6,12 @@ ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: b5edda407ce85ec8024f6cc1c9a6e9ec463e7618
-ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
+ms.openlocfilehash: d7342c7af0ed3c9045fe337162d0903977857177
+ms.sourcegitcommit: b39ea3b83280f00e5bb100df0dc8beaf1fb55be2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93068563"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94520483"
 ---
 # <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
 
@@ -46,8 +46,6 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
 - Weitere Informationen zum Erstellen von Subnetzobjekten finden Sie unter [Erstellen eines Subnetzes](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770372(v=ws.11)).
 
 - Weitere Informationen zur Verwendung des Snap-Ins "Active Directory Standorte und Dienste" zum Deaktivieren der Einstellung " **alle Standort Verknüpfungen überbrücken** " finden Sie unter [Aktivieren oder Deaktivieren von Standort](/previous-versions/windows/it-pro/windows-server-2003/cc738789(v=ws.10))Verknüpfungs Brücken.
-
-- Informationen zum Verwalten der Replikation über Firewalls finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://microsoft.com/download/details.aspx?familyid=c2ef3846-43f0-4caf-9767-a9166368434e)sind.
 
 - Weitere Informationen zu den Features für schreibgeschützte Domänen Controller (RODC) finden Sie unter [AD DS: Read-Only Domänen Controllern](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc732801(v=ws.10)).
 

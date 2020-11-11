@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 06/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 565e4da69466549538c380457269304c7f1cdd5a
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: a59e6e1d12844e809f5e4d9f85109c601dabfe26
+ms.sourcegitcommit: b39ea3b83280f00e5bb100df0dc8beaf1fb55be2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87944920"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94520493"
 ---
 # <a name="strings-and-localization-in-windows-admin-center"></a>Zeichen folgen und Lokalisierung im Windows Admin Center #
 
@@ -38,7 +38,7 @@ MsftSme.resourcesStrings<Strings>().HelloWorld.cim.title;
 
 ## <a name="add-other-languages-for-localization"></a>Hinzufügen weiterer Sprachen für die Lokalisierung ##
 
-Für die Lokalisierung in andere Sprachen muss für jede Sprache eine Strings. resjson-Datei erstellt werden. Diese Dateien müssen stellen in sein ```\loc\output\{!ExtensionName}\{!LanguageFolder}\strings.resjson``` . Die verfügbaren Sprachen mit den entsprechenden Ordnern lauten:
+Für die Lokalisierung in andere Sprachen muss für jede Sprache eine Strings. resjson-Datei erstellt werden. Diese Dateien müssen in platziert werden ```\loc\output\{!ExtensionName}\{!LanguageFolder}\strings.resjson``` . Die verfügbaren Sprachen mit den entsprechenden Ordnern lauten:
 
 | Sprache      | Ordner      |
 | ------------- |-------------|
@@ -69,7 +69,7 @@ Wenn Sie z. b. eine Lokalisierung für Español einschließen möchten, schließ
 ```json
 "HelloWorld_cim_title": "CIM Componente",
 ```
-Wenn Sie lokalisierte Zeichen folgen hinzugefügt haben, muss Gulp Generate erneut ausgeführt werden, damit Sie angezeigt werden. Führen Sie folgenden Befehl aus:
+Wenn Sie lokalisierte Zeichen folgen hinzugefügt haben, muss Gulp Generate erneut ausgeführt werden, damit Sie angezeigt werden. Führen Sie Folgendes aus:
 ``` cmd
 gulp generate
 ```

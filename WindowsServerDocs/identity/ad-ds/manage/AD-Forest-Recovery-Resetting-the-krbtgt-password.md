@@ -6,12 +6,12 @@ manager: daveba
 ms.date: 08/09/2018
 ms.topic: article
 ms.assetid: 3bd6c1d0-d316-4b03-b7b4-557d4537635c
-ms.openlocfilehash: 1c42ab160f0d467cab10edeea1a5284614401b3c
-ms.sourcegitcommit: b115e5edc545571b6ff4f42082cc3ed965815ea4
+ms.openlocfilehash: 62416758d373423246ccb030ea6baf325515fb49
+ms.sourcegitcommit: b39ea3b83280f00e5bb100df0dc8beaf1fb55be2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93070832"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94520433"
 ---
 # <a name="ad-forest-recovery---resetting-the-krbtgt-password"></a>AD-Gesamtstruktur Wiederherstellung: Zurücksetzen des krbtgt-Kennworts
 
@@ -26,15 +26,18 @@ Verwenden Sie das folgende Verfahren, um das krbtgt-Kennwort für die Domäne zu
 
 ## <a name="to-reset-the-krbtgt-password"></a>So setzen Sie das krbtgt-Kennwort zurück
 
-1. Klicken Sie auf **Start** , zeigen Sie auf **Systemsteuerung** , zeigen Sie auf **Verwaltung** , und klicken Sie dann auf **Active Directory Benutzer und Computer** .
-2. Klicken Sie auf **Ansicht** und dann auf **Erweiterte Funktionen** .
-3. Doppelklicken Sie in der Konsolen Struktur auf den Domänen Container, und klicken Sie dann auf **Benutzer** .
-4. Klicken Sie im Detailfenster mit der rechten Maustaste auf das Benutzerkonto **krbtgt** , und klicken Sie dann auf **Kennwort zurücksetzen** .
+1. Klicken Sie auf **Start** , zeigen Sie auf **Systemsteuerung** , zeigen Sie auf **Verwaltung** , und klicken Sie dann auf **Active Directory Benutzer und Computer**.
+2. Klicken Sie auf **Ansicht** und dann auf **Erweiterte Funktionen**.
+3. Doppelklicken Sie in der Konsolen Struktur auf den Domänen Container, und klicken Sie dann auf **Benutzer**.
+4. Klicken Sie im Detailfenster mit der rechten Maustaste auf das Benutzerkonto **krbtgt** , und klicken Sie dann auf **Kennwort zurücksetzen**.
    ![Kennwort zurücksetzen](media/AD-Forest-Recovery-Resetting-the-krbtgt-password/resetpass1.png)
-5. Geben Sie unter **Neues Kennwort** ein neues Kennwort ein, geben Sie das Kennwort unter **Kennwort bestätigen** erneut ein, und klicken Sie auf **OK** . Das angegebene Kennwort ist nicht signifikant, weil das System automatisch unabhängig vom angegebenen Kennwort ein sicheres Kennwort generiert.
+5. Geben Sie unter **Neues Kennwort** ein neues Kennwort ein, geben Sie das Kennwort unter **Kennwort bestätigen** erneut ein, und klicken Sie auf **OK**. Das angegebene Kennwort ist nicht signifikant, weil das System automatisch unabhängig vom angegebenen Kennwort ein sicheres Kennwort generiert.
 
 > [!NOTE]
 > Dieser Vorgang sollte zweimal durchgeführt werden. Der Kenn Wort Verlauf des krbtgt-Kontos lautet "2". das bedeutet, dass es die beiden neuesten Kenn Wörter enthält. Wenn Sie das Kennwort zweimal zurücksetzen, löschen Sie die alten Kenn Wörter aus dem Verlauf, sodass es keine Möglichkeit gibt, dass ein anderer Domänen Controller mit diesem Domänen Controller mit einem alten Kennwort repliziert wird.
+
+> [!NOTE]
+> Wenn Sie das Kennwort für das Schlüsselverteilungscenter-Dienst Konto zweimal zurücksetzen, ist zwischen den zurück Stellungen eine Wartezeit von 10 Stunden erforderlich.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
