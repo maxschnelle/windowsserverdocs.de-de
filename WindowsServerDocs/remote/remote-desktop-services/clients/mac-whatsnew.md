@@ -5,20 +5,37 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 08/19/2020
+ms.date: 11/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 72d828099d8dfe29639789f526533a7bb1ba159d
-ms.sourcegitcommit: 8e5530ba7f7d3e2569590949e1f443d908683a17
+ms.openlocfilehash: b53046f493fca630b24f31818ae724403ffc3c53
+ms.sourcegitcommit: 5fc77b4325a18d8c22385d899b14fe724a662347
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88702859"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94361157"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 Bei Problemen kannst du dich jederzeit gern über **Hilfe** > **Problem melden** an uns wenden.
+
+## <a name="updates-for-version-1041"></a>Updates für Version 10.4.1
+
+*Veröffentlicht am: 06.11.2020*
+
+Wir haben einige Fehlerbehebungen und kleine Featureupdates für das Release 10.4.1 zusammengestellt. Neuigkeiten:
+
+- Es wurden mehrere Zuverlässigkeitsprobleme behoben, die durch Absturzberichte identifiziert wurden.
+- Es wurden Fehler im Zusammenhang mit Tastatur und VoiceOver-bezogener Barrierefreiheit behoben.
+- Es wurde ein Problem behoben, bei dem der Client beim Wiederherstellen der Verbindung aus dem Standbymodus hängen blieb.
+- Es wurde ein Audioartefakt behoben, das bei der Wiedergabe des ersten Stücks eines umgeleiteten Audiostreams zu hören war.
+- Es wurde ein Problem behoben, durch das auf dem Client beim Herstellen einer Verbindung mit einem Remotedesktop-Gatewayserver eine 0x5000007-Fehlermeldung angezeigt wurde.
+- Das Seitenverhältnis der im Connection Center angezeigten PC-Miniaturansichten wurde korrigiert.
+- Die Heuristik zur Smartcardumleitung wurde verbessert, um geschachtelte Transactions besser verarbeiten zu können.
+- Es wurde ein Fehler behoben, der den Export von Lesezeichen verhinderte, wenn der Anzeigename des Lesezeichens das Zeichen „/“ enthielt.
+- Es wurde ein Fehler behoben, der einen 0xd06-Protokollfehler beim Ausführen von Outlook als Remote-App verursachte.
+- Unterstützung für eine neue ganzzahlige RDP-Dateieigenschaft (ForceHiDpiOptimizations) wurde hinzugefügt, um die Retina Display-Optimierung zu ermöglichen.
 
 ## <a name="updates-for-version-1040"></a>Updates für Version 10.4.0
 
@@ -327,7 +344,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 
 *Veröffentlicht am: 06.08.2018*
 
-- Konnektivität mit über Azure Active Directory (AAD) eingebundenen PCs wurde ermöglicht. Um eine Verbindung mit einem über AAD eingebundenen PC herzustellen, muss dein Benutzername in einem der folgenden Formate vorliegen: „AzureAD\Benutzer“ oder „AzureAD\user@domain“.
+- Konnektivität mit über Azure Active Directory (Azure AD) eingebundenen PCs wurde ermöglicht. Um eine Verbindung mit einem über Azure AD eingebundenen PC herzustellen, muss dein Benutzername in einem der folgenden Formate vorliegen: „AzureAD\Benutzer“ oder „AzureAD\user@domain“.
 - Einige Fehler wurden korrigiert, die sich auf die Verwendung von Smartcards in einer Remotesitzung auswirkten.
 
 ## <a name="updates-for-version-1020"></a>Updates für Version 10.2.0
@@ -347,7 +364,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 - Die Form des Mauszeigers wird jetzt ordnungsgemäß aktualisiert, wenn die Maus aus einem Sitzungs- oder RemoteApp-Fenster herausbewegt wird.
 - Ein Fehler bei der Ordnerumleitung wurde korrigiert, der beim Kopieren und Einfügen von Ordnern zu Datenverlust führte.
 - Ein Problem mit der Ordnerumleitung wurde behoben, das eine fehlerhafte Meldung von Ordnergrößen verursachte.
-- Eine Regression wurde korrigiert, die eine Anmeldung bei einem über AAD eingebundenen Computer mit einem lokalen Konto verhinderte.
+- Eine Regression wurde korrigiert, die eine Anmeldung bei einem über Azure AD eingebundenen Computer mit einem lokalen Konto verhinderte.
 - Fehler wurden korrigiert, die dazu führten, dass die Inhalte von Sitzungsfenstern abgeschnitten wurden.
 - Unterstützung für Remotedesktop-Endpunktzertifikate wurde hinzugefügt, die elliptische asymmetrische Schlüssel enthalten.
 - Ein Fehler wurde korrigiert, der in einigen Szenarien das Herunterladen von verwalteten Ressourcen verhinderte.
@@ -378,7 +395,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 - Du kannst jetzt eine Verbindung starten, indem du auf einer Desktopkachel die EINGABETASTE drückst.
 - Im Vollbildmodus wird CMD+M jetzt ordnungsgemäß zu WINDOWS-TASTE+M zugeordnet.
 - Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf CMD+M.
-- Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite „*Remoteressourcen hinzufügen*- die EINGABETASTE drückst.
+- Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite „ *Remoteressourcen hinzufügen* - die EINGABETASTE drückst.
 - Ein Fehler wurde behoben, der dazu führte, dass ein neuer Remoteressourcenfeed im Connection Center leer war, bis die Anzeige aktualisiert wurde.
 
 ## <a name="updates-for-version-1016"></a>Updates für Version 10.1.6

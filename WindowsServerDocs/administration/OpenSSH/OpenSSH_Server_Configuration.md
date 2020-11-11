@@ -5,12 +5,12 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.author: damaerte
 author: maertendmsft
-ms.openlocfilehash: e24ba7d0cef92d700b9078422069c8c0461cf516
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: 99947390b698da22d4ab2ba497ae02222b523eb7
+ms.sourcegitcommit: 8c0a419ae5483159548eb0bc159f4b774d4c3d85
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90078327"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235797"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Konfiguration des OpenSSH-Servers für Windows 10 1809 und Windows Server 2019
 
@@ -108,7 +108,7 @@ Gilt nicht unter Windows. Um die Administratoranmeldung zu verhindern, verwenden
 ### <a name="syslogfacility"></a>SyslogFacility
 
 Wenn Sie eine dateibasierte Protokollierung benötigen, verwenden Sie LOCAL0. Protokolle werden unter %programdata%\ssh\logs generiert.
-Jeder andere Wert, einschließlich des Standardwerts AUTH, leitet die Protokollierung an ETW. Weitere Informationen finden Sie unter „Protokollierungsmöglichkeiten unter Windows“.
+Für jeden anderen Wert, einschließlich des Standardwerts, leitet AUTH die Protokollierung an ETW. Weitere Informationen finden Sie unter [Protokollierungsmöglichkeiten unter Windows](https://github.com/PowerShell/Win32-OpenSSH/wiki/Logging-Facilities).
 
 ### <a name="not-supported"></a>Nicht unterstützt
 
