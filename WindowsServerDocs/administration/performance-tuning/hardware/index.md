@@ -5,12 +5,12 @@ ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 01/08/2018
-ms.openlocfilehash: bac2aa367cc9a8d736fd83f7aeed3e467aeddb54
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 43203e4ff1095cc06be970a46a1f500bfb25ab88
+ms.sourcegitcommit: a7fb96c0b1d186baeb29349befbbd6bd3b955813
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87896747"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94522513"
 ---
 # <a name="server-hardware-performance-considerations"></a>Überlegungen zur Leistung von Serverhardware
 
@@ -46,7 +46,7 @@ Sollte Ihr Computer akut mehr Arbeitsspeicher benötigen, nutzt Windows Speicher
 Berücksichtigen Sie zur Optimierung der Auslagerung die folgenden Richtlinien für die Platzierung der Auslagerungsdatei:
 - Isolieren Sie die Auslagerungsdatei auf einer eigenen Speichervorrichtung, oder stellen Sie zumindest sicher, dass sie nicht die gleichen Speichervorrichtungen verwendet wie andere Dateien, auf die häufig zugegriffen wird. Platzieren Sie also beispielsweise die Auslagerungsdatei und die Betriebssystemdateien jeweils auf separaten physischen Laufwerken.
 
-- Platzieren Sie die Auslagerungsdatei auf einem Laufwerk ohne Fehlertoleranz. Im Falle eines Datenträgerfehlers kommt es wahrscheinlich zu einem Systemabsturz. Falls Sie die Auslagerungsdatei auf einem fehlertoleranten Laufwerk platzieren, bedenken Sie, dass Daten bei einem fehlertoleranten System häufig langsamer geschrieben werden, da die Daten an mehrere Orte geschrieben werden.
+- Platzieren Sie die Auslagerungsdatei auf einem Laufwerk mit Fehlertoleranz. Im Falle eines Datenträgerfehlers kommt es bei einem Laufwerk ohne Fehlertoleranz wahrscheinlich zu einem Systemabsturz. Falls Sie die Auslagerungsdatei auf einem fehlertoleranten Laufwerk platzieren, bedenken Sie, dass Daten bei einem fehlertoleranten System häufig langsamer geschrieben werden, da die Daten an mehrere Orte geschrieben werden.
 
 - Verwenden Sie mehrere Datenträger oder ein Datenträgerarray, wenn Sie zusätzliche Datenträgerbandbreite für die Auslagerung benötigen. Platzieren Sie nicht mehrere Auslagerungsdateien in verschiedenen Partitionen des gleichen physischen Laufwerks.
 
