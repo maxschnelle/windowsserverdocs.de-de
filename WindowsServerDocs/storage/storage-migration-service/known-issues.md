@@ -4,14 +4,14 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: tiaascs
-ms.date: 10/23/2020
+ms.date: 11/12/2020
 ms.topic: article
-ms.openlocfilehash: 25d0c6666e0706b1c772957d9328db43ecfc5b18
-ms.sourcegitcommit: 1b214ca5030c77900f095d77c73cedc6381eb0e4
+ms.openlocfilehash: 41cfbc5b5a8f91e97af330243015ecc1fcf749f6
+ms.sourcegitcommit: 6a245fefdf958bfc0aeb69f7a887d11a07bdcd23
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92639043"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94570325"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -612,7 +612,7 @@ Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursa
 
 ## <a name="inventory-fails-with-element-not-found"></a>Inventur schlägt fehl, weil das Element nicht gefunden wurde.
 
-Als Beispiel dient das folgende Szenario:
+Nehmen Sie das folgende Szenario als Beispiel:
 
 Sie verfügen über einen Quell Server mit einem DNS-Hostnamen und Active Directory Namen mit mehr als 15 Unicode-Zeichen, z. b. "iamaverylongcomputername". In Windows konnte der Legacy-NetBIOS-Name nicht so festgelegt werden, dass er so lange festgelegt wird, und warnte, als der Server benannt wurde, dass der NetBIOS-Name auf 15 Unicode-breit Zeichen gekürzt wird (Beispiel: "iamaverylongcom"). Wenn Sie versuchen, diesen Computer zu inventarisieren, erhalten Sie im Windows Admin Center und im Ereignisprotokoll Folgendes:
 
@@ -653,6 +653,18 @@ Remote exception : a parameter cannot be found that matches parameter name 'Incl
 
 Aktualisieren Sie die Erweiterung "Storage Migration Service" auf mindestens Version 1.113.0 im Windows Admin Center, um das Problem zu beheben. Das Update sollte automatisch im Feed angezeigt werden und zur Installation aufgefordert werden.
 
+## <a name="storage-migration-service-transfer-validation-returns-error-hresult-e_fail-has-been-returned-from-a-call-to-a-com-component"></a>Die Übertragungs Überprüfung für den Speicher Migrationsdienst gibt den Fehler "Fehler HRESULT E_FAIL die von einem Rückruf einer COM-Komponente zurückgegeben wurde" zurück.
+
+Nach der Installation des kumulativen Updates für Windows Server 2019 [November können bei](https://support.microsoft.com/office/november-10-2020%E2%80%94kb4586793-os-build-17763-1577-e6a24f90-5659-8b80-5a50-8752de3d90b7)einigen Übertragungs Überprüfungen folgende Fehler auftreten:
+
+```
+Error HRESULT E_FAIL has been returned from a call to a COM component
+```
+
+Dies geschieht nicht notwendigerweise für alle Quellcomputer. Wir arbeiten daran, dieses Problem zu diagnostizieren. Um dieses Problem zu umgehen, suchen Sie bald nach einem Update für das Tool "Storage Migration Service" im Windows Admin Center. Das Update sollte automatisch im Windows Admin Center-Feed angezeigt werden und zur Installation aufgefordert werden. Sie können diesen Fehler ignorieren und den Vorgang fortsetzen.
+
+> [!IMPORTANT]
+> Deinstallieren Sie [KB4586793](https://support.microsoft.com/office/november-10-2020%E2%80%94kb4586793-os-build-17763-1577-e6a24f90-5659-8b80-5a50-8752de3d90b7)nicht. Dieses Update führt ein Upgrade der Storage Migration Service-Datenbank durch und das Entfernen des Updates erfordert, dass Sie die Datenbank löschen.
 
 ## <a name="see-also"></a>Weitere Informationen
 

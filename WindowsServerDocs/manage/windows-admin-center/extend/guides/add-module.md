@@ -6,12 +6,12 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e7875f8aa2320d7292b314cb18f3e17894e76fa0
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 06331c23730cfdbf1752961f7867b0bebf45cacb
+ms.sourcegitcommit: 01b3140f79f5614ce566e8036474feefafbeddc3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87945043"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94581414"
 ---
 # <a name="add-a-module-to-a-tool-extension"></a>Hinzufügen eines Moduls zu einer Toolerweiterung
 
@@ -25,16 +25,16 @@ Wenn Sie dies noch nicht getan haben, befolgen Sie die Anweisungen unter Entwick
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Verwenden der Angular-CLI zum Erstellen eines Moduls (und einer Komponente)
 
-Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, dass Sie die Dokumentation auf der Angular.IO-Website lesen, um mehr über Angular und ngmodule zu erfahren. Weitere Informationen zu ngmodule finden Sie hier:https://angular.io/guide/ngmodule
+Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, dass Sie die Dokumentation auf der Angular.IO-Website lesen, um mehr über Angular und ngmodule zu erfahren. Weitere Informationen zu ngmodule finden Sie hier: https://angular.io/guide/ngmodule
 
-* Weitere Informationen zum Erstellen eines neuen Moduls in der Angular CLI:https://github.com/angular/angular-cli/wiki/generate-module
-* Weitere Informationen zum Erstellen einer neuen Komponente in der Angular CLI:https://github.com/angular/angular-cli/wiki/generate-component
+* Weitere Informationen zum Erstellen eines neuen Moduls in der Angular CLI: https://github.com/angular/angular-cli/wiki/generate-module
+* Weitere Informationen zum Erstellen einer neuen Komponente in der Angular CLI: https://github.com/angular/angular-cli/wiki/generate-component
 
 
-Öffnen Sie eine Eingabeaufforderung, wechseln Sie in Ihrem Projekt zum Verzeichnis "\src\app", und führen Sie dann die folgenden Befehle aus. ersetzen ```{!ModuleName}``` Sie dabei durch den Namen Ihres Moduls (Leerzeichen entfernt):
+Öffnen Sie eine Eingabeaufforderung, wechseln Sie in Ihrem Projekt zum Verzeichnis ".\src\app", und führen Sie dann die folgenden Befehle aus. ersetzen ```{!ModuleName}``` Sie dabei durch den Namen Ihres Moduls (Leerzeichen entfernt):
 
 ```
-cd \src\app
+cd .\src\app
 ng generate module {!ModuleName}
 ng generate component {!ModuleName}
 ```
@@ -43,9 +43,9 @@ ng generate component {!ModuleName}
 | ----- | ----------- | ------- |
 | ```{!ModuleName}``` | Name des Moduls (Leerzeichen entfernt) | ```ManageFooWorksPortal``` |
 
-Verwendungsbeispiel:
+Beispielverwendung:
 ```
-cd \src\app
+cd .\src\app
 ng generate module ManageFooWorksPortal
 ng generate component ManageFooWorksPortal
 ```
@@ -53,13 +53,13 @@ ng generate component ManageFooWorksPortal
 
 ## <a name="add-routing-information"></a>Routing Informationen hinzufügen
 
-Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, sich über das Angular-Routing und die Navigation zu informieren. In den folgenden Abschnitten werden die erforderlichen Routing Elemente definiert, mit denen Windows Admin Center in Reaktion auf die Benutzeraktivität zu ihrer Erweiterung und zwischen Sichten in ihrer Erweiterung navigieren kann. Weitere Informationen finden Sie hier:https://angular.io/guide/router
+Wenn Sie noch nicht mit Angular vertraut sind, wird dringend empfohlen, sich über das Angular-Routing und die Navigation zu informieren. In den folgenden Abschnitten werden die erforderlichen Routing Elemente definiert, mit denen Windows Admin Center in Reaktion auf die Benutzeraktivität zu ihrer Erweiterung und zwischen Sichten in ihrer Erweiterung navigieren kann. Weitere Informationen finden Sie hier: https://angular.io/guide/router
 
 Verwenden Sie den gleichen Modulnamen, den Sie im obigen Schritt verwendet haben.
 
 ### <a name="add-content-to-new-routing-file"></a>Neuen Routing Dateiinhalt hinzufügen
 
-* Navigieren Sie zum Modul Ordner, der ``` ng generate ``` im vorherigen Schritt erstellt wurde.
+* Navigieren Sie zum Modul Ordner, der  ``` ng generate ``` im vorherigen Schritt erstellt wurde.
 
 * Erstellen Sie eine neue Datei ```{!module-name}.routing.ts``` , und befolgen Sie diese Benennungs Konvention:
 
@@ -155,7 +155,7 @@ public ngOnInit() {
 ```
 ### <a name="update-app-routingmodulets"></a>Aktualisieren von App-Routing. Module. TS
 
-Öffnen Sie die Datei ```app-routing.module.ts``` , und ändern Sie den Standardpfad, damit das neue Modul geladen wird, das Sie soeben erstellt haben.  Suchen Sie den Eintrag für ```path: ''``` , und aktualisieren ```loadChildren``` Sie, um das Modul anstelle des Standardmoduls zu laden:
+Öffnen Sie die Datei ```app-routing.module.ts``` , und ändern Sie den Standardpfad, damit das neue Modul geladen wird, das Sie soeben erstellt haben.  Suchen Sie den Eintrag für ```path: ''``` , und aktualisieren  ```loadChildren``` Sie, um das Modul anstelle des Standardmoduls zu laden:
 
 | Wert | Erklärung | Beispiel |
 | ----- | ----------- | ------- |

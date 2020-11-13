@@ -1,17 +1,18 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
 title: Audit Policy Recommendations
+description: Hier werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die grundlegenden empfohlenen Überwachungs Richtlinien Einstellungen und die aggressiveren Empfehlungen von Microsoft für Arbeitsstationen und Server Produkte behandelt.
 author: iainfoulds
 ms.author: daveba
 manager: daveba
 ms.date: 05/31/2017
 ms.topic: article
-ms.openlocfilehash: 54935edd51c7eb5ee351aa0a2c1582c8c85c4e46
-ms.sourcegitcommit: f25662b5840a75aae3b0b953acb11caecd4c2fbd
+ms.openlocfilehash: debb9cf5190c5ff08a2dfd5b9e83efc16c06169d
+ms.sourcegitcommit: 6a245fefdf958bfc0aeb69f7a887d11a07bdcd23
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93295421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94570335"
 ---
 # <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
 
@@ -29,6 +30,7 @@ Die Empfehlungen gelten für Computer auf Unternehmens Niveau, die von Microsoft
 Die folgenden grundlegenden Überwachungs Richtlinien Einstellungen werden für normale Sicherheits Computer empfohlen, die nicht bekanntermaßen aktiv und erfolgreich von ermittelten Angreifern oder Schadsoftware betroffen sind.
 
 ## <a name="recommended-audit-policies-by-operating-system"></a>Empfohlene Überwachungs Richtlinien nach Betriebs System
+
 Dieser Abschnitt enthält Tabellen, in denen die Empfehlungen für die Überwachungs Einstellungen aufgeführt sind, die für die folgenden Betriebssysteme gelten:
 
 - Windows Server 2016
@@ -43,29 +45,28 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 **Legende für Überwachungs Richtlinien Tabellen**
 
-|**Angabe**|**Empfehlung**|
-|:--:|---|
-|YES|In allgemeinen Szenarien aktivieren|
-|Nein|**Nicht** in allgemeinen Szenarien aktivieren|
-|IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|
-|SL|Aktivieren auf Domänen Controllern|
-|Blitz|Keine Empfehlung|
+| **Notation** | **Empfehlung** |
+| --- | --- |
+| YES | In allgemeinen Szenarien aktivieren |
+| Nein | **Nicht** in allgemeinen Szenarien aktivieren |
+| IF | Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist. |
+| SL | Aktivieren auf Domänen Controllern |
+| Blitz | Keine Empfehlung |
 
 **Empfehlungen zu Überwachungs Einstellungen für Windows 10, Windows 8 und Windows 7**
 
 **Überwachungsrichtlinie**
 
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Kontoanmeldung** |  |  |  |
-| Überprüfen der Anmeldeinformationen überwachen | `No  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
-| Kerberos-Authentifizierungsdienst überwachen |  |  | `Yes  \|  Yes` |
-| Ticketvorgänge des Kerberos-Diensts überwachen |  |  | `Yes  \|  Yes` |
-| Andere Kontoanmeldungsereignisse überwachen |  |  | `Yes  \|  Yes` |
+| Überprüfen der Anmeldeinformationen überwachen | `No  \ | No` | `Yes  \ | No` | `Yes  \ | Yes` |
+| Kerberos-Authentifizierungsdienst überwachen |  |  | `Yes  \ | Yes` |
+| Ticketvorgänge des Kerberos-Diensts überwachen |  |  | `Yes  \ | Yes` |
+| Andere Kontoanmeldungsereignisse überwachen |  |  | `Yes  \ | Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Kontoverwaltung** |  |  |  |
 | Anwendungsgruppenverwaltung überwachen |  |  |  |
 | Computerkontoverwaltung überwachen |  | `Yes  \|  No` | `Yes  \|  Yes` |
@@ -74,27 +75,24 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Sicherheitsgruppenverwaltung überwachen |  | `Yes  \|  No` | `Yes  \|  Yes` |
 | Benutzerkontenverwaltung überwachen | `Yes  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Detaillierte Überwachung** |  |  |  |
 | DPAPI-Aktivität überwachen |  |  | `Yes  \|  Yes` |
 | Prozesserstellung überwachen |  | `Yes  \|  No` | `Yes  \|  Yes` |
 | Prozessbeendung überwachen |  |  |  |
 | RPC-Ereignisse überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **DS-Zugriff** |  |  |  |
 | Detaillierte Verzeichnisdienstreplikation überwachen |  |  |  |
 | Verzeichnisdienstzugriff überwachen |  |  |  |
 | Verzeichnisdienständerungen überwachen |  |  |  |
 | Verzeichnisdienstreplikation überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Anmelden und Abmelden** |  |  |  |
 | Kontosperrung überwachen | `Yes  \|  No` |  | `Yes  \|  No` |
 | Benutzer-/Geräteansprüche überwachen |  |  |  |
@@ -107,9 +105,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Andere Anmelde-/Abmeldeereignisse überwachen |  |  |  |
 | Spezielle Anmeldung überwachen | `Yes  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Objektzugriff** |  |  |  |
 | Anwendung generiert überwachen |  |  |  |
 | Zertifizierungsdienste überwachen |  |  |  |
@@ -126,9 +123,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | SAM überwachen |  |  |  |
 | Staging zentraler Zugriffsrichtlinien überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Richtlinien Änderung** |  |  |  |
 | Überwachungsrichtlinienänderung überwachen | `Yes  \|  No` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Authentifizierungsrichtlinienänderung überwachen | `Yes  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
@@ -137,17 +133,15 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Ja |
 | Andere Richtlinienänderungsereignisse überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Berechtigungen** |  |  |  |
 | Nicht sensible Verwendung von Rechten überwachen |  |  |  |
 | Andere Rechteverwendungsereignisse überwachen |  |  |  |
 | Sensible Verwendung von Rechten überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **System** |  |  |  |
 | IPsec-Treiber überwachen |  | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Andere Systemereignisse überwachen | `Yes  \|  Yes` |  |  |
@@ -155,9 +149,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Sicherheitssystemerweiterung überwachen |  | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Systemintegrität überwachen | `Yes  \|  Yes` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Globale Objektzugriffsüberwachung** |  |  |  |
 | IPsec-Treiber überwachen |  |  |  |
 | Andere Systemereignisse überwachen |  |  |  |
@@ -170,17 +163,16 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 **Empfehlungen zu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 Überwachungs Einstellungen**
 
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Kontoanmeldung** |  |  |  |
 | Überprüfen der Anmeldeinformationen überwachen | `No  \|  No` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Kerberos-Authentifizierungsdienst überwachen |  |  | `Yes  \|  Yes` |
 | Ticketvorgänge des Kerberos-Diensts überwachen |  |  | `Yes  \|  Yes` |
 | Andere Kontoanmeldungsereignisse überwachen |  |  | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Kontoverwaltung** |  |  |  |
 | Anwendungsgruppenverwaltung überwachen |  |  |  |
 | Computerkontoverwaltung überwachen |  | `Yes  \|  DC` | `Yes  \|  Yes` |
@@ -189,27 +181,24 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Sicherheitsgruppenverwaltung überwachen |  | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Benutzerkontenverwaltung überwachen | `Yes  \|  No` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Detaillierte Überwachung** |  |  |  |
 | DPAPI-Aktivität überwachen |  |  | `Yes  \|  Yes` |
 | Prozesserstellung überwachen |  | `Yes  \|  No` | `Yes  \|  Yes` |
 | Prozessbeendung überwachen |  |  |  |
 | RPC-Ereignisse überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **DS-Zugriff** |  |  |  |
 | Detaillierte Verzeichnisdienstreplikation überwachen |  |  |  |
 | Verzeichnisdienstzugriff überwachen |  | `DC  \|  DC` | `DC  \|  DC` |
 | Verzeichnisdienständerungen überwachen |  | `DC  \|  DC` | `DC  \|  DC` |
 | Verzeichnisdienstreplikation überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Anmelden und Abmelden** |  |  |  |
 | Kontosperrung überwachen | `Yes  \|  No` |  | `Yes  \|  No` |
 | Benutzer-/Geräteansprüche überwachen |  |  |  |
@@ -222,9 +211,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Andere Anmelde-/Abmeldeereignisse überwachen |  |  | `Yes  \|  Yes` |
 | Spezielle Anmeldung überwachen | `Yes  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Objektzugriff** |  |  |  |
 | Anwendung generiert überwachen |  |  |  |
 | Zertifizierungsdienste überwachen |  |  |  |
@@ -241,9 +229,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | SAM überwachen |  |  |  |
 | Staging zentraler Zugriffsrichtlinien überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Richtlinien Änderung** |  |  |  |
 | Überwachungsrichtlinienänderung überwachen | `Yes  \|  No` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Authentifizierungsrichtlinienänderung überwachen | `Yes  \|  No` | `Yes  \|  No` | `Yes  \|  Yes` |
@@ -252,17 +239,15 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | MPSSVC-Richtlinienänderung auf Regelebene überwachen |  |  | Ja |
 | Andere Richtlinienänderungsereignisse überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Berechtigungen** |  |  |  |
 | Nicht sensible Verwendung von Rechten überwachen |  |  |  |
 | Andere Rechteverwendungsereignisse überwachen |  |  |  |
 | Sensible Verwendung von Rechten überwachen |  |  |  |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **System** |  |  |  |
 | IPsec-Treiber überwachen |  | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Andere Systemereignisse überwachen | `Yes  \|  Yes` |  |  |
@@ -270,9 +255,8 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Sicherheitssystemerweiterung überwachen |  | `Yes  \|  Yes` | `Yes  \|  Yes` |
 | Systemintegrität überwachen | `Yes  \|  Yes` | `Yes  \|  Yes` | `Yes  \|  Yes` |
 
-
-| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolgs Fehler | Grundlegende Empfehlung<p>Erfolgs Fehler | Stärkere Empfehlung<p>Erfolgs Fehler |
-|---|:--:|:--:|:--:|
+| Kategorie oder Unterkategorie der Überwachungsrichtlinie | Windows-Standard<p>Erfolglos | Fehler | Grundlegende Empfehlung<p>Erfolglos | Fehler | Stärkere Empfehlung<p>Erfolglos | Fehler |
+| --- | --- | --- | --- |
 | **Globale Objektzugriffsüberwachung** |  |  |  |
 | IPsec-Treiber überwachen |  |  |  |
 | Andere Systemereignisse überwachen |  |  |  |
@@ -281,11 +265,13 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 | Systemintegrität überwachen |  |  |  |
 
 ## <a name="set-audit-policy-on-workstations-and-servers"></a>Festlegen der Überwachungsrichtlinie für Arbeitsstationen und Server
+
 Alle Ereignisprotokoll-Verwaltungspläne sollten Arbeitsstationen und Server überwachen. Ein häufiger Fehler besteht darin, nur Server oder Domänen Controller zu überwachen. Da böswillige Hacker häufig auf Arbeitsstationen auftreten, wird die beste und früheste Informationsquelle nicht durch die Überwachung von Arbeitsstationen ignoriert.
 
 Administratoren sollten alle Überwachungs Richtlinien vor der Implementierung in Ihrer Produktionsumgebung sorgfältig prüfen und testen.
 
 ## <a name="events-to-monitor"></a>Zu überwachende Ereignisse
+
 Eine perfekte Ereignis-ID zum Generieren einer Sicherheitswarnung sollte die folgenden Attribute enthalten:
 
 - Hohe Wahrscheinlichkeit, dass das Vorkommen nicht autorisierte Aktivitäten anzeigt
@@ -323,9 +309,10 @@ Eine Abbruch Anzahl fehlgeschlagener Anmeldungen könnte auf einen Kenn Wort ang
 Eine umfassende Liste der Ereignisse, die Sie beim Überwachen von Gefährdungen berücksichtigen sollten, finden Sie unter [Anhang L: zu überwachende Ereignisse](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).
 
 ## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory zu überwachende Objekte und Attribute
+
 Im folgenden finden Sie die Konten, Gruppen und Attribute, die Sie überwachen sollten, um zu erkennen, dass Sie versuchen, die Active Directory Domain Services Installation zu kompromittieren.
 
-- Systeme zum Deaktivieren oder Entfernen von Antiviren-und Antischadsoftware (automatischer Neustart des Schutzes, wenn er manuell deaktiviert wird)
+- Systeme zum Deaktivieren oder Entfernen von Antiviren-und antischadsoftwaresoftware (automatischer Neustart des Schutzes bei manueller Deaktivierung)
 
 - Administrator Konten für nicht autorisierte Änderungen
 
@@ -346,6 +333,7 @@ Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewe
 - Integrierter Sicherheitskonfigurations-Assistent zum Konfigurieren von Dienst-, Registrierungs-, Überwachungs-und Firewalleinstellungen, um die Angriffsfläche des Servers zu verringern. Verwenden Sie diesen Assistenten, wenn Sie Jump-Server als Teil ihrer Verwaltungs Host Strategie implementieren.
 
 ## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Weitere Informationen zum Überwachen von Active Directory Domain Services
+
 Überprüfen Sie die folgenden Links, um weitere Informationen zur Überwachungs AD DS zu finden:
 
 - Die [globale Objekt Zugriffs Überwachung ist magisch](/archive/blogs/askds/global-object-access-auditing-is-magic) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.
@@ -359,6 +347,7 @@ Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewe
 - [Schritt-für-Schritt-Anleitung](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731607(v=ws.10)) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.
 
 ## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Allgemeine Liste der Empfehlungen für die Ereignis-ID der Sicherheits Ereignis-ID
+
 Alle Empfehlungen für Ereignis-IDs werden folgendermaßen mit einer kritikitäts Bewertung versehen:
 
 **Hoch:** Ereignis-IDs mit einer Bewertung mit hoher Kritizität sollten immer und sofort benachrichtigt und untersucht werden.

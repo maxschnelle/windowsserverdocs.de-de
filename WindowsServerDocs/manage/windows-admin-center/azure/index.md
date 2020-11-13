@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/31/2019
-ms.openlocfilehash: 04776c46d321a7a5aef19edd2866637c26d79125
-ms.sourcegitcommit: 5344adcf9c0462561a4f9d47d80afc1d095a5b13
+ms.openlocfilehash: eb53a01d4b82bd800b6cc87d2f5d3c36bfa7ff85
+ms.sourcegitcommit: 01b3140f79f5614ce566e8036474feefafbeddc3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90766323"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94581434"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
@@ -47,7 +47,7 @@ Wenn du eine Verbindung mit einem Server herstellst, auf dem bereits Azure-Diens
 - Anwenden von Governancerichtlinien auf deine lokalen Server durch Azure-Richtlinien mithilfe von [Azure Arc für Server](/azure/azure-arc/servers/overview)
 - Schutz deiner Server und Erwerb von erweitertem Schutz vor Bedrohungen mit [Azure Security Center](/azure/security-center/windows-admin-center-integration)
 - Verbinden der lokalen Server mit einem virtuellen Azure-Netzwerk mithilfe von [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)
-- Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://go.microsoft.com/fwlink/?linkid=2109517&clcid=0x409)
+- Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://docs.microsoft.com/azure/virtual-network/subnet-extension#extend-your-subnet-to-azure)
 
 ## <a name="back-up-and-protect-your-on-premises-servers-and-vms"></a>Sichern und Schützen deiner lokalen Server und VMs
 
@@ -72,7 +72,7 @@ Weitere Informationen findest du unter [Verwenden des Speichermigrationsdiensts 
 
 ### <a name="extend-compute-capacity"></a>Erweitern der Computekapazität
 
-- **Erstellen eines neuen virtuellen Azure-Computers, ohne Windows Admin Center zu verlassen** Wechseln Sie im Windows Admin Center von der Seite *Alle Verbindungen* zu **Hinzufügen**, und wählen Sie dann unter **Azure VM** die Option **Neu erstellen** aus. Dieses Schritt-für-Schritt-Tool zur Erstellung ermöglicht sogar den Beitritt der Azure VM zu einer Domäne und die Konfiguration des Speichers.
+- **Erstellen eines neuen virtuellen Azure-Computers, ohne Windows Admin Center zu verlassen** Wechseln Sie im Windows Admin Center von der Seite *Alle Verbindungen* zu **Hinzufügen** , und wählen Sie dann unter **Azure VM** die Option **Neu erstellen** aus. Dieses Schritt-für-Schritt-Tool zur Erstellung ermöglicht sogar den Beitritt der Azure VM zu einer Domäne und die Konfiguration des Speichers.
 
 - **Nutzen von Azure zum Erreichen eines Quorums auf Ihrem Failovercluster mithilfe eines [Cloudzeugen](../../../failover-clustering/deploy-cloud-witness.md)** Statt in zusätzliche Hardware zu investieren, um auf einem Cluster aus zwei Knoten Quorum zu erreichen, können Sie ein Azure-Speicherkonto verwenden, das als Clusterzeuge für Ihren Azure Stack HCI-Cluster oder sonstigen Failovercluster fungiert.
 Weitere Informationen finden Sei unter [Deploy a cloud witness for a Failover Cluster (Bereitstellen eines Cloudzeugen für einen Failovercluster)](../../../failover-clustering/deploy-cloud-witness.md).
@@ -81,7 +81,7 @@ Weitere Informationen finden Sei unter [Deploy a cloud witness for a Failover Cl
 
 - **Verbinden der lokalen Server mit einem virtuellen Azure-Netzwerk mithilfe von [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)** Lassen Sie sich im Windows Admin Center beim Einrichten eines Punkt-zu-Standort-VPNs von einem lokalen Server in ein virtuelles Azure-Netzwerk helfen.
 
-- **Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://go.microsoft.com/fwlink/?linkid=2109517&clcid=0x409)** Im Windows Admin Center kann ein Standort-zu-Standort-VPN eingerichtet werden, mit dem sich Ihre lokalen IP-Adressen in das Azure vNet erweitern lassen, sodass Workloads komfortabler nach Azure verschoben werden können, ohne Abhängigkeiten bei den IP-Adressen zu beschädigen.
+- **Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://docs.microsoft.com/azure/virtual-network/subnet-extension#extend-your-subnet-to-azure)** Im Windows Admin Center kann ein Standort-zu-Standort-VPN eingerichtet werden, mit dem sich Ihre lokalen IP-Adressen in das Azure vNet erweitern lassen, sodass Workloads komfortabler nach Azure verschoben werden können, ohne Abhängigkeiten bei den IP-Adressen zu beschädigen.
 
 ## <a name="centrally-manage-your-hybrid-environment-from-azure"></a>Zentrale Verwaltung deiner Hybridumgebung aus Azure
 
@@ -94,7 +94,7 @@ Weitere Informationen findest du unter [Verwenden von Windows Admin Center zum V
 - **Verbessern des Sicherheitsstatus und Erwerb von erweitertem Schutz vor Bedrohungen mit [Azure Security Center](/azure/security-center/security-center-intro)** Azure Security Center ist ein Sicherheitsmanagementsystem für vereinheitlichte Infrastruktur, das den Sicherheitsstatus Ihrer Rechenzentren stärkt und übergreifend für alle Ihre hybriden Workloads in der Cloud – ob in Azure oder nicht – oder lokal erweiterten Schutz vor Bedrohungen bietet. Mit Windows Admin Center kannst du deine Server komfortabel einrichten und sie mit dem Azure Security Center verbinden.
 Weitere Informationen findest du unter [Integrieren von Azure Security Center in Windows Admin Center (Vorschau)](/azure/security-center/windows-admin-center-integration).
 
-- **Anwenden von Richtlinien und Sicherstellen der Compliance in der gesamten hybriden Umgebung mit [Azure Arc für Server ](/azure/azure-arc/servers/overview) und [Azure Policy](/azure/governance/policy/overview)** Erfassen, Ordnen und Verwalten lokaler Server in Azure. Du kannst Server mithilfe von Azure-Richtlinien verwalten, den Zugriff mithilfe von RBAC steuern und weitere Verwaltungsdienste in Azure aktivieren.
+- **Anwenden von Richtlinien und Sicherstellen der Compliance in der gesamten hybriden Umgebung mit [Azure Arc für Server](/azure/azure-arc/servers/overview) und [Azure Policy](/azure/governance/policy/overview)** Erfassen, Ordnen und Verwalten lokaler Server in Azure. Du kannst Server mithilfe von Azure-Richtlinien verwalten, den Zugriff mithilfe von RBAC steuern und weitere Verwaltungsdienste in Azure aktivieren.
 
 ## <a name="clusters-versus-stand-alone-servers-and-vms"></a>Cluster im Vergleich mit eigenständigen Servern und VMs
 
@@ -115,7 +115,7 @@ Dies ist die vollständige Liste der Azure-Dienste, die Funktionen für eigenst�
 - Anwenden von Governancerichtlinien auf deine lokalen Server durch Azure-Richtlinien mithilfe von [Azure Arc für Server](/azure/azure-arc/servers/overview)
 - Schutz deiner Server und Erwerb von erweitertem Schutz vor Bedrohungen mit [Azure Security Center](/azure/security-center/windows-admin-center-integration)
 - Verbinden der lokalen Server mit einem virtuellen Azure-Netzwerk mithilfe von [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)
-- Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://go.microsoft.com/fwlink/?linkid=2109517&clcid=0x409)
+- Transparentes Einbinden von Azure-VMs in das lokale Netzwerk mit [Azure Extended Network](https://docs.microsoft.com/azure/virtual-network/subnet-extension#extend-your-subnet-to-azure)
 
 ### <a name="services-for-clusters"></a>Dienste für Cluster
 
