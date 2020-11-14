@@ -1,15 +1,16 @@
 ---
 title: diskpart
 description: Referenz Artikel für den DiskPart-Befehls Interpreter, der Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
+ms.topic: reference
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 627f9254606b1ed70b198f6dd0096ccbff424c45
-ms.sourcegitcommit: 53d526bfeddb89d28af44210a23ba417f6ce0ecf
+ms.openlocfilehash: 1d2f4cc814dad4313e7eb0925b60f44ec0348a30
+ms.sourcegitcommit: de207e887575757f3389ccf940c2e0ad2dc70bd3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87890930"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94617200"
 ---
 # <a name="diskpart"></a>diskpart
 
@@ -23,13 +24,13 @@ Bevor Sie **DiskPart** -Befehle verwenden können, müssen Sie zuerst auflisten 
 
 Mithilfe der folgenden Schritte können Sie die verfügbaren Objekte auflisten und die Nummer oder den Laufwerk Buchstaben eines Objekts ermitteln:
 
-- `list disk`-Zeigt alle Datenträger auf dem Computer an.
+- `list disk` -Zeigt alle Datenträger auf dem Computer an.
 
-- `list volume`-Zeigt alle Volumes auf dem Computer an.
+- `list volume` -Zeigt alle Volumes auf dem Computer an.
 
-- `list partition`-Zeigt die Partitionen auf dem Datenträger an, die den Fokus auf dem Computer haben.
+- `list partition` -Zeigt die Partitionen auf dem Datenträger an, die den Fokus auf dem Computer haben.
 
-- `list vdisk`-Zeigt alle virtuellen Datenträger auf dem Computer an.
+- `list vdisk` -Zeigt alle virtuellen Datenträger auf dem Computer an.
 
 Nachdem Sie die **Listen** Befehle ausgeführt haben, wird neben dem Objekt mit dem Fokus ein Sternchen (*) angezeigt.
 
@@ -68,7 +69,7 @@ Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausfüh
 | [clean](clean.md) | Entfernt alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus. |
 | [compact vdisk](compact-vdisk.md) | Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD). |
 | [convert](convert.md) | Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, sodass vorhandene Dateien und Verzeichnisse intakt bleiben. |
-| [create](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
+| [erstellen](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
 | [delete](delete.md) | Löscht eine Partition oder ein Volume. |
 | [detach vdisk](detach-vdisk.md) | Verhindert, dass die ausgewählte virtuelle Festplatte (VHD) als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird. |
 | [detail](detail.md) | Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an. |
