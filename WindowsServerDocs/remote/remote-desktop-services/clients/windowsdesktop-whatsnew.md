@@ -5,14 +5,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f14d93176fd1bd7b97d90550701f79b55774297
-ms.sourcegitcommit: 40466c8af1fc60dfca733ea476f088549cedba65
+ms.openlocfilehash: b5ee2f76acad471533c615ef2e5c68e7f827dbf6
+ms.sourcegitcommit: 7420c7c2ef14154f27e5bb810e774783a594b8e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793607"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94497415"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -25,7 +25,16 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Aktuelle Version  |Unterstützte Mindestversion |
 |-----------|----------------|--------------------------|
 |Öffentlich     |1.2.1446        |1.2.945                   |
-|Insider    |1.2.1446        |1.2.945                   |
+|Insider    |1.2.1520        |1.2.945                   |
+
+## <a name="updates-for-version-121520-insider"></a>Updates für Version 1.2.1520 (Insider)
+
+*Veröffentlicht am: 10.11.2020*
+
+Download: [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Es wurde eine Listenansicht für Remote-Apps erstellt, um längere App-Namen lesbar zu machen.
+- Das Symbol, das angezeigt wird, wenn ein Update für den Client verfügbar ist, wurde geändert.
 
 ## <a name="updates-for-version-121446"></a>Updates für Version 1.2.1446
 
@@ -76,7 +85,7 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 
 *Veröffentlicht am: 23.06.2020*
 
-- Die automatische Ermittlungslogik für die Option „ **Subscribe** “ wurde aktualisiert, um die in Azure Resource Manager integrierte Version von Windows Virtual Desktop zu unterstützen. Kunden, die nur über Windows Virtual Desktop-Ressourcen verfügen, sollten nicht länger die Zustimmung für Windows Virtual Desktop (klassisch) erteilen müssen.
+- Die automatische Ermittlungslogik für die Option „**Subscribe**“ wurde aktualisiert, um die in Azure Resource Manager integrierte Version von Windows Virtual Desktop zu unterstützen. Kunden, die nur über Windows Virtual Desktop-Ressourcen verfügen, sollten nicht länger die Zustimmung für Windows Virtual Desktop (klassisch) erteilen müssen.
 - Verbesserte Unterstützung für Geräte mit hohen DPI-Werten und einem Skalierungsfaktor von bis zu 400 %.
 - Ein Problem wurde behoben, bei dem das Dialogfeld zum Trennen nicht angezeigt wurde.
 - Ein Problem wurde behoben, bei dem die QuickInfos der Befehlsleiste länger als erwartet sichtbar blieben.
@@ -107,11 +116,11 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
 *Veröffentlicht am: 28.04.2020*
 
 - Es wurden neue Optionen für Anzeigeeinstellungen für Desktopverbindungen hinzugefügt, die beim Klicken mit der rechten Maustaste auf ein Desktopsymbol im Connection Center verfügbar sind.
-  - Es gibt jetzt drei Anzeigekonfigurationsoptionen: **Alle Displays** , **Einzeldisplay** und **Displays auswählen**.
+  - Es gibt jetzt drei Anzeigekonfigurationsoptionen: **Alle Displays**, **Einzeldisplay** und **Displays auswählen**.
   - Es werden jetzt nur die verfügbaren Einstellungen angezeigt, wenn eine Anzeigekonfiguration ausgewählt ist.
   - Im Modus „Display auswählen“ ermöglicht eine neue Option **Auf aktuelle Displays maximieren** Ihnen, die für die Sitzung verwendeten Displays dynamisch zu ändern, ohne die Verbindung erneut herstellen zu müssen. Ist diese Option aktiviert, bewirkt das Maximieren der Sitzung, dass diese auf allen betroffenen Displays im Vollbildmodus angezeigt wird.
   - Eine neue Option **Einzeldisplay bei Fenstermodus** für alle Displays und „Displays auswählen“-Modi wurde hinzugefügt. Diese Option schaltet Ihre Sitzung automatisch auf ein einziges Display um, wenn Sie den Vollbildmodus verlassen, und kehrt automatisch zu mehreren Displays zurück, wenn Sie das Fenster maximieren.
-- Dem Systemmenü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf die Titelleiste einer im Fenstermodus angezeigten Desktopsitzung klicken, wurde eine neue **Anzeigeeinstellungen** -Gruppe hinzugefügt. Auf diese Weise können Sie einige Einstellungen während einer Sitzung dynamisch ändern. Sie können z. B. die neuen Einstellungen **Einzeldisplaymodus bei Fenstermodus** und **Auf aktuelle Displays maximieren** anzeigen.
+- Dem Systemmenü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf die Titelleiste einer im Fenstermodus angezeigten Desktopsitzung klicken, wurde eine neue **Anzeigeeinstellungen**-Gruppe hinzugefügt. Auf diese Weise können Sie einige Einstellungen während einer Sitzung dynamisch ändern. Sie können z. B. die neuen Einstellungen **Einzeldisplaymodus bei Fenstermodus** und **Auf aktuelle Displays maximieren** anzeigen.
 - Wenn Sie den Vollbildschirm verlassen, kehrt das Sitzungsfenster an seine ursprüngliche Position zurück, an der Sie zum ersten Mal in den Vollbildmodus gewechselt sind.
 - Die Hintergrundaktualisierung für Arbeitsbereiche wurde geändert und findet nun alle vier Stunden anstelle von stündlich statt. Beim Starten des Clients wird jetzt automatisch eine Aktualisierung durchgeführt.
 - Das Zurücksetzen Ihrer Benutzerdaten über die Seite „Info“ leitet Sie jetzt nach Abschluss des Vorgangs zum Connection Center um, anstatt den Client zu schließen.

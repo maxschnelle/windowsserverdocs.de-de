@@ -5,12 +5,12 @@ author: dahavey
 ms.author: dahavey
 ms.date: 10/17/2018
 ms.topic: article
-ms.openlocfilehash: f7593b085dd07694bf7d51d2712501bea612e9af
-ms.sourcegitcommit: b5b040a47cf48c94852de9aad8b91475f891d2f7
+ms.openlocfilehash: a09022cf1ad2929dfdffa244b86c211970b53aae
+ms.sourcegitcommit: a7fb96c0b1d186baeb29349befbbd6bd3b955813
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88563400"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94522523"
 ---
 # <a name="time-accuracy-improvements-for-windows-server-2016"></a>Verbesserungen bei der Zeitgenauigkeit für Windows Server 2016
 
@@ -52,13 +52,13 @@ Im Folgenden werden die Änderungen an der Standardkonfiguration zwischen Window
 | |Abrufhäufigkeit|64 bis 1024 Sekunden|–|Einmal pro Woche|
 | |Aktualisierungsrate der Uhr|Einmal pro Sekunde|–|Einmal pro Stunde|
 |**Eigenständiger Client**||||
-| |Zeitserver|–|time.windows.com|time.windows.com|
-| |Abrufhäufigkeit|–|Einmal pro Tag|Einmal pro Woche|
-| |Aktualisierungsrate der Uhr|–|Einmal pro Tag|Einmal pro Woche|
+| |*Zeitserver*|–|time.windows.com|time.windows.com|
+| |*Abrufhäufigkeit*|–|Einmal pro Tag|Einmal pro Woche|
+| |*Aktualisierungsrate der Uhr*|–|Einmal pro Tag|Einmal pro Stunde|
 |**Domänencontroller**||||
-| |Zeitserver|PDC/GTIMESERV|–|PDC/GTIMESERV|
-| |Abrufhäufigkeit|64 bis 1024 Sekunden|–|1024 bis 32768 Sekunden|
-| |Aktualisierungsrate der Uhr|Einmal pro Tag|–|Einmal pro Woche|
+| |*Zeitserver*|PDC/GTIMESERV|–|PDC/GTIMESERV|
+| |*Abrufhäufigkeit*|64 bis 1024 Sekunden|–|1024 bis 32768 Sekunden|
+| |*Aktualisierungsrate der Uhr*|Einmal pro Sekunde|–|Einmal pro Stunde|
 |**Domänenmitgliedsserver**||||
 | |Zeitserver|DC|–|DC|
 | |Abrufhäufigkeit|64 bis 1024 Sekunden|–|1024 bis 32768 Sekunden|
@@ -361,7 +361,7 @@ Wie bei jedem Leistungsindikator kannst du diese remote überwachen und Benachri
 ### <a name="windows-traceability-example"></a>Beispiel für die Windows-Nachverfolgbarkeit
 In w32tm-Protokolldateien solltest du zwei Informationen überprüfen. Die erste ist ein Hinweis darauf, dass die Protokolldatei zurzeit „Uhr festlegen“ aufweist. Dadurch wird nachgewiesen, dass deine Uhr zum strittigen Zeitpunkt vom Windows-Zeitdienst festgelegt wurde.
 
- 151802 20:18:32.9821765s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:223 CR:156250 UI:100 phcT:65 KPhO:14307 151802 20:18:33.9898460s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:1 CR:156250 UI:100 phcT:64 KPhO:41 151802 20:18:44.1090410s - ClockDispln Discipline: *SKEW*TIME* - PhCRR:1 CR:156250 UI:100 phcT:65 KPhO:38
+ 151802 20:18:32.9821765s - ClockDispln Discipline: *SKEW* TIME* - PhCRR:223 CR:156250 UI:100 phcT:65 KPhO:14307 151802 20:18:33.9898460s - ClockDispln Discipline: *SKEW* TIME* - PhCRR:1 CR:156250 UI:100 phcT:64 KPhO:41 151802 20:18:44.1090410s - ClockDispln Discipline: *SKEW* TIME* - PhCRR:1 CR:156250 UI:100 phcT:65 KPhO:38
 
 Die Hauptsache ist, dass du Meldungen mit dem Präfix „ClockDispln Discipline“ siehst, was beweist, dass w32time mit deiner Systemuhr interagiert.
 
