@@ -8,16 +8,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 23b7322b76eb60c0ae19d3aa0e9e826998a92c77
-ms.sourcegitcommit: 8c0a419ae5483159548eb0bc159f4b774d4c3d85
+ms.openlocfilehash: a9664d11e61d69faab87f351ae5f9915afd47f98
+ms.sourcegitcommit: 094482d0e7a8a9688790af06968d68f0294b78df
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235877"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550733"
 ---
 # <a name="securing-privileged-access"></a>Schützen des privilegierten Zugriffs
 
->Gilt für: Windows Server
+> Gilt für: Windows Server
 
 Der Schutz des privilegierten Zugriffs ist ein erster wichtiger Schritt zum Einrichten von Sicherheitsstandards für Geschäftsressourcen in modernen Unternehmen. Die Sicherheit der meisten oder aller Geschäftsressourcen in einem IT-Unternehmen hängt von der Integrität der privilegierten Konten ab, die für die Verwaltung und Entwicklung verwendet werden. Cyberangreifer zielen oft auf diese Konten und andere Elemente des privilegierten Zugriffs ab, um sich durch Angriffe zum Diebstahl von Anmeldeinformationen wie [Pass-the-Hash- und Pass-the-Ticket-Angriffe](https://www.microsoft.com/pth) Zugriff auf Daten und Systeme zu verschaffen.
 
@@ -29,7 +29,7 @@ Bevor der Schutz dieser Konten behandelt wird, werden privilegierte Konten zunä
 
 Privilegierte Konten wie Administratorkonten in Active Directory Domain Services verfügen über direkten oder indirekten Zugriff auf die meisten oder alle Ressourcen in einem IT-Unternehmen, weshalb eine Gefährdung dieser Konten ein großes Geschäftsrisiko darstellt.
 
-## <a name="why-securing-privileged-access-is-important"></a>Warum ist das Schützen des privilegierten Zugriffs wichtig?
+## <a name="why-is-securing-privileged-access-important"></a>Warum ist das Schützen des privilegierten Zugriffs wichtig?
 
 Cyberangreifer konzentrieren sich auf den privilegierten Zugriff auf Systeme wie Active Directory, um sich schnell Zugriff auf alle Daten eines Unternehmens zu verschaffen. Herkömmliche Sicherheitsansätze konzentrieren sich auf das Netzwerk und die Firewalls als primären Sicherheitsperimeter, jedoch wurde die Wirksamkeit von Netzwerksicherheitsmaßnahmen durch zwei Trends wesentlich reduziert:
 
@@ -111,7 +111,7 @@ Phase 2 baut auf Phase 1 auf und ist dazu konzipiert, innerhalb von etwa 90 T
 
 Administratoren können von der einfachen Handhabung von Windows Hello for Business profitieren. Administratoren können ihre komplexen Kennwörter durch sichere zweistufige Authentifizierung auf ihren Computern ersetzen. Ein Angreifer muss sowohl über das Gerät als auch über die biometrischen Informationen oder die PIN verfügen. Es ist also deutlich schwieriger, sich Zugriff ohne das Wissen des Mitarbeiters zu verschaffen. Weitere Informationen zu Windows Hello for Business und die Implementierung finden Sie im Artikel [Überblick über Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview).
 
-Aktivieren Sie die mehrstufige Authentifizierung (MFA) für Ihre Administratorkonten in Azure AD mithilfe von Azure Multi-Factor Authentication. Aktivieren Sie mindestens die [Basisschutzrichtlinie für den bedingten Zugriff](/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins). Weitere Informationen zu Azure Multi-Factor Authentication finden Sie im Artikel [Planen einer cloudbasierten Azure Multi-Factor Authentication-Bereitstellung](/azure/active-directory/authentication/howto-mfa-getstarted).
+Aktivieren Sie die mehrstufige Authentifizierung (MFA) für Ihre Administratorkonten in Azure AD mithilfe von Azure Multi-Factor Authentication. Aktivieren Sie mindestens die [Basisschutzrichtlinie für den bedingten Zugriff](/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins). Weitere Informationen zu Azure Multi-Factor Authentication finden Sie im Artikel [Bereitstellen der cloudbasierten mehrstufigen Authentifizierung von Azure](/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ### <a name="2-deploy-paw-to-all-privileged-identity-access-account-holders"></a>2. Bereitstellen von Workstations mit privilegiertem Zugriff für alle Mitarbeiter mit Identitätskonten mit privilegiertem Zugriff
 
@@ -122,7 +122,7 @@ Sie sollten dedizierte Workstations mit privilegiertem Zugriff für alle Mitarbe
 Stellen Sie Just-In-Time-Berechtigungen mithilfe einer angemessenen Lösung wie eine der folgenden oder einer Drittanbieterlösung bereit, um die Offenlegung von Berechtigungen zu reduzieren und die Transparenz ihrer Nutzung zu erhöhen:
 
 * Verwenden Sie für Active Directory Domain Services (AD DS) die Funktion [Privileged Access Manager (PAM)](/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services) von Microsoft Identity Manager (MIM).
-* Verwenden Sie für Azure Active Directory die Funktion [Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan) .
+* Verwenden Sie für Azure Active Directory die Funktion [Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
 
 ### <a name="4-enable-windows-defender-credential-guard"></a>4. Aktivieren von Windows Defender Credential Guard
 
@@ -136,7 +136,7 @@ Aktivieren Sie Azure AD Identity Protection, um die Berichterstattung zu Benutze
 
 ### <a name="6-azure-atp-lateral-movement-paths"></a>6. Azure ATP-Lateral-Movement-Pfade
 
-Stellen Sie sicher, dass Besitzer von Konten mit privilegiertem Zugriff ihre Workstations mit privilegiertem Zugriff nur für die Verwaltung nutzen, damit ein kompromittiertes nicht privilegiertes Konto keinen Zugriff auf ein privilegiertes Konto über Angriffe zum Diebstahl von Anmeldeinformationen wie Pass-the-Hash oder Pass-the-Ticket erhalten kann. [Azure ATP-Lateral Movement-Pfade (LMPs)](/azure-advanced-threat-protection/use-case-lateral-movement-path) bieten eine leicht verständliche Berichterstellung, um Risiken für die Kompromittierung von privilegierten Konten zu identifizieren.
+Stellen Sie sicher, dass Besitzer von Konten mit privilegiertem Zugriff ihre Workstations mit privilegiertem Zugriff nur für die Verwaltung nutzen und so das Risiko zu verringern, dass ein kompromittiertes nicht privilegiertes Konto Zugriff auf ein privilegiertes Konto über Angriffe zum Diebstahl von Anmeldeinformationen wie Pass-the-Hash oder Pass-the-Ticket erhalten kann. [Azure ATP-Lateral Movement-Pfade (LMPs)](/azure-advanced-threat-protection/use-case-lateral-movement-path) bieten eine leicht verständliche Berichterstellung, um Risiken für die Kompromittierung von privilegierten Konten zu identifizieren.
 
 ## <a name="phase-3-security-improvement-and-sustainment"></a>Phase 3: Verbesserung und Aufrechterhaltung der Sicherheit
 
@@ -148,7 +148,7 @@ Diese Funktionen bauen auf den Schritten aus den vorherigen Phasen auf und sorge
 
 ### <a name="1-review-role-based-access-control"></a>1. Überprüfen der rollenbasierten Zugriffssteuerung
 
-Überprüfen Sie anhand des dreistufigen Modells im Artikel [Active Directory-Verwaltungsebenenmodell](securing-privileged-access-reference-material.md), und stellen Sie sicher, dass Administratoren der niedrigeren Ebenen nicht über administrativen Zugriff auf Ressourcen der höheren Ebenen verfügen (Gruppenmitgliedschaften, ACLs in Benutzerkonten usw.).
+Überprüfen Sie anhand des dreistufigen Modells im Artikel [Active Directory-Verwaltungsebenenmodell](securing-privileged-access-reference-material.md), und stellen Sie sicher, dass Administratoren der niedrigeren Ebenen nicht über administrativen Zugriff auf Ressourcen der höheren Ebenen (Gruppenmitgliedschaften, ACLs in Benutzerkonten usw.) verfügen.
 
 ### <a name="2-reduce-attack-surfaces"></a>2. Reduzieren von Angriffsflächen
 

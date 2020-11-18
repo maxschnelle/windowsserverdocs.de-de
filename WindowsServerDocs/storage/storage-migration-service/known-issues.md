@@ -6,12 +6,12 @@ ms.author: nedpyle
 manager: tiaascs
 ms.date: 11/12/2020
 ms.topic: article
-ms.openlocfilehash: 84a531b1026215484619bc5bc9fbb3ce74899bea
-ms.sourcegitcommit: de207e887575757f3389ccf940c2e0ad2dc70bd3
+ms.openlocfilehash: bc23bdefe1f6b852dc057debd53e1a66c300f592
+ms.sourcegitcommit: adfc886dd7d3513820ac7569b68e50ee8bc51945
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94617190"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785916"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -661,15 +661,15 @@ Nach der Installation des kumulativen Updates für Windows Server 2019 [November
 Error HRESULT E_FAIL has been returned from a call to a COM component
 ```
 
-Dies geschieht nicht notwendigerweise für alle Quellcomputer. Wir arbeiten daran, dieses Problem zu diagnostizieren. Um dieses Problem zu umgehen, installieren Sie das Tool "Storage Migration Service" der Version 1,115 oder höher im Windows Admin Center. Das Update sollte automatisch im Windows Admin Center-Feed angezeigt werden und zur Installation aufgefordert werden, und Sie können diesen Fehler ignorieren. So:
+Dies geschieht nicht notwendigerweise für alle Quellcomputer. Wir arbeiten daran, dieses Problem zu diagnostizieren. Um dieses Problem zu umgehen, installieren Sie das Tool "Storage Migration Service" der Version 1,115 oder höher im Windows Admin Center. Das Update sollte automatisch im Windows Admin Center-Feed angezeigt werden und zur Installation aufgefordert werden, und Sie können diesen Fehler ignorieren. Um dieses Problem zu umgehen:
 
-1. Navigieren Sie zum Schritt "Einstellungen anpassen" der Übertragungs Phase. 
+1. Navigieren Sie zum Schritt "Einstellungen anpassen" der Übertragungs Phase.
 2. Aktivieren Sie "Übertragungs Überprüfung überschreiben".
 3. Fahren Sie mit der Übertragung fort, ohne dass Sie "Validate" ausführen oder ausführen und den E_FAIL Fehler ignorieren.
 
 > [!IMPORTANT]
 > Deinstallieren Sie [KB4586793](https://support.microsoft.com/office/november-10-2020%E2%80%94kb4586793-os-build-17763-1577-e6a24f90-5659-8b80-5a50-8752de3d90b7)nicht. Dieses Update führt ein Upgrade der Storage Migration Service-Datenbank durch und das Entfernen des Updates erfordert, dass Sie die Datenbank löschen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
