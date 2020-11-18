@@ -7,12 +7,12 @@ author: eldenchristensen
 ms.date: 10/08/2018
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: d3fd3e1c6ca9a7493ac0bcdc809f68fe22f8fa67
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 1190028ce94b8ecb37d188e5571443f55d6e12d1
+ms.sourcegitcommit: 7f859d8ec86664fdedd05901ac3714f84e7868b5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87971087"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94703776"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Offline schalten eines direkte Speicherplätze Servers zur Wartung
 
@@ -25,7 +25,7 @@ Bei direkte Speicherplätze bedeutet das offline schalten eines Servers (durchf�
 Verwenden Sie die folgenden Verfahren, um einen Server in einem direkte Speicherplätze Cluster ordnungsgemäß anzuhalten, bevor Sie ihn offline schalten.
 
    > [!IMPORTANT]
-   > Verwenden Sie zum Installieren von Updates auf einem direkte Speicherplätze Cluster das Cluster fähige aktualisieren (Cluster-Aware Update, Cau), das die in diesem Thema beschriebenen Verfahren automatisch ausführt, sodass Sie bei der Installation von Updates nicht über das verfügen. Weitere Informationen finden Sie unter [Cluster fähiges aktualisieren (Cau)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11)).
+   > Zum Installieren von Updates auf einem direkte Speicherplätze Cluster verwenden Sie Cluster-Aware Update (Cau), das die in diesem Thema beschriebenen Verfahren automatisch ausführt, sodass Sie bei der Installation von Updates nicht über das verfügen müssen. Weitere Informationen finden Sie unter [Cluster fähiges aktualisieren (Cau)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831694(v=ws.11)).
 
 ## <a name="verifying-its-safe-to-take-the-server-offline"></a>Es ist sicherzustellen, dass der Server sicher offline geschaltet wird.
 
@@ -37,7 +37,7 @@ Vergewissern Sie sich, dass alle Ihre Volumes fehlerfrei sind, bevor Sie einen S
 Get-VirtualDisk
 ```
 
-Im folgenden finden Sie ein Beispiel dafür, wie die Ausgabe aussehen könnte:
+Hier sehen Sie ein Beispiel für eine mögliche Ausgabe:
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
 ------------ --------------------- ----------------- ------------ -------------- ----
@@ -48,9 +48,9 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 Vergewissern Sie sich, dass die Eigenschaft **healthstatus** für jedes Volume (virtueller Datenträger) Fehler **frei ist.**
 
-Um dies in Failovercluster-Manager zu tun, navigieren Sie zu **Speicher**Datenträger  >  **Disks**.
+Um dies in Failovercluster-Manager zu tun, navigieren Sie zu **Speicher** Datenträger  >  **Disks**.
 
-Vergewissern Sie sich, dass in der Spalte **Status** für jedes Volume (virtueller Datenträger) **Online**angezeigt wird.
+Vergewissern Sie sich, dass in der Spalte **Status** für jedes Volume (virtueller Datenträger) **Online** angezeigt wird.
 
 ## <a name="pausing-and-draining-the-server"></a>Anhalten und Entleeren des Servers
 
@@ -65,16 +65,16 @@ Führen Sie in PowerShell das folgende Cmdlet (als Administrator) aus, um anzuha
 Suspend-ClusterNode -Drain
 ```
 
-Wechseln Sie dazu in Failovercluster-Manager zu **Knoten**, klicken Sie mit der rechten Maustaste auf den Knoten, und **Wählen Sie**dann Ausgleichs  >  **Rollen**anhalten aus.
+Wechseln Sie dazu in Failovercluster-Manager zu **Knoten**, klicken Sie mit der rechten Maustaste auf den Knoten, und **Wählen Sie** dann Ausgleichs  >  **Rollen** anhalten aus.
 
-![Pause-entladen](media/maintain-servers/pause-drain.png)
+![Pause-Drain](media/maintain-servers/pause-drain.png)
 
 Alle virtuellen Computer beginnen Live, auf andere Server im Cluster zu migrieren. Dies kann einige Minuten dauern.
 
    > [!NOTE]
-   > Wenn Sie den Cluster Knoten anhalten und ordnungsgemäß entladen, führt Windows eine automatische Sicherheitsüberprüfung durch, um sicherzustellen, dass der Vorgang fortgesetzt werden kann. Wenn fehlerhafte Volumes vorhanden sind, werden Sie angehalten und warnen, dass der Vorgang nicht sicher fortgesetzt werden kann.
+   > Wenn Sie den Cluster Knoten anhalten und ordnungsgemäß entladen, führt Windows eine automatische Sicherheitsüberprüfung durch, um sicherzustellen, dass der Vorgang fortgesetzt werden kann. Wenn fehlerhafte Volumes vorhanden sind, hält er an und warnt Sie, dass der Vorgang nicht sicher fortgesetzt werden kann.
 
-![Sicherheitsüberprüfung](media/maintain-servers/safety-check.png)
+![Safety-Check](media/maintain-servers/safety-check.png)
 
 ## <a name="shutting-down-the-server"></a>Der Server wird heruntergefahren.
 
@@ -82,7 +82,7 @@ Nachdem der Server die Ableitung abgeschlossen hat, wird er in Failovercluster-M
 
 ![Angehalten](media/maintain-servers/paused.png)
 
-Sie können ihn jetzt problemlos neu starten oder Herunterfahren, genauso wie normal (z. b. mit den PowerShell-Cmdlets "Restart-Computer" oder "Start-Computer").
+Sie können ihn jetzt problemlos neu starten oder Herunterfahren, wie Sie es normalerweise tun würden (z. b. mithilfe des Restart-Computer oder Stop-Computer PowerShell-Cmdlets).
 
 ```PowerShell
 Get-VirtualDisk
@@ -112,13 +112,13 @@ Um die Rollen, die zuvor auf diesem Server ausgeführt wurden, zu verschieben, v
 Resume-ClusterNode –Failback Immediate
 ```
 
-Wechseln Sie in Failovercluster-Manager zu **Knoten**, klicken Sie mit der rechten Maustaste auf den Knoten, und wählen Sie dann failrollrollbacks **Resume**  >  **wieder**aufnehmen aus.
+Wechseln Sie in Failovercluster-Manager zu **Knoten**, klicken Sie mit der rechten Maustaste auf den Knoten, und wählen Sie dann failrollrollbacks **Resume**  >  **wieder** aufnehmen aus.
 
 ![Resume-Failback](media/maintain-servers/resume-failback.png)
 
 ## <a name="waiting-for-storage-to-resync"></a>Warten auf Neusynchronisierung des Speichers
 
-Beim Fortsetzen des Servers müssen alle neuen Schreibvorgänge, die während der Nichtverfügbarkeit nicht verfügbar waren, neu synchronisiert werden. Dies erfolgt automatisch. Mithilfe der intelligenten Änderungs Nachverfolgung ist es nicht notwendig, dass *alle* Daten gescannt oder synchronisiert werden. nur die Änderungen. Dieser Prozess wird gedrosselt, um die Auswirkungen auf produktionsworkloads zu mindern. Je nachdem, wie lange der Server angehalten wurde und wie viele neue Daten geschrieben wurden, kann es mehrere Minuten dauern, bis der Vorgang abgeschlossen ist.
+Beim Fortsetzen des Servers müssen alle neuen Schreibvorgänge, die während der Nichtverfügbarkeit erfolgt sind, neu synchronisiert werden. Dies erfolgt automatisch. Mithilfe der intelligenten Änderungs Nachverfolgung ist es nicht notwendig, dass *alle* Daten gescannt oder synchronisiert werden. nur die Änderungen. Dieser Prozess wird gedrosselt, um die Auswirkungen auf Produktionsworkloads zu mindern. Je nachdem, wie lange der Server angehalten wurde und wie viele neue Daten geschrieben wurden, kann es mehrere Minuten dauern, bis der Vorgang abgeschlossen ist.
 
 Sie müssen warten, bis die erneute Synchronisierung beendet ist, bevor Sie andere Server im Cluster offline schalten.
 
@@ -139,9 +139,9 @@ Repair True             00:06:52    Running   68              20104802841    221
 Das **bytesTotal** zeigt, wie viel Speicher neu synchronisiert werden muss. Die **prozentuumfassende** Ausführung zeigt den Fortschritt an.
 
    > [!WARNING]
-   > Es ist nicht sicher, dass ein anderer Server offline geschaltet wird, bis diese Reparaturaufträge abgeschlossen sind.
+   > Es ist nicht sicher, einen anderen Server offline zu schalten, bevor diese Reparaturaufträge abgeschlossen sind.
 
-Während dieser Zeit werden die Volumes weiterhin als **Warnung**angezeigt, was normal ist.
+Während dieser Zeit werden die Volumes weiterhin als **Warnung** angezeigt, was normal ist.
 
 Wenn Sie z. b. das `Get-VirtualDisk` Cmdlet verwenden, wird möglicherweise die folgende Ausgabe angezeigt:
 ```
@@ -152,7 +152,7 @@ MyVolume2    Mirror                InService         Warning      True          
 MyVolume3    Mirror                InService         Warning      True           1 TB
 ```
 
-Vergewissern Sie sich nach Abschluss der Aufträge, dass die Volumes mithilfe des Cmdlets **wieder Fehler** frei angezeigt werden `Get-VirtualDisk` . Hier ist eine Beispielausgabe angegeben:
+Sobald die Aufträge abgeschlossen sind, vergewissern Sie sich, dass mit dem Cmdlet `Get-VirtualDisk` erneut, dass die Volumes als **Fehlerfrei** angezeigt werden. Hier ist eine Beispielausgabe angegeben:
 
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
@@ -162,23 +162,23 @@ MyVolume2    Mirror                OK                Healthy      True          
 MyVolume3    Mirror                OK                Healthy      True           1 TB
 ```
 
-Es ist nun sicher, andere Server im Cluster anzuhalten und neu zu starten.
+Nun können andere Server im Cluster sicher angehalten und neu gestartet werden.
 
 ## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Vorgehensweise beim Offline Aktualisieren von direkte Speicherplätze Knoten
-Führen Sie die folgenden Schritte aus, um das direkte Speicherplätze System schnell zu. Dazu gehört die Planung eines Wartungs Fensters und das herunter schalten des Systems zum Patchen. Wenn ein kritisches Sicherheitsupdate vorliegt, das Sie schnell anwenden müssen, oder wenn Sie sicherstellen müssen, dass das Patchen in Ihrem Wartungsfenster abgeschlossen ist, ist diese Methode möglicherweise für Sie vorgesehen. Durch diesen Vorgang wird der direkte Speicherplätze Cluster herunterskalieren, gepatcht und wieder zusammengeführt. Der Kompromiss ist die Ausfallzeit der gehosteten Ressourcen.
+Führen Sie die folgenden Schritte aus, um das direkte Speicherplätze System schnell zu aktualisieren. Dies umfasst die Planung eines Wartungs Fensters und das herunter schalten des Systems für die Aktualisierung. Wenn ein kritisches Sicherheitsupdate vorliegt, das Sie schnell anwenden müssen, oder wenn Sie sicherstellen müssen, dass das Update im Wartungsfenster abgeschlossen ist, ist diese Methode möglicherweise für Sie vorgesehen. Durch diesen Vorgang wird der direkte Speicherplätze Cluster herunterskalieren, aktualisiert, und der Vorgang wird wiederholt. Der Kompromiss ist die Ausfallzeit der gehosteten Ressourcen.
 
 1. Planen Sie Ihr Wartungsfenster.
 2. Schalten Sie die virtuellen Datenträger offline.
-3. Beendet den Cluster, um den Speicherpool offline zu schalten. Führen Sie das Cmdlet " **stoppt** " aus, oder verwenden Sie Failovercluster-Manager, um den Cluster anzuhalten.
+3. Beenden Sie den Cluster, um den Speicherpool offline zu schalten. Führen Sie das Cmdlet "  **stoppt** " aus, oder verwenden Sie Failovercluster-Manager, um den Cluster anzuhalten.
 4. Legen Sie in "Services. msc" für jeden Knoten den Cluster Dienst auf " **deaktiviert** " fest. Dadurch wird verhindert, dass der Cluster Dienst beim Patchen gestartet wird.
 5. Wenden Sie das kumulative Update für Windows Server und alle erforderlichen Wartungs Stapel Updates auf alle Knoten an. (Sie können alle Knoten gleichzeitig aktualisieren, da der Cluster nicht gewartet werden muss.)
 6. Starten Sie die Knoten neu, und stellen Sie sicher, dass alles gut aussieht
 7. Legen Sie den Cluster Dienst auf den einzelnen Knoten auf **automatisch** zurück.
 8. Starten Sie den Cluster. Führen Sie das Cmdlet **Start-Cluster** aus, oder verwenden Sie Failovercluster-Manager.
 
-   Warten Sie einige Minuten.  Stellen Sie sicher, dass der Speicherpool fehlerfrei ist.
+   Geben Sie dem Vorgang fünf Minuten.  Stellen Sie sicher, dass der Speicherpool fehlerfrei ist.
 9. Schalten Sie die virtuellen Datenträger wieder online.
-10. Überwachen Sie den Status der virtuellen Datenträger, indem Sie die Cmdlets " **Get-Volume** " und " **Get-virtualdisk** " ausführen.
+10. Überwachen Sie den Status der virtuellen Datenträger, indem Sie die Cmdlets **Get-Volume** und **Get-VirtualDisk** ausführen.
 
 
 ## <a name="additional-references"></a>Weitere Verweise
