@@ -5,12 +5,12 @@ ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: 7fad43cb5f3de5c10ed815fa802b6168c15850d1
-ms.sourcegitcommit: 68444968565667f86ee0586ed4c43da4ab24aaed
+ms.openlocfilehash: 1abaf439a25e5175aba7290c0600c0f5b56db0d4
+ms.sourcegitcommit: 6c53a7d37b4884212469c38dc97c192cd767e49b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87990747"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919382"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke
 
@@ -25,7 +25,7 @@ Vereinfachte SMB Multichannel-und Multi-NIC-Cluster Netzwerke bieten folgende Vo
 - Standardmäßig wird für jeden Netzwerknamen (Cap) des Cluster Zugriffs Punkts eine einzelne IP-Adress Ressource konfiguriert.
 - Die Cluster Überprüfung gibt keine Warnmeldungen mehr aus, wenn mehrere NICs im selben Subnetz gefunden werden.
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Requirements (Anforderungen)
 -   Mehrere NICs pro Server mit demselben Switch/Subnetz.
 
 ## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>Nutzen von multinic-Cluster Netzwerken und vereinfachtem SMB Multichannel
@@ -39,10 +39,10 @@ Obwohl es selten vorkommt, können Netzwerk Switches fehlschlagen. es wird immer
 
 ### <a name="use-multiple-nics-across-clusters"></a>Cluster übergreifende Verwendung mehrerer NICs
 
-Der größte Vorteil des vereinfachten SMB Multichannel wird erzielt, wenn mehrere NICs Cluster übergreifend in Speicher-und Speicher-Arbeits Auslastungs Clustern verwendet werden. Dadurch können Arbeits Auslastungs Cluster (Hyper-V, SQL Server-Failoverclusterinstanz, Speicher Replikat usw.) SMB Multichannel verwenden und eine effizientere Verwendung des Netzwerks erzielen. In einer konvergenten (auch disaggregierten) Cluster Konfiguration, in der ein Datei Server Cluster mit horizontaler Skalierung zum Speichern von Arbeits Auslastungs Daten für einen Hyper-V-oder SQL Server failoverclusterinstanzcluster verwendet wird, wird dieses Netzwerk häufig als "das Nord-Süd-Subnetz"/Netzwerk bezeichnet. Viele Kunden maximieren den Durchsatz dieses Netzwerks, indem Sie in RDMA-fähige NIC-Karten und-Switches investieren.
+Der größte Vorteil des vereinfachten SMB Multichannel wird erzielt, wenn mehrere NICs Cluster übergreifend in Speicher-und Speicher-Arbeits Auslastungs Clustern verwendet werden. Dadurch können Arbeits Auslastungs Cluster (Hyper-V, SQL Server-Failoverclusterinstanz, Speicher Replikat usw.) SMB Multichannel verwenden und eine effizientere Verwendung des Netzwerks erzielen. In einer konvergenten (auch disaggregierten) Cluster Konfiguration, in der ein Datei Server Cluster mit horizontaler Skalierung zum Speichern von Arbeits Auslastungs Daten für einen Hyper-V-oder SQL Server failoverclusterinstanzcluster verwendet wird, wird dieses Netzwerk häufig als "das North-South Subnetz"/Netzwerk bezeichnet. Viele Kunden maximieren den Durchsatz dieses Netzwerks, indem Sie in RDMA-fähige NIC-Karten und-Switches investieren.
 
-![Abbildung 2: Verwenden eines virtuellen SMB-Subnetzes in Nord-Süd ](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig2.png)
- **: zum Erreichen des maximalen Netzwerk Durchsatzes verwenden Sie mehrere NICs sowohl auf dem Datei Server Cluster mit horizontaler Skalierung als auch auf dem Hyper-V-oder SQL Server failoverclusterinstanzcluster, das das Nord-Süd-Subnetz nutzt**
+![Abbildung 2: Verwenden eines North-South SMB-Subnetzes ](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig2.png)
+ **: um einen maximalen Netzwerk Durchsatz zu erreichen, verwenden Sie mehrere Netzwerkkarten im Datei Server Cluster mit horizontaler Skalierung und den Hyper-V-oder SQL Server failoverclusterinstanzcluster, die das North-South Subnetz gemeinsam verwenden** .
 
 ![ScreenCap von zwei Clustern mit mehreren Netzwerkkarten im gleichen Subnetz zum Nutzen von SMB Multichannel ](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig3.png)
  **Abbildung 3: zwei Cluster (Datei Server mit horizontaler Skalierung für Speicher, SQL Server <abbr title=" Failoverclusterinstanz- "> FCI </abbr> für die Arbeitsauslastung) verwenden beide mehrere NICs im gleichen Subnetz, um SMB Multichannel zu nutzen und einen besseren Netzwerk Durchsatz zu erzielen.**
@@ -56,10 +56,10 @@ Wenn Sie mehr als ein privates Netzwerk (nur Cluster) verwenden, überprüfen Si
  **Abbildung 4: automatische IPv6-Verbindungs Konfiguration (FE80) Adress Ressourcen Konfiguration**
 
 ## <a name="throughput-and-fault-tolerance"></a>Durchsatz und Fehlertoleranz
-Mit Windows Server 2019 und Windows Server 2016 werden NIC-Funktionen automatisch erkannt, und es wird versucht, jede NIC in der schnellstmöglichen Konfiguration zu verwenden. NICs, die kombiniert werden, NICs mit RSS und NICs mit RDMA-Funktion können verwendet werden. In der folgenden Tabelle werden die Kompromisse bei der Verwendung dieser Technologien zusammengefasst. Maximaler Durchsatz wird erzielt, wenn mehrere RDMA-fähige NICs verwendet werden. Weitere Informationen finden Sie [Untergrund lagen von SMB mutlichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0).
+Mit Windows Server 2019 und Windows Server 2016 werden NIC-Funktionen automatisch erkannt, und es wird versucht, jede NIC in der schnellstmöglichen Konfiguration zu verwenden. NICs, die kombiniert werden, NICs mit RSS und NICs mit RDMA-Funktion können verwendet werden. In der folgenden Tabelle werden die Kompromisse bei der Verwendung dieser Technologien zusammengefasst. Maximaler Durchsatz wird erzielt, wenn mehrere RDMA-fähige NICs verwendet werden. Weitere Informationen finden Sie [Untergrund lagen von SMB Multichannel](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0).
 
 ![Eine Abbildung des Durchsatzes und der Fehlertoleranz für verschiedene NIC-Konfigurationen ](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)
- **Abbildung 5: Durchsatz und Fehlertoleranz für verschiedene NIC-conifigurationen**
+ **Abbildung 5: Durchsatz und Fehlertoleranz für verschiedene NIC-Konfigurationen**
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 **Befinden sich alle NICs in einem Netzwerk mit mehreren Netzwerkkarten, die für Cluster-Herzschläge verwendet werden?**
@@ -72,7 +72,7 @@ Beide Konfigurationen funktionieren. alle Cluster Netzwerk Rollen funktionieren 
 Ja, standardmäßig werden für den gesamten Cluster-und CSV-Datenverkehr verfügbare multinic-Netzwerke verwendet. Administratoren können die PowerShell-Cmdlets für Failoverclustering oder Failovercluster-Manager-Benutzeroberfläche verwenden, um die Netzwerk Rolle zu ändern.
 
 **Wie kann ich die SMB Multichannel-Einstellungen sehen?**
-Verwenden Sie das Cmdlet **Get-smbserverconfiguration** , und suchen Sie nach dem Wert der enablemultichannel-Eigenschaft.
+Verwenden Sie das Cmdlet **Get-smbserverconfiguration** , und suchen Sie nach dem Wert der **enablemultichannel** -Eigenschaft.
 
 **Wird die allgemeine Cluster Eigenschaft "plumballcrosssubnettrotroutes" in einem Netzwerk mit mehreren NIC beachtet?**
 Ja.
