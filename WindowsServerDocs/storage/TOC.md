@@ -109,6 +109,7 @@
 ## Speichermigrationsdienst
 ### [Übersicht](storage-migration-service/overview.md)
 ### [Verwenden des Speichermigrationsdiensts zum Migrieren eines Servers](storage-migration-service/migrate-data.md)
+### [So funktioniert die Umstellung](storage-migration-service/cutover.md)
 ### [Häufig gestellte Fragen](storage-migration-service/faq.md)
 ### [Bekannte Probleme](storage-migration-service/known-issues.md)
 
