@@ -67,7 +67,7 @@ Vor Windows 8 und Windows Server 2012 wechselten Benutzer je nach Netzwerkverf
 
 Mit dem Modus „Immer offline“ wechseln Computer nie in den Onlinemodus, wenn die Gruppenrichtlinieneinstellung **Modus für langsame Verbindungen konfigurieren** konfiguriert und der Schwellenwertparameter **Wartezeit** auf 1 Millisekunde festgelegt ist. Änderungen werden standardmäßig alle 120 Minuten im Hintergrund synchronisiert, aber die Synchronisierung kann mithilfe der Gruppenrichtlinieneinstellung **Configure Background Sync** konfiguriert werden.
 
-Weitere Informationen finden Sie unter [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
+Weitere Informationen finden Sie unter [Aktivieren des Modus „Immer offline“ für schnelleren Zugriff auf Dateien](enable-always-offline.md).
 
 ## <a name="cost-aware-synchronization"></a>Sparsame Synchronisation
 
