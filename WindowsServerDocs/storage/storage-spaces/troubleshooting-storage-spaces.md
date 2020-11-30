@@ -6,12 +6,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 525db4b22e0408847e4a52659d06ecddf5b1df8f
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: aeb8161ec5250856cb932035cc1acc28a9e9baf6
+ms.sourcegitcommit: 6d720d4ddaf6362fad1ab04364563cfa6590e3af
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90078667"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96332090"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Problembehandlung direkte Speicherplätze
 
@@ -35,10 +35,10 @@ Die Knoten eines direkte Speicherplätze Systems werden aufgrund eines Absturzes
 
 |FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Size| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
-|Disk4| Spiegel| OK|  Healthy| True|  10 TB|  Knoten-01....|
-|Disk3         |Spiegel                 |OK                          |Healthy       |True            |10 TB | Knoten-01....|
-|Disk2         |Spiegel                 |Keine Redundanz               |Unhealthy     |True            |10 TB | Knoten-01....|
-|Disk1         |Spiegel                 |{Keine Redundanz, INService}  |Unhealthy     |True            |10 TB | Knoten-01....|
+|Disk4| Spiegel| OK|  Healthy| Richtig|  10 TB|  Knoten-01....|
+|Disk3         |Spiegel                 |OK                          |Healthy       |Richtig            |10 TB | Knoten-01....|
+|Disk2         |Spiegel                 |Keine Redundanz               |Fehlerhaft     |Richtig            |10 TB | Knoten-01....|
+|Disk1         |Spiegel                 |{Keine Redundanz, INService}  |Fehlerhaft     |Richtig            |10 TB | Knoten-01....|
 
 Außerdem werden nach dem Versuch, den virtuellen Datenträger online zu schalten, die folgenden Informationen im Cluster Protokoll (diskherstellungsaction) protokolliert.
 
@@ -98,10 +98,10 @@ Im folgenden finden Sie ein Beispiel für die Ausgabe des Cmdlets **Get-virtuald
 
 |FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Size|   PSComputerName|
 |-|-|-|-|-|-|-|
-|Disk4|         Spiegel|                 OK|                  Healthy|       True|            10 TB|  Knoten-01....|
-|Disk3|         Spiegel|                 OK|                  Healthy|       True|            10 TB|  Knoten-01....|
-|Disk2|         Spiegel|                 Getrennt|            Unbekannt|       True|            10 TB|  Knoten-01....|
-|Disk1|         Spiegel|                 Getrennt|            Unbekannt|       True|            10 TB|  Knoten-01....|
+|Disk4|         Spiegel|                 OK|                  Healthy|       Richtig|            10 TB|  Knoten-01....|
+|Disk3|         Spiegel|                 OK|                  Healthy|       Richtig|            10 TB|  Knoten-01....|
+|Disk2|         Spiegel|                 Getrennt|            Unbekannt|       Richtig|            10 TB|  Knoten-01....|
+|Disk1|         Spiegel|                 Getrennt|            Unbekannt|       Richtig|            10 TB|  Knoten-01....|
 
 
 Außerdem können die folgenden Ereignisse auf den Knoten protokolliert werden:
@@ -231,7 +231,7 @@ Eine Änderung, die am 8. Mai 2018 in Windows Server 2016 eingeführt wurde. Hie
 
 ### <a name="shutdown-process-flow"></a>Prozessablauf für das Herunterfahren:
 
-1. Führen Sie das Get-virtualdisk-Cmdlet aus, und vergewissern Sie sich, dass der Wert healthstatus fehlerfrei ist.
+1. Führen Sie das-Cmdlet Get-VirtualDisk aus, und stellen Sie sicher, dass der Wert healthstatus fehlerfrei ist.
 2. Führen Sie das folgende Cmdlet aus, um den Knoten zu entfernen:
 
    ```powershell
@@ -326,7 +326,7 @@ Es gibt zwei Möglichkeiten, um Folgendes zu überprüfen:
     {d543f90c-798b-d2fe-7f0a-cb226c77eeed},10,false,false,1,20,{00000000-0000-0000-0000-000000000000},CacheDiskStateIneligibleDataPartition,0,0,0,false,false,NVMe    ,INTEL SSDPE7KX02,  PHLF7330004V2P0LGN,0170,{79b4d631-976f-4c94-a783-df950389fd38},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 2. Verwenden von Get-PhysicalDisk.xml aus sddcdiagnosticinfo
-    1. Öffnen Sie die XML-Datei mithilfe von "$d = Import-CliXML GetPhysicalDisk.XML"
+    1. Öffnen Sie die XML-Datei mithilfe von "$d = Import-Clixml GetPhysicalDisk.XML".
     2. Führen Sie "ipmo-Speicher" aus.
     3. Führen Sie "$d" aus. Beachten Sie, dass die Verwendung automatisch ausgewählt wird, nicht im Journal, Sie sehen eine Ausgabe wie die folgende:
 
@@ -375,7 +375,7 @@ Wenn Sie nun **Get-PhysicalDisk** auf einem der Knoten ausführen, werden alle D
 ||MSFT Virtu... ||Healthy| Offline| 100 GB| RAW|
 ||MSFT Virtu... ||Healthy| Offline| 100 GB| RAW|
 
-## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Fehlermeldung zu "nicht unterstützter Medientyp" beim Erstellen eines direkte Speicherplätze Clusters mithilfe von "Enable-ClusterS2D"
+## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Fehlermeldung zu "nicht unterstützter Medientyp" beim Erstellen eines direkte Speicherplätze Clusters mithilfe Enable-ClusterS2D
 
 Beim Ausführen des Cmdlets **enable-ClusterS2D** werden möglicherweise ähnliche Fehler angezeigt:
 
@@ -383,7 +383,7 @@ Beim Ausführen des Cmdlets **enable-ClusterS2D** werden möglicherweise ähnlic
 
 Stellen Sie sicher, dass der HBA-Adapter im HBA-Modus konfiguriert ist, um dieses Problem zu beheben. Im RAID-Modus sollte kein HBA konfiguriert werden.
 
-## <a name="enable-clusterstoragespacesdirect-hangs-at-waiting-until-sbl-disks-are-surfaced-or-at-27"></a>"Enable-clusterstoragespacesdirect" reagiert bei "warten auf die Festplatte der SBL-Datenträger" oder bei 27%
+## <a name="enable-clusterstoragespacesdirect-hangs-at-waiting-until-sbl-disks-are-surfaced-or-at-27"></a>Enable-ClusterStorageSpacesDirect reagiert bei "warten, bis die SBL-Datenträger in die Warteschlange gestellt werden" oder bei 27%
 
 Im Überprüfungsbericht werden die folgenden Informationen angezeigt:
 
@@ -395,13 +395,13 @@ Das Problem liegt bei der HPE-SAS-Expander-Karte zwischen den Datenträgern und 
 Möglicherweise wird ein Problem auftreten, bei dem ein Gerät mit Intel SSD-DC P4600 eine ähnliche 16 Byte-nguid für mehrere Namespaces meldet, wie z. b. 0100000001000000e4d25c000014e214 oder 0100000001000000e4d25c0000eee214 im folgenden Beispiel.
 
 
-|               UniqueId               | deviceid | MediaType | BusType |               serialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
+|               uniqueid               | deviceid | MediaType | BusType |               serialNumber               |      Größe      | canpool | FriendlyName | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
 |           5000 cca251d12e30           |    0     |    Festplattenlaufwerk    |   SAS   |                 7pkr197g                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
-| EUI. 0100000001000000e4d25c000014e214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c000014e214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c0000eee214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c0000eee214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c000014e214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  Richtig   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c000014e214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  Richtig   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c0000eee214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  Richtig   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c0000eee214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  Richtig   |    Intel     |   SSDPE2KE016T7   |
 
 Aktualisieren Sie die Firmware auf den Intel-Laufwerken auf die neueste Version, um dieses Problem zu beheben.  Die Firmwareversion QDV101B1 von Mai 2018 ist bekannt, um dieses Problem zu beheben.
 
@@ -415,11 +415,12 @@ In einem Windows Server 2016 direkte Speicherplätze-Cluster kann der Integritä
 Das "entfernen aus dem Pool" ist beabsichtigt, wenn " **Remove-PhysicalDisk** " aufgerufen wird, aber in "Health" gespeichert ist, um den Status beizubehalten und die Wiederherstellung zuzulassen, wenn der Entfernungs Vorgang Sie können den OperationalStatus mit einer der folgenden Methoden manuell in "fehlerfrei" ändern:
 
 - Entfernen Sie den physischen Datenträger aus dem Pool, und fügen Sie ihn dann wieder hinzu.
+- Import-Module Clear-PhysicalDiskHealthData.ps1
 - Führen Sie das [Clear-PhysicalDiskHealthData.ps1 Skript](https://go.microsoft.com/fwlink/?linkid=2034205) aus, um die Absicht zu löschen. (Zum Herunterladen als verfügbar. TXT-Datei. Sie müssen Sie als speichern. PS1-Datei, bevor Sie Sie ausführen können.)
 
 Im folgenden finden Sie einige Beispiele, die zeigen, wie das Skript ausgeführt wird:
 
-- Verwenden Sie den **serialNumber** -Parameter, um den Datenträger anzugeben, der auf fehlerfrei festgelegt werden muss. Sie können die Seriennummer von **WMI MSFT_PhysicalDisk** oder **Get-PhysicalDisk**erhalten. (Für die unten stehende Seriennummer werden lediglich 0s verwendet.)
+- Verwenden Sie den **serialNumber** -Parameter, um den Datenträger anzugeben, der auf fehlerfrei festgelegt werden muss. Sie können die Seriennummer von **WMI MSFT_PhysicalDisk** oder **Get-PhysicalDisk** erhalten. (Für die unten stehende Seriennummer werden lediglich 0s verwendet.)
 
    ```powershell
    Clear-PhysicalDiskHealthData -Intent -Policy -SerialNumber 000000000000000 -Verbose -Force
