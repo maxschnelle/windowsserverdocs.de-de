@@ -6,12 +6,12 @@ manager: femila
 ms.date: 04/09/2018
 ms.topic: article
 ms.author: billmath
-ms.openlocfilehash: cf8a12957621ce86492cc4216c56d9a159f1ee5c
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 683a9ce88c9809dfecf5669b41758187504634b9
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87940566"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330512"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aktualisieren auf AD FS unter Windows Server 2016 unter Verwendung einer WID-Datenbank
 
@@ -93,7 +93,7 @@ Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN}
 
 ![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
 
-Wenn die Ausführung abgeschlossen ist`adprep/domainprep`
+Wenn die Ausführung abgeschlossen ist `adprep /domainprep`
 
 > [!NOTE]
 > Stellen Sie vor dem Ausführen des nächsten Schritts sicher, dass Windows Server aktuell ist, indem Sie Windows Update aus den Einstellungen ausführen. Setzen Sie diesen Prozess fort, bis keine weiteren Updates erforderlich sind.
@@ -120,7 +120,7 @@ Invoke-AdfsFarmBehaviorLevelRaise
 
 ![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
 
-11. Ebenso können Sie das PowerShell-Cmdlet verwenden, `Get-AdfsFarmInformation` um den aktuellen FBL anzuzeigen.
+11. Ebenso können Sie das PowerShell-Cmdlet verwenden,  `Get-AdfsFarmInformation` um den aktuellen FBL anzuzeigen.
 
 ![upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
 
@@ -137,7 +137,7 @@ Entfernen Sie alte Server aus dem Cluster, und behalten Sie nur die WAP-Server b
 Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
 ```
 
-Überprüfen Sie die WAP-Konfiguration, indem Sie das Cmdlet Get-webapplicationproxyconfiguration ausführen. Connectedserversname gibt den Server an, der mit dem vorherigen Befehl ausgeführt wurde.
+Überprüfen Sie die WAP-Konfiguration, indem Sie das Get-WebApplicationProxyConfiguration-Cmdlet ausführen. Connectedserversname gibt den Server an, der mit dem vorherigen Befehl ausgeführt wurde.
 
 ```PowerShell
 Get-WebApplicationProxyConfiguration

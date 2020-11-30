@@ -6,12 +6,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d0cd4c0c2bd6909c82ee39c97b58909e85aeef9f
-ms.sourcegitcommit: dfa48f77b751dbc34409aced628eb2f17c912f08
+ms.openlocfilehash: 806bbb9027ddbe0fc245c279e3106f3b60eef3a4
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87961614"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330442"
 ---
 # <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolumes
 
@@ -57,7 +57,7 @@ Hier wird beschrieben, wie du ein Volume auf leeren Speicherplatz erweiterst, de
    Resize-Partition -DriveLetter $drive_letter -Size $size.SizeMax
    ```
 
-## <a name="see-slso"></a>Siehe auch
+## <a name="see-also"></a>Siehe auch
 
 - [Resize-Partition](/powershell/module/storage/resize-partition)
 - [DiskPart – Erweitern](../../administration/windows-commands/extend.md)

@@ -1,16 +1,16 @@
 ---
-title: Paket Monitor (pktmon)
+title: Paketüberwachung (Pktmon)
 description: Dieses Thema enthält eine Übersicht über das Netzwerk Diagnosetool Paket Monitor (pktmon).
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
 ms.date: 11/12/2020
-ms.openlocfilehash: 3db2bcf2719c3cfb5430d8feb8fcac1684578452
-ms.sourcegitcommit: 8808f871c8cf131f819ef5540286218bd425da96
+ms.openlocfilehash: cab9de79c1d53b505acb61020c71472365ded348
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94632525"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330492"
 ---
 # <a name="packet-monitor-pktmon"></a>Paket Monitor- \( pktmon\)
 
@@ -44,21 +44,30 @@ Der Paket Monitor fängt Pakete an mehreren Speicherorten im Netzwerk Stapel ab 
 
 </center>
 
+## <a name="best-practices"></a>Bewährte Methoden
+
+Verwenden Sie diese bewährten Methoden, um die Netzwerkanalyse zu optimieren.
+
+- Überprüfen Sie die Befehlszeilen Hilfe für Argumente und Funktionen (z. b. pktmon-Starthilfe).
+- Konfigurieren von Paket Filtern, die Ihrem Szenario entsprechen (pktmon-Filter hinzufügen).
+- Überprüfen Sie die Paket Zähler während des Experiments für die allgemeine Ansicht (pktmon-Indikatoren).
+- Sehen Sie sich das Protokoll für eine ausführliche Analyse (pktmon-Format pktmon. ETL) an.
+
 ## <a name="functionality"></a>Funktionalität
 
 Die Funktionalität des Paket Monitors wurde durch Windows-Releases weiterentwickelt. In der folgenden Tabelle werden die Hauptfunktionen und die zugehörige Windows-Version angezeigt.
 
-| Funktion                                                                  | RS5 (17763) | 19h1 (18362) | Vibrianium (19041) |
-|:---------------------------------------------------------------------------:|:-----------:|:------------:|:-----------------:|
-| Paket Überwachung und-Zählung an mehreren Standorten entlang des Netzwerk Stapels | &#x2611;    | &#x2611;     | &#x2611;          |
-| Löschen von Paketen an mehreren Stapel Standorten                          | &#x2611;    | &#x2611;     | &#x2611;          |
-| Flexibles Filtern von Lauf Zeit Paketen                                           | &#x2611;    | &#x2611;     | &#x2611;          |
-| Kapselungs Unterstützung                                                       | &#x2610;    | &#x2611;     | &#x2611;          |
-| Netzwerkanalyse basierend auf der tcpdump-Paket Analyse                            | &#x2610;    | &#x2611;     | &#x2611;          |
-| OOB-Analyse (Packet Metadata)                                              | &#x2610;    | &#x2610;     | &#x2611;          |
-| Echtzeitüberwachung auf dem Bildschirm                                       | &#x2610;    | &#x2610;     | &#x2611;          |
-| Hohe Protokollierung im Arbeitsspeicher                                               | &#x2610;    | &#x2610;     | &#x2611;          |
-| Unterstützung für wireshark und Netzwerkmonitor-Format                                | &#x2610;    | &#x2610;     | &#x2611;          |
+| Funktion                                                                  | V 1809 (b:17763) | V 1903 (b:18362) | V 2004 (b:19041) |
+|:---------------------------------------------------------------------------:|:----------------:|:----------------:|:----------------:|
+| Paket Überwachung und-Zählung an mehreren Standorten entlang des Netzwerk Stapels | &#x2611;         | &#x2611;         | &#x2611;         |
+| Löschen von Paketen an mehreren Stapel Standorten                          | &#x2611;         | &#x2611;         | &#x2611;         |
+| Flexibles Filtern von Lauf Zeit Paketen                                           | &#x2611;         | &#x2611;         | &#x2611;         |
+| Kapselungs Unterstützung                                                       | &#x2610;         | &#x2611;         | &#x2611;         |
+| Netzwerkanalyse basierend auf der tcpdump-Paket Analyse                            | &#x2610;         | &#x2611;         | &#x2611;         |
+| OOB-Analyse (Packet Metadata)                                              | &#x2610;         | &#x2610;         | &#x2611;         |
+| Echtzeitüberwachung auf dem Bildschirm                                       | &#x2610;         | &#x2610;         | &#x2611;         |
+| Hohe Protokollierung im Arbeitsspeicher                                               | &#x2610;         | &#x2610;         | &#x2611;         |
+| Unterstützung für wireshark und Netzwerkmonitor-Format                                | &#x2610;         | &#x2610;         | &#x2611;         |
 
 >[!NOTE]
 >Azure Stack HCI-und Azure Stack Hub-Kunden sollten die vibrianium-Funktionalität erwarten.
@@ -67,19 +76,18 @@ Die Funktionalität des Paket Monitors wurde durch Windows-Releases weiterentwic
 
 Im folgenden finden Sie einige der wichtigsten Einschränkungen des Paket Monitors.
 
-- Unterstützung für drahtlose Medien ist nur für eiserne Builds verfügbar.
-- Keine firewallintegration
-- Drop Reporting ist nur für integrierte Komponenten verfügbar.
+- Derzeit wird nur Ethernet-Datenverkehr unterstützt. Unterstützung für drahtlosen Datenverkehr wird in späteren Versionen hinzugefügt.
+- Paket Abstürze von der Windows-Firewall sind noch nicht über den Paket Monitor sichtbar. 
 
 ## <a name="get-started-with-packet-monitor"></a>Einstieg in den Paket Monitor
 
 Die folgenden Ressourcen sind verfügbar, um Sie bei den ersten Schritten mit der Paket Überwachung zu unterstützen.
 
-### <a name="pktmon-command-syntax-and-formatting"></a>[Befehlssyntax und Formatierung von pktmon](pktmon-syntax.md)
+### <a name="pktmon-command-syntax-and-formatting"></a>[Pktmon-Befehlssyntax und -formatierung](pktmon-syntax.md)
 
 Der Paket Monitor ist in-Box über pktmon.exe Befehl auf dem vibrianium-Betriebssystem (Build 19041) verfügbar. Sie können [dieses Thema verwenden](pktmon-syntax.md) , um zu erfahren, wie Sie die Syntax, Befehle, Formatierung und Ausgabe von pktmon verstehen.
 
-### <a name="packet-monitoring-extension-in-windows-admin-center"></a>[Paket Überwachungs Erweiterung im Windows Admin Center](pktmon-wac-extension.md)
+### <a name="packet-monitoring-extension-in-windows-admin-center"></a>[Paketüberwachungserweiterung im Windows Admin Center](pktmon-wac-extension.md)
 
 Die Paket Überwachungs Erweiterung ermöglicht es Ihnen, den Paket Monitor über das Windows Admin Center zu betreiben und zu nutzen. Die Erweiterung unterstützt Sie bei der Diagnose Ihres Netzwerks durch erfassen und Anzeigen von Netzwerk Datenverkehr über den Netzwerk Stapel in einem Protokoll, das leicht zu befolgen und zu bearbeiten ist. In [diesem Thema](pktmon-wac-extension.md) erfahren Sie, wie Sie das Tool verwenden und seine Ausgabe verstehen.
 
@@ -87,11 +95,11 @@ Die Paket Überwachungs Erweiterung ermöglicht es Ihnen, den Paket Monitor übe
 
 Die Sdn-Daten Pfad Diagnose ist ein Tool innerhalb der Sdn-Überwachungs Erweiterung von Windows Admin Center. Das Tool automatisiert Paket Erfassungs basierte Paket Erfassungen gemäß verschiedenen Sdn-Szenarien und zeigt die Ausgabe in einer einzelnen Ansicht an, die einfach zu befolgen und zu bearbeiten ist. In [diesem Thema](pktmon-sdn-data-path-wac-extension.md) erfahren Sie, wie Sie das Tool verwenden und seine Ausgabe verstehen.
 
-### <a name="microsoft-network-monitor-netmon-support"></a>[Unterstützung für Microsoft-Netzwerkmonitor (NetMon)](pktmon-netmon-support.md)
+### <a name="microsoft-network-monitor-netmon-support"></a>[Unterstützung für Microsoft Netzwerkmonitor (Netmon)](pktmon-netmon-support.md)
 
 Der Paket Monitor generiert Protokolle im ETL-Format. Diese Protokolle können mithilfe von Microsoft-Netzwerkmonitor (NetMon) mithilfe spezieller Parser analysiert werden. In [diesem Thema](pktmon-netmon-support.md) wird erläutert, wie die vom Paket Monitor generierten ETL-Dateien in Netmon analysiert werden.
 
-### <a name="wireshark-pcapng-format-support"></a>[Unterstützung für wireshark (pcapng-Format)](pktmon-pcapng-support.md)
+### <a name="wireshark-pcapng-format-support"></a>[Unterstützung für Wireshark (pcapng-Format)](pktmon-pcapng-support.md)
 
 Der Paket Monitor kann Protokolle in das pcapng-Format konvertieren. Diese Protokolle können mithilfe von Wireshark (oder einem beliebigen pcapng Analyzer) analysiert werden. In [diesem Thema](pktmon-pcapng-support.md) wird die erwartete Ausgabe und deren Nutzung erläutert.
 

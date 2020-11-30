@@ -1,20 +1,20 @@
 ---
-title: manage-bde Pause
-description: Referenz Artikel für den Befehl manage-bde Pause, der die BitLocker-Verschlüsselung oder-Entschlüsselung anhält.
+title: manage-bde-Pause
+description: Referenz Artikel für den Befehl manage-bde-Pause, mit dem die BitLocker-Verschlüsselung oder-Entschlüsselung angehalten wird.
 ms.topic: reference
 ms.assetid: efda0e08-b9ff-4e71-83d8-bb666b3032bd
 ms.author: lizross
 author: eross-msft
 manager: mtillman
 ms.date: 10/16/2017
-ms.openlocfilehash: ca15aa1b48e0b06a036eaf8906c7d5b7d43b881b
-ms.sourcegitcommit: db2d46842c68813d043738d6523f13d8454fc972
+ms.openlocfilehash: b4f4255c544f6881ea7d023bbf03c92dc817ab34
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89639642"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330377"
 ---
-# <a name="manage-bde-pause"></a>manage-bde Pause
+# <a name="manage-bde--pause"></a>manage-bde-Pause
 
 Hält die BitLocker-Verschlüsselung oder-Entschlüsselung an.
 
@@ -38,8 +38,8 @@ manage-bde -pause [<volume>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 
 Geben Sie Folgendes ein, um die BitLocker-Verschlüsselung auf Laufwerk C anzuhalten:
 
-```
-manage-bde pause C:
+```Output
+manage-bde -pause C:
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise

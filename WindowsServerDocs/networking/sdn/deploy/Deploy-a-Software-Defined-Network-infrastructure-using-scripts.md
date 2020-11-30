@@ -7,16 +7,18 @@ ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: 84b96e724706db49945c2e4936d0b4d8691d8daa
-ms.sourcegitcommit: 3d59c2aaebcd190b20d24bc8a449eee0681b6a3c
+ms.openlocfilehash: 4e3ebcae7696d1b16930e50aacff4f0edc198ce7
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88583325"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330392"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 "in diesem Thema stellen Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts bereit. Die Infrastruktur umfasst einen hochverfügbaren Netzwerk Controller (ha), eine SLB-/Mux (HA Software Load Balancer), virtuelle Netzwerke und zugehörige Access Control Listen (ACLs). Darüber hinaus stellt ein weiteres Skript eine Mandanten Arbeitsauslastung bereit, damit Sie Ihre Sdn-Infrastruktur überprüfen können.
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+
+In diesem Thema stellen Sie eine Microsoft-Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts bereit. Die Infrastruktur umfasst einen hochverfügbaren Netzwerk Controller (ha), eine SLB-/Mux (HA Software Load Balancer), virtuelle Netzwerke und zugehörige Access Control Listen (ACLs). Darüber hinaus stellt ein weiteres Skript eine Mandanten Arbeitsauslastung bereit, damit Sie Ihre Sdn-Infrastruktur überprüfen können.
 
 Wenn Sie möchten, dass Ihre mandantenworkloads außerhalb Ihrer virtuellen Netzwerke kommunizieren, können Sie SLB-NAT-Regeln, Site-to-Site-gatewaytunnel oder Layer-3-Weiterleitung einrichten, um zwischen virtuellen und physischen Workloads zu leiten.
 
@@ -35,6 +37,7 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
 ### <a name="install-host-networking"></a>Installieren von Host Netzwerken
 
 1. Installieren Sie die neuesten Netzwerktreiber, die für Ihre NIC-Hardware verfügbar sind.
+
 2. Installieren Sie die Hyper-v-Rolle auf allen Hosts (Weitere Informationen finden [Sie unter Get Started with Hyper-v on Windows Server 2016](../../../virtualization/hyper-v/get-started/get-started-with-hyper-v-on-windows.md).
 
    ```PowerShell
@@ -47,8 +50,8 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
    New-VMSwitch "<switch name>" -NetAdapterName "<NetAdapter1>" [, "<NetAdapter2>" -EnableEmbeddedTeaming $True] -AllowManagementOS $True
    ```
 
-   >[!TIP]
-   >Sie können die Schritte 4 und 5 überspringen, wenn Sie über separate Verwaltungs-NICs verfügen.
+   > [!TIP]
+   > Sie können die Schritte 4 und 5 überspringen, wenn Sie über separate Verwaltungs-NICs verfügen.
 
 3. Informationen zum Abrufen der VLAN-ID des Verwaltungs-VLANs finden Sie im Thema zur Planung ([Planen einer Software-Defined Network-Infrastruktur](../../sdn/plan/../../sdn/plan/../../sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)) und zusammenarbeiten mit Ihrem Netzwerkadministrator. Fügen Sie die Verwaltungs-vNIC des neu erstellten virtuellen Switches dem Verwaltungs-VLAN hinzu. Dieser Schritt kann ausgelassen werden, wenn in Ihrer Umgebung keine VLAN-Tags verwendet werden.
 
@@ -66,14 +69,14 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
 
     a. Verbinden Sie den virtuellen Computer für den Active Directory/DNS-Server mit dem Verwaltungs-VLAN:
 
-      ```PowerShell
-      Set-VMNetworkAdapterIsolation -VMName "<VM Name>" -Access -VlanId <Management VLAN> -AllowUntaggedTraffic $True
-      ```
+    ```PowerShell
+    Set-VMNetworkAdapterIsolation -VMName "<VM Name>" -Access -VlanId <Management VLAN> -AllowUntaggedTraffic $True
+    ```
 
    b. Installieren Sie Active Directory Domain Services und DNS.
 
-   >[!NOTE]
-   >Der Netzwerk Controller unterstützt Kerberos-und X. 509-Zertifikate für die Authentifizierung. In diesem Leitfaden werden beide Authentifizierungsmechanismen für verschiedene Zwecke verwendet (es ist jedoch nur eine erforderlich).
+   > [!NOTE]
+   > Der Netzwerk Controller unterstützt Kerberos-und X. 509-Zertifikate für die Authentifizierung. In diesem Leitfaden werden beide Authentifizierungsmechanismen für verschiedene Zwecke verwendet (es ist jedoch nur eine erforderlich).
 
 6. Verknüpfen Sie alle Hyper-V-Hosts mit der Domäne. Stellen Sie sicher, dass der DNS-Server Eintrag für den Netzwerkadapter mit einer dem Verwaltungs Netzwerk zugewiesenen IP-Adresse auf einen DNS-Server verweist, der den Domänen Namen auflösen kann.
 
@@ -81,13 +84,14 @@ Beginnen Sie, indem Sie den virtuellen Hyper-v-Switch und die IP-Adresszuweisung
    Set-DnsClientServerAddress -InterfaceAlias "vEthernet (<switch name>)" -ServerAddresses <DNS Server IP>
    ```
 
-   a. Klicken Sie mit der rechten Maustaste auf **Start**, klicken Sie auf **System**und dann auf **Einstellungen ändern**.
+   a. Klicken Sie mit der rechten Maustaste auf **Start**, klicken Sie auf **System** und dann auf **Einstellungen ändern**.
    b. Klicken Sie auf **Ändern**.
    c. Klicken Sie auf **Domäne** , und geben Sie den Domänen Namen  "" "" "d". Klicken Sie auf **OK**.
    e. Geben Sie bei entsprechender Aufforderung den Benutzernamen und das Kennwort ein.
    f. Starten Sie den Server neu.
 
-### <a name="validation"></a>Validierung
+### <a name="validation"></a>Überprüfen
+
 Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk ordnungsgemäß eingerichtet ist.
 
 1. Stellen Sie sicher, dass der virtuelle Computer erfolgreich erstellt wurde:
@@ -98,8 +102,8 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
 
 2. Vergewissern Sie sich, dass die Verwaltungs-vNIC auf dem VM-Switch mit dem Verwaltungs-VLAN verbunden ist:
 
-   >[!NOTE]
-   >Nur relevant, wenn der Verwaltungs-und Mandanten Datenverkehr dieselbe NIC gemeinsam verwenden.
+   > [!NOTE]
+   > Nur relevant, wenn der Verwaltungs-und Mandanten Datenverkehr dieselbe NIC gemeinsam verwenden.
 
    ```PowerShell
    Get-VMNetworkAdapterIsolation -ManagementOS
@@ -107,12 +111,16 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
 
 3. Überprüfen Sie alle Hyper-V-Hosts und externen Verwaltungsressourcen, z. b. DNS-Server.<p>Stellen Sie sicher, dass Sie über Ping über ihre Verwaltungs-IP-Adresse und/oder den voll qualifizierten Domänen Namen (FQDN) zugänglich sind.
 
-   ``ping <Hyper-V Host IP>``
-   ``ping <Hyper-V Host FQDN>``
+   ```
+   ping <Hyper-V Host IP>
+   ping <Hyper-V Host FQDN>
+   ```
 
 4. Führen Sie den folgenden Befehl auf dem Bereitstellungs Host aus, und geben Sie den FQDN jedes Hyper-V-Hosts an, um sicherzustellen, dass die verwendeten Kerberos-Anmelde Informationen Zugriff auf alle Server bieten.
 
-   ``winrm id -r:<Hyper-V Host FQDN>``
+   ```
+   winrm id -r:<Hyper-V Host FQDN>
+   ```
 
 ### <a name="run-sdn-express-scripts"></a>Ausführen von Sdn Express-Skripts
 
@@ -120,12 +128,12 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
 
 2. Laden Sie die Installationsdateien aus dem Repository auf den angegebenen Bereitstellungs Computer herunter. Klicken Sie auf **Klonen oder herunterladen** und dann auf **ZIP herunterladen**.
 
-   >[!NOTE]
-   >Auf dem angegebenen Bereitstellungs Computer muss Windows Server 2016 oder höher ausgeführt werden.
+   > [!NOTE]
+   > Auf dem angegebenen Bereitstellungs Computer muss Windows Server 2016 oder höher ausgeführt werden.
 
 3. Erweitern Sie die ZIP-Datei, und kopieren Sie den Ordner **sdnexpress** in den Ordner des Bereitstellungs Computers `C:\` .
 
-4. Geben `C:\SDNExpress` Sie den Ordner mit**SDNExpress**der Berechtigung für den **Lese-/Schreibzugriff**für **alle** Benutzer frei.
+4. Geben `C:\SDNExpress` Sie den Ordner mit **SDNExpress** der Berechtigung für den **Lese-/Schreibzugriff** für **alle** Benutzer frei.
 
 5. Navigieren Sie zum Ordner `C:\SDNExpress`.<p>Die folgenden Ordner werden angezeigt:
 
@@ -135,7 +143,7 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
    | Zertifikate | Temporärer frei gegebener Speicherort für die NC-Zertifikat Datei. |
    | Bilder | Leer, platzieren Sie Ihr Windows Server 2016 vhdx-Abbild hier. |
    | Tools | Dienstprogramme für Problembehandlung und Debuggen.  Auf die Hosts und virtuellen Maschinen kopiert.  Es wird empfohlen, dass Sie hier Netzwerkmonitor oder wireshark platzieren, damit es bei Bedarf verfügbar ist. |
-   | Skripts | Bereitstellungs Skripts.<p>- **SDNExpress.ps1**<br>Stellt das Fabric bereit und konfiguriert es, einschließlich der virtuellen Computer des Netzwerk Controllers, der virtuellen SLB MUX-Computer, der gatewaypools und der virtuellen HNV-Gateway-Computer, die den Pools entsprechen.<br />-   **FabricConfig.psd1**<br>Eine Konfigurationsdatei Vorlage für das sdnexpress-Skript.  Dies wird für Ihre Umgebung angepasst.<br />-   **SDNExpressTenant.ps1**<br>Stellt eine Beispiel-Mandanten Arbeitsauslastung in einem virtuellen Netzwerk mit einer VIP mit Lastenausgleich bereit.<br>Außerdem wird von eine oder mehrere Netzwerkverbindungen (IPSec S2S VPN, GRE, L3) auf den Edge-Gateways des Dienstanbieters bereitgestellt, die mit der zuvor erstellten Mandanten Arbeitsauslastung verbunden sind. Die IPSec-und GRE-Gateways sind für Konnektivität über die entsprechende VIP-IP-Adresse und das L3-Weiterleitungs Gateway über den entsprechenden Adresspool verfügbar.<br>Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br />- **TenantConfig.psd1**<br>Eine Vorlagen Konfigurationsdatei für die Mandanten Arbeitsauslastung und die S2S-Gatewaykonfiguration.<br />- **SDNExpressUndo.ps1**<br>Bereinigt die Fabric-Umgebung und setzt Sie auf den Startzustand zurück.<br />- **SDNExpressEnterpriseExample.ps1**<br>Stellt eine oder mehrere Unternehmens Standort Umgebungen mit einem Remote Zugriffs Gateway und (optional) einem entsprechenden virtuellen Unternehmens Computer pro Standort bereit. Die IPSec-oder GRE Enterprise-Gateways verbinden sich mit der entsprechenden VIP-IP-Adresse des Dienstanbieter Gateways, um die S2S-Tunnel einzurichten. Das L3-Weiterleitungs Gateway verbindet sich über die entsprechende Peer-IP-Adresse. <br> Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br />- **EnterpriseConfig.psd1**<br>Eine Vorlagen Konfigurationsdatei für das Standort-zu-Standort-Gateway für Unternehmen und die Konfiguration der Client-VM. |
+   | Skripts | Bereitstellungs Skripts.<p> - **SDNExpress.ps1**<br>Stellt das Fabric bereit und konfiguriert es, einschließlich der virtuellen Computer des Netzwerk Controllers, der virtuellen SLB MUX-Computer, der gatewaypools und der virtuellen HNV-Gateway-Computer, die den Pools entsprechen.<br /> - **FabricConfig.psd1**<br>Eine Konfigurationsdatei Vorlage für das sdnexpress-Skript. Dies wird für Ihre Umgebung angepasst.<br /> - **SDNExpressTenant.ps1**<br>Stellt eine Beispiel-Mandanten Arbeitsauslastung in einem virtuellen Netzwerk mit einer VIP mit Lastenausgleich bereit.<br>Außerdem wird von eine oder mehrere Netzwerkverbindungen (IPSec S2S VPN, GRE, L3) auf den Edge-Gateways des Dienstanbieters bereitgestellt, die mit der zuvor erstellten Mandanten Arbeitsauslastung verbunden sind. Die IPSec-und GRE-Gateways sind für Konnektivität über die entsprechende VIP-IP-Adresse und das L3-Weiterleitungs Gateway über den entsprechenden Adresspool verfügbar.<br>Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br /> - **TenantConfig.psd1**<br>Eine Vorlagen Konfigurationsdatei für die Mandanten Arbeitsauslastung und die S2S-Gatewaykonfiguration.<br /> - **SDNExpressUndo.ps1**<br>Bereinigt die Fabric-Umgebung und setzt Sie auf den Startzustand zurück.<br /> - **SDNExpressEnterpriseExample.ps1**<br>Stellt eine oder mehrere Unternehmens Standort Umgebungen mit einem Remote Zugriffs Gateway und (optional) einem entsprechenden virtuellen Unternehmens Computer pro Standort bereit. Die IPSec-oder GRE Enterprise-Gateways verbinden sich mit der entsprechenden VIP-IP-Adresse des Dienstanbieter Gateways, um die S2S-Tunnel einzurichten. Das L3-Weiterleitungs Gateway verbindet sich über die entsprechende Peer-IP-Adresse. <br> Dieses Skript kann auch verwendet werden, um die entsprechende Konfiguration mit einer Option zum Rückgängigmachen zu löschen.<br /> - **EnterpriseConfig.psd1**<br>Eine Vorlagen Konfigurationsdatei für das Standort-zu-Standort-Gateway für Unternehmen und die Konfiguration der Client-VM. |
    | Tenantapps | Zum Bereitstellen von Beispiel-mandantenworkloads verwendete Dateien. |
 
 6. Vergewissern Sie sich, dass sich die vhdx-Datei von Windows Server 2016 im Ordner **Images** befindet.
@@ -146,36 +154,47 @@ Mithilfe der folgenden Schritte können Sie überprüfen, ob das Host Netzwerk o
 
 9. Führen Sie das Skript als Benutzer mit Anmelde Informationen des Domänen Administrators aus:
 
-   ``SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``
+   ```
+   SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose
+   ```
 
 10. Um alle Vorgänge rückgängig zu machen, führen Sie den folgenden Befehl aus:
 
-    ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``
+   ```
+    SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose
+   ```
 
-#### <a name="validation"></a>Validierung
+
+#### <a name="validation"></a>Überprüfen
 
 Vorausgesetzt, dass das Sdn Express-Skript bis zum Abschluss ausgeführt wurde, ohne Fehler zu melden, können Sie den folgenden Schritt ausführen, um sicherzustellen, dass die fabricressourcen ordnungsgemäß bereitgestellt und für die Mandanten Bereitstellung
 
 Verwenden Sie [Diagnosetools](../troubleshoot/troubleshoot-windows-server-software-defined-networking-stack.md) , um sicherzustellen, dass keine Fehler in Fabric-Ressourcen im Netzwerk Controller vorhanden sind.
 
-   ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>``
+   ```
+   Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller Rest Name>
+   ```
 
 
 ### <a name="deploy-a-sample-tenant-workload-with-the-software-load-balancer"></a>Bereitstellen einer Beispiel-Mandanten Arbeitsauslastung mit dem Software Load Balancer
 
 Nachdem nun Fabric-Ressourcen bereitgestellt wurden, können Sie die End-to-End-Bereitstellung Ihrer Sdn-Bereitstellung überprüfen Diese Mandanten Arbeitsauslastung besteht aus zwei virtuellen Subnetzen (webetier-und Datenbankebene), die über Access Control List-Regeln (ACL) mithilfe der verteilten Sdn-Firewall geschützt sind. Der Zugriff auf das virtuelle Subnetz der webeebene erfolgt über SLB/MUX mithilfe einer virtuellen IP-Adresse (VIP). Das Skript stellt automatisch zwei virtuelle Computer der webeebene und einen virtuellen Computer der Datenbankebene bereit und verbindet diese mit den virtuellen Subnetzen.
 
-1.  Passen Sie die Datei SDNExpress\scripts\TenantConfig.psd1 an, indem Sie die **<< ersetzen >>** Tags durch bestimmte Werte (z. b. VHD-Abbild Name, Netzwerk Controller-Rest-Name, vswitchname usw.) ändern, wie zuvor in der FabricConfig.psd1-Datei definiert).
+1. Passen Sie die Datei SDNExpress\scripts\TenantConfig.psd1 an, indem Sie die **<< ersetzen >>** Tags durch bestimmte Werte (z. b. VHD-Abbild Name, Netzwerk Controller-Rest-Name, vswitchname usw.) ändern, wie zuvor in der FabricConfig.psd1-Datei definiert).
 
-2.  Führen Sie das Skript aus. Beispiel:
+2. Führen Sie das Skript aus. Zum Beispiel:
 
-    ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``
+   ```
+   SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose
+   ```
 
-3.  Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Beispiel:
+3. Um die Konfiguration rückgängig zu machen, führen Sie das gleiche Skript mit dem Parameter **Rückgängig** aus. Zum Beispiel:
 
-    ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``
+   ```
+   SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose
+   ```
 
-#### <a name="validation"></a>Validierung
+#### <a name="validation"></a>Überprüfen
 
 Gehen Sie folgendermaßen vor, um zu überprüfen, ob die Mandanten Bereitstellung erfolgreich war:
 
@@ -183,15 +202,19 @@ Gehen Sie folgendermaßen vor, um zu überprüfen, ob die Mandanten Bereitstellu
 
 2. Überprüfen Sie die Netzwerk Controller-Mandanten Ressourcen auf Fehler. Führen Sie auf jedem Hyper-V-Host mit Layer-3-Konnektivität mit dem Netzwerk Controller Folgendes aus:
 
-   ``Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller REST Name>``
+   ```
+   Debug-NetworkControllerConfigurationState -NetworkController <FQDN of Network Controller REST Name>
+   ```
 
 3. Um zu überprüfen, ob der Load Balancer ordnungsgemäß ausgeführt wird, führen Sie auf jedem Hyper-V-Host Folgendes aus:
 
-   ``wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing``
+   ```
+   wget <VIP IP address>/unique.htm -disablekeepalive -usebasicparsing
+   ```
 
    `<VIP IP address>`dabei ist die IP-Adresse der webeebene, die Sie in der Datei TenantConfig.psd1 konfiguriert haben.
 
-   >[!TIP]
-   >Suchen Sie `VIPIP` in TenantConfig.psd1 nach der Variablen.
+   > [!TIP]
+   > Suchen Sie `VIPIP` in TenantConfig.psd1 nach der Variablen.
 
-   Führen Sie diese mehrerer-Zeiten aus, um den Lasten Ausgleichs Schalter zwischen den verfügbaren Dips anzuzeigen. Dieses Verhalten können Sie auch mithilfe eines Webbrowsers beobachten. Navigieren Sie zu `<VIP IP address>/unique.htm`. Schließen Sie den Browser, öffnen Sie eine neue Instanz, und suchen Sie dann erneut. Die blaue Seite und die grüne Seite werden angezeigt, es sei denn, der Browser speichert die Seite vor dem Timeout des Caches zwischen.
+   Führen Sie dies mehrmals aus, um den Lasten Ausgleichs Schalter zwischen den verfügbaren Dips anzuzeigen. Dieses Verhalten können Sie auch mithilfe eines Webbrowsers beobachten. Navigieren Sie zu `<VIP IP address>/unique.htm`. Schließen Sie den Browser, und öffnen Sie eine neue Instanz, und suchen Sie dann erneut. Die blaue Seite und die grüne Seite werden angezeigt, es sei denn, der Browser speichert die Seite vor dem Timeout des Caches zwischen.

@@ -7,15 +7,15 @@ author: pronichkin
 ms.author: artemp
 ms.localizationpriority: medium
 ms.date: 07/23/2019
-ms.openlocfilehash: 55d08b426ace5cf6cd0dfc0a0928536bfb751124
-ms.sourcegitcommit: 7cacfc38982c6006bee4eb756bcda353c4d3dd75
+ms.openlocfilehash: 754211824208e582382cb9c6ad196483c6506708
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90077817"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330376"
 ---
 # <a name="manage-a-server-core-server"></a>Verwalten eines Server Core-Servers
- 
+ 
 > Gilt für: Windows Server 2019, Windows Server 2016 und Windows Server (halbjährlicher Kanal)
 
 Sie können einen Server Core-Server wie folgt verwalten:
@@ -30,13 +30,13 @@ Sie können auch Hardware hinzufügen und Treiber lokal verwalten, solange Sie d
 
 Beim Arbeiten mit Server Core sind einige wichtige Einschränkungen und Tipps zu beachten:
 
-- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken Sie **STRG \+ alt \+ **ENTF, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > ausführen**, und geben Sie dann **cmd.exe**ein. (Geben Sie **Powershell.exe** ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
+- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken Sie **STRG \+ alt \+** ENTF, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > ausführen**, und geben Sie dann **cmd.exe** ein. (Geben Sie **Powershell.exe** ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
 - Befehle oder Tools, die versuchen, Windows Explorer zu öffnen, funktionieren nicht. Beispiel: Ausführung von **starten.** an einer Eingabeaufforderung funktioniert nicht.
 - Das HTML-Rendering oder die HTML-Hilfe in Server Core wird nicht unterstützt.
 - Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Hilfsprogramme aus Windows Installer Dateien installieren können. Verwenden Sie bei der Installation von Windows Installer-Paketen auf Server Core die **/qb** -Option, um die grundlegende Benutzeroberfläche anzuzeigen.
-- Um die Zeitzone zu ändern, führen Sie **Set-Date**aus.
-- Um internationale Einstellungen zu ändern, führen Sie die **Steuerelement intl.cpl**aus.
-- **Control.exe** werden nicht selbst ausgeführt. Sie müssen ihn entweder mit **Timedate.cpl** oder **Intl.cpl**ausführen.
+- Um die Zeitzone zu ändern, führen Sie **Set-Date** aus.
+- Um internationale Einstellungen zu ändern, führen Sie die **Steuerelement intl.cpl** aus.
+- **Control.exe** werden nicht selbst ausgeführt. Sie müssen ihn entweder mit **Timedate.cpl** oder **Intl.cpl** ausführen.
 - **Winver.exe** ist in Server Core nicht verfügbar. Verwenden Sie zum Abrufen von Versionsinformationen **Systeminfo.exe**.
 
 ## <a name="managing-server-core-with-windows-admin-center"></a>Verwalten von Server Core mit Windows Admin Center
@@ -46,7 +46,7 @@ Beim Arbeiten mit Server Core sind einige wichtige Einschränkungen und Tipps zu
 
 Server-Manager ist eine Verwaltungskonsole in Windows Server, mit der Sie sowohl lokale als auch Remote-Windows-basierte Server von ihren Desktops aus bereitstellen und verwalten können, ohne dass Sie physischen Zugriff auf die Server benötigen oder RDP-Verbindungen (Remotedesktop Protocol) zu jedem Server aktivieren müssen. Server-Manager unterstützt die Remote Verwaltung von mehreren Servern.
 
-Damit Ihr lokaler Server durch Server-Manager auf einem Remote Server verwaltet werden kann, führen Sie das Windows PowerShell-Cmdlet **Configure-SMRemoting.exe – enable**aus.
+Damit Ihr lokaler Server durch Server-Manager auf einem Remote Server verwaltet werden kann, führen Sie das Windows PowerShell-Cmdlet **Configure-SMRemoting.exe – enable** aus.
 
 ## <a name="managing-with-microsoft-management-console"></a>Verwalten mit Microsoft Management Console
 
@@ -72,13 +72,13 @@ So verwenden Sie ein MMC-Snap-in zum Verwalten eines Server Core-Servers, der *k
    Wenn die Firewall auf dem Server-Core-Server nicht bereits so konfiguriert ist, dass MMC-Snap-Ins eine Verbindung herstellen können, führen Sie die folgenden Schritte aus, um die Windows-Firewall so zu konfigurieren, dass das MMC- Fahren Sie anschließend mit Schritt 3 fort.
 3. Starten Sie auf einem anderen Computer ein MMC-Snap-in, z. b. **Computer Verwaltung**.
 4. Klicken Sie im linken Bereich mit der rechten Maustaste auf das Snap-in, und klicken Sie dann auf **Verbindung mit anderem Computer herstellen**. (Beispiel: im Beispiel Computer Verwaltung klicken Sie mit der rechten Maustaste auf **Computer Verwaltung (lokal)**.)
-5. Geben Sie auf **einem anderen Computer**den Computernamen des Server Core-Servers ein, und klicken Sie dann auf **OK**. Sie können nun mit dem MMC-Snap-In den Server im Server-Core-Server wie jeden anderen Computer mit einem Windows-Betriebssystem verwalten.
+5. Geben Sie auf **einem anderen Computer** den Computernamen des Server Core-Servers ein, und klicken Sie dann auf **OK**. Sie können nun mit dem MMC-Snap-In den Server im Server-Core-Server wie jeden anderen Computer mit einem Windows-Betriebssystem verwalten.
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>So konfigurieren Sie die Windows-Firewall so, dass MMC-Snap-Ins eine Verbindung herstellen dürfen
 Damit alle MMC-Snap-Ins eine Verbindung herstellen können, führen Sie den folgenden Befehl aus:
 
 ```PowerShell
-Enable-NetFirewallRule -DisplayGroup "Remote Administration"
+Enable-NetFirewallRule -DisplayGroup "Windows Remote Management"
 ```
 
 Damit nur bestimmte MMC-Snap-Ins eine Verbindung herstellen können, führen Sie Folgendes aus:
@@ -105,7 +105,7 @@ Dabei ist *rulegroup* abhängig von dem Snap-in, das Sie verbinden möchten, ein
 > Darüber hinaus benötigen bestimmte Snap-Ins eine weitere Konfiguration, ehe Sie durch die Windows-Firewall eine Verbindung herstellen können:
 >
 > - Datenträgerverwaltung. Sie müssen auf dem Server-Core-Computer zunächst den Dienst für virtuelle Datenträger (Virtual Disk Service, VDS) starten. Außerdem müssen Sie Regeln zur Datenträgerverwaltung auf dem Computer, auf dem das MMC-Snap-In ausgeführt wird, entsprechend konfigurieren.
-> - IP-Sicherheitsmonitor. Sie müssen zunächst die Remoteverwaltung dieses Snap-Ins aktivieren. Geben Sie dazu an einer Eingabeaufforderung **cscript \windows\system32\scregedit.wsf/im-Befehl 1** ein.
+> - IP-Sicherheitsmonitor. Sie müssen zunächst die Remoteverwaltung dieses Snap-Ins aktivieren. Geben Sie dazu an einer Eingabeaufforderung **cscript c:\windows\system32\scregedit.wsf/im-Befehl 1** ein.
 > - Zuverlässigkeits- und Leistungsüberwachung. Dieses Snap-In erfordert keine weitere Konfiguration, doch wenn Sie mit ihm einen Server-Core-Computer überwachen, können nur Leistungsdaten überwacht werden. Zuverlässigkeitsdaten sind nicht verfügbar.
 
 ## <a name="managing-with-remote-desktop-services"></a>Verwalten mit Remotedesktopdienste
@@ -149,4 +149,4 @@ Um einen Gerätetreiber zu deaktivieren, führen Sie Folgendes aus:
 sc delete <service_name>
 ```
 
-Dabei ist *SERVICE_NAME* der Name des Dienstanbieter, den Sie beim Durchlaufen der **SC-Abfragetyp = Treiber**erhalten haben.
+Dabei ist *SERVICE_NAME* der Name des Dienstanbieter, den Sie beim Durchlaufen der **SC-Abfragetyp = Treiber** erhalten haben.

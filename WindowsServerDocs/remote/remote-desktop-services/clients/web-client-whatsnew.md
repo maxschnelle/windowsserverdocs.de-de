@@ -7,12 +7,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8519d69c39cb86f10c66b3c28410a285ca06252d
-ms.sourcegitcommit: 14c9526b1c74821341d4b66de92adce9bee92f10
+ms.openlocfilehash: ae5c0af5f434b73b9b4590c2a5c53c9551b76b6c
+ms.sourcegitcommit: 3181fcb69a368f38e0d66002e8bc6fd9628b1acc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94558277"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96330402"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
@@ -29,7 +29,7 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 
 - Benutzer können nun das minimierte Menü verschieben.
 - Die Unterstützung für 4K- und Ultra-Wide-Monitore wurde verbessert, und ein Problem wurde behoben, bei dem das Kopieren großer Datenmengen zum Absturz von Sitzungen führte.
-- Die Unterstützung für die Verwendung eines Eingabemethoden-Editors in der Remotesitzung wurde verbessert. Weitere Informationen zur Verwendung eines Eingabemethoden-Editors mit dem Webclient finden Sie unter [Herstellen der Verbindung zu Windows Virtual Desktop mit dem Webclient](/azure/virtual-desktop/connect-web.md).
+- Die Unterstützung für die Verwendung eines Eingabemethoden-Editors in der Remotesitzung wurde verbessert. Weitere Informationen zur Verwendung eines Eingabemethoden-Editors mit dem Webclient finden Sie unter [Herstellen der Verbindung zu Windows Virtual Desktop mit dem Webclient](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
 - Die UI der Seite **Alle Ressourcen** wurde geändert.
 - Mehrere Fehler in der Verbindungssequenz wurden behoben, bei denen der Webclient einen *allgemeinen Protokollfehler* zurückgab.
 - Es wurden Probleme bei der Tastatureingabe behoben, bei denen bestimmte Tastenfolgen nicht richtig verarbeitet wurden.
