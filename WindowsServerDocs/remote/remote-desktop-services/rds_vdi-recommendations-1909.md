@@ -273,7 +273,7 @@ Abbildung 3: Optimierte Systemeigenschaften, Leistungsoptionen
 
 ![Optimierte Systemeigenschaften, Leistungsoptionen](media/rds-vdi-recommendations-1909/performance-options.png)
 
-Im Folgenden werden die Optimierungseinstellungen für Version 1909 von Windows 10 aufgeführt, die für die standardmäßig verwendete Benutzerprofil-Registrierungsstruktur zum Optimieren der Leistung angewendet werden:
+Nachfolgend aufgeführt sind die Optimierungseinstellungen für Windows 10, Version 1909, die zur Leistungsoptimierung auf die Registrierungsstruktur des Profils „Standardbenutzer“ angewendet werden.
 
 ```dos
 add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShellState /t REG_BINARY /d 240000003C2800000000000000000000 /f
